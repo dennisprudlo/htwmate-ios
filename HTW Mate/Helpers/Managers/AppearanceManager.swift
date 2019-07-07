@@ -15,6 +15,7 @@ struct AppearanceManager {
     public static func updateNavigationBarAppearance() -> Void {
         let appearance = UINavigationBar.appearance()
 
+        appearance.isTranslucent = false
         appearance.tintColor = HWColors.whitePrimary
         appearance.barTintColor = HWColors.darkPrimary
 
@@ -29,6 +30,7 @@ struct AppearanceManager {
     public static func updateTabBarAppearance() -> Void {
         let appearance = UITabBar.appearance()
 
+        appearance.isTranslucent = false
         appearance.tintColor = HWColors.whitePrimary
         appearance.barTintColor = HWColors.darkPrimary
     }

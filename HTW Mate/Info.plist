@@ -17,9 +17,20 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.1</string>
 	<key>CFBundleVersion</key>
-	<string>15</string>
+	<string>140</string>
+	<key>HTWMATE_API_HOST</key>
+	<string>${HTWMATE_API_HOST}</string>
+	<key>HTWMATE_API_PORT</key>
+	<string>${HTWMATE_API_PORT}</string>
+	<key>HTWMATE_API_TOKEN</key>
+	<string>${HTWMATE_API_TOKEN}</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -10,36 +10,39 @@
     </dependencies>
     <scenes>
         <!--HTW-->
-        <scene sceneID="qpk-Wt-xzH">
+        <scene sceneID="tft-bm-kcG">
             <objects>
-                <tableViewController id="07b-LX-H1g" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5Jj-SX-vaP">
+                <collectionViewController id="LU1-HH-2yu" customClass="DashboardController" customModule="HTW_Mate" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="McD-Vm-CCI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3mw-jo-LzH">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3mw-jo-LzH" id="i4V-xy-a98">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pqh-oZ-Thc">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewsCollectionViewCell" id="JI5-tb-Gn4">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
                         <connections>
-                            <outlet property="dataSource" destination="07b-LX-H1g" id="n3D-i4-CzX"/>
-                            <outlet property="delegate" destination="07b-LX-H1g" id="n5d-CP-7w8"/>
+                            <outlet property="dataSource" destination="LU1-HH-2yu" id="NNO-Rv-l15"/>
+                            <outlet property="delegate" destination="LU1-HH-2yu" id="dYV-6a-2ZS"/>
                         </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="HTW" id="QNO-hM-qTf">
-                        <barButtonItem key="leftBarButtonItem" title="Student Card" image="student-card" id="Yki-wz-NXX"/>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" image="settings" id="o1K-hR-h5j"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zOj-LC-gBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="HTW" id="FA0-9h-v2d"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aht-nx-7yL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="370" y="121"/>
+            <point key="canvasLocation" x="261" y="121"/>
         </scene>
         <!--HTW-->
         <scene sceneID="UAg-Ga-kNE">
@@ -52,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="07b-LX-H1g" kind="relationship" relationship="rootViewController" id="CDi-k1-baS"/>
+                        <segue destination="LU1-HH-2yu" kind="relationship" relationship="rootViewController" id="NQX-ic-SFv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLM-sT-v2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,8 +63,4 @@
             <point key="canvasLocation" x="-551" y="121"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="settings" width="30" height="30"/>
-        <image name="student-card" width="30" height="30"/>
-    </resources>
 </document>

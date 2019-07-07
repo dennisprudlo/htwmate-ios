@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E707E022D12F00000B8EE6 /* AppDelegate.swift */; };
-		81E707E322D12F00000B8EE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E707E222D12F00000B8EE6 /* ViewController.swift */; };
+		81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E707E222D12F00000B8EE6 /* DashboardController.swift */; };
 		81E707E622D12F00000B8EE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E422D12F00000B8EE6 /* Main.storyboard */; };
 		81E707E822D12F01000B8EE6 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E722D12F01000B8EE6 /* AppIcon.xcassets */; };
 		81E707EB22D12F01000B8EE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E922D12F01000B8EE6 /* LaunchScreen.storyboard */; };
@@ -18,12 +18,20 @@
 		81EB7DB722D1462800E00485 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB622D1462800E00485 /* AppearanceManager.swift */; };
 		81EB7DBA22D2060200E00485 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81EB7DB922D2060200E00485 /* Icons.xcassets */; };
 		81EB7DBC22D2066A00E00485 /* HWIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DBB22D2066A00E00485 /* HWIcons.swift */; };
+		81EB7DBF22D2631800E00485 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DBE22D2631800E00485 /* News.swift */; };
+		81EB7DC122D2636C00E00485 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DC022D2636C00E00485 /* DatabaseModel.swift */; };
+		81EB7DC522D270A000E00485 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DC422D270A000E00485 /* NewsCollectionViewCell.swift */; };
+		81EB7DC822D270F100E00485 /* Dequeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DC722D270F100E00485 /* Dequeable.swift */; };
+		81EB7DCA22D2803300E00485 /* HWInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DC922D2803300E00485 /* HWInsets.swift */; };
+		81EB7DCE22D29C0F00E00485 /* NetworkWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DCD22D29C0F00E00485 /* NetworkWrapper.swift */; };
+		81EB7DD022D2A07C00E00485 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DCF22D2A07C00E00485 /* API.swift */; };
+		81EB7DD222D2A0F000E00485 /* HTWMateNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DD122D2A0F000E00485 /* HTWMateNewsAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		81E707DD22D12F00000B8EE6 /* HTW Mate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HTW Mate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E707E022D12F00000B8EE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		81E707E222D12F00000B8EE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		81E707E222D12F00000B8EE6 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
 		81E707E522D12F00000B8EE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81E707E722D12F01000B8EE6 /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 		81E707EA22D12F01000B8EE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +42,14 @@
 		81EB7DB622D1462800E00485 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		81EB7DB922D2060200E00485 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		81EB7DBB22D2066A00E00485 /* HWIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWIcons.swift; sourceTree = "<group>"; };
+		81EB7DBE22D2631800E00485 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		81EB7DC022D2636C00E00485 /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
+		81EB7DC422D270A000E00485 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		81EB7DC722D270F100E00485 /* Dequeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dequeable.swift; sourceTree = "<group>"; };
+		81EB7DC922D2803300E00485 /* HWInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWInsets.swift; sourceTree = "<group>"; };
+		81EB7DCD22D29C0F00E00485 /* NetworkWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWrapper.swift; sourceTree = "<group>"; };
+		81EB7DCF22D2A07C00E00485 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		81EB7DD122D2A0F000E00485 /* HTWMateNewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateNewsAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +75,7 @@
 		8127AF6D22D1422200179BD1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				81E707E222D12F00000B8EE6 /* ViewController.swift */,
+				81E707E222D12F00000B8EE6 /* DashboardController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -83,12 +99,15 @@
 		81E707DF22D12F00000B8EE6 /* HTW Mate */ = {
 			isa = PBXGroup;
 			children = (
-				81EB7DB822D205E200E00485 /* Assets */,
+				81EB7DCB22D29BCE00E00485 /* Core */,
+				81EB7DBD22D2630800E00485 /* Models */,
+				81EB7DC222D2704700E00485 /* Views */,
+				8127AF6D22D1422200179BD1 /* Controller */,
+				8127AF6C22D1420F00179BD1 /* Storyboards */,
 				81EB7DB422D145FF00E00485 /* Helpers */,
 				81EB7DAF22D143B500E00485 /* Constants */,
 				81EB7DAE22D1438B00E00485 /* Extenstions */,
-				8127AF6D22D1422200179BD1 /* Controller */,
-				8127AF6C22D1420F00179BD1 /* Storyboards */,
+				81EB7DB822D205E200E00485 /* Assets */,
 				81E707E022D12F00000B8EE6 /* AppDelegate.swift */,
 				81E707E922D12F01000B8EE6 /* LaunchScreen.storyboard */,
 				81E707EC22D12F01000B8EE6 /* Info.plist */,
@@ -117,6 +136,7 @@
 			children = (
 				81EB7DB022D143C300E00485 /* HWColors.swift */,
 				81EB7DBB22D2066A00E00485 /* HWIcons.swift */,
+				81EB7DC922D2803300E00485 /* HWInsets.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -124,6 +144,7 @@
 		81EB7DB422D145FF00E00485 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				81EB7DC622D270D900E00485 /* Protocols */,
 				81EB7DB522D1460500E00485 /* Managers */,
 			);
 			path = Helpers;
@@ -144,6 +165,57 @@
 				81EB7DB922D2060200E00485 /* Icons.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		81EB7DBD22D2630800E00485 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				81EB7DBE22D2631800E00485 /* News.swift */,
+				81EB7DC022D2636C00E00485 /* DatabaseModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		81EB7DC222D2704700E00485 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81EB7DC322D2705500E00485 /* Dashboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		81EB7DC322D2705500E00485 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				81EB7DC422D270A000E00485 /* NewsCollectionViewCell.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		81EB7DC622D270D900E00485 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				81EB7DC722D270F100E00485 /* Dequeable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		81EB7DCB22D29BCE00E00485 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				81EB7DCC22D29BF300E00485 /* API */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		81EB7DCC22D29BF300E00485 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				81EB7DCD22D29C0F00E00485 /* NetworkWrapper.swift */,
+				81EB7DCF22D2A07C00E00485 /* API.swift */,
+				81EB7DD122D2A0F000E00485 /* HTWMateNewsAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,12 +313,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81E707E322D12F00000B8EE6 /* ViewController.swift in Sources */,
+				81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */,
+				81EB7DC822D270F100E00485 /* Dequeable.swift in Sources */,
 				81EB7DB122D143C300E00485 /* HWColors.swift in Sources */,
 				81EB7DB322D1448700E00485 /* UIColor+Initalizers.swift in Sources */,
 				81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */,
+				81EB7DC122D2636C00E00485 /* DatabaseModel.swift in Sources */,
+				81EB7DBF22D2631800E00485 /* News.swift in Sources */,
 				81EB7DB722D1462800E00485 /* AppearanceManager.swift in Sources */,
+				81EB7DD022D2A07C00E00485 /* API.swift in Sources */,
+				81EB7DC522D270A000E00485 /* NewsCollectionViewCell.swift in Sources */,
+				81EB7DD222D2A0F000E00485 /* HTWMateNewsAPI.swift in Sources */,
 				81EB7DBC22D2066A00E00485 /* HWIcons.swift in Sources */,
+				81EB7DCA22D2803300E00485 /* HWInsets.swift in Sources */,
+				81EB7DCE22D29C0F00E00485 /* NetworkWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +474,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K7LCLT365X;
+				HTWMATE_API_HOST = 127.0.0.1;
+				HTWMATE_API_PORT = 80;
+				HTWMATE_API_TOKEN = lpFsm7wKsge4GrIHARMwRhQaTCdzCG0oumBWInqCIGVardMHPhyin6OWAlPW4CLv;
 				INFOPLIST_FILE = "HTW Mate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -412,6 +495,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K7LCLT365X;
+				HTWMATE_API_HOST = 127.0.0.1;
+				HTWMATE_API_PORT = 80;
+				HTWMATE_API_TOKEN = lpFsm7wKsge4GrIHARMwRhQaTCdzCG0oumBWInqCIGVardMHPhyin6OWAlPW4CLv;
 				INFOPLIST_FILE = "HTW Mate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
