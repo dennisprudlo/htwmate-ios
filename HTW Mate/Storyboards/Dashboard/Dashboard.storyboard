@@ -33,8 +33,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="HTW" id="QNO-hM-qTf">
-                        <barButtonItem key="leftBarButtonItem" title="Student Card" id="Yki-wz-NXX"/>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="o1K-hR-h5j"/>
+                        <barButtonItem key="leftBarButtonItem" title="Student Card" image="student-card" id="Yki-wz-NXX"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" image="settings" id="o1K-hR-h5j"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOj-LC-gBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,4 +60,8 @@
             <point key="canvasLocation" x="-551" y="121"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings" width="30" height="30"/>
+        <image name="student-card" width="30" height="30"/>
+    </resources>
 </document>
