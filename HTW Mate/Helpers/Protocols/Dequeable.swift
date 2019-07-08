@@ -28,3 +28,12 @@ extension Dequeable where Self: UICollectionViewCell {
     }
 
 }
+
+extension Dequeable where Self: UICollectionReusableView {
+
+    static func dequeue(from collectionView: UICollectionView, ofKind kind: String, for indexPath: IndexPath) -> Self {
+        collectionView.register(self.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: self.self))
+        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: self.self), for: indexPath) as! Self
+    }
+
+}

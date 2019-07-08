@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1D622D394F10065849D /* DownloadManager.swift */; };
+		81E0F1DB22D3A1B20065849D /* SectionTitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1DA22D3A1B20065849D /* SectionTitleCollectionReusableView.swift */; };
+		81E0F1DD22D3B5130065849D /* HWFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1DC22D3B5130065849D /* HWFontSize.swift */; };
 		81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E707E022D12F00000B8EE6 /* AppDelegate.swift */; };
 		81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E707E222D12F00000B8EE6 /* DashboardController.swift */; };
 		81E707E622D12F00000B8EE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E422D12F00000B8EE6 /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		81E0F1D622D394F10065849D /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		81E0F1DA22D3A1B20065849D /* SectionTitleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleCollectionReusableView.swift; sourceTree = "<group>"; };
+		81E0F1DC22D3B5130065849D /* HWFontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWFontSize.swift; sourceTree = "<group>"; };
 		81E707DD22D12F00000B8EE6 /* HTW Mate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HTW Mate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E707E022D12F00000B8EE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81E707E222D12F00000B8EE6 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				81EB7DB022D143C300E00485 /* HWColors.swift */,
 				81EB7DBB22D2066A00E00485 /* HWIcons.swift */,
 				81EB7DC922D2803300E00485 /* HWInsets.swift */,
+				81E0F1DC22D3B5130065849D /* HWFontSize.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				81EB7DC422D270A000E00485 /* NewsCollectionViewCell.swift */,
+				81E0F1DA22D3A1B20065849D /* SectionTitleCollectionReusableView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -320,7 +326,9 @@
 				81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */,
 				81EB7DC822D270F100E00485 /* Dequeable.swift in Sources */,
 				81EB7DB122D143C300E00485 /* HWColors.swift in Sources */,
+				81E0F1DB22D3A1B20065849D /* SectionTitleCollectionReusableView.swift in Sources */,
 				81EB7DB322D1448700E00485 /* UIColor+Initalizers.swift in Sources */,
+				81E0F1DD22D3B5130065849D /* HWFontSize.swift in Sources */,
 				81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */,
 				81EB7DC122D2636C00E00485 /* DatabaseModel.swift in Sources */,
 				81EB7DBF22D2631800E00485 /* News.swift in Sources */,

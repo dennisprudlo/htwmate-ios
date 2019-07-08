@@ -13,6 +13,8 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     private var itemsPerRow: CGFloat = 1
     private let sectionInsets = UIEdgeInsets(top: HWInsets.medium, left: HWInsets.medium, bottom: HWInsets.medium, right: HWInsets.medium)
 
+    let sectionTitles = ["Top-News"]
+
     var news: [News] = []
 
     override func viewDidLoad() {
@@ -63,11 +65,30 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return sectionTitles.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return news.count
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        let headerView = UICollectionReusableView(frame: CGRect.zero)
+
+        if kind == UICollectionView.elementKindSectionHeader {
+            let sectionHeader = SectionTitleCollectionReusableView.dequeue(from: collectionView, ofKind: kind, for: indexPath)
+            sectionHeader.setTitle(sectionTitles[indexPath.section])
+            #warning("Header Safe Area insets are not set when in landscape mode")
+
+            return sectionHeader
+        }
+
+        return headerView
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 30)
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
