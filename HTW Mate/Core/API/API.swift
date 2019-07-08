@@ -55,7 +55,7 @@ class API {
     ///   - query: Whether to use query parameters or not
     ///   - tokenized: Whether the API request requires the token
     /// - Returns: The URL components used to send the request
-    func route(_ relative: String, query: Bool, tokenized: Bool = true) -> URLComponents {
+    func route(_ relative: String, query: Bool) -> URLComponents {
         var components = URLComponents()
         components.scheme = "http"
         components.host = self.host()
@@ -64,11 +64,6 @@ class API {
 
         if query {
             components.queryItems = [URLQueryItem]()
-        }
-
-        if tokenized {
-            components.queryItems = [URLQueryItem]()
-            components.queryItems?.append(URLQueryItem(name: "token", value: self.token()))
         }
 
         return components
@@ -87,6 +82,7 @@ class API {
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 120)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue(token(), forHTTPHeaderField: "HTW-Mate-Authorization")
 
         let sessionTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, let response = response else {

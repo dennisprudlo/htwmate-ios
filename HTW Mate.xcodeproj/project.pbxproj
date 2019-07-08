@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1D622D394F10065849D /* DownloadManager.swift */; };
 		81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E707E022D12F00000B8EE6 /* AppDelegate.swift */; };
 		81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E707E222D12F00000B8EE6 /* DashboardController.swift */; };
 		81E707E622D12F00000B8EE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E422D12F00000B8EE6 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		81E0F1D622D394F10065849D /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		81E707DD22D12F00000B8EE6 /* HTW Mate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HTW Mate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E707E022D12F00000B8EE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81E707E222D12F00000B8EE6 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				81EB7DB622D1462800E00485 /* AppearanceManager.swift */,
+				81E0F1D622D394F10065849D /* DownloadManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */,
+				81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */,
 				81EB7DC822D270F100E00485 /* Dequeable.swift in Sources */,
 				81EB7DB122D143C300E00485 /* HWColors.swift in Sources */,
 				81EB7DB322D1448700E00485 /* UIColor+Initalizers.swift in Sources */,

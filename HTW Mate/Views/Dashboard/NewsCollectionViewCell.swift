@@ -30,6 +30,8 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
         contentView.backgroundColor = HWColors.whitePrimary
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         addSubview(imageView)
 
         imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
@@ -56,11 +58,24 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
         subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -outerInsets).isActive = true
     }
 
+    public func setModel(_ news: News) {
+        setTitle(news.title)
+        setSubtitle(news.subtitle)
+
+        DownloadManager.image(from: news.imageUrl) { (image) in
+            self.setImage(image)
+        }
+    }
+
     public func setTitle(_ title: String) {
         titleLabel.text = title
     }
 
     public func setSubtitle(_ subtitle: String) {
         subtitleLabel.text = subtitle
+    }
+
+    public func setImage(_ image: UIImage?) {
+        imageView.image = image
     }
 }

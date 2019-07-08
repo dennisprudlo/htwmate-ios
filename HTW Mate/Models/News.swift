@@ -55,7 +55,7 @@ class News : DatabaseModel {
     ///   - publishDate: The date the news was added to the feed as a string in the format "YYY-MM-DD hh:mm:ss". It will be parsed to a Date object automatically
     convenience init?(databaseId id: Int, title: String, subtitle: String, url: String, imageUrl: String, publishDate: String) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
         guard let parsedUrl = URL(string: url), let parsedImageUrl = URL(string: imageUrl), let parsedPublishDate = dateFormatter.date(from: publishDate) else {
             return nil
