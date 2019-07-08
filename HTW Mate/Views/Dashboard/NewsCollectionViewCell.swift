@@ -27,7 +27,7 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
     private func setupView() {
         let outerInsets = HWInsets.medium
 
-        contentView.backgroundColor = HWColors.whitePrimary
+        AppearanceManager.dropShadow(for: contentView)
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -39,23 +39,37 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
         imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
 
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold)
-        titleLabel.numberOfLines = 2
-        addSubview(titleLabel)
+        //
+        // Add visual effect view
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.addSubview(blurView)
 
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: outerInsets).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: outerInsets).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -outerInsets).isActive = true
+        blurView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
+        blurView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        blurView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
 
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .regular)
+        subtitleLabel.textColor = HWColors.whitePrimary
         subtitleLabel.numberOfLines = 3
-        addSubview(subtitleLabel)
+        imageView.addSubview(subtitleLabel)
 
-        subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: outerInsets).isActive = true
-        subtitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -outerInsets).isActive = true
-        subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -outerInsets).isActive = true
+        subtitleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: outerInsets).isActive = true
+        subtitleLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -outerInsets).isActive = true
+        subtitleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -outerInsets).isActive = true
+
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold)
+        titleLabel.textColor = HWColors.whitePrimary
+        titleLabel.numberOfLines = 2
+        imageView.addSubview(titleLabel)
+
+        titleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: outerInsets).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: subtitleLabel.topAnchor, constant: -HWInsets.extraSmall).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -outerInsets).isActive = true
+
+        blurView.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -outerInsets).isActive = true
     }
 
     public func setModel(_ news: News) {

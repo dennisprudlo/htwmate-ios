@@ -75,6 +75,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         let newsItem = self.news[indexPath.row]
 
         newsCell.setModel(newsItem)
+        #warning("Snapshot and Contraint error when rotating device")
 
         return newsCell
     }
@@ -84,7 +85,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         let availableWidth = view.frame.width - paddingSpace - view.safeAreaInsets.left - view.safeAreaInsets.right
         let widthPerItem = availableWidth / itemsPerRow
 
-       return CGSize(width: widthPerItem, height: 200.0)
+       return CGSize(width: widthPerItem, height: 300.0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
