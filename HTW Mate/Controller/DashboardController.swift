@@ -27,6 +27,10 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
             }
         }
 
+        //
+        // Adjust safe area insets for header and footer views
+        self.collectionView.contentInsetAdjustmentBehavior = .always
+
         self.collectionView.backgroundColor = HWColors.contentBackground
 
         //
@@ -79,8 +83,6 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         if kind == UICollectionView.elementKindSectionHeader {
             let sectionHeader = SectionTitleCollectionReusableView.dequeue(from: collectionView, ofKind: kind, for: indexPath)
             sectionHeader.setTitle(sectionTitles[indexPath.section])
-            #warning("Header Safe Area insets are not set when in landscape mode")
-
             return sectionHeader
         }
 
