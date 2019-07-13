@@ -52,7 +52,7 @@
         <scene sceneID="UAg-Ga-kNE">
             <objects>
                 <navigationController id="SBw-e5-m8J" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="HTW" id="b9H-vF-zdV"/>
+                    <tabBarItem key="tabBarItem" title="HTW" image="dashboard" id="b9H-vF-zdV"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zgZ-4Y-RG7">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -67,4 +67,7 @@
             <point key="canvasLocation" x="-551" y="121"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dashboard" width="30" height="30"/>
+    </resources>
 </document>

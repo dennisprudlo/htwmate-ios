@@ -12,5 +12,6 @@ struct HWStrings {
 
     static let dashboardItemsMore = NSLocalizedString("more", comment: "The title for the label which shows the user a view with more of the content he sees right now")
     static let dashboardItemsTopNews = NSLocalizedString("Top-News", comment: "The title for the top news section, where some news are listed")
+    static let dashboardItemsEvents = NSLocalizedString("Events", comment: "The title for the events section, where some events are listed")
 
 }

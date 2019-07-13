@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import SafariServices
 
-class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
+class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewControllerDelegate {
 
     private var titleLabel = UILabel()
     private var subtitleLabel = UILabel()
     private var imageView = UIImageView()
+
+    private var viewController: UIViewController!
+    private var news: News!
 
     override init(frame: CGRect) {
         super.init(frame: CGRect.zero)
@@ -70,9 +74,27 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
         titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -outerInsets).isActive = true
 
         blurView.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -outerInsets).isActive = true
+
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openUrl)))
+    }
+
+    @objc func openUrl() {
+
+        let safariView = SFSafariViewController(url: news.url)
+        safariView.delegate = self
+        safariView.dismissButtonStyle = .close
+        safariView.preferredBarTintColor = UIColor.black
+
+        self.viewController.present(safariView, animated: true, completion: nil)
+    }
+
+    public func setViewController(_ viewController: UIViewController) {
+        self.viewController = viewController
     }
 
     public func setModel(_ news: News) {
+        self.news = news
+
         setTitle(news.title)
         setSubtitle(news.subtitle)
 
@@ -91,5 +113,9 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
 
     public func setImage(_ image: UIImage?) {
         imageView.image = image
+    }
+
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

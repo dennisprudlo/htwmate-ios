@@ -13,9 +13,10 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     private var itemsPerRow: CGFloat = 1
     private let sectionInsets = UIEdgeInsets(top: HWInsets.medium, left: HWInsets.medium, bottom: HWInsets.medium, right: HWInsets.medium)
 
-    let sectionTitles = [HWStrings.dashboardItemsTopNews]
+    let sectionTitles = [HWStrings.dashboardItemsTopNews, HWStrings.dashboardItemsEvents]
 
     var news: [News] = []
+    var events: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +74,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return news.count
+        return section == 0 ? news.count : events.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -97,6 +98,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         let newsCell = NewsCollectionViewCell.dequeue(from: collectionView, for: indexPath)
         let newsItem = self.news[indexPath.row]
 
+        newsCell.setViewController(self)
         newsCell.setModel(newsItem)
         #warning("Snapshot and Contraint error when rotating device")
 
