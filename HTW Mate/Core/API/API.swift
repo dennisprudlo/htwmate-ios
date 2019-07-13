@@ -17,6 +17,10 @@ class API {
         return HTWMateNewsAPI()
     }
 
+    func eventsResource() -> HTWMateEventsAPI {
+        return HTWMateEventsAPI()
+    }
+
     /// Gets the API secret needed to access the HTW Mates API data
     ///
     /// - Returns: The API secret

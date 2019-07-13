@@ -16,13 +16,20 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     let sectionTitles = [HWStrings.dashboardItemsTopNews, HWStrings.dashboardItemsEvents]
 
     var news: [News] = []
-    var events: [String] = []
+    var events: [Event] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         API.shared.newsResource().get { (news, response) in
             self.news = news
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+
+        API.shared.eventsResource().get { (events, response) in
+            self.events = events
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -95,14 +102,31 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let newsCell = NewsCollectionViewCell.dequeue(from: collectionView, for: indexPath)
-        let newsItem = self.news[indexPath.row]
+        var collectionViewCell = UICollectionViewCell(frame: CGRect.zero)
 
-        newsCell.setViewController(self)
-        newsCell.setModel(newsItem)
+        switch indexPath.section {
+            case 0:
+                let newsCell = NewsCollectionViewCell.dequeue(from: collectionView, for: indexPath)
+
+                newsCell.setViewController(self)
+                newsCell.setModel(self.news[indexPath.row])
+
+                collectionViewCell = newsCell
+                break
+            case 1:
+                let eventCell = EventCollectionViewCell.dequeue(from: collectionView, for: indexPath)
+
+                eventCell.setViewController(self)
+                eventCell.setModel(self.events[indexPath.row])
+
+                collectionViewCell = eventCell
+                break
+            default:
+                break
+        }
         #warning("Snapshot and Contraint error when rotating device")
 
-        return newsCell
+        return collectionViewCell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -110,7 +134,14 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         let availableWidth = view.frame.width - paddingSpace - view.safeAreaInsets.left - view.safeAreaInsets.right
         let widthPerItem = availableWidth / itemsPerRow
 
-       return CGSize(width: widthPerItem, height: 300.0)
+        var size: CGFloat
+        switch indexPath.section {
+            case 0: size = 300
+            case 1: size = 83
+            default: size = 0
+        }
+
+       return CGSize(width: widthPerItem, height: size)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
