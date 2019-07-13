@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2A22D9D04000FA507E /* HWStrings.swift */; };
 		81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1D622D394F10065849D /* DownloadManager.swift */; };
 		81E0F1DB22D3A1B20065849D /* SectionTitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1DA22D3A1B20065849D /* SectionTitleCollectionReusableView.swift */; };
 		81E0F1DD22D3B5130065849D /* HWFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1DC22D3B5130065849D /* HWFontSize.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		816B7A2A22D9D04000FA507E /* HWStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWStrings.swift; sourceTree = "<group>"; };
 		81E0F1D622D394F10065849D /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		81E0F1DA22D3A1B20065849D /* SectionTitleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleCollectionReusableView.swift; sourceTree = "<group>"; };
 		81E0F1DC22D3B5130065849D /* HWFontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWFontSize.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				81EB7DBB22D2066A00E00485 /* HWIcons.swift */,
 				81EB7DC922D2803300E00485 /* HWInsets.swift */,
 				81E0F1DC22D3B5130065849D /* HWFontSize.swift */,
+				816B7A2A22D9D04000FA507E /* HWStrings.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */,
+				816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */,
 				81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */,
 				81EB7DC822D270F100E00485 /* Dequeable.swift in Sources */,
 				81EB7DB122D143C300E00485 /* HWColors.swift in Sources */,

@@ -13,7 +13,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     private var itemsPerRow: CGFloat = 1
     private let sectionInsets = UIEdgeInsets(top: HWInsets.medium, left: HWInsets.medium, bottom: HWInsets.medium, right: HWInsets.medium)
 
-    let sectionTitles = ["Top-News"]
+    let sectionTitles = [HWStrings.dashboardItemsTopNews]
 
     var news: [News] = []
 
@@ -90,7 +90,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 30)
+        return CGSize(width: collectionView.frame.width, height: SectionTitleCollectionReusableView.height)
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
