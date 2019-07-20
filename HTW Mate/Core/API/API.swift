@@ -31,6 +31,16 @@ class API {
         return token
     }
 
+    /// Gets the API host scheme
+    ///
+    /// - Returns: The API host scheme
+    func scheme() -> String {
+        guard let infoDictionary = Bundle.main.infoDictionary else { return "http" }
+        guard let scheme = infoDictionary["HTWMATE_API_SCHEME"] as? String else { return "http" }
+
+        return scheme
+    }
+
     /// Gets the API host
     ///
     /// - Returns: The API host
@@ -61,7 +71,7 @@ class API {
     /// - Returns: The URL components used to send the request
     func route(_ relative: String, query: Bool) -> URLComponents {
         var components = URLComponents()
-        components.scheme = "http"
+        components.scheme = self.scheme()
         components.host = self.host()
         components.port = self.port()
         components.path = "/api/\(relative)"
