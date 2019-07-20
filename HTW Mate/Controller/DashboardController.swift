@@ -21,14 +21,14 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        API.shared.newsResource().get { (news, response) in
+        API.shared.newsResource().get(limit: 6) { (news, response) in
             self.news = news
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
         }
 
-        API.shared.eventsResource().get { (events, response) in
+        API.shared.eventsResource().get(limit: 6) { (events, response) in
             self.events = events
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
