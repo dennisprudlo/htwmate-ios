@@ -21,17 +21,31 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     var newsDataLoaded = false
     var eventsDataLoaded = false
 
+    /// The refresh control to easily update the displayed date
+    private let refreshControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //
+        // Add the refresh control to the collection view. In case of a iOS 9 system or even older system
+        // add the refresh control as a subview. UIKit will automatically know what to do with it
+        if #available(iOS 10.0, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
+
+        refreshControl.addTarget(self, action: #selector(didRefreshCollectionView(_:)), for: .valueChanged)
+        
         loadNewsArticles()
         loadEvents()
 
         //
         // Adjust safe area insets for header and footer views
-        self.collectionView.contentInsetAdjustmentBehavior = .always
+        collectionView.contentInsetAdjustmentBehavior = .always
 
-        self.collectionView.backgroundColor = HWColors.contentBackground
+        collectionView.backgroundColor = HWColors.contentBackground
 
         //
         // Set the flow layout to consider the safe area
@@ -41,7 +55,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
 
         //
         // Calculate the items per row on view load
-        self.calculateItemsPerRow(forSize: view.frame.size)
+        calculateItemsPerRow(forSize: view.frame.size)
     }
 
     private func loadNewsArticles() -> Void {
@@ -67,7 +81,17 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     private func checkCollectionViewReload() -> Void {
-        newsDataLoaded && eventsDataLoaded ? self.collectionView.reloadData() : nil
+        if newsDataLoaded && eventsDataLoaded {
+            refreshControl.endRefreshing()
+            collectionView.reloadData()
+        }
+    }
+
+    @objc private func didRefreshCollectionView(_ sender: Any) {
+        newsDataLoaded = false
+        eventsDataLoaded = false
+        loadNewsArticles()
+        loadEvents()
     }
 
     /// Calculates the items per row in the collection view
