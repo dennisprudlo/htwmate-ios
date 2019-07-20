@@ -98,7 +98,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
         let eventStore = EKEventStore()
         eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
             DispatchQueue.main.async {
-                if (granted) && (error == nil) {
+                if granted && error == nil {
                     let event = EKEvent(eventStore: eventStore)
                     event.title = self.event.title
                     event.notes = self.event.subtitle
@@ -113,6 +113,10 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
                     eventController.eventStore = eventStore
                     eventController.editViewDelegate = self
                     self.viewController.present(eventController, animated: true, completion: nil)
+                } else if !granted && error == nil {
+
+                    AlertManager(in: self.viewController).insufficentPermission(for: .eventStore)
+
                 }
             }
         })
