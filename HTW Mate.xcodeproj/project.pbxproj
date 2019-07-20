@@ -12,6 +12,8 @@
 		816B7A3122DA86B900FA507E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A3022DA86B900FA507E /* Event.swift */; };
 		816B7A3322DA89F600FA507E /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A3222DA89F600FA507E /* EventCollectionViewCell.swift */; };
 		81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8EC22E34CBB0036BACC /* AlertManager.swift */; };
+		81BFA8EF22E3854E0036BACC /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8EE22E3854E0036BACC /* LogManager.swift */; };
+		81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */; };
 		81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1D622D394F10065849D /* DownloadManager.swift */; };
 		81E0F1DB22D3A1B20065849D /* SectionTitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1DA22D3A1B20065849D /* SectionTitleCollectionReusableView.swift */; };
 		81E0F1DD22D3B5130065849D /* HWFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1DC22D3B5130065849D /* HWFontSize.swift */; };
@@ -42,6 +44,8 @@
 		816B7A3022DA86B900FA507E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		816B7A3222DA89F600FA507E /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		81BFA8EC22E34CBB0036BACC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		81BFA8EE22E3854E0036BACC /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+DisplayName.swift"; sourceTree = "<group>"; };
 		81E0F1D622D394F10065849D /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		81E0F1DA22D3A1B20065849D /* SectionTitleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleCollectionReusableView.swift; sourceTree = "<group>"; };
 		81E0F1DC22D3B5130065849D /* HWFontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWFontSize.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */,
+				81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 				81EB7DB622D1462800E00485 /* AppearanceManager.swift */,
 				81E0F1D622D394F10065849D /* DownloadManager.swift */,
 				81BFA8EC22E34CBB0036BACC /* AlertManager.swift */,
+				81BFA8EE22E3854E0036BACC /* LogManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -338,11 +344,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */,
+				81BFA8EF22E3854E0036BACC /* LogManager.swift in Sources */,
 				816B7A3322DA89F600FA507E /* EventCollectionViewCell.swift in Sources */,
 				816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */,
 				816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */,
 				81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */,
 				816B7A3122DA86B900FA507E /* Event.swift in Sources */,
+				81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */,
 				81EB7DC822D270F100E00485 /* Dequeable.swift in Sources */,
 				81EB7DB122D143C300E00485 /* HWColors.swift in Sources */,
 				81E0F1DB22D3A1B20065849D /* SectionTitleCollectionReusableView.swift in Sources */,

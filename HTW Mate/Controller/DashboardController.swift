@@ -18,22 +18,14 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     var news: [News] = []
     var events: [Event] = []
 
+    var newsDataLoaded = false
+    var eventsDataLoaded = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        API.shared.newsResource().get(limit: 6) { (news, response) in
-            self.news = news
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-
-        API.shared.eventsResource().get(limit: 6) { (events, response) in
-            self.events = events
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
+        loadNewsArticles()
+        loadEvents()
 
         //
         // Adjust safe area insets for header and footer views
@@ -52,6 +44,31 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         self.calculateItemsPerRow(forSize: view.frame.size)
     }
 
+    private func loadNewsArticles() -> Void {
+        API.shared.newsResource().get(limit: 6) { (news, response) in
+            self.news = news
+            DispatchQueue.main.async {
+                LogManager.shared.put("Dashboard news articles loaded")
+                self.newsDataLoaded = true
+                self.checkCollectionViewReload()
+            }
+        }
+    }
+
+    private func loadEvents() -> Void {
+        API.shared.eventsResource().get(limit: 6) { (events, response) in
+            self.events = events
+            DispatchQueue.main.async {
+                LogManager.shared.put("Dashboard events loaded")
+                self.eventsDataLoaded = true
+                self.checkCollectionViewReload()
+            }
+        }
+    }
+
+    private func checkCollectionViewReload() -> Void {
+        newsDataLoaded && eventsDataLoaded ? self.collectionView.reloadData() : nil
+    }
 
     /// Calculates the items per row in the collection view
     ///
@@ -81,7 +98,11 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? news.count : events.count
+        switch section {
+        case 0: return self.news.count
+        case 1: return self.events.count
+        default: return 0
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
