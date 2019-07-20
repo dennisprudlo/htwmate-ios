@@ -28,7 +28,8 @@ class SectionTitleCollectionReusableView: UICollectionReusableView, Dequeable {
         titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
 
         detailLabel.translatesAutoresizingMaskIntoConstraints = false
-        detailLabel.text = HWStrings.dashboardItemsMore
+        #warning("The detail label for the reusable views are disabled due to not implemented table views")
+        detailLabel.text = nil //HWStrings.dashboardItemsMore
         detailLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         detailLabel.textColor = HWColors.darkSecondary
         addSubview(detailLabel)
@@ -49,6 +50,6 @@ class SectionTitleCollectionReusableView: UICollectionReusableView, Dequeable {
     }
 
     public func setDetailTitle(_ title: String) {
-        detailLabel.text = title
+        detailLabel.text = nil
     }
 }
