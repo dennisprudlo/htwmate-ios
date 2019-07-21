@@ -23,4 +23,11 @@ extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: CGFloat(alpha) / 255.0)
     }
 
+    /// Initializes a UIColor instance with the color parameter given as a RGB Hex value
+    ///
+    /// - Parameter hex: The hex description of a RGB color
+    public convenience init(fromHex hex: Int) {
+        self.init(fromHexRed: (hex >> 16) & 0xFF, green: (hex >> 8) & 0xFF, blue: hex & 0xFF, alpha: 0xFF)
+    }
+
 }
