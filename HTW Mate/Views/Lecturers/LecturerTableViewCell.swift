@@ -10,32 +10,43 @@ import UIKit
 
 class LecturerTableViewCell: UITableViewCell, Dequeable {
 
+    @IBOutlet var lecturerImageView: UIImageView!
+    @IBOutlet var lecturerTitleLabel: UILabel!
+    @IBOutlet var lecturerNameLabel: UIView!
+
+    /// The height constraint of the lecturers image view to set the image corner radius properly
+    @IBOutlet var lecturerImageViewHeightConstraint: NSLayoutConstraint!
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
-//        profileImageView.layer.cornerRadius = profileImageWidthConstraint.constant / 2
-//        profileImageView.clipsToBounds = true
-//        profileImageView.tintColor = UIColor.groupTableViewBackground
+        //
+        // Prepare the lecturer image view
+        lecturerImageView.layer.cornerRadius = lecturerImageViewHeightConstraint.constant / 2
+        lecturerImageView.clipsToBounds = true
+        lecturerImageView.tintColor = UIColor.groupTableViewBackground
     }
 
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        // Set placeholder image
-//        self.profileImageView.image = nil
-//
-//        guard let url = self.imageUrl else {
-//            return
-//        }
-//
-//        // download image
-//        URLSession.shared.dataTask(with: url) { (data, response, error) in
-//            guard let data = data, error == nil else { return }
-//
-//            DispatchQueue.main.async {
-//                self.profileImageView.image = UIImage(data: data)
-//            }
-//        }.resume()
-//    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        // TODO: Set placeholder image
+        // lecturerImageView.image = reference to placeholder image
+
+        // TODO: check whether the lecturer has an image url
+        guard let url = URL(string: "") else {
+            return
+        }
+
+        //
+        // Download the lecturers image and display it
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data, error == nil else { return }
+
+            DispatchQueue.main.async {
+                self.lecturerImageView.image = UIImage(data: data)
+            }
+        }.resume()
+    }
 
 }
