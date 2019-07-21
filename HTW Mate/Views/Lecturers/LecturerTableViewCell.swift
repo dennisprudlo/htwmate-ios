@@ -12,10 +12,12 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
 
     @IBOutlet var lecturerImageView: UIImageView!
     @IBOutlet var lecturerTitleLabel: UILabel!
-    @IBOutlet var lecturerNameLabel: UIView!
+    @IBOutlet var lecturerNameLabel: UILabel!
 
     /// The height constraint of the lecturers image view to set the image corner radius properly
     @IBOutlet var lecturerImageViewHeightConstraint: NSLayoutConstraint!
+
+    private var lecturer: Lecturer!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +27,13 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
         lecturerImageView.layer.cornerRadius = lecturerImageViewHeightConstraint.constant / 2
         lecturerImageView.clipsToBounds = true
         lecturerImageView.tintColor = UIColor.groupTableViewBackground
+    }
+
+    func setModel(_ lecturer: Lecturer) {
+        self.lecturer = lecturer
+
+        lecturerTitleLabel.text = lecturer.title
+        lecturerNameLabel.text = "\(lecturer.firstname) \(lecturer.lastname)"
     }
 
     override func layoutSubviews() {

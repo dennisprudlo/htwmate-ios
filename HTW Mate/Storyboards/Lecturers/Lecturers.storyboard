@@ -88,8 +88,8 @@
                                 <connections>
                                     <outlet property="lecturerImageView" destination="Mue-Nk-m7u" id="LoJ-9g-xts"/>
                                     <outlet property="lecturerImageViewHeightConstraint" destination="yDT-kz-mrx" id="c7s-bV-Kha"/>
-                                    <outlet property="lecturerNameLabel" destination="E4J-pk-1vW" id="lFZ-rM-tKh"/>
-                                    <outlet property="lecturerTitleLabel" destination="RmB-ah-Uow" id="mUK-Hx-0cA"/>
+                                    <outlet property="lecturerNameLabel" destination="p7Y-6a-01j" id="YVZ-nP-Qga"/>
+                                    <outlet property="lecturerTitleLabel" destination="RmB-ah-Uow" id="8Dp-HU-3BE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -10,6 +10,13 @@ import UIKit
 
 class LecturersMasterController: UITableViewController, UISplitViewControllerDelegate {
 
+    var lecturers: [Lecturer] = [
+        Lecturer.from(json: [:]),
+        Lecturer.from(json: [:]),
+        Lecturer.from(json: [:]),
+        Lecturer.from(json: [:])
+    ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,17 +37,17 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        #warning ("Incomplete implementation, return the number of sections")
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        #warning ("Incomplete implementation, return the number of rows")
-        return 1
+        return lecturers.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return LecturerTableViewCell.dequeue(from: tableView)
+        var cell = LecturerTableViewCell.dequeue(from: tableView)
+        cell.setModel(lecturers[indexPath.row])
+        return cell
     }
 
 }
