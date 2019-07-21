@@ -30,8 +30,9 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        // TODO: Set placeholder image
-        // lecturerImageView.image = reference to placeholder image
+        //
+        // Set the placeholder image
+        lecturerImageView.image = HWImage.lecturersProfilePlaceholder
 
         // TODO: check whether the lecturer has an image url
         guard let url = URL(string: "") else {
