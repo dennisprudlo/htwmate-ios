@@ -10,6 +10,8 @@ import UIKit
 
 class LogManager {
 
+    public static var active: Bool = false
+
     public static let shared: LogManager = LogManager(ofType: .info)
 
     var type: LogManager.LogType
@@ -32,7 +34,9 @@ class LogManager {
     }
 
     @discardableResult func put(_ message: String) -> LogManager {
-        dispatchMessage(message)
+        if LogManager.active {
+            dispatchMessage(message)
+        }
         return self
     }
 
@@ -56,8 +60,10 @@ class LogManager {
     }
 
     @discardableResult func from(_ delegatingInstance: Any) -> LogManager {
-        self.delegatingInstance = delegatingInstance
-        dispatchMeta("\(delegatingInstance)")
+        if LogManager.active {
+            self.delegatingInstance = delegatingInstance
+            dispatchMeta("\(delegatingInstance)")
+        }
         return self
     }
 
