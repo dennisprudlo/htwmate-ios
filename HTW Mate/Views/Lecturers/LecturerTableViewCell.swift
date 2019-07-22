@@ -41,22 +41,13 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
 
         //
         // Set the placeholder image
-        lecturerImageView.image = HWImage.lecturersProfilePlaceholder
+        lecturerImageView.image = lecturer.image
 
-        // TODO: check whether the lecturer has an image url
-        guard let url = URL(string: "") else {
-            return
-        }
-
-        //
-        // Download the lecturers image and display it
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data, error == nil else { return }
-
-            DispatchQueue.main.async {
-                self.lecturerImageView.image = UIImage(data: data)
+        if !lecturer.imageSet {
+            lecturer.downloadImage { (image) in
+                self.lecturerImageView.image = image
             }
-        }.resume()
+        }
     }
 
 }

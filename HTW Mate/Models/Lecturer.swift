@@ -6,7 +6,7 @@
 //  Copyright © 2019 Dennis Prudlo. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Lecturer : DatabaseModel {
 
@@ -20,6 +20,8 @@ class Lecturer : DatabaseModel {
     var fax: String?
     var websiteUrl: URL?
     var imageUrl: URL?
+    var image: UIImage? = HWImage.lecturersProfilePlaceholder
+    var imageSet: Bool = false
     var officeCampus: String?
     var officeBuilding: String?
     var officeRoom: String?
@@ -61,7 +63,31 @@ class Lecturer : DatabaseModel {
         lecturer.officePostalCode = dictionary.value(forKey: "office_postal_code") as? String
         lecturer.officeLocality = dictionary.value(forKey: "office_locality") as? String
 
+        lecturer.downloadImage()
+
         return lecturer
+    }
+
+    public func downloadImage(completion: ((UIImage?) -> Void)? = nil) -> Void {
+        guard let url = self.imageUrl else {
+            return
+        }
+
+        //
+        // Download the lecturers image and display it
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async {
+                self.image = UIImage(data: data)
+                self.imageSet = true
+                print("downloaded image")
+                if let handler = completion {
+                    print("handling")
+                    handler(self.image)
+                }
+            }
+        }
+        task.resume()
     }
 
 }
