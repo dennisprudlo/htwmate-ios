@@ -80,9 +80,7 @@ class Lecturer : DatabaseModel {
             DispatchQueue.main.async {
                 self.image = UIImage(data: data)
                 self.imageSet = true
-                print("downloaded image")
                 if let handler = completion {
-                    print("handling")
                     handler(self.image)
                 }
             }
