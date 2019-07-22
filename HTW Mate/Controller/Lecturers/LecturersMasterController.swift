@@ -10,17 +10,19 @@ import UIKit
 
 class LecturersMasterController: UITableViewController, UISplitViewControllerDelegate {
 
-    var lecturers: [Lecturer] = [
-        Lecturer.from(json: [:]),
-        Lecturer.from(json: [:]),
-        Lecturer.from(json: [:]),
-        Lecturer.from(json: [:])
-    ]
+    var lecturers: [Lecturer] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         splitViewController?.delegate = self
+
+        API.shared.lecturersResource().get { (lecturers, response) in
+            self.lecturers = lecturers
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
 
         //
         // Use auto-layout to determine the lecturers cells height
@@ -45,7 +47,7 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = LecturerTableViewCell.dequeue(from: tableView)
+        let cell = LecturerTableViewCell.dequeue(from: tableView)
         cell.setModel(lecturers[indexPath.row])
         return cell
     }
