@@ -11,6 +11,7 @@ import UIKit
 class LecturersMasterController: UITableViewController, UISplitViewControllerDelegate, UISearchResultsUpdating, LecturerStorageDelegate {
 
     let searchController = UISearchController(searchResultsController: nil)
+    var detailViewDelegate: LecturersDetailController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,12 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         definesPresentationContext = true
+
+        if let splitViewController = splitViewController, let detailViewNavigationController = splitViewController.viewControllers.last as? UINavigationController {
+            if let detailViewController = detailViewNavigationController.viewControllers.last as? LecturersDetailController {
+                detailViewDelegate = detailViewController
+            }
+        }
     }
 
     // MARK: - Lecturer storage handler
@@ -80,6 +87,15 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
         if let searchText = searchController.searchBar.text, searchText != LecturerStorage.shared.lastSearchText {
             LecturerStorage.shared.lastSearchText = searchText
             LecturerStorage.shared.buildDisplayedLecturers(delegate: self, searchText: searchText)
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let detailNavigationController = detailViewDelegate?.navigationController {
+            let lecturer = LecturerStorage.shared.lecturers(inSection: indexPath.section)[indexPath.row]
+            detailViewDelegate?.lecturer = lecturer
+            splitViewController?.showDetailViewController(detailNavigationController, sender: nil)
         }
     }
 }
