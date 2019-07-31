@@ -12,6 +12,7 @@ class LecturersController: UISplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        extendedLayoutIncludesOpaqueBars = true
     }
     
 }
