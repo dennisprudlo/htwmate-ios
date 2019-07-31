@@ -14,11 +14,18 @@ protocol LecturerStorageDelegate {
 
 class LecturerStorage {
 
+    enum FilterScope {
+        case all
+    }
+
     static let shared: LecturerStorage = LecturerStorage()
 
     let sections: [String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     var displayedSections: [String] = []
     var displayedLecturers: [[Lecturer]] = []
+
+    var lastSearchText: String = ""
+    var filterScope = LecturerStorage.FilterScope.all
 
     private var lecturers: [Lecturer] = []
 
@@ -33,15 +40,11 @@ class LecturerStorage {
                 return firstCompound < secondCompound
             })
 
-            self.buildDisplayedLecturers()
-
-            DispatchQueue.main.async {
-                 delegate.lecturerStorage(didReloadLecturers: self.lecturers)
-            }
+            self.buildDisplayedLecturers(delegate: delegate)
         }
     }
 
-    private func buildDisplayedLecturers() -> Void {
+    func buildDisplayedLecturers(delegate: LecturerStorageDelegate, searchText: String? = nil) -> Void {
         displayedLecturers = []
         displayedSections = []
 
@@ -49,13 +52,27 @@ class LecturerStorage {
             let sectionIdentifier = sections[index]
 
             let filteredLecturers = self.lecturers.filter { (lecturer) -> Bool in
-                return lecturer.lastname.starts(with: sectionIdentifier)
+                let startsWithValidated = lecturer.lastname.starts(with: sectionIdentifier)
+
+                var searchValidated = true
+                if let searchText = searchText, !searchText.isEmpty {
+                    let haystack = "\(lecturer.title ?? "") \(lecturer.firstname) \(lecturer.lastname)".lowercased()
+                    if !haystack.contains(searchText.lowercased()) {
+                        searchValidated = false
+                    }
+                }
+
+                return startsWithValidated && searchValidated
             }
 
             if filteredLecturers.count > 0 {
                 displayedLecturers.append(filteredLecturers)
                 displayedSections.append(sectionIdentifier)
             }
+        }
+
+        DispatchQueue.main.async {
+            delegate.lecturerStorage(didReloadLecturers: self.lecturers)
         }
     }
 

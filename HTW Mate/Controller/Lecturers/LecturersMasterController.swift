@@ -8,8 +8,10 @@
 
 import UIKit
 
-class LecturersMasterController: UITableViewController, UISplitViewControllerDelegate, LecturerStorageDelegate {
-    
+class LecturersMasterController: UITableViewController, UISplitViewControllerDelegate, UISearchResultsUpdating, LecturerStorageDelegate {
+
+    let searchController = UISearchController(searchResultsController: nil)
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,17 +24,27 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 76
         tableView.sectionIndexColor = HWColors.StyleGuide.primaryGreen
+
+        //
+        // Prepare search controller
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = NSLocalizedString("Search Lecturers", comment: "The placeholder string for the lecturers search bar")
+        searchController.searchBar.tintColor = HWColors.StyleGuide.primaryGreen
+        searchController.searchBar.barStyle = .blackTranslucent
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        definesPresentationContext = true
     }
 
-    // MARK: Lecturer Storage handler
+    // MARK: - Lecturer storage handler
 
     func lecturerStorage(didReloadLecturers lecturers: [Lecturer]) {
         tableView.reloadData()
-
-        print(LecturerStorage.shared.lecturers(inSection: 0))
     }
 
-    // MARK: Split view controller collapse
+    // MARK: - Split view controller collapse
 
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         return true
@@ -62,4 +74,12 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
         return cell
     }
 
+    // MARK: - Search bar results updating
+
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text, searchText != LecturerStorage.shared.lastSearchText {
+            LecturerStorage.shared.lastSearchText = searchText
+            LecturerStorage.shared.buildDisplayedLecturers(delegate: self, searchText: searchText)
+        }
+    }
 }
