@@ -24,8 +24,8 @@ class HTWMateLecturersAPI {
             do {
                 if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [NSDictionary] {
                     var lecturers: [Lecturer] = [Lecturer]()
-                    jsonArray.forEach({ (eventItem) in
-                        lecturers.append(Lecturer.from(json: eventItem))
+                    jsonArray.forEach({ (lecturer) in
+                        lecturers.append(Lecturer.from(json: lecturer))
                     })
                     completion(lecturers, response)
                 }
