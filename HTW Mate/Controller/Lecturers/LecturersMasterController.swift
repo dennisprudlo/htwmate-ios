@@ -19,6 +19,8 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
 
         splitViewController?.delegate = self
 
+        LecturerStorage.shared.delegate = self
+
         //
         // Use auto-layout to determine the lecturers cells height
         tableView.rowHeight = UITableView.automaticDimension
@@ -85,7 +87,7 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, searchText != LecturerStorage.shared.lastSearchText {
             LecturerStorage.shared.lastSearchText = searchText
-            LecturerStorage.shared.buildDisplayedLecturers(delegate: self, searchText: searchText)
+            LecturerStorage.shared.buildDisplayedLecturers(searchText: searchText)
         }
     }
 

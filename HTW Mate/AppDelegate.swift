@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //
         // Preload app data
-        LecturerStorage.shared.reload(delegate: nil)
+        LecturerStorage.shared.reload()
 
         return true
     }
