@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppearanceManager.updateNavigationBarAppearance()
         AppearanceManager.updateTabBarAppearance()
 
+        //
+        // Preload app data
+        LecturerStorage.shared.reload(delegate: nil)
+
         return true
     }
 

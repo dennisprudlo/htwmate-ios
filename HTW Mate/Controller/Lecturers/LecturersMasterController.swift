@@ -19,8 +19,6 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
 
         splitViewController?.delegate = self
 
-        LecturerStorage.shared.reload(delegate: self)
-
         //
         // Use auto-layout to determine the lecturers cells height
         tableView.rowHeight = UITableView.automaticDimension

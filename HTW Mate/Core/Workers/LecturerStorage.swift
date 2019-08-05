@@ -32,7 +32,7 @@ class LecturerStorage {
     /// Reloads the lecturers from the API and sort the items by the lecturers name
     ///
     /// - Parameter delegate: The delegate reference where the sender should be notified
-    func reload(delegate: LecturerStorageDelegate) -> Void {
+    func reload(delegate: LecturerStorageDelegate?) -> Void {
         API.shared.lecturersResource().get { (lecturers, response) in
             self.lecturers = lecturers.sorted(by: { (first, second) -> Bool in
                 let firstCompound = "\(first.lastname)\(first.firstname)"
@@ -44,7 +44,7 @@ class LecturerStorage {
         }
     }
 
-    func buildDisplayedLecturers(delegate: LecturerStorageDelegate, searchText: String? = nil) -> Void {
+    func buildDisplayedLecturers(delegate: LecturerStorageDelegate?, searchText: String? = nil) -> Void {
         displayedLecturers = []
         displayedSections = []
 
@@ -71,8 +71,10 @@ class LecturerStorage {
             }
         }
 
-        DispatchQueue.main.async {
-            delegate.lecturerStorage(didReloadLecturers: self.lecturers)
+        if delegate != nil {
+            DispatchQueue.main.async {
+                delegate!.lecturerStorage(didReloadLecturers: self.lecturers)
+            }
         }
     }
 
