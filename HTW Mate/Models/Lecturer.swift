@@ -29,6 +29,8 @@ class Lecturer : DatabaseModel {
     var officePostalCode: String?
     var officeLocality: String?
 
+    private var quickActionSubviews: [UIView] = []
+
     init(databaseId: Int, htwId: Int, lastname: String, firstname: String) {
         self.htwId = htwId
         self.lastname = lastname
@@ -88,4 +90,80 @@ class Lecturer : DatabaseModel {
         task.resume()
     }
 
+    public func getInfoCellTypes() -> [LecturerInfoTableViewCell.Type] {
+        var output: [LecturerInfoTableViewCell.Type] = [LecturerInfoHeadTableViewCell.self]
+
+        return output
+    }
+
+    public func getFullName() -> String {
+        return "\(self.firstname) \(self.lastname)"
+    }
+
+    public func hasMail() -> Bool {
+        return self.mail != nil
+    }
+
+    public func hasMobileOrPhone() -> Bool {
+        return self.mobile != nil || self.phone != nil
+    }
+
+    public func hasPhone() -> Bool {
+        return self.phone != nil
+    }
+
+    public func hasMobile() -> Bool {
+        return self.mobile != nil
+    }
+
+    public func hasWebsite() -> Bool {
+        return self.websiteUrl != nil
+    }
+    
+    public func getQuickActionSubviews() -> [UIView] {
+        guard quickActionSubviews.count == 0 else {
+            return quickActionSubviews
+        }
+
+        quickActionSubviews.append(self.generateQuickActionSubview(withTitle: "mail",   icon: HWImage.lecturersQuickActionMessage,  active: self.hasMail()))
+        quickActionSubviews.append(self.generateQuickActionSubview(withTitle: "call",   icon: HWImage.lecturersQuickActionPhone,    active: self.hasMobileOrPhone()))
+        quickActionSubviews.append(self.generateQuickActionSubview(withTitle: "visit",  icon: HWImage.lecturersQuickActionWebsite,  active: self.hasWebsite()))
+
+        return quickActionSubviews
+    }
+
+    private func generateQuickActionSubview(withTitle title: String, icon: UIImage?, active: Bool) -> UIStackView {
+        let bubbleSize: CGFloat = 48
+
+        let actionView = UIView()
+        actionView.translatesAutoresizingMaskIntoConstraints = false
+        actionView.heightAnchor.constraint(equalToConstant: bubbleSize
+            ).isActive = true
+        actionView.heightAnchor.constraint(equalTo: actionView.widthAnchor).isActive = true
+        actionView.backgroundColor = active ? HWColors.StyleGuide.primaryGreen : .groupTableViewBackground
+        actionView.layer.cornerRadius = bubbleSize / 2
+
+        let iconView = UIImageView(image: icon)
+        actionView.addSubview(iconView)
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        iconView.contentMode = .scaleToFill
+        iconView.centerXAnchor.constraint(equalTo: actionView.centerXAnchor).isActive = true
+        iconView.centerYAnchor.constraint(equalTo: actionView.centerYAnchor).isActive = true
+        iconView.heightAnchor.constraint(equalToConstant: bubbleSize / 1.6).isActive = true
+        iconView.widthAnchor.constraint(equalTo: iconView.heightAnchor).isActive = true
+        iconView.tintColor = active ? .white : .lightGray
+
+        let actionLabel = UILabel()
+        actionLabel.translatesAutoresizingMaskIntoConstraints = false
+        actionLabel.text = title
+        actionLabel.font = UIFont.systemFont(ofSize: HWFontSize.lecturerTitle, weight: .medium)
+        actionLabel.textColor = active ? HWColors.StyleGuide.primaryGreen : .lightGray
+        actionLabel.textAlignment = .center
+
+        let stack = UIStackView(arrangedSubviews: [actionView, actionLabel])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+
+        return stack
+    }
 }

@@ -20,6 +20,11 @@ class AlertManager {
         case eventStore
     }
 
+    enum DispatchType {
+        case inherit
+        case ok
+    }
+
     init(in viewController: UIViewController) {
         self.viewController = viewController
     }
@@ -42,10 +47,18 @@ class AlertManager {
                 UIApplication.shared.open(settingsUrl, completionHandler: nil)
             }
         }))
-        dispatch()
+        dispatch(ofType: .inherit)
     }
 
-    func dispatch() {
+    func dispatch(ofType dispatchType: AlertManager.DispatchType = .ok) {
+        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        switch dispatchType {
+        case .inherit:
+            break;
+        case .ok:
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        }
 
         //
         // Present the alert to the user

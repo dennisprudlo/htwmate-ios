@@ -33,7 +33,7 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
         self.lecturer = lecturer
 
         lecturerTitleLabel.text = lecturer.title
-        lecturerNameLabel.text = "\(lecturer.firstname) \(lecturer.lastname)"
+        lecturerNameLabel.text = lecturer.getFullName()
     }
 
     override func layoutSubviews() {
