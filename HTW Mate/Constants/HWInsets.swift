@@ -26,4 +26,13 @@ struct HWInsets {
     /// Extra Large inset of 32pt
     static let extraLarge: CGFloat = 32
 
+    struct CornerRadius {
+
+        /// The corner radius of a default panel of 12pt
+        static let panel: CGFloat = 12
+
+        /// The corner radius of a default label of 6pt
+        static let label: CGFloat = 6
+    }
+
 }

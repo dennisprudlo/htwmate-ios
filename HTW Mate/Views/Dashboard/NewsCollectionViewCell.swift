@@ -32,10 +32,12 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
         let outerInsets = HWInsets.medium
 
         AppearanceManager.dropShadow(for: contentView)
+        contentView.layer.cornerRadius = HWInsets.CornerRadius.panel
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = HWInsets.CornerRadius.panel
         addSubview(imageView)
 
         imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true

@@ -35,12 +35,12 @@ struct AppearanceManager {
         appearance.barTintColor = HWColors.darkPrimary
     }
 
-    public static func dropShadow(for view: UIView) {
+    public static func dropShadow(for view: UIView, withRadius radius: CGFloat = 10, opacity: Float = 0.3) {
         view.backgroundColor = HWColors.whitePrimary
         view.layer.shadowColor = HWColors.shadowDrop.cgColor
-        view.layer.shadowOpacity = 0.3
+        view.layer.shadowOpacity = opacity
         view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowRadius = 5
+        view.layer.shadowRadius = radius
         view.layer.masksToBounds = false
     }
 

@@ -37,10 +37,12 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
     private func setupView() {
         let outerInsets = HWInsets.medium
 
-        AppearanceManager.dropShadow(for: contentView)
+        AppearanceManager.dropShadow(for: contentView, withRadius: 4, opacity: 0.2)
+        contentView.layer.cornerRadius = HWInsets.CornerRadius.panel
 
         dateView.translatesAutoresizingMaskIntoConstraints = false
         dateView.backgroundColor = HWColors.darkPrimary
+        dateView.layer.cornerRadius = HWInsets.CornerRadius.label
         setupDateView()
         contentView.addSubview(dateView)
 
