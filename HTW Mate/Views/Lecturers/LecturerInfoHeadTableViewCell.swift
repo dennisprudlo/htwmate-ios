@@ -23,7 +23,11 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
         setupUI()
     }
 
-    override func setupUI() {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    override func setupUI(withHeadline headline: String? = nil) {
         super.setupUI()
 
         contentView.addSubview(lecturerImageView)
@@ -68,7 +72,7 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
         quickActionStack.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         quickActionStack.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: inset * 2).isActive = true
         quickActionStack.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        quickActionStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        quickActionStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset).isActive = true
     }
 
     override func reload() {
@@ -94,10 +98,6 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
 
             stackType += 1
         }
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 
     @objc private func didTapMail(_ sender: UITapGestureRecognizer) {

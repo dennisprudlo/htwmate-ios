@@ -20,14 +20,18 @@ class LecturersDetailController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        extendedLayoutIncludesOpaqueBars = true
 
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
-        extendedLayoutIncludesOpaqueBars = true
 
         tableView.register(LecturerInfoHeadTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoHeadTableViewCell.self))
+        tableView.register(LecturerInfoOfficeTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoOfficeTableViewCell.self))
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
+
+        #warning("Dirty solution for the bottom inset bug in the table view")
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -83, right: 0)
     }
 
     func rebuildUI() -> Void {
@@ -52,5 +56,11 @@ class LecturersDetailController: UITableViewController {
         cell.reload()
         cell.layoutSubviews()
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? LecturerInfoOfficeTableViewCell {
+            cell.openInMaps()
+        }
     }
 }

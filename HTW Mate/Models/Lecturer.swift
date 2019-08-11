@@ -93,11 +93,15 @@ class Lecturer : DatabaseModel {
     public func getInfoCellTypes() -> [LecturerInfoTableViewCell.Type] {
         var output: [LecturerInfoTableViewCell.Type] = [LecturerInfoHeadTableViewCell.self]
 
+        if self.hasOffice() {
+            output.append(LecturerInfoOfficeTableViewCell.self)
+        }
+
         return output
     }
 
-    public func getFullName() -> String {
-        return "\(self.firstname) \(self.lastname)"
+    public func getFullName(withTitle: Bool = false) -> String {
+        return "\(withTitle && self.title != nil ? "\(self.title ?? "") " : "")\(self.firstname) \(self.lastname)"
     }
 
     public func hasMail() -> Bool {
@@ -118,6 +122,33 @@ class Lecturer : DatabaseModel {
 
     public func hasWebsite() -> Bool {
         return self.websiteUrl != nil
+    }
+
+    public func hasOffice() -> Bool {
+        let hasRoom = self.officeCampus != nil && self.officeBuilding != nil && self.officeRoom != nil
+        let hasAddress = self.officeThoroughfare != nil && self.officePostalCode != nil && self.officeLocality != nil
+
+        return hasRoom || hasAddress
+    }
+
+    public func getOfficeAddressText() -> (room: String, thoroughfare: String, locality: String) {
+        var room: String = ""
+        var thoroughfare: String = ""
+        var locality: String = ""
+
+        if let officeBuilding = self.officeBuilding, let officeRoom = self.officeRoom {
+            room = "\(officeBuilding), \(officeRoom)"
+        }
+
+        if let officeThoroughfare = self.officeThoroughfare {
+            thoroughfare = officeThoroughfare
+        }
+
+        if let officePostalCode = self.officePostalCode, let officeLocality = self.officeLocality {
+            locality = "\(officePostalCode) \(officeLocality)"
+        }
+
+        return (room: room, thoroughfare: thoroughfare, locality: locality)
     }
     
     public func getQuickActionSubviews() -> [UIView] {

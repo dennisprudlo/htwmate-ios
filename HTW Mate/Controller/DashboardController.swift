@@ -10,6 +10,10 @@ import UIKit
 
 class DashboardController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     private var itemsPerRow: CGFloat = 1
     private let sectionInsets = UIEdgeInsets(top: HWInsets.medium, left: HWInsets.medium, bottom: HWInsets.medium, right: HWInsets.medium)
 

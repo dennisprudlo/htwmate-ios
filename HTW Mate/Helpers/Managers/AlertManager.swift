@@ -50,6 +50,16 @@ class AlertManager {
         dispatch(ofType: .inherit)
     }
 
+    func with(message: String) -> AlertManager {
+        self.message = message
+        return self
+    }
+
+    func with(title: String) -> AlertManager {
+        self.title = title
+        return self
+    }
+
     func dispatch(ofType dispatchType: AlertManager.DispatchType = .ok) {
         alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 

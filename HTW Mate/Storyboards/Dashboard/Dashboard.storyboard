@@ -38,7 +38,7 @@
         <!--HTW-->
         <scene sceneID="UAg-Ga-kNE">
             <objects>
-                <navigationController id="SBw-e5-m8J" sceneMemberID="viewController">
+                <navigationController id="SBw-e5-m8J" customClass="HWNavigationController" customModule="HTW_Mate" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="HTW" image="dashboard" id="b9H-vF-zdV"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zgZ-4Y-RG7">

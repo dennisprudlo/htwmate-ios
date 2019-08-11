@@ -12,6 +12,7 @@ import CoreGraphics
 struct HWFontSize {
 
     static let sectionTitle: CGFloat = 24;
+    static let sectionTitleSmall: CGFloat = 17;
 
     static let lecturerTitle: CGFloat = 13;
     static let lecturerName: CGFloat = 27;
