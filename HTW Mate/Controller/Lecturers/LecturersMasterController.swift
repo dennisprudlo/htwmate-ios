@@ -44,12 +44,16 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
                 detailViewDelegate = detailViewController
             }
         }
+
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(didRefreshCollectionView(_:)), for: .valueChanged)
     }
 
     // MARK: - Lecturer storage handler
 
     func lecturerStorage(didReloadLecturers lecturers: [Lecturer]) {
         tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
     }
 
     // MARK: - Split view controller collapse
@@ -98,5 +102,9 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
             detailViewDelegate?.lecturer = lecturer
             splitViewController?.showDetailViewController(detailNavigationController, sender: nil)
         }
+    }
+
+    @objc private func didRefreshCollectionView(_ sender: Any) {
+        LecturerStorage.shared.reload()
     }
 }
