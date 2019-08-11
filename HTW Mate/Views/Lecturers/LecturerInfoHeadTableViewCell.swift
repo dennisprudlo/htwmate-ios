@@ -36,7 +36,7 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
 
         lecturerImageView.translatesAutoresizingMaskIntoConstraints = false
         lecturerImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        lecturerImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset).isActive = true
+        lecturerImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset * 2).isActive = true
         lecturerImageView.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
         lecturerImageView.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
         lecturerImageView.image = HWImage.lecturersProfilePlaceholder
