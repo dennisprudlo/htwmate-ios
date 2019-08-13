@@ -116,9 +116,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
                     eventController.editViewDelegate = self
                     self.viewController.present(eventController, animated: true, completion: nil)
                 } else if !granted && error == nil {
-
                     AlertManager(in: self.viewController).insufficentPermission(for: .eventStore)
-
                 }
             }
         })

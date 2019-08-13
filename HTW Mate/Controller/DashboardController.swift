@@ -17,7 +17,10 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     private var itemsPerRow: CGFloat = 1
     private let sectionInsets = UIEdgeInsets(top: HWInsets.medium, left: HWInsets.medium, bottom: HWInsets.medium, right: HWInsets.medium)
 
-    let sectionTitles = [HWStrings.dashboardItemsTopNews, HWStrings.dashboardItemsEvents]
+    let sectionTitles = [
+        HWStrings.Controllers.Dashboard.sectionNews,
+        HWStrings.Controllers.Dashboard.sectionEvents
+    ]
 
     var news: [News] = []
     var events: [Event] = []
@@ -30,6 +33,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.title = HWStrings.Controllers.Dashboard.title
 
         //
         // Add the refresh control to the collection view. In case of a iOS 9 system or even older system

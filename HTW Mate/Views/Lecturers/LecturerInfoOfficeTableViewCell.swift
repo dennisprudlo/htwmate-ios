@@ -29,7 +29,7 @@ class LecturerInfoOfficeTableViewCell : LecturerInfoTableViewCell {
     }
 
     override func setupUI(withHeadline headline: String? = nil) {
-        super.setupUI(withHeadline: "Office")
+        super.setupUI(withHeadline: HWStrings.Controllers.Lecturers.Detail.office)
 
         contentView.addSubview(addressRoomLabel)
         contentView.addSubview(addressThoroughfareLabel)
@@ -69,11 +69,10 @@ class LecturerInfoOfficeTableViewCell : LecturerInfoTableViewCell {
 
         CLGeocoder().geocodeAddressString(inline) { (placemarks, error) in
             guard let placemarks = placemarks, let location = placemarks.first?.location else {
-                AlertManager(in: self.tableViewController)
-                    .with(title: "Address not found")
-                    .with(message: "Unfortunately the address could not be determined")
+                return AlertManager(in: self.tableViewController)
+                    .with(title: HWStrings.Alerts.addressNotFound.title)
+                    .with(message: HWStrings.Alerts.addressNotFound.description)
                     .dispatch()
-                return
             }
 
             let latitude: CLLocationDegrees = location.coordinate.latitude

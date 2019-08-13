@@ -18,6 +18,8 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.title = HWStrings.Controllers.Lecturers.title
+        
         extendedLayoutIncludesOpaqueBars = true
 
         splitViewController?.delegate = self
@@ -35,7 +37,7 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = NSLocalizedString("Search Lecturers", comment: "The placeholder string for the lecturers search bar")
+        searchController.searchBar.placeholder = HWStrings.Controllers.Lecturers.searchBarTitle
         searchController.searchBar.tintColor = HWColors.StyleGuide.primaryGreen
         searchController.searchBar.barStyle = .blackTranslucent
         navigationItem.searchController = searchController

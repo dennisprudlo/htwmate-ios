@@ -32,8 +32,8 @@ class AlertManager {
     func insufficentPermission(for permission: AlertManager.PermissionType) -> Void {
         switch permission {
         case .eventStore:
-            title = HWStrings.permissionEventStoreTitle
-            message = HWStrings.permissionEventStoreMessage
+            title = HWStrings.Permissions.eventStore.title
+            message = HWStrings.Permissions.eventStore.description
         }
 
         alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -67,7 +67,7 @@ class AlertManager {
         case .inherit:
             break;
         case .ok:
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            alertController.addAction(UIAlertAction(title: HWStrings.ok, style: .default, handler: nil))
         }
 
         //

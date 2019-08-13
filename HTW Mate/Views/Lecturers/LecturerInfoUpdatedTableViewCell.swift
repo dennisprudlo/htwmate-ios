@@ -46,7 +46,7 @@ class LecturerInfoUpdatedTableViewCell : LecturerInfoTableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, h:mm a"
         let lastUpdate = dateFormatter.string(from: date)
-        updatedAtLabel.text = "Last updated on \(lastUpdate)"
+        updatedAtLabel.text = String(format: HWStrings.Controllers.Lecturers.Detail.lastUpdate, lastUpdate)
     }
 
 }

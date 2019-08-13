@@ -119,10 +119,10 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
 
             tableViewController.present(mailController, animated: true)
         } else {
-            let manager = AlertManager(in: tableViewController)
-            manager.title = NSLocalizedString("No mail account", comment: "The title for the information that the user has no mail account configured")
-            manager.message = NSLocalizedString("Unfortunately we couldn't open up mail due to a missing mail account. You can go to the settings and configure a mail account", comment: "The information that the user can configure a mail account in the settings")
-            manager.dispatch()
+            return AlertManager(in: tableViewController)
+                .with(title: HWStrings.Alerts.missingMailAccount.title)
+                .with(message: HWStrings.Alerts.missingMailAccount.description)
+                .dispatch()
         }
     }
 
