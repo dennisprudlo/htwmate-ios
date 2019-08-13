@@ -50,4 +50,9 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
         }
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.lecturerImageView.image = nil
+    }
+
 }

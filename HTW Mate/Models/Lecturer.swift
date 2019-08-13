@@ -30,6 +30,7 @@ class Lecturer : DatabaseModel {
     var officeThoroughfare: String?
     var officePostalCode: String?
     var officeLocality: String?
+    var lastUpdatedAt: Date?
 
     private var quickActionSubviews: [UIView] = []
 
@@ -67,7 +68,10 @@ class Lecturer : DatabaseModel {
         lecturer.officePostalCode = dictionary.value(forKey: "office_postal_code") as? String
         lecturer.officeLocality = dictionary.value(forKey: "office_locality") as? String
 
-        lecturer.downloadImage()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let lastUpdatedAtString = dictionary.value(forKey: "updated_at") as? String ?? ""
+        lecturer.lastUpdatedAt = dateFormatter.date(from: lastUpdatedAtString)
 
         lecturer.tableViewSectionHaystack = "\(lecturer.title ?? "") \(lecturer.firstname) \(lecturer.lastname)".lowercased()
         lecturer.tableViewSectionLetter = String(lastname.first ?? Character(""))
