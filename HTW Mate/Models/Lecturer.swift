@@ -13,6 +13,8 @@ class Lecturer : DatabaseModel {
     var htwId: Int
     var title: String?
     var lastname: String
+    var tableViewSectionLetter: String = ""
+    var tableViewSectionHaystack: String = ""
     var firstname: String
     var mail: String?
     var mobile: String?
@@ -66,6 +68,9 @@ class Lecturer : DatabaseModel {
         lecturer.officeLocality = dictionary.value(forKey: "office_locality") as? String
 
         lecturer.downloadImage()
+
+        lecturer.tableViewSectionHaystack = "\(lecturer.title ?? "") \(lecturer.firstname) \(lecturer.lastname)".lowercased()
+        lecturer.tableViewSectionLetter = String(lastname.first ?? Character(""))
 
         return lecturer
     }

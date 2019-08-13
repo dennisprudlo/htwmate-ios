@@ -91,7 +91,10 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, searchText != LecturerStorage.shared.lastSearchText {
             LecturerStorage.shared.lastSearchText = searchText
+            let start = CFAbsoluteTimeGetCurrent()
             LecturerStorage.shared.buildDisplayedLecturers(searchText: searchText)
+            let diff = CFAbsoluteTimeGetCurrent() - start
+            print("Took \(diff) seconds")
         }
     }
 

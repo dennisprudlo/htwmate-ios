@@ -54,11 +54,11 @@ class LecturerStorage {
             let sectionIdentifier = sections[index]
 
             let filteredLecturers = self.lecturers.filter { (lecturer) -> Bool in
-                let startsWithValidated = lecturer.lastname.starts(with: sectionIdentifier)
+                let startsWithValidated = sectionIdentifier == lecturer.tableViewSectionLetter
 
                 var searchValidated = true
                 if let searchText = searchText, !searchText.isEmpty {
-                    let haystack = "\(lecturer.title ?? "") \(lecturer.firstname) \(lecturer.lastname)".lowercased()
+                    let haystack = lecturer.tableViewSectionHaystack
                     if !haystack.contains(searchText.lowercased()) {
                         searchValidated = false
                     }
