@@ -13,6 +13,9 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     let searchController = UISearchController(searchResultsController: nil)
     var detailViewDelegate: LecturersDetailController?
 
+    var searchDelayTimer: Timer?
+    var waitForNextLoop = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         extendedLayoutIncludesOpaqueBars = true
@@ -91,11 +94,23 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, searchText != LecturerStorage.shared.lastSearchText {
             LecturerStorage.shared.lastSearchText = searchText
-            let start = CFAbsoluteTimeGetCurrent()
-            LecturerStorage.shared.buildDisplayedLecturers(searchText: searchText)
-            let diff = CFAbsoluteTimeGetCurrent() - start
-            print("Took \(diff) seconds")
+            self.waitForNextLoop = true
+
+            if self.searchDelayTimer == nil {
+                self.searchDelayTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(processSearch), userInfo: nil, repeats: true)
+            }
         }
+    }
+
+    @objc func processSearch() {
+        if self.waitForNextLoop {
+            self.waitForNextLoop = false
+            return
+        }
+
+        LecturerStorage.shared.buildDisplayedLecturers(searchText: LecturerStorage.shared.lastSearchText)
+        self.searchDelayTimer?.invalidate()
+        self.searchDelayTimer = nil
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

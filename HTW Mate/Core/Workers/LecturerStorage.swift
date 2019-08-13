@@ -50,6 +50,8 @@ class LecturerStorage {
         displayedLecturers = []
         displayedSections = []
 
+        let lowerCasedSearchText = searchText?.lowercased() ?? ""
+
         for index in 0..<sections.count {
             let sectionIdentifier = sections[index]
 
@@ -57,9 +59,9 @@ class LecturerStorage {
                 let startsWithValidated = sectionIdentifier == lecturer.tableViewSectionLetter
 
                 var searchValidated = true
-                if let searchText = searchText, !searchText.isEmpty {
+                if !lowerCasedSearchText.isEmpty {
                     let haystack = lecturer.tableViewSectionHaystack
-                    if !haystack.contains(searchText.lowercased()) {
+                    if !haystack.contains(lowerCasedSearchText) {
                         searchValidated = false
                     }
                 }
