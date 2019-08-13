@@ -106,6 +106,8 @@ class Lecturer : DatabaseModel {
             output.append(LecturerInfoOfficeTableViewCell.self)
         }
 
+        output.append(LecturerInfoUpdatedTableViewCell.self)
+
         return output
     }
 

@@ -30,6 +30,7 @@ struct HWColors {
     // Navigation Layout
     static let darkPrimary = UIColor(fromHexRed: 0x22, green: 0x22, blue: 0x22)
     static let darkSecondary = UIColor(fromHexRed: 0x66, green: 0x66, blue: 0x66)
+    static let darkSecondaryLight = UIColor(fromHexRed: 0x99, green: 0x99, blue: 0x99)
 
     static let whitePrimary = UIColor.white
     static let contentBackground = UIColor(fromHexRed: 0xEE, green: 0xEE, blue: 0xEE)

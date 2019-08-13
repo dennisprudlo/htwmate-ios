@@ -27,6 +27,7 @@ class LecturersDetailController: UITableViewController {
 
         tableView.register(LecturerInfoHeadTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoHeadTableViewCell.self))
         tableView.register(LecturerInfoOfficeTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoOfficeTableViewCell.self))
+        tableView.register(LecturerInfoUpdatedTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoUpdatedTableViewCell.self))
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
 
