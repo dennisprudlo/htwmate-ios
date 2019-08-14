@@ -16,8 +16,16 @@ class HWTabBarController: UITabBarController {
         let dashboardController = DashboardController(collectionViewLayout: UICollectionViewFlowLayout())
         dashboardController.tabBarItem = UITabBarItem(title: HWStrings.Controllers.Dashboard.title, image: HWIcons.dashboard, tag: 1)
 
-        let lecturersController = UIStoryboard(name: "Lecturers", bundle: Bundle.main).instantiateInitialViewController()!
+        let lecturersController = LecturersController()
         lecturersController.tabBarItem = UITabBarItem(title: HWStrings.Controllers.Lecturers.title, image: HWIcons.lecturers, tag: 2)
+
+        let masterViewController = LecturersMasterController()
+        let detailViewController = LecturersDetailController()
+
+        let masterController = HWNavigationController(rootViewController: masterViewController)
+        let detailController = HWNavigationController(rootViewController: detailViewController)
+
+        lecturersController.viewControllers = [masterController, detailController]
 
         viewControllers = [
             HWNavigationController(rootViewController: dashboardController),

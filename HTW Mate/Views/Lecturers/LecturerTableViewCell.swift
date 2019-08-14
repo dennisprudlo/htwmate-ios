@@ -10,23 +10,64 @@ import UIKit
 
 class LecturerTableViewCell: UITableViewCell, Dequeable {
 
-    @IBOutlet var lecturerImageView: UIImageView!
-    @IBOutlet var lecturerTitleLabel: UILabel!
-    @IBOutlet var lecturerNameLabel: UILabel!
-
-    /// The height constraint of the lecturers image view to set the image corner radius properly
-    @IBOutlet var lecturerImageViewHeightConstraint: NSLayoutConstraint!
+    var lecturerImageView = UIImageView()
+    var lecturerTitleLabel = UILabel()
+    var lecturerNameLabel = UILabel()
 
     private var lecturer: Lecturer!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        setupUI()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    func setupUI() {
+        contentView.addSubview(lecturerImageView)
 
         //
         // Prepare the lecturer image view
-        lecturerImageView.layer.cornerRadius = lecturerImageViewHeightConstraint.constant / 2
+        let imageHeight: CGFloat = 54
+        lecturerImageView.translatesAutoresizingMaskIntoConstraints = false
+        lecturerImageView.layer.cornerRadius = imageHeight / 2
         lecturerImageView.clipsToBounds = true
         lecturerImageView.tintColor = UIColor.groupTableViewBackground
+
+        lecturerImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 11).isActive = true
+        lecturerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        lecturerImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -10.5).isActive = true
+        lecturerImageView.heightAnchor.constraint(equalToConstant: imageHeight).isActive = true
+        lecturerImageView.widthAnchor.constraint(equalTo: lecturerImageView.heightAnchor).isActive = true
+
+        let wrapperView = UIView()
+        contentView.addSubview(wrapperView)
+        wrapperView.translatesAutoresizingMaskIntoConstraints = false
+        wrapperView.leadingAnchor.constraint(equalTo: lecturerImageView.trailingAnchor, constant: 16).isActive = true
+        wrapperView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        wrapperView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
+
+        wrapperView.addSubview(lecturerTitleLabel)
+        wrapperView.addSubview(lecturerNameLabel)
+
+        lecturerTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        lecturerTitleLabel.font = UIFont.systemFont(ofSize: HWFontSize.lecturerTitle, weight: .bold)
+        lecturerTitleLabel.textColor = .lightGray
+
+        lecturerTitleLabel.topAnchor.constraint(equalTo: wrapperView.topAnchor).isActive = true
+        lecturerTitleLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor).isActive = true
+        lecturerTitleLabel.bottomAnchor.constraint(equalTo: lecturerNameLabel.topAnchor).isActive = true
+        lecturerTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: wrapperView.trailingAnchor).isActive = true
+
+        lecturerNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        lecturerNameLabel.font = UIFont.systemFont(ofSize: HWFontSize.lecturerNameCell, weight: .bold)
+
+        lecturerNameLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor).isActive = true
+        lecturerNameLabel.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor).isActive = true
+        lecturerNameLabel.trailingAnchor.constraint(lessThanOrEqualTo: wrapperView.trailingAnchor).isActive = true
     }
 
     func setModel(_ lecturer: Lecturer) {

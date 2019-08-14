@@ -29,6 +29,7 @@ class LecturersDetailController: UITableViewController {
         tableView.register(LecturerInfoOfficeTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoOfficeTableViewCell.self))
         tableView.register(LecturerInfoUpdatedTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoUpdatedTableViewCell.self))
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
         tableView.estimatedRowHeight = 200
 
         #warning("Dirty solution for the bottom inset bug in the table view")

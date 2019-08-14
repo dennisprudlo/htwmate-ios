@@ -15,6 +15,7 @@ struct HWFontSize {
     static let sectionTitleSmall: CGFloat = 17;
 
     static let lecturerTitle: CGFloat = 13;
+    static let lecturerNameCell: CGFloat = 18;
     static let lecturerName: CGFloat = 27;
 
     static let metaInfo: CGFloat = 12;
