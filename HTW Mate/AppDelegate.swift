@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         //
+        // Initialize the root view controller
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = HWTabBarController()
+        window?.makeKeyAndVisible()
+
+        //
         // Update app appearance styles
         AppearanceManager.updateNavigationBarAppearance()
         AppearanceManager.updateTabBarAppearance()
@@ -24,11 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Preload app data
         LecturerStorage.shared.reload()
 
-        if let tabBarController = self.window?.rootViewController as? UITabBarController {
-            tabBarController.tabBar.items?.forEach({ (tabBarItem) in
-                tabBarItem.title = tabBarItem.title?.localizedString()
-            })
-        }
         return true
     }
 

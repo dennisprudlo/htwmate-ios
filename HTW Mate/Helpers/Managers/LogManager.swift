@@ -33,14 +33,14 @@ class LogManager {
         self.delegatingInstance = delegatingInstance
     }
 
-    @discardableResult func put(_ message: String) -> LogManager {
+    @discardableResult func put(_ message: CustomStringConvertible) -> LogManager {
         if LogManager.active {
             dispatchMessage(message)
         }
         return self
     }
 
-    private func dispatchMessage(_ message: String) {
+    private func dispatchMessage(_ message: CustomStringConvertible) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let dateString = dateFormatter.string(from: Date())

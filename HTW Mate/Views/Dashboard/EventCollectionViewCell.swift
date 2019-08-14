@@ -19,7 +19,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
     private var dateMonthLabel = UILabel()
     private var dateDayLabel = UILabel()
 
-    private var viewController: UIViewController!
+    public var viewController: DashboardController!
     private var event: Event!
 
     var isLongPressingOnEvent = false
@@ -27,7 +27,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
     override init(frame: CGRect) {
         super.init(frame: CGRect.zero)
 
-        self.setupView()
+        setupView()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -59,7 +59,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
 
         titleLabel.leadingAnchor.constraint(equalTo: dateView.trailingAnchor, constant: outerInsets).isActive = true
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: outerInsets).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -outerInsets).isActive = true
+        titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -outerInsets).isActive = true
 
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .regular)
@@ -111,6 +111,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
                     event.endDate = date
 
                     let eventController = EKEventEditViewController()
+                    eventController.delegate = self.viewController
                     eventController.event = event
                     eventController.eventStore = eventStore
                     eventController.editViewDelegate = self
@@ -148,10 +149,6 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
         dateDayLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor, constant: -outerInsets).isActive = true
 
         dateDayLabel.topAnchor.constraint(equalTo: dateMonthLabel.bottomAnchor).isActive = true
-    }
-    
-    public func setViewController(_ viewController: UIViewController) {
-        self.viewController = viewController
     }
 
     public func setModel(_ event: Event) {

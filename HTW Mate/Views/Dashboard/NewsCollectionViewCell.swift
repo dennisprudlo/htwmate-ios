@@ -15,7 +15,7 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
     private var subtitleLabel = UILabel()
     private var imageView = UIImageView()
 
-    private var viewController: UIViewController!
+    public var viewController: DashboardController!
     private var news: News!
 
     override init(frame: CGRect) {
@@ -88,10 +88,6 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
         safariView.preferredBarTintColor = UIColor.black
 
         self.viewController.present(safariView, animated: true, completion: nil)
-    }
-
-    public func setViewController(_ viewController: UIViewController) {
-        self.viewController = viewController
     }
 
     public func setModel(_ news: News) {

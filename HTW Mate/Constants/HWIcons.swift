@@ -14,4 +14,7 @@ struct HWIcons {
     static let studentCard = UIImage(named: "student-card")
     static let settings = UIImage(named: "settings")
 
+    static let dashboard = UIImage(named: "dashboard")
+    static let lecturers = UIImage(named: "lecturers")
+
 }

@@ -14,7 +14,10 @@
 		817662F922F5D1F3004E0A07 /* LecturerInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817662F822F5D1F3004E0A07 /* LecturerInfoTableViewCell.swift */; };
 		817738802302E93D00D0F8D4 /* LecturerInfoUpdatedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177387F2302E93D00D0F8D4 /* LecturerInfoUpdatedTableViewCell.swift */; };
 		8177388B230308FE00D0F8D4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8177388D230308FE00D0F8D4 /* Localizable.strings */; };
-		817738902304958100D0F8D4 /* String+localizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177388F2304958100D0F8D4 /* String+localizedString.swift */; };
+		817738922304966200D0F8D4 /* HWTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817738912304966200D0F8D4 /* HWTabBarController.swift */; };
+		8177389523049FDF00D0F8D4 /* DashboardNewsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177389423049FDF00D0F8D4 /* DashboardNewsStorage.swift */; };
+		817738972304A14900D0F8D4 /* DashboardEventStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817738962304A14900D0F8D4 /* DashboardEventStorage.swift */; };
+		817738992304B0D200D0F8D4 /* UINavigationController+StatusBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817738982304B0D200D0F8D4 /* UINavigationController+StatusBarStyle.swift */; };
 		81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8EC22E34CBB0036BACC /* AlertManager.swift */; };
 		81BFA8EF22E3854E0036BACC /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8EE22E3854E0036BACC /* LogManager.swift */; };
 		81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */; };
@@ -36,10 +39,8 @@
 		81E0F1DD22D3B5130065849D /* HWFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1DC22D3B5130065849D /* HWFontSize.swift */; };
 		81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E707E022D12F00000B8EE6 /* AppDelegate.swift */; };
 		81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E707E222D12F00000B8EE6 /* DashboardController.swift */; };
-		81E707E622D12F00000B8EE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E422D12F00000B8EE6 /* Main.storyboard */; };
 		81E707E822D12F01000B8EE6 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E722D12F01000B8EE6 /* AppIcon.xcassets */; };
 		81E707EB22D12F01000B8EE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E922D12F01000B8EE6 /* LaunchScreen.storyboard */; };
-		81EB7DAD22D142B200E00485 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81EB7DAC22D142B200E00485 /* Dashboard.storyboard */; };
 		81EB7DB122D143C300E00485 /* HWColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB022D143C300E00485 /* HWColors.swift */; };
 		81EB7DB322D1448700E00485 /* UIColor+Initalizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */; };
 		81EB7DB722D1462800E00485 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB622D1462800E00485 /* AppearanceManager.swift */; };
@@ -64,7 +65,10 @@
 		8177387F2302E93D00D0F8D4 /* LecturerInfoUpdatedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoUpdatedTableViewCell.swift; sourceTree = "<group>"; };
 		8177388C230308FE00D0F8D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8177388E2303090400D0F8D4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		8177388F2304958100D0F8D4 /* String+localizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localizedString.swift"; sourceTree = "<group>"; };
+		817738912304966200D0F8D4 /* HWTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWTabBarController.swift; sourceTree = "<group>"; };
+		8177389423049FDF00D0F8D4 /* DashboardNewsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardNewsStorage.swift; sourceTree = "<group>"; };
+		817738962304A14900D0F8D4 /* DashboardEventStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEventStorage.swift; sourceTree = "<group>"; };
+		817738982304B0D200D0F8D4 /* UINavigationController+StatusBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+StatusBarStyle.swift"; sourceTree = "<group>"; };
 		81BFA8EC22E34CBB0036BACC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		81BFA8EE22E3854E0036BACC /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+DisplayName.swift"; sourceTree = "<group>"; };
@@ -87,11 +91,9 @@
 		81E707DD22D12F00000B8EE6 /* HTW Mate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HTW Mate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E707E022D12F00000B8EE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81E707E222D12F00000B8EE6 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
-		81E707E522D12F00000B8EE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81E707E722D12F01000B8EE6 /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 		81E707EA22D12F01000B8EE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81E707EC22D12F01000B8EE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81EB7DAC22D142B200E00485 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		81EB7DB022D143C300E00485 /* HWColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWColors.swift; sourceTree = "<group>"; };
 		81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Initalizers.swift"; sourceTree = "<group>"; };
 		81EB7DB622D1462800E00485 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
@@ -121,9 +123,7 @@
 		8127AF6C22D1420F00179BD1 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				81BFA8F222E4CA9F0036BACC /* Lecturers */,
-				81EB7DAB22D1429600E00485 /* Dashboard */,
-				81E707E422D12F00000B8EE6 /* Main.storyboard */,
+				81BFA8F322E4CAB80036BACC /* Lecturers.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -131,19 +131,20 @@
 		8127AF6D22D1422200179BD1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8177389323049F5F00D0F8D4 /* Foundation */,
 				81BFA8F522E4CE0C0036BACC /* Lecturers */,
 				81E707E222D12F00000B8EE6 /* DashboardController.swift */,
-				81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		81BFA8F222E4CA9F0036BACC /* Lecturers */ = {
+		8177389323049F5F00D0F8D4 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				81BFA8F322E4CAB80036BACC /* Lecturers.storyboard */,
+				81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */,
+				817738912304966200D0F8D4 /* HWTabBarController.swift */,
 			);
-			path = Lecturers;
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		81BFA8F522E4CE0C0036BACC /* Lecturers */ = {
@@ -172,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				81BFA90422F199490036BACC /* LecturerStorage.swift */,
+				8177389423049FDF00D0F8D4 /* DashboardNewsStorage.swift */,
+				817738962304A14900D0F8D4 /* DashboardEventStorage.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -210,21 +213,13 @@
 			path = "HTW Mate";
 			sourceTree = "<group>";
 		};
-		81EB7DAB22D1429600E00485 /* Dashboard */ = {
-			isa = PBXGroup;
-			children = (
-				81EB7DAC22D142B200E00485 /* Dashboard.storyboard */,
-			);
-			path = Dashboard;
-			sourceTree = "<group>";
-		};
 		81EB7DAE22D1438B00E00485 /* Extenstions */ = {
 			isa = PBXGroup;
 			children = (
 				81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */,
 				81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */,
 				81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */,
-				8177388F2304958100D0F8D4 /* String+localizedString.swift */,
+				817738982304B0D200D0F8D4 /* UINavigationController+StatusBarStyle.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -314,8 +309,8 @@
 		81EB7DCB22D29BCE00E00485 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				81BFA90322F199310036BACC /* Workers */,
 				81EB7DCC22D29BF300E00485 /* API */,
+				81BFA90322F199310036BACC /* Workers */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -396,8 +391,6 @@
 				81E707EB22D12F01000B8EE6 /* LaunchScreen.storyboard in Resources */,
 				81E707E822D12F01000B8EE6 /* AppIcon.xcassets in Resources */,
 				8177388B230308FE00D0F8D4 /* Localizable.strings in Resources */,
-				81E707E622D12F00000B8EE6 /* Main.storyboard in Resources */,
-				81EB7DAD22D142B200E00485 /* Dashboard.storyboard in Resources */,
 				81EB7DBA22D2060200E00485 /* Icons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,7 +428,6 @@
 				816B7A3322DA89F600FA507E /* EventCollectionViewCell.swift in Sources */,
 				81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */,
 				81BFA90522F199490036BACC /* LecturerStorage.swift in Sources */,
-				817738902304958100D0F8D4 /* String+localizedString.swift in Sources */,
 				81BFA8F922E4CEAC0036BACC /* LecturersMasterController.swift in Sources */,
 				81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */,
 				816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */,
@@ -443,6 +435,7 @@
 				81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */,
 				816B7A3122DA86B900FA507E /* Event.swift in Sources */,
 				81BFA8FC22E4D1D40036BACC /* LecturerTableViewCell.swift in Sources */,
+				817738972304A14900D0F8D4 /* DashboardEventStorage.swift in Sources */,
 				81BFA90722F1B3820036BACC /* LecturersDetailController.swift in Sources */,
 				81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */,
 				81D7A2D3230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift in Sources */,
@@ -454,8 +447,10 @@
 				817662F922F5D1F3004E0A07 /* LecturerInfoTableViewCell.swift in Sources */,
 				81BFA8FE22E4DC2A0036BACC /* HWImage.swift in Sources */,
 				81E0F1DD22D3B5130065849D /* HWFontSize.swift in Sources */,
+				817738992304B0D200D0F8D4 /* UINavigationController+StatusBarStyle.swift in Sources */,
 				81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */,
 				81BFA90022E507C70036BACC /* Lecturer.swift in Sources */,
+				817738922304966200D0F8D4 /* HWTabBarController.swift in Sources */,
 				81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */,
 				81EB7DC122D2636C00E00485 /* DatabaseModel.swift in Sources */,
 				81EB7DBF22D2631800E00485 /* News.swift in Sources */,
@@ -464,6 +459,7 @@
 				81EB7DD022D2A07C00E00485 /* API.swift in Sources */,
 				817738802302E93D00D0F8D4 /* LecturerInfoUpdatedTableViewCell.swift in Sources */,
 				81EB7DC522D270A000E00485 /* NewsCollectionViewCell.swift in Sources */,
+				8177389523049FDF00D0F8D4 /* DashboardNewsStorage.swift in Sources */,
 				81EB7DD222D2A0F000E00485 /* HTWMateNewsAPI.swift in Sources */,
 				81EB7DBC22D2066A00E00485 /* HWIcons.swift in Sources */,
 				81BFA8F722E4CE2D0036BACC /* LecturersController.swift in Sources */,
@@ -482,14 +478,6 @@
 				8177388E2303090400D0F8D4 /* de */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		81E707E422D12F00000B8EE6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				81E707E522D12F00000B8EE6 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		81E707E922D12F01000B8EE6 /* LaunchScreen.storyboard */ = {
