@@ -44,9 +44,10 @@ class LecturerInfoUpdatedTableViewCell : LecturerInfoTableViewCell {
         }
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, h:mm a"
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = HWStrings.Controllers.Lecturers.Detail.lastUpdateDateFormat
         let lastUpdate = dateFormatter.string(from: date)
-        updatedAtLabel.text = String(format: HWStrings.Controllers.Lecturers.Detail.lastUpdate, lastUpdate)
+        updatedAtLabel.text = String.localizedStringWithFormat(HWStrings.Controllers.Lecturers.Detail.lastUpdate, lastUpdate)
     }
 
 }

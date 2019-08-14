@@ -54,6 +54,7 @@ struct HWStrings {
                 static let visit = NSLocalizedString("controller.lecturer.detail.visit", comment: "The text description for the 'visit web' quick action")
                 static let office = NSLocalizedString("controller.lecturer.detail.office", comment: "The section headline for the office data")
                 static let lastUpdate = NSLocalizedString("controller.lecturer.detail.lastupdate", comment: "The formatted string for the information when the lecturer was last updated")
+                static let lastUpdateDateFormat = NSLocalizedString("controller.lecturer.detail.lastupdate.dateformat", comment: "The NSDateFormatters date format for the current locale")
             }
         }
     }

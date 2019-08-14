@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Preload app data
         LecturerStorage.shared.reload()
 
+        if let tabBarController = self.window?.rootViewController as? UITabBarController {
+            tabBarController.tabBar.items?.forEach({ (tabBarItem) in
+                tabBarItem.title = tabBarItem.title?.localizedString()
+            })
+        }
         return true
     }
 
