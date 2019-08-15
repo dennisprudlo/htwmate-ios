@@ -13,7 +13,7 @@ struct AppearanceManager {
 
     /// Updates the global appearance of the navigation bar controls
     public static func updateNavigationBarAppearance() -> Void {
-        let appearance = UINavigationBar.appearance()
+        let appearance = UINavigationBar.appearance(whenContainedInInstancesOf: [HWNavigationController.self])
 
         appearance.isTranslucent = false
         appearance.tintColor = HWColors.whitePrimary

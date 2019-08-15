@@ -181,6 +181,5 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
 
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         viewController.title = HWStrings.Controllers.Dashboard.sectionEvents
-//        viewController.status
     }
 }
