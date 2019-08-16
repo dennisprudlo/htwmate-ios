@@ -52,7 +52,13 @@ struct HWStrings {
                 static let mail = NSLocalizedString("controller.lecturer.detail.mail", comment: "The text description for the 'send mail' quick action")
                 static let call = NSLocalizedString("controller.lecturer.detail.call", comment: "The text description for the 'call' quick action")
                 static let visit = NSLocalizedString("controller.lecturer.detail.visit", comment: "The text description for the 'visit web' quick action")
-                static let office = NSLocalizedString("controller.lecturer.detail.office", comment: "The section headline for the office data")
+
+                static let sectionOffice = NSLocalizedString("controller.lecturer.detail.section.office", comment: "The section headline for the office data")
+                static let sectionFieldOfWork = NSLocalizedString("controller.lecturer.detail.section.fieldofwork", comment: "The section headline for the field of work data")
+                static let sectionMainArea = NSLocalizedString("controller.lecturer.detail.section.mainarea", comment: "The section headline for the main area data")
+                static let sectionResearchActivities = NSLocalizedString("controller.lecturer.detail.section.researchactivities", comment: "The section headline for the research activity data")
+                static let sectionOfficialCapacity = NSLocalizedString("controller.lecturer.detail.section.officialcapacity", comment: "The section headline for the official capacity data")
+
                 static let lastUpdate = NSLocalizedString("controller.lecturer.detail.lastupdate", comment: "The formatted string for the information when the lecturer was last updated")
                 static let lastUpdateDateFormat = NSLocalizedString("controller.lecturer.detail.lastupdate.dateformat", comment: "The NSDateFormatters date format for the current locale")
             }

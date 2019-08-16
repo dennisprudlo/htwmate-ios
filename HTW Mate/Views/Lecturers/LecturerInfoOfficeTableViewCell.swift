@@ -29,7 +29,7 @@ class LecturerInfoOfficeTableViewCell : LecturerInfoTableViewCell {
     }
 
     override func setupUI(withHeadline headline: String? = nil) {
-        super.setupUI(withHeadline: HWStrings.Controllers.Lecturers.Detail.office)
+        super.setupUI(withHeadline: HWStrings.Controllers.Lecturers.Detail.sectionOffice)
 
         contentView.addSubview(addressRoomLabel)
         contentView.addSubview(addressThoroughfareLabel)
@@ -37,18 +37,21 @@ class LecturerInfoOfficeTableViewCell : LecturerInfoTableViewCell {
 
         addressRoomLabel.translatesAutoresizingMaskIntoConstraints = false
         addressRoomLabel.numberOfLines = 1
+        addressRoomLabel.font = UIFont.systemFont(ofSize: HWFontSize.lecturerGenericText)
         addressRoomLabel.topAnchor.constraint(equalTo: super.sectionTopAnchor, constant: super.sectionTitlePadding).isActive = true
         addressRoomLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: super.cellPadding).isActive = true
         addressRoomLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -super.cellPadding).isActive = true
 
         addressThoroughfareLabel.translatesAutoresizingMaskIntoConstraints = false
         addressThoroughfareLabel.numberOfLines = 1
+        addressThoroughfareLabel.font = UIFont.systemFont(ofSize: HWFontSize.lecturerGenericText)
         addressThoroughfareLabel.topAnchor.constraint(equalTo: addressRoomLabel.bottomAnchor).isActive = true
         addressThoroughfareLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: super.cellPadding).isActive = true
         addressThoroughfareLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -super.cellPadding).isActive = true
 
         addressLocalityLabel.translatesAutoresizingMaskIntoConstraints = false
         addressLocalityLabel.numberOfLines = 1
+        addressLocalityLabel.font = UIFont.systemFont(ofSize: HWFontSize.lecturerGenericText)
         addressLocalityLabel.topAnchor.constraint(equalTo: addressThoroughfareLabel.bottomAnchor).isActive = true
         addressLocalityLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: super.cellPadding).isActive = true
         addressLocalityLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -super.cellPadding).isActive = true

@@ -54,6 +54,14 @@
 		81EB7DD022D2A07C00E00485 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DCF22D2A07C00E00485 /* API.swift */; };
 		81EB7DD222D2A0F000E00485 /* HTWMateNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DD122D2A0F000E00485 /* HTWMateNewsAPI.swift */; };
 		81F942992306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942982306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift */; };
+		81F9429D2307165B0042EC3C /* HWLecturerRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F9429C2307165B0042EC3C /* HWLecturerRenderer.swift */; };
+		81F9429F230718820042EC3C /* HWLecturerRendererComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F9429E230718820042EC3C /* HWLecturerRendererComponent.swift */; };
+		81F942A1230753400042EC3C /* HWLecturerRendererTextComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942A0230753400042EC3C /* HWLecturerRendererTextComponent.swift */; };
+		81F942A32307575E0042EC3C /* LecturerInfoFieldOfWorkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942A22307575E0042EC3C /* LecturerInfoFieldOfWorkTableViewCell.swift */; };
+		81F942A5230765EC0042EC3C /* LecturerInfoMainAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942A4230765EC0042EC3C /* LecturerInfoMainAreaTableViewCell.swift */; };
+		81F942A7230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942A6230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift */; };
+		81F942A9230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942A8230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift */; };
+		81F942AB23076A240042EC3C /* HWLecturerRendererListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942AA23076A240042EC3C /* HWLecturerRendererListComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +115,14 @@
 		81EB7DCF22D2A07C00E00485 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		81EB7DD122D2A0F000E00485 /* HTWMateNewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateNewsAPI.swift; sourceTree = "<group>"; };
 		81F942982306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CNContactVCardSerialization+Image.swift"; sourceTree = "<group>"; };
+		81F9429C2307165B0042EC3C /* HWLecturerRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWLecturerRenderer.swift; sourceTree = "<group>"; };
+		81F9429E230718820042EC3C /* HWLecturerRendererComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWLecturerRendererComponent.swift; sourceTree = "<group>"; };
+		81F942A0230753400042EC3C /* HWLecturerRendererTextComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWLecturerRendererTextComponent.swift; sourceTree = "<group>"; };
+		81F942A22307575E0042EC3C /* LecturerInfoFieldOfWorkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoFieldOfWorkTableViewCell.swift; sourceTree = "<group>"; };
+		81F942A4230765EC0042EC3C /* LecturerInfoMainAreaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoMainAreaTableViewCell.swift; sourceTree = "<group>"; };
+		81F942A6230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoResearchActivitiesTableViewCell.swift; sourceTree = "<group>"; };
+		81F942A8230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoOfficialCapacityTableViewCell.swift; sourceTree = "<group>"; };
+		81F942AA23076A240042EC3C /* HWLecturerRendererListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWLecturerRendererListComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +173,10 @@
 				81BFA90822F1DC780036BACC /* LecturerInfoHeadTableViewCell.swift */,
 				81D7A2D2230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift */,
 				8177387F2302E93D00D0F8D4 /* LecturerInfoUpdatedTableViewCell.swift */,
+				81F942A22307575E0042EC3C /* LecturerInfoFieldOfWorkTableViewCell.swift */,
+				81F942A4230765EC0042EC3C /* LecturerInfoMainAreaTableViewCell.swift */,
+				81F942A6230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift */,
+				81F942A8230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift */,
 			);
 			path = Lecturers;
 			sourceTree = "<group>";
@@ -164,6 +184,7 @@
 		81BFA90322F199310036BACC /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				81F9429B230716490042EC3C /* LecturerRenderer */,
 				81BFA90422F199490036BACC /* LecturerStorage.swift */,
 				8177389423049FDF00D0F8D4 /* DashboardNewsStorage.swift */,
 				817738962304A14900D0F8D4 /* DashboardEventStorage.swift */,
@@ -319,6 +340,17 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		81F9429B230716490042EC3C /* LecturerRenderer */ = {
+			isa = PBXGroup;
+			children = (
+				81F9429C2307165B0042EC3C /* HWLecturerRenderer.swift */,
+				81F9429E230718820042EC3C /* HWLecturerRendererComponent.swift */,
+				81F942A0230753400042EC3C /* HWLecturerRendererTextComponent.swift */,
+				81F942AA23076A240042EC3C /* HWLecturerRendererListComponent.swift */,
+			);
+			path = LecturerRenderer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -415,19 +447,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				81F942992306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift in Sources */,
+				81F9429D2307165B0042EC3C /* HWLecturerRenderer.swift in Sources */,
 				81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */,
 				81BFA8EF22E3854E0036BACC /* LogManager.swift in Sources */,
 				816B7A3322DA89F600FA507E /* EventCollectionViewCell.swift in Sources */,
+				81F942A5230765EC0042EC3C /* LecturerInfoMainAreaTableViewCell.swift in Sources */,
 				81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */,
 				81BFA90522F199490036BACC /* LecturerStorage.swift in Sources */,
 				81BFA8F922E4CEAC0036BACC /* LecturersMasterController.swift in Sources */,
 				81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */,
 				816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */,
+				81F9429F230718820042EC3C /* HWLecturerRendererComponent.swift in Sources */,
 				816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */,
+				81F942AB23076A240042EC3C /* HWLecturerRendererListComponent.swift in Sources */,
 				81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */,
 				816B7A3122DA86B900FA507E /* Event.swift in Sources */,
+				81F942A1230753400042EC3C /* HWLecturerRendererTextComponent.swift in Sources */,
 				81BFA8FC22E4D1D40036BACC /* LecturerTableViewCell.swift in Sources */,
 				817738972304A14900D0F8D4 /* DashboardEventStorage.swift in Sources */,
+				81F942A7230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift in Sources */,
 				81BFA90722F1B3820036BACC /* LecturersDetailController.swift in Sources */,
 				81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */,
 				81D7A2D3230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift in Sources */,
@@ -455,7 +493,9 @@
 				81EB7DD222D2A0F000E00485 /* HTWMateNewsAPI.swift in Sources */,
 				81EB7DBC22D2066A00E00485 /* HWIcons.swift in Sources */,
 				81BFA8F722E4CE2D0036BACC /* LecturersController.swift in Sources */,
+				81F942A32307575E0042EC3C /* LecturerInfoFieldOfWorkTableViewCell.swift in Sources */,
 				81EB7DCA22D2803300E00485 /* HWInsets.swift in Sources */,
+				81F942A9230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift in Sources */,
 				81EB7DCE22D29C0F00E00485 /* NetworkWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

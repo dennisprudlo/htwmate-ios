@@ -31,6 +31,10 @@ class Lecturer : DatabaseModel {
     var officeThoroughfare: String?
     var officePostalCode: String?
     var officeLocality: String?
+    var fieldOfWork = HWLecturerRenderer()
+    var mainArea = HWLecturerRenderer()
+    var researchActivities = HWLecturerRenderer()
+    var officialCapacity = HWLecturerRenderer()
     var lastUpdatedAt: Date?
 
     private var quickActionSubviews: [UIView] = []
@@ -69,6 +73,12 @@ class Lecturer : DatabaseModel {
         lecturer.officePostalCode = dictionary.value(forKey: "office_postal_code") as? String
         lecturer.officeLocality = dictionary.value(forKey: "office_locality") as? String
 
+        // Load renderer json representation
+        lecturer.fieldOfWork.data = dictionary.value(forKey: "field_of_work") as? String ?? "[]"
+        lecturer.mainArea.data = dictionary.value(forKey: "main_area") as? String ?? "[]"
+        lecturer.researchActivities.data = dictionary.value(forKey: "research_activities") as? String ?? "[]"
+        lecturer.officialCapacity.data = dictionary.value(forKey: "official_capacity") as? String ?? "[]"
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let lastUpdatedAtString = dictionary.value(forKey: "updated_at") as? String ?? ""
@@ -105,6 +115,26 @@ class Lecturer : DatabaseModel {
 
         if self.hasOffice() {
             output.append(LecturerInfoOfficeTableViewCell.self)
+        }
+
+        if fieldOfWork.hasContent() {
+            fieldOfWork.compose()
+            output.append(LecturerInfoFieldOfWorkTableViewCell.self)
+        }
+
+        if mainArea.hasContent() {
+            mainArea.compose()
+            output.append(LecturerInfoMainAreaTableViewCell.self)
+        }
+
+        if researchActivities.hasContent() {
+            researchActivities.compose()
+            output.append(LecturerInfoResearchActivitiesTableViewCell.self)
+        }
+
+        if officialCapacity.hasContent() {
+            officialCapacity.compose()
+            output.append(LecturerInfoOfficialCapacityTableViewCell.self)
         }
 
         output.append(LecturerInfoUpdatedTableViewCell.self)
