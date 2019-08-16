@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Contacts
 
 class Lecturer : DatabaseModel {
 
@@ -207,5 +208,71 @@ class Lecturer : DatabaseModel {
         stack.axis = .vertical
 
         return stack
+    }
+
+    /// Creates a CNContact instance of the lecturer to use it throughout the application
+    ///
+    /// - Returns: A CNContact instance with the lecturers contact information
+    func createContact() -> CNContact {
+        let contact = CNMutableContact()
+
+        if let strongTitle = self.title {
+            contact.jobTitle = strongTitle
+        }
+        contact.familyName = self.lastname
+        contact.givenName = self.firstname
+
+        if let strongMail = self.mail as NSString? {
+            let mail = CNLabeledValue(label: CNLabelWork, value: strongMail)
+            contact.emailAddresses = [mail]
+        }
+
+        var phoneNumbers: [CNLabeledValue<CNPhoneNumber>] = []
+
+        if let strongMobile = self.mobile {
+            let mobile = CNLabeledValue<CNPhoneNumber>(label: CNLabelPhoneNumberMobile, value: CNPhoneNumber(stringValue: strongMobile))
+            phoneNumbers.append(mobile)
+        }
+
+        if let strongPhone = self.phone {
+            let phone = CNLabeledValue<CNPhoneNumber>(label: CNLabelPhoneNumberMain, value: CNPhoneNumber(stringValue: strongPhone))
+            phoneNumbers.append(phone)
+        }
+
+        if let strongFax = self.fax {
+            let fax = CNLabeledValue<CNPhoneNumber>(label: CNLabelPhoneNumberWorkFax, value: CNPhoneNumber(stringValue: strongFax))
+            phoneNumbers.append(fax)
+        }
+
+        contact.phoneNumbers = phoneNumbers
+
+        if let websiteUrl = self.websiteUrl?.absoluteString as NSString? {
+            contact.urlAddresses.append(CNLabeledValue<NSString>(label: CNLabelWork, value: websiteUrl))
+        }
+
+        if self.hasOffice() {
+            let postalAddress = CNMutablePostalAddress()
+            if let thoroughfare = self.officeThoroughfare {
+                postalAddress.street = thoroughfare
+            }
+            if let postalCode = self.officePostalCode {
+                postalAddress.postalCode = postalCode
+            }
+            if let locality = self.officeLocality {
+                postalAddress.city = locality
+            }
+
+            let postalAddressData = CNLabeledValue<CNPostalAddress>(label: CNLabelWork, value: postalAddress)
+            contact.postalAddresses.append(postalAddressData)
+        }
+
+        if self.imageSet, let image = self.image {
+            contact.imageData = image.jpegData(compressionQuality: 1.0)
+        }
+
+        contact.contactType = .person
+        contact.organizationName = "HTW Berlin"
+
+        return contact
     }
 }

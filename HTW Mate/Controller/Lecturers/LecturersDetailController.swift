@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Contacts
 
 class LecturersDetailController: UITableViewController {
 
@@ -24,6 +25,8 @@ class LecturersDetailController: UITableViewController {
 
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapActionButton(_:)))
 
         tableView.register(LecturerInfoHeadTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoHeadTableViewCell.self))
         tableView.register(LecturerInfoOfficeTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoOfficeTableViewCell.self))
@@ -64,5 +67,35 @@ class LecturersDetailController: UITableViewController {
         if let cell = tableView.cellForRow(at: indexPath) as? LecturerInfoOfficeTableViewCell {
             cell.openInMaps()
         }
+    }
+
+    @objc func didTapActionButton(_ sender: UIBarButtonItem) {
+
+        let contact = lecturer.createContact()
+        do {
+            try shareContactWithThirdParty(contact)
+        } catch{
+            LogManager(ofType: .error).put("Contact could not be creatd.").from(contact)
+        }
+    }
+
+    func shareContactWithThirdParty(_ contact: CNContact) throws {
+        guard let directoryUrl = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else {
+            return
+        }
+
+        var filename = UUID().uuidString
+
+        if let fullname = CNContactFormatter().string(from: contact) {
+            filename = fullname.components(separatedBy: " ").joined(separator: "")
+        }
+
+        let fileUrl = directoryUrl.appendingPathComponent(filename).appendingPathExtension("vcf")
+
+        let data = try CNContactVCardSerialization.dataWithImage(contacts: [contact])
+        try data.write(to: fileUrl, options: Data.WritingOptions.atomicWrite)
+
+        let activityViewController = UIActivityViewController(activityItems: [fileUrl], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
     }
 }

@@ -53,6 +53,7 @@
 		81EB7DCE22D29C0F00E00485 /* NetworkWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DCD22D29C0F00E00485 /* NetworkWrapper.swift */; };
 		81EB7DD022D2A07C00E00485 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DCF22D2A07C00E00485 /* API.swift */; };
 		81EB7DD222D2A0F000E00485 /* HTWMateNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DD122D2A0F000E00485 /* HTWMateNewsAPI.swift */; };
+		81F942992306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942982306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +106,7 @@
 		81EB7DCD22D29C0F00E00485 /* NetworkWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWrapper.swift; sourceTree = "<group>"; };
 		81EB7DCF22D2A07C00E00485 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		81EB7DD122D2A0F000E00485 /* HTWMateNewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateNewsAPI.swift; sourceTree = "<group>"; };
+		81F942982306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CNContactVCardSerialization+Image.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 				81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */,
 				81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */,
 				817738982304B0D200D0F8D4 /* UINavigationController+StatusBarStyle.swift */,
+				81F942982306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F942992306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift in Sources */,
 				81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */,
 				81BFA8EF22E3854E0036BACC /* LogManager.swift in Sources */,
 				816B7A3322DA89F600FA507E /* EventCollectionViewCell.swift in Sources */,
