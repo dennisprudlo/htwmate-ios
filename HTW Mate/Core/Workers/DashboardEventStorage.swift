@@ -15,7 +15,9 @@ class DashboardEventStorage {
     var delegate: DashboardController?
     var loaded: Bool = false
 
-    var events: [Event] = []
+    var events: [Event] = [
+        Event(), Event(), Event(), Event(), Event(), Event()
+    ]
 
     public func reload() {
         guard let dashboardController = self.delegate else {

@@ -152,7 +152,6 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         
         collectionViewCell.layoutSubviews()
 
-        #warning("Snapshot and Contraint error when rotating device")
         return collectionViewCell
     }
 

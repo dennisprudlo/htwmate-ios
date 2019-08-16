@@ -14,6 +14,7 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
     private var titleLabel = UILabel()
     private var subtitleLabel = UILabel()
     private var imageView = UIImageView()
+    private var blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
 
     public var viewController: DashboardController!
     private var news: News!
@@ -47,7 +48,6 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
 
         //
         // Add visual effect view
-        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         blurView.translatesAutoresizingMaskIntoConstraints = false
         imageView.addSubview(blurView)
 
@@ -81,6 +81,7 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
     }
 
     @objc func openUrl() {
+        guard !news.isSkeleton else { return }
 
         let safariView = SFSafariViewController(url: news.url)
         safariView.delegate = self
@@ -96,6 +97,12 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
         setTitle(news.title)
         setSubtitle(news.subtitle)
 
+        blurView.isHidden = news.isSkeleton
+
+        guard news.databaseId != -1 else {
+            return
+        }
+        
         DownloadManager.image(from: news.imageUrl) { (image) in
             self.setImage(image)
         }

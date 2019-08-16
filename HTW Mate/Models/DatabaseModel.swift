@@ -12,6 +12,10 @@ class DatabaseModel {
 
     var databaseId: Int
 
+    var isSkeleton: Bool {
+        return databaseId == -1
+    }
+
     init(databaseId: Int) {
         self.databaseId = databaseId
     }

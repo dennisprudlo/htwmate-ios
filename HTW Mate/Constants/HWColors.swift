@@ -36,4 +36,5 @@ struct HWColors {
     static let contentBackground = UIColor(fromHexRed: 0xEE, green: 0xEE, blue: 0xEE)
     static let shadowDrop = UIColor(fromHexRed: 0x33, green: 0x33, blue: 0x33)
 
+    static let skeletonGray = HWColors.contentBackground
 }

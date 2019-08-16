@@ -77,6 +77,8 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
     }
 
     @objc func openUrl() {
+        guard !event.isSkeleton else { return }
+
         let safariView = SFSafariViewController(url: event.url)
         safariView.delegate = self
         safariView.dismissButtonStyle = .close
@@ -97,6 +99,8 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
     }
 
     func addEventToCalendar(date: Date) {
+        guard !event.isSkeleton else { return }
+        
         let eventStore = EKEventStore()
         eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
             DispatchQueue.main.async {
@@ -157,6 +161,14 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
         setTitle(event.title)
         setSubtitle(event.subtitle)
         setDate(event.date)
+
+        if event.isSkeleton {
+            dateView.backgroundColor = HWColors.skeletonGray
+            dateMonthLabel.text = nil
+            dateDayLabel.text = nil
+        } else {
+            dateView.backgroundColor = HWColors.darkPrimary
+        }
     }
 
     public func setTitle(_ title: String) {

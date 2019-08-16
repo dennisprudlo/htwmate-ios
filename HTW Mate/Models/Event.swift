@@ -57,5 +57,9 @@ class Event : DatabaseModel {
 
         self.init(databaseId: id, title: title, subtitle: subtitle, url: parsedUrl, date: parsedDate)
     }
+
+    convenience init() {
+        self.init(databaseId: -1, title: "", subtitle: "", url: URL(fileURLWithPath: ""), date: Date())
+    }
 }
 

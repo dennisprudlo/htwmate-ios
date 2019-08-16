@@ -12,8 +12,4 @@ struct HWImage {
 
     static let lecturersProfilePlaceholder = UIImage(named: "profile-placeholder")
 
-    static let lecturersQuickActionMessage = UIImage(named: "message")
-    static let lecturersQuickActionPhone = UIImage(named: "phone")
-    static let lecturersQuickActionWebsite = UIImage(named: "website")
-
 }

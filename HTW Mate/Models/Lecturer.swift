@@ -168,9 +168,9 @@ class Lecturer : DatabaseModel {
             return quickActionSubviews
         }
 
-        quickActionSubviews.append(self.generateQuickActionSubview(withTitle: HWStrings.Controllers.Lecturers.Detail.mail,   icon: HWImage.lecturersQuickActionMessage,  active: self.hasMail()))
-        quickActionSubviews.append(self.generateQuickActionSubview(withTitle: HWStrings.Controllers.Lecturers.Detail.call,   icon: HWImage.lecturersQuickActionPhone,    active: self.hasMobileOrPhone()))
-        quickActionSubviews.append(self.generateQuickActionSubview(withTitle: HWStrings.Controllers.Lecturers.Detail.visit,  icon: HWImage.lecturersQuickActionWebsite,  active: self.hasWebsite()))
+        quickActionSubviews.append(self.generateQuickActionSubview(withTitle: HWStrings.Controllers.Lecturers.Detail.mail,   icon: HWIcons.lecturersQuickActionMessage,  active: self.hasMail()))
+        quickActionSubviews.append(self.generateQuickActionSubview(withTitle: HWStrings.Controllers.Lecturers.Detail.call,   icon: HWIcons.lecturersQuickActionPhone,    active: self.hasMobileOrPhone()))
+        quickActionSubviews.append(self.generateQuickActionSubview(withTitle: HWStrings.Controllers.Lecturers.Detail.visit,  icon: HWIcons.lecturersQuickActionWebsite,  active: self.hasWebsite()))
 
         return quickActionSubviews
     }
