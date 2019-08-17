@@ -22,6 +22,7 @@ class HWLecturerRenderer {
         let data = Data(self.data.utf8)
         do {
             if let components = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                self.components = []
                 components.forEach { (component) in
                     guard let type = component["type"] as? String else { return }
 
@@ -47,9 +48,7 @@ class HWLecturerRenderer {
     }
 
     public func render(in superView: UIView) {
-        superView.subviews.forEach { (subview) in
-            subview.removeFromSuperview()
-        }
+        superView.subviews.forEach({ $0.removeFromSuperview() })
 
         var topAnchorHook = superView.topAnchor
         var lastComponentView: UIView?
