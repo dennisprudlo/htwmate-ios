@@ -98,6 +98,11 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
         setSubtitle(news.subtitle)
 
         blurView.isHidden = news.isSkeleton
+        if news.isSkeleton {
+            AppearanceManager.dropShadow(for: contentView, withRadius: 4, opacity: 0.1)
+        } else {
+            AppearanceManager.dropShadow(for: contentView)
+        }
 
         guard news.databaseId != -1 else {
             return
