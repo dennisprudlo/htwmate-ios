@@ -66,6 +66,7 @@
 		81F942B0230811370042EC3C /* DashboardEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942AF230811370042EC3C /* DashboardEventsController.swift */; };
 		81F942B22308187B0042EC3C /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942B12308187B0042EC3C /* EventTableViewCell.swift */; };
 		81F942B4230821420042EC3C /* HWEventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942B3230821420042EC3C /* HWEventEditViewController.swift */; };
+		81F942B723082DF30042EC3C /* DiningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942B623082DF30042EC3C /* DiningController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,7 @@
 		81F942AF230811370042EC3C /* DashboardEventsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEventsController.swift; sourceTree = "<group>"; };
 		81F942B12308187B0042EC3C /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		81F942B3230821420042EC3C /* HWEventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWEventEditViewController.swift; sourceTree = "<group>"; };
+		81F942B623082DF30042EC3C /* DiningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		8127AF6D22D1422200179BD1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				81F942B523082DC00042EC3C /* Dining */,
 				81F942AE230810F80042EC3C /* Dashboard */,
 				8177389323049F5F00D0F8D4 /* Foundation */,
 				81BFA8F522E4CE0C0036BACC /* Lecturers */,
@@ -371,6 +374,14 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
+		81F942B523082DC00042EC3C /* Dining */ = {
+			isa = PBXGroup;
+			children = (
+				81F942B623082DF30042EC3C /* DiningController.swift */,
+			);
+			path = Dining;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -480,6 +491,7 @@
 				816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */,
 				81F942AD230776830042EC3C /* LecturerInfoOfficeHoursTableViewCell.swift in Sources */,
 				81F9429F230718820042EC3C /* HWLecturerRendererComponent.swift in Sources */,
+				81F942B723082DF30042EC3C /* DiningController.swift in Sources */,
 				816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */,
 				81F942AB23076A240042EC3C /* HWLecturerRendererListComponent.swift in Sources */,
 				81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */,

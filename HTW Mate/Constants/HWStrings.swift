@@ -64,5 +64,9 @@ struct HWStrings {
                 static let lastUpdateDateFormat = NSLocalizedString("controller.lecturer.detail.lastupdate.dateformat", comment: "The NSDateFormatters date format for the current locale")
             }
         }
+        struct Dining {
+            static let title = NSLocalizedString("controller.dining.title", comment: "The title for the main dining view")
+            static let todayLabel = NSLocalizedString("controller.dining.todaylabel", comment: "The label for the button to display the menu of today")
+        }
     }
 }
