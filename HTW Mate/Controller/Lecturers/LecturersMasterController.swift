@@ -19,8 +19,6 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         super.title = HWStrings.Controllers.Lecturers.title
-        
-        extendedLayoutIncludesOpaqueBars = true
 
         splitViewController?.delegate = self
 

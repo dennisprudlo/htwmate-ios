@@ -21,7 +21,6 @@ class LecturersDetailController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        extendedLayoutIncludesOpaqueBars = true
 
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
@@ -40,9 +39,6 @@ class LecturersDetailController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = 200
-
-        #warning("Dirty solution for the bottom inset bug in the table view")
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -83, right: 0)
     }
 
     func rebuildUI() -> Void {

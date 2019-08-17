@@ -15,9 +15,8 @@ struct AppearanceManager {
     public static func updateNavigationBarAppearance() -> Void {
         let appearance = UINavigationBar.appearance(whenContainedInInstancesOf: [HWNavigationController.self])
 
-        appearance.isTranslucent = false
+        appearance.barStyle = .blackTranslucent
         appearance.tintColor = HWColors.whitePrimary
-        appearance.barTintColor = HWColors.darkPrimary
 
         let textAttributes = [
             NSAttributedString.Key.foregroundColor: HWColors.whitePrimary
@@ -29,10 +28,8 @@ struct AppearanceManager {
     /// Updates the global appearance of the tab bar controls
     public static func updateTabBarAppearance() -> Void {
         let appearance = UITabBar.appearance()
-
-        appearance.isTranslucent = false
+        appearance.barStyle = .black
         appearance.tintColor = HWColors.whitePrimary
-        appearance.barTintColor = HWColors.darkPrimary
     }
 
     public static func dropShadow(for view: UIView, withRadius radius: CGFloat = 10, opacity: Float = 0.3) {
