@@ -8,9 +8,8 @@
 
 import UIKit
 import MessageUI
-import SafariServices
 
-class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeViewControllerDelegate, SFSafariViewControllerDelegate {
+class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeViewControllerDelegate {
 
     let lecturerImageView = UIImageView()
     let titleLabel = UILabel()
@@ -145,18 +144,10 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
             return
         }
 
-        let safariView = SFSafariViewController(url: website)
-        safariView.delegate = self
-        safariView.preferredBarTintColor = UIColor.black
-
-        tableViewController.present(safariView, animated: true, completion: nil)
+        UIApplication.shared.open(website, options: [:], completionHandler: nil)
     }
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         controller.dismiss(animated: true, completion: nil)
     }
 }

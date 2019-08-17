@@ -13,10 +13,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     private var itemsPerRow: CGFloat = 1
     private let sectionInsets = UIEdgeInsets(top: HWInsets.medium, left: HWInsets.medium, bottom: HWInsets.medium, right: HWInsets.medium)
 
-    let sectionTitles = [
-        HWStrings.Controllers.Dashboard.sectionNews,
-        HWStrings.Controllers.Dashboard.sectionEvents
-    ]
+    let sectionTypes: [SectionTitleCollectionReusableView.SectionType] = [.topNews, .events]
 
     /// The refresh control to easily update the displayed date
     private let refreshControl = UIRefreshControl()
@@ -101,7 +98,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sectionTitles.count
+        return sectionTypes.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -117,7 +114,8 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
 
         if kind == UICollectionView.elementKindSectionHeader {
             let sectionHeader = SectionTitleCollectionReusableView.dequeue(from: collectionView, ofKind: kind, for: indexPath)
-            sectionHeader.setTitle(sectionTitles[indexPath.section])
+            sectionHeader.setSection(ofType: sectionTypes[indexPath.section])
+            sectionHeader.navigationController = self.navigationController
             return sectionHeader
         }
 

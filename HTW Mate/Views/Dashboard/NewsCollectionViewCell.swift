@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import SafariServices
 
-class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewControllerDelegate {
+class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
 
     private var titleLabel = UILabel()
     private var subtitleLabel = UILabel()
@@ -83,12 +82,7 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
     @objc func openUrl() {
         guard !news.isSkeleton else { return }
 
-        let safariView = SFSafariViewController(url: news.url)
-        safariView.delegate = self
-        safariView.dismissButtonStyle = .close
-        safariView.preferredBarTintColor = UIColor.black
-
-        self.viewController.present(safariView, animated: true, completion: nil)
+        UIApplication.shared.open(news.url, options: [:], completionHandler: nil)
     }
 
     public func setModel(_ news: News) {
@@ -123,9 +117,5 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
 
     public func setImage(_ image: UIImage?) {
         imageView.image = image
-    }
-
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        controller.dismiss(animated: true, completion: nil)
     }
 }

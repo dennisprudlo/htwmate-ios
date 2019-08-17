@@ -19,5 +19,12 @@ struct HWFontSize {
     static let lecturerName: CGFloat = 27;
     static let lecturerGenericText: CGFloat = 15;
 
+    /// The font size for a meta information of 12pt
     static let metaInfo: CGFloat = 12;
+
+    /// The font size for a strong highlighted text of 15pt
+    static let strongText: CGFloat = 15;
+
+    /// The font size for a paragraph text of 13pt
+    static let text: CGFloat = 13;
 }

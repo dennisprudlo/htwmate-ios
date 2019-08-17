@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import SafariServices
 import EventKit
 import EventKitUI
 
-class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewControllerDelegate {
+class EventCollectionViewCell: UICollectionViewCell, Dequeable {
 
     private var titleLabel = UILabel()
     private var subtitleLabel = UILabel()
@@ -79,12 +78,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
     @objc func openUrl() {
         guard !event.isSkeleton else { return }
 
-        let safariView = SFSafariViewController(url: event.url)
-        safariView.delegate = self
-        safariView.dismissButtonStyle = .close
-        safariView.preferredBarTintColor = UIColor.black
-
-        self.viewController.present(safariView, animated: true, completion: nil)
+        UIApplication.shared.open(event.url, options: [:], completionHandler: nil)
     }
 
     @objc func saveEvent(gestureReconizer: UILongPressGestureRecognizer) {
@@ -92,32 +86,23 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
             if isLongPressingOnEvent { return }
 
             isLongPressingOnEvent = true
-            self.addEventToCalendar(date: self.event.date)
+            self.addEventToCalendar()
         } else {
             isLongPressingOnEvent = false
         }
     }
 
-    func addEventToCalendar(date: Date) {
+    func addEventToCalendar() {
         guard !event.isSkeleton else { return }
         
         let eventStore = EKEventStore()
         eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
             DispatchQueue.main.async {
                 if granted && error == nil {
-                    let event = EKEvent(eventStore: eventStore)
-                    event.title = self.event.title
-                    event.notes = self.event.subtitle
-                    event.url = self.event.url
-                    event.isAllDay = true
-
-                    event.startDate = date
-                    event.endDate = date
-
-                    let eventController = EKEventEditViewController()
+                    let eventController = HWEventEditViewController()
                     eventController.delegate = self.viewController
-                    eventController.event = event
                     eventController.eventStore = eventStore
+                    eventController.eventModel = self.event
                     eventController.editViewDelegate = self
                     self.viewController.present(eventController, animated: true, completion: nil)
                 } else if !granted && error == nil {

@@ -63,6 +63,9 @@
 		81F942A9230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942A8230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift */; };
 		81F942AB23076A240042EC3C /* HWLecturerRendererListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942AA23076A240042EC3C /* HWLecturerRendererListComponent.swift */; };
 		81F942AD230776830042EC3C /* LecturerInfoOfficeHoursTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942AC230776830042EC3C /* LecturerInfoOfficeHoursTableViewCell.swift */; };
+		81F942B0230811370042EC3C /* DashboardEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942AF230811370042EC3C /* DashboardEventsController.swift */; };
+		81F942B22308187B0042EC3C /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942B12308187B0042EC3C /* EventTableViewCell.swift */; };
+		81F942B4230821420042EC3C /* HWEventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942B3230821420042EC3C /* HWEventEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +128,9 @@
 		81F942A8230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoOfficialCapacityTableViewCell.swift; sourceTree = "<group>"; };
 		81F942AA23076A240042EC3C /* HWLecturerRendererListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWLecturerRendererListComponent.swift; sourceTree = "<group>"; };
 		81F942AC230776830042EC3C /* LecturerInfoOfficeHoursTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoOfficeHoursTableViewCell.swift; sourceTree = "<group>"; };
+		81F942AF230811370042EC3C /* DashboardEventsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEventsController.swift; sourceTree = "<group>"; };
+		81F942B12308187B0042EC3C /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		81F942B3230821420042EC3C /* HWEventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWEventEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,9 +147,9 @@
 		8127AF6D22D1422200179BD1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				81F942AE230810F80042EC3C /* Dashboard */,
 				8177389323049F5F00D0F8D4 /* Foundation */,
 				81BFA8F522E4CE0C0036BACC /* Lecturers */,
-				81E707E222D12F00000B8EE6 /* DashboardController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -153,6 +159,7 @@
 			children = (
 				81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */,
 				817738912304966200D0F8D4 /* HWTabBarController.swift */,
+				81F942B3230821420042EC3C /* HWEventEditViewController.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -310,6 +317,7 @@
 				81EB7DC422D270A000E00485 /* NewsCollectionViewCell.swift */,
 				81E0F1DA22D3A1B20065849D /* SectionTitleCollectionReusableView.swift */,
 				816B7A3222DA89F600FA507E /* EventCollectionViewCell.swift */,
+				81F942B12308187B0042EC3C /* EventTableViewCell.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -352,6 +360,15 @@
 				81F942AA23076A240042EC3C /* HWLecturerRendererListComponent.swift */,
 			);
 			path = LecturerRenderer;
+			sourceTree = "<group>";
+		};
+		81F942AE230810F80042EC3C /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				81E707E222D12F00000B8EE6 /* DashboardController.swift */,
+				81F942AF230811370042EC3C /* DashboardEventsController.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81F942992306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift in Sources */,
+				81F942B4230821420042EC3C /* HWEventEditViewController.swift in Sources */,
 				81F9429D2307165B0042EC3C /* HWLecturerRenderer.swift in Sources */,
 				81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */,
 				81BFA8EF22E3854E0036BACC /* LogManager.swift in Sources */,
@@ -467,6 +485,7 @@
 				81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */,
 				816B7A3122DA86B900FA507E /* Event.swift in Sources */,
 				81F942A1230753400042EC3C /* HWLecturerRendererTextComponent.swift in Sources */,
+				81F942B22308187B0042EC3C /* EventTableViewCell.swift in Sources */,
 				81BFA8FC22E4D1D40036BACC /* LecturerTableViewCell.swift in Sources */,
 				817738972304A14900D0F8D4 /* DashboardEventStorage.swift in Sources */,
 				81F942A7230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift in Sources */,
@@ -489,6 +508,7 @@
 				81EB7DC122D2636C00E00485 /* DatabaseModel.swift in Sources */,
 				81EB7DBF22D2631800E00485 /* News.swift in Sources */,
 				81EB7DB722D1462800E00485 /* AppearanceManager.swift in Sources */,
+				81F942B0230811370042EC3C /* DashboardEventsController.swift in Sources */,
 				81BFA90922F1DC780036BACC /* LecturerInfoHeadTableViewCell.swift in Sources */,
 				81EB7DD022D2A07C00E00485 /* API.swift in Sources */,
 				817738802302E93D00D0F8D4 /* LecturerInfoUpdatedTableViewCell.swift in Sources */,
