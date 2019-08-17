@@ -35,6 +35,7 @@ class LecturersDetailController: UITableViewController {
         tableView.register(LecturerInfoMainAreaTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoMainAreaTableViewCell.self))
         tableView.register(LecturerInfoResearchActivitiesTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoResearchActivitiesTableViewCell.self))
         tableView.register(LecturerInfoOfficialCapacityTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoOfficialCapacityTableViewCell.self))
+        tableView.register(LecturerInfoOfficeHoursTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoOfficeHoursTableViewCell.self))
 
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none

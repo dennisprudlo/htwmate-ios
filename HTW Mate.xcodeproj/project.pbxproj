@@ -62,6 +62,7 @@
 		81F942A7230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942A6230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift */; };
 		81F942A9230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942A8230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift */; };
 		81F942AB23076A240042EC3C /* HWLecturerRendererListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942AA23076A240042EC3C /* HWLecturerRendererListComponent.swift */; };
+		81F942AD230776830042EC3C /* LecturerInfoOfficeHoursTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942AC230776830042EC3C /* LecturerInfoOfficeHoursTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,7 @@
 		81F942A6230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoResearchActivitiesTableViewCell.swift; sourceTree = "<group>"; };
 		81F942A8230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoOfficialCapacityTableViewCell.swift; sourceTree = "<group>"; };
 		81F942AA23076A240042EC3C /* HWLecturerRendererListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWLecturerRendererListComponent.swift; sourceTree = "<group>"; };
+		81F942AC230776830042EC3C /* LecturerInfoOfficeHoursTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoOfficeHoursTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				81F942A4230765EC0042EC3C /* LecturerInfoMainAreaTableViewCell.swift */,
 				81F942A6230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift */,
 				81F942A8230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift */,
+				81F942AC230776830042EC3C /* LecturerInfoOfficeHoursTableViewCell.swift */,
 			);
 			path = Lecturers;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				81BFA8F922E4CEAC0036BACC /* LecturersMasterController.swift in Sources */,
 				81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */,
 				816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */,
+				81F942AD230776830042EC3C /* LecturerInfoOfficeHoursTableViewCell.swift in Sources */,
 				81F9429F230718820042EC3C /* HWLecturerRendererComponent.swift in Sources */,
 				816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */,
 				81F942AB23076A240042EC3C /* HWLecturerRendererListComponent.swift in Sources */,

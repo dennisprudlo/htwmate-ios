@@ -54,6 +54,7 @@ struct HWStrings {
                 static let visit = NSLocalizedString("controller.lecturer.detail.visit", comment: "The text description for the 'visit web' quick action")
 
                 static let sectionOffice = NSLocalizedString("controller.lecturer.detail.section.office", comment: "The section headline for the office data")
+                static let sectionOfficeHours = NSLocalizedString("controller.lecturer.detail.section.officehours", comment: "The section headline for the office hours data")
                 static let sectionFieldOfWork = NSLocalizedString("controller.lecturer.detail.section.fieldofwork", comment: "The section headline for the field of work data")
                 static let sectionMainArea = NSLocalizedString("controller.lecturer.detail.section.mainarea", comment: "The section headline for the main area data")
                 static let sectionResearchActivities = NSLocalizedString("controller.lecturer.detail.section.researchactivities", comment: "The section headline for the research activity data")

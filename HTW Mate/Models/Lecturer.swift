@@ -35,6 +35,7 @@ class Lecturer : DatabaseModel {
     var mainArea = HWLecturerRenderer()
     var researchActivities = HWLecturerRenderer()
     var officialCapacity = HWLecturerRenderer()
+    var officeHours = HWLecturerRenderer()
     var lastUpdatedAt: Date?
 
     private var quickActionSubviews: [UIView] = []
@@ -78,6 +79,7 @@ class Lecturer : DatabaseModel {
         lecturer.mainArea.data = dictionary.value(forKey: "main_area") as? String ?? "[]"
         lecturer.researchActivities.data = dictionary.value(forKey: "research_activities") as? String ?? "[]"
         lecturer.officialCapacity.data = dictionary.value(forKey: "official_capacity") as? String ?? "[]"
+        lecturer.officeHours.data = dictionary.value(forKey: "office_hours") as? String ?? "[]"
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -115,6 +117,11 @@ class Lecturer : DatabaseModel {
 
         if self.hasOffice() {
             output.append(LecturerInfoOfficeTableViewCell.self)
+        }
+
+        if officeHours.hasContent() {
+            officeHours.compose()
+            output.append(LecturerInfoOfficeHoursTableViewCell.self)
         }
 
         if fieldOfWork.hasContent() {
