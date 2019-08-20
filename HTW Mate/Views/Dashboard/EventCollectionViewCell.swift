@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import SafariServices
 import EventKit
 import EventKitUI
 
-class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewControllerDelegate {
+class EventCollectionViewCell: UICollectionViewCell, Dequeable {
 
     private var titleLabel = UILabel()
     private var subtitleLabel = UILabel()
@@ -19,7 +18,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
     private var dateMonthLabel = UILabel()
     private var dateDayLabel = UILabel()
 
-    private var viewController: UIViewController!
+    public var viewController: DashboardController!
     private var event: Event!
 
     var isLongPressingOnEvent = false
@@ -27,7 +26,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
     override init(frame: CGRect) {
         super.init(frame: CGRect.zero)
 
-        self.setupView()
+        setupView()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -37,10 +36,12 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
     private func setupView() {
         let outerInsets = HWInsets.medium
 
-        AppearanceManager.dropShadow(for: contentView)
+        AppearanceManager.dropShadow(for: contentView, withRadius: 4, opacity: 0.2)
+        contentView.layer.cornerRadius = HWInsets.CornerRadius.panel
 
         dateView.translatesAutoresizingMaskIntoConstraints = false
         dateView.backgroundColor = HWColors.darkPrimary
+        dateView.layer.cornerRadius = HWInsets.CornerRadius.label
         setupDateView()
         contentView.addSubview(dateView)
 
@@ -57,7 +58,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
 
         titleLabel.leadingAnchor.constraint(equalTo: dateView.trailingAnchor, constant: outerInsets).isActive = true
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: outerInsets).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -outerInsets).isActive = true
+        titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -outerInsets).isActive = true
 
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .regular)
@@ -75,12 +76,9 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
     }
 
     @objc func openUrl() {
-        let safariView = SFSafariViewController(url: event.url)
-        safariView.delegate = self
-        safariView.dismissButtonStyle = .close
-        safariView.preferredBarTintColor = UIColor.black
+        guard !event.isSkeleton else { return }
 
-        self.viewController.present(safariView, animated: true, completion: nil)
+        UIApplication.shared.open(event.url, options: [:], completionHandler: nil)
     }
 
     @objc func saveEvent(gestureReconizer: UILongPressGestureRecognizer) {
@@ -88,35 +86,27 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
             if isLongPressingOnEvent { return }
 
             isLongPressingOnEvent = true
-            self.addEventToCalendar(date: self.event.date)
+            self.addEventToCalendar()
         } else {
             isLongPressingOnEvent = false
         }
     }
 
-    func addEventToCalendar(date: Date) {
+    func addEventToCalendar() {
+        guard !event.isSkeleton else { return }
+        
         let eventStore = EKEventStore()
         eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
             DispatchQueue.main.async {
                 if granted && error == nil {
-                    let event = EKEvent(eventStore: eventStore)
-                    event.title = self.event.title
-                    event.notes = self.event.subtitle
-                    event.url = self.event.url
-                    event.isAllDay = true
-
-                    event.startDate = date
-                    event.endDate = date
-
-                    let eventController = EKEventEditViewController()
-                    eventController.event = event
+                    let eventController = HWEventEditViewController()
+                    eventController.delegate = self.viewController
                     eventController.eventStore = eventStore
+                    eventController.eventModel = self.event
                     eventController.editViewDelegate = self
                     self.viewController.present(eventController, animated: true, completion: nil)
                 } else if !granted && error == nil {
-
                     AlertManager(in: self.viewController).insufficentPermission(for: .eventStore)
-
                 }
             }
         })
@@ -149,10 +139,6 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
 
         dateDayLabel.topAnchor.constraint(equalTo: dateMonthLabel.bottomAnchor).isActive = true
     }
-    
-    public func setViewController(_ viewController: UIViewController) {
-        self.viewController = viewController
-    }
 
     public func setModel(_ event: Event) {
         self.event = event
@@ -160,6 +146,14 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewCont
         setTitle(event.title)
         setSubtitle(event.subtitle)
         setDate(event.date)
+
+        if event.isSkeleton {
+            dateView.backgroundColor = HWColors.skeletonGray
+            dateMonthLabel.text = nil
+            dateDayLabel.text = nil
+        } else {
+            dateView.backgroundColor = HWColors.darkPrimary
+        }
     }
 
     public func setTitle(_ title: String) {

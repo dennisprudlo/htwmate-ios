@@ -20,6 +20,11 @@ class AlertManager {
         case eventStore
     }
 
+    enum DispatchType {
+        case inherit
+        case ok
+    }
+
     init(in viewController: UIViewController) {
         self.viewController = viewController
     }
@@ -27,8 +32,8 @@ class AlertManager {
     func insufficentPermission(for permission: AlertManager.PermissionType) -> Void {
         switch permission {
         case .eventStore:
-            title = HWStrings.permissionEventStoreTitle
-            message = HWStrings.permissionEventStoreMessage
+            title = HWStrings.Permissions.eventStore.title
+            message = HWStrings.Permissions.eventStore.description
         }
 
         alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -42,10 +47,28 @@ class AlertManager {
                 UIApplication.shared.open(settingsUrl, completionHandler: nil)
             }
         }))
-        dispatch()
+        dispatch(ofType: .inherit)
     }
 
-    func dispatch() {
+    func with(message: String) -> AlertManager {
+        self.message = message
+        return self
+    }
+
+    func with(title: String) -> AlertManager {
+        self.title = title
+        return self
+    }
+
+    func dispatch(ofType dispatchType: AlertManager.DispatchType = .ok) {
+        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        switch dispatchType {
+        case .inherit:
+            break;
+        case .ok:
+            alertController.addAction(UIAlertAction(title: HWStrings.ok, style: .default, handler: nil))
+        }
 
         //
         // Present the alert to the user

@@ -8,24 +8,19 @@
 
 import UIKit
 
-class DashboardController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class DashboardController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
 
     private var itemsPerRow: CGFloat = 1
     private let sectionInsets = UIEdgeInsets(top: HWInsets.medium, left: HWInsets.medium, bottom: HWInsets.medium, right: HWInsets.medium)
 
-    let sectionTitles = [HWStrings.dashboardItemsTopNews, HWStrings.dashboardItemsEvents]
-
-    var news: [News] = []
-    var events: [Event] = []
-
-    var newsDataLoaded = false
-    var eventsDataLoaded = false
+    let sectionTypes: [SectionTitleCollectionReusableView.SectionType] = [.topNews, .events]
 
     /// The refresh control to easily update the displayed date
     private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.title = HWStrings.Controllers.Dashboard.title
 
         //
         // Add the refresh control to the collection view. In case of a iOS 9 system or even older system
@@ -37,9 +32,18 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         }
 
         refreshControl.addTarget(self, action: #selector(didRefreshCollectionView(_:)), for: .valueChanged)
-        
-        loadNewsArticles()
-        loadEvents()
+
+        DashboardNewsStorage.shared.delegate = self
+        DashboardNewsStorage.shared.reload()
+
+        DashboardEventStorage.shared.delegate = self
+        DashboardEventStorage.shared.reload()
+
+        //
+        // Register cells
+        collectionView.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: EventCollectionViewCell.self))
+        collectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: NewsCollectionViewCell.self))
+        collectionView.register(SectionTitleCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: SectionTitleCollectionReusableView.self))
 
         //
         // Adjust safe area insets for header and footer views
@@ -58,40 +62,16 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         calculateItemsPerRow(forSize: view.frame.size)
     }
 
-    private func loadNewsArticles() -> Void {
-        API.shared.newsResource().get(limit: 6) { (news, response) in
-            self.news = news
-            DispatchQueue.main.async {
-                LogManager.shared.put("Dashboard news articles loaded")
-                self.newsDataLoaded = true
-                self.checkCollectionViewReload()
-            }
-        }
-    }
-
-    private func loadEvents() -> Void {
-        API.shared.eventsResource().get(limit: 6) { (events, response) in
-            self.events = events
-            DispatchQueue.main.async {
-                LogManager.shared.put("Dashboard events loaded")
-                self.eventsDataLoaded = true
-                self.checkCollectionViewReload()
-            }
-        }
-    }
-
-    private func checkCollectionViewReload() -> Void {
-        if newsDataLoaded && eventsDataLoaded {
+    public func checkCollectionViewReload() -> Void {
+        if DashboardNewsStorage.shared.loaded && DashboardEventStorage.shared.loaded {
             refreshControl.endRefreshing()
             collectionView.reloadData()
         }
     }
 
     @objc private func didRefreshCollectionView(_ sender: Any) {
-        newsDataLoaded = false
-        eventsDataLoaded = false
-        loadNewsArticles()
-        loadEvents()
+        DashboardNewsStorage.shared.reload()
+        DashboardEventStorage.shared.reload()
     }
 
     /// Calculates the items per row in the collection view
@@ -118,24 +98,24 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sectionTitles.count
+        return sectionTypes.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0: return self.news.count
-        case 1: return self.events.count
+        case 0: return DashboardNewsStorage.shared.news.count
+        case 1: return DashboardEventStorage.shared.events.count
         default: return 0
         }
     }
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
         let headerView = UICollectionReusableView(frame: CGRect.zero)
 
         if kind == UICollectionView.elementKindSectionHeader {
             let sectionHeader = SectionTitleCollectionReusableView.dequeue(from: collectionView, ofKind: kind, for: indexPath)
-            sectionHeader.setTitle(sectionTitles[indexPath.section])
+            sectionHeader.setSection(ofType: sectionTypes[indexPath.section])
+            sectionHeader.navigationController = self.navigationController
             return sectionHeader
         }
 
@@ -152,24 +132,23 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         switch indexPath.section {
             case 0:
                 let newsCell = NewsCollectionViewCell.dequeue(from: collectionView, for: indexPath)
-
-                newsCell.setViewController(self)
-                newsCell.setModel(self.news[indexPath.row])
+                newsCell.viewController = self
+                newsCell.setModel(DashboardNewsStorage.shared.model(for: indexPath))
 
                 collectionViewCell = newsCell
                 break
             case 1:
                 let eventCell = EventCollectionViewCell.dequeue(from: collectionView, for: indexPath)
-
-                eventCell.setViewController(self)
-                eventCell.setModel(self.events[indexPath.row])
+                eventCell.viewController = self
+                eventCell.setModel(DashboardEventStorage.shared.model(for: indexPath))
 
                 collectionViewCell = eventCell
                 break
             default:
                 break
         }
-        #warning("Snapshot and Contraint error when rotating device")
+        
+        collectionViewCell.layoutSubviews()
 
         return collectionViewCell
     }
@@ -186,7 +165,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
             default: size = 0
         }
 
-       return CGSize(width: widthPerItem, height: size)
+        return CGSize(width: widthPerItem, height: size)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -195,5 +174,9 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        viewController.title = HWStrings.Controllers.Dashboard.sectionEvents
     }
 }

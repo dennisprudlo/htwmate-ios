@@ -63,4 +63,8 @@ class News : DatabaseModel {
 
         self.init(databaseId: id, title: title, subtitle: subtitle, url: parsedUrl, imageUrl: parsedImageUrl, publishDate: parsedPublishDate)
     }
+
+    convenience init() {
+        self.init(databaseId: -1, title: "", subtitle: "", url: URL(fileURLWithPath: ""), imageUrl: URL(fileURLWithPath: ""), publishDate: Date())
+    }
 }

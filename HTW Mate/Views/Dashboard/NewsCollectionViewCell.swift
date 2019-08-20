@@ -7,15 +7,15 @@
 //
 
 import UIKit
-import SafariServices
 
-class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewControllerDelegate {
+class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
 
     private var titleLabel = UILabel()
     private var subtitleLabel = UILabel()
     private var imageView = UIImageView()
+    private var blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
 
-    private var viewController: UIViewController!
+    public var viewController: DashboardController!
     private var news: News!
 
     override init(frame: CGRect) {
@@ -32,10 +32,12 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
         let outerInsets = HWInsets.medium
 
         AppearanceManager.dropShadow(for: contentView)
+        contentView.layer.cornerRadius = HWInsets.CornerRadius.panel
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = HWInsets.CornerRadius.panel
         addSubview(imageView)
 
         imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
@@ -45,7 +47,6 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
 
         //
         // Add visual effect view
-        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         blurView.translatesAutoresizingMaskIntoConstraints = false
         imageView.addSubview(blurView)
 
@@ -79,17 +80,9 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
     }
 
     @objc func openUrl() {
+        guard !news.isSkeleton else { return }
 
-        let safariView = SFSafariViewController(url: news.url)
-        safariView.delegate = self
-        safariView.dismissButtonStyle = .close
-        safariView.preferredBarTintColor = UIColor.black
-
-        self.viewController.present(safariView, animated: true, completion: nil)
-    }
-
-    public func setViewController(_ viewController: UIViewController) {
-        self.viewController = viewController
+        UIApplication.shared.open(news.url, options: [:], completionHandler: nil)
     }
 
     public func setModel(_ news: News) {
@@ -98,6 +91,17 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
         setTitle(news.title)
         setSubtitle(news.subtitle)
 
+        blurView.isHidden = news.isSkeleton
+        if news.isSkeleton {
+            AppearanceManager.dropShadow(for: contentView, withRadius: 4, opacity: 0.1)
+        } else {
+            AppearanceManager.dropShadow(for: contentView)
+        }
+
+        guard news.databaseId != -1 else {
+            return
+        }
+        
         DownloadManager.image(from: news.imageUrl) { (image) in
             self.setImage(image)
         }
@@ -113,9 +117,5 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable, SFSafariViewContr
 
     public func setImage(_ image: UIImage?) {
         imageView.image = image
-    }
-
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        controller.dismiss(animated: true, completion: nil)
     }
 }
