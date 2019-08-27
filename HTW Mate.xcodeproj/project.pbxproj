@@ -10,6 +10,7 @@
 		813CAF85231565A700854C30 /* HTWMateCafeteriaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */; };
 		813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF862315660B00854C30 /* CafeteriaDish.swift */; };
 		813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8923156FD500854C30 /* CafeteriaStorage.swift */; };
+		813CAF8D23157B7B00854C30 /* CafeteriaDishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */; };
 		816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2A22D9D04000FA507E /* HWStrings.swift */; };
 		816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */; };
 		816B7A3122DA86B900FA507E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A3022DA86B900FA507E /* Event.swift */; };
@@ -76,6 +77,7 @@
 		813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateCafeteriaAPI.swift; sourceTree = "<group>"; };
 		813CAF862315660B00854C30 /* CafeteriaDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDish.swift; sourceTree = "<group>"; };
 		813CAF8923156FD500854C30 /* CafeteriaStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaStorage.swift; sourceTree = "<group>"; };
+		813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishTableViewCell.swift; sourceTree = "<group>"; };
 		816B7A2A22D9D04000FA507E /* HWStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWStrings.swift; sourceTree = "<group>"; };
 		816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateEventsAPI.swift; sourceTree = "<group>"; };
 		816B7A3022DA86B900FA507E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -161,6 +163,14 @@
 				81BFA8F522E4CE0C0036BACC /* Lecturers */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		813CAF8B23157B6300854C30 /* Dining */ = {
+			isa = PBXGroup;
+			children = (
+				813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */,
+			);
+			path = Dining;
 			sourceTree = "<group>";
 		};
 		8177389323049F5F00D0F8D4 /* Foundation */ = {
@@ -316,6 +326,7 @@
 		81EB7DC222D2704700E00485 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				813CAF8B23157B6300854C30 /* Dining */,
 				81BFA8FA22E4D1A50036BACC /* Lecturers */,
 				81EB7DC322D2705500E00485 /* Dashboard */,
 			);
@@ -526,6 +537,7 @@
 				817738992304B0D200D0F8D4 /* UINavigationController+StatusBarStyle.swift in Sources */,
 				81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */,
 				81BFA90022E507C70036BACC /* Lecturer.swift in Sources */,
+				813CAF8D23157B7B00854C30 /* CafeteriaDishTableViewCell.swift in Sources */,
 				817738922304966200D0F8D4 /* HWTabBarController.swift in Sources */,
 				81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */,
 				81EB7DC122D2636C00E00485 /* DatabaseModel.swift in Sources */,

@@ -25,6 +25,9 @@ struct HWFontSize {
     /// The font size for a strong highlighted text of 15pt
     static let strongText: CGFloat = 15;
 
+    /// The font size for an enlarged highlighted text of 17pt
+    static let enlargedText: CGFloat = 17;
+
     /// The font size for a paragraph text of 13pt
     static let text: CGFloat = 13;
 }

@@ -51,6 +51,11 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
         tableView.delegate = self
         tableView.dataSource = self
 
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 76
+
+        tableView.register(CafeteriaDishTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishTableViewCell.self))
+
         CafeteriaStorage.shared.delegate = self
 
         self.view.addSubview(tableView)
@@ -158,8 +163,8 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
         let dish = CafeteriaStorage.shared.cafeteriaDishes(inSection: indexPath.section)[indexPath.row]
 
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        cell.textLabel?.text = dish.title
+        let cell = CafeteriaDishTableViewCell.dequeue(from: tableView)
+        cell.setModel(dish)
 
         return cell
     }
