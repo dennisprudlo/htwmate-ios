@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol CafeteriaStorageDelegate {
+    func cafeteriaStorage(didReloadDishes dishes: [CafeteriaDish])
+}
+
 class CafeteriaStorage {
 
     static let shared: CafeteriaStorage = CafeteriaStorage()
@@ -25,6 +29,8 @@ class CafeteriaStorage {
     var displayedCafeteriaDishes: [[CafeteriaDish]] = []
 
     private var cafeteriaDishes: [CafeteriaDish] = []
+
+     var delegate: CafeteriaStorageDelegate?
 
     /// Reloads the cafeteria dishes from the API
     func reload(forDate date: Date, cafeteria: CafeteriaDish.Cafeteria, internationalied: Bool) -> Void {
@@ -58,6 +64,12 @@ class CafeteriaStorage {
             if filteredDishes.count > 0 {
                 displayedSections.append(sections[index])
                 displayedCafeteriaDishes.append(filteredDishes)
+            }
+        }
+        
+        if delegate != nil {
+            DispatchQueue.main.async {
+                self.delegate!.cafeteriaStorage(didReloadDishes: self.cafeteriaDishes)
             }
         }
     }

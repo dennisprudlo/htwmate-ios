@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSource, CafeteriaStorageDelegate {
 
     var date = Date() {
         didSet {
@@ -51,6 +51,8 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
         tableView.delegate = self
         tableView.dataSource = self
 
+        CafeteriaStorage.shared.delegate = self
+
         self.view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
@@ -86,8 +88,15 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
         navigationItem.leftBarButtonItem = dateButton
     }
 
+    // MARK: - Lecturer storage handler
+
+    func cafeteriaStorage(didReloadDishes dishes: [CafeteriaDish]) {
+        tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
+    }
+
     private func reloadMenu() {
-        #warning("TODO: Reloading of the cafeteria menu")
+        CafeteriaStorage.shared.reload(forDate: self.date, cafeteria: .treskowallee, internationalied: true)
     }
 
     @objc func didRequestDateSelector(_ sender: UIBarButtonItem) {
