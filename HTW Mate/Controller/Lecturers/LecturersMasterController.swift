@@ -78,7 +78,7 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return LecturerStorage.shared.sections.count
+        return LecturerStorage.shared.displayedSections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

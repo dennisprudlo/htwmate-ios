@@ -134,23 +134,25 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
     // MARK: Table view delegate and data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        #warning("TODO: Implement the cafeteria sections")
-        return 1
+        return CafeteriaStorage.shared.displayedSections.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        #warning("TODO: Implement the number of rows in a section")
-        return 1
+        return CafeteriaStorage.shared.cafeteriaDishes(inSection: section).count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        #warning("TODO: Implement the header for a section")
-        return "Title"
+        return CafeteriaStorage.shared.titleForSection(section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        #warning("TODO: Implement the cell for a menu dish")
-        return UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+
+        let dish = CafeteriaStorage.shared.cafeteriaDishes(inSection: indexPath.section)[indexPath.row]
+
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        cell.textLabel?.text = dish.title
+
+        return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

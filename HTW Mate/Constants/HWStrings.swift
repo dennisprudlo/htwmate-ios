@@ -67,6 +67,15 @@ struct HWStrings {
         struct Dining {
             static let title = NSLocalizedString("controller.dining.title", comment: "The title for the main dining view")
             static let todayLabel = NSLocalizedString("controller.dining.todaylabel", comment: "The label for the button to display the menu of today")
+            struct Categories {
+                static let appetizer = NSLocalizedString("controller.dining.categories.appetizer", comment: "The title for the cafeteria menu category for the appetizers")
+                static let salad = NSLocalizedString("controller.dining.categories.salad", comment: "The title for the cafeteria menu category for the salads")
+                static let soup = NSLocalizedString("controller.dining.categories.soup", comment: "The title for the cafeteria menu category for the soups")
+                static let special = NSLocalizedString("controller.dining.categories.special", comment: "The title for the cafeteria menu category for the specials")
+                static let main = NSLocalizedString("controller.dining.categories.main", comment: "The title for the cafeteria menu category for the main dishes")
+                static let side = NSLocalizedString("controller.dining.categories.side", comment: "The title for the cafeteria menu category for the side dishes")
+                static let dessert = NSLocalizedString("controller.dining.categories.dessert", comment: "The title for the cafeteria menu category for the desserts")
+            }
         }
     }
 }

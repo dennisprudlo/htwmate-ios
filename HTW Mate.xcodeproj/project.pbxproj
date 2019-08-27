@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		813CAF85231565A700854C30 /* HTWMateCafeteriaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */; };
+		813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF862315660B00854C30 /* CafeteriaDish.swift */; };
+		813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8923156FD500854C30 /* CafeteriaStorage.swift */; };
 		816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2A22D9D04000FA507E /* HWStrings.swift */; };
 		816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */; };
 		816B7A3122DA86B900FA507E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A3022DA86B900FA507E /* Event.swift */; };
@@ -70,6 +73,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateCafeteriaAPI.swift; sourceTree = "<group>"; };
+		813CAF862315660B00854C30 /* CafeteriaDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDish.swift; sourceTree = "<group>"; };
+		813CAF8923156FD500854C30 /* CafeteriaStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaStorage.swift; sourceTree = "<group>"; };
 		816B7A2A22D9D04000FA507E /* HWStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWStrings.swift; sourceTree = "<group>"; };
 		816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateEventsAPI.swift; sourceTree = "<group>"; };
 		816B7A3022DA86B900FA507E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -201,6 +207,7 @@
 				81BFA90422F199490036BACC /* LecturerStorage.swift */,
 				8177389423049FDF00D0F8D4 /* DashboardNewsStorage.swift */,
 				817738962304A14900D0F8D4 /* DashboardEventStorage.swift */,
+				813CAF8923156FD500854C30 /* CafeteriaStorage.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -301,6 +308,7 @@
 				81EB7DC022D2636C00E00485 /* DatabaseModel.swift */,
 				816B7A3022DA86B900FA507E /* Event.swift */,
 				81BFA8FF22E507C70036BACC /* Lecturer.swift */,
+				813CAF862315660B00854C30 /* CafeteriaDish.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -350,6 +358,7 @@
 				81EB7DD122D2A0F000E00485 /* HTWMateNewsAPI.swift */,
 				816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */,
 				81BFA90122E5D3020036BACC /* HTWMateLecturersAPI.swift */,
+				813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -487,8 +496,10 @@
 				81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */,
 				81BFA90522F199490036BACC /* LecturerStorage.swift in Sources */,
 				81BFA8F922E4CEAC0036BACC /* LecturersMasterController.swift in Sources */,
+				813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */,
 				81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */,
 				816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */,
+				813CAF85231565A700854C30 /* HTWMateCafeteriaAPI.swift in Sources */,
 				81F942AD230776830042EC3C /* LecturerInfoOfficeHoursTableViewCell.swift in Sources */,
 				81F9429F230718820042EC3C /* HWLecturerRendererComponent.swift in Sources */,
 				81F942B723082DF30042EC3C /* DiningController.swift in Sources */,
@@ -518,6 +529,7 @@
 				817738922304966200D0F8D4 /* HWTabBarController.swift in Sources */,
 				81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */,
 				81EB7DC122D2636C00E00485 /* DatabaseModel.swift in Sources */,
+				813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */,
 				81EB7DBF22D2631800E00485 /* News.swift in Sources */,
 				81EB7DB722D1462800E00485 /* AppearanceManager.swift in Sources */,
 				81F942B0230811370042EC3C /* DashboardEventsController.swift in Sources */,

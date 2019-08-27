@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //
         // Preload app data
         LecturerStorage.shared.reload()
+        CafeteriaStorage.shared.reload(forDate: Date(), cafeteria: .treskowallee, internationalied: true)
 
         return true
     }
