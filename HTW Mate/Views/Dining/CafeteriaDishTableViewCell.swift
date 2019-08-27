@@ -46,9 +46,9 @@ class CafeteriaDishTableViewCell: UITableViewCell, Dequeable {
         ratingView.translatesAutoresizingMaskIntoConstraints = false
         ratingView.backgroundColor = HWColors.Cafeteria.ratingUndefined
         ratingView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        ratingView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        ratingView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         ratingView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        ratingView.widthAnchor.constraint(equalToConstant: 10).isActive = true
+        ratingView.leadingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.strongText, weight: .bold)
@@ -98,7 +98,7 @@ class CafeteriaDishTableViewCell: UITableViewCell, Dequeable {
         }
 
         titleLabel.text = cafeteriaDish.title
-        ingredientsLabel.text = "(12, 32a, 83b, 39)"
+        ingredientsLabel.text = nil
 
         if cafeteriaDish.prices.isFree() {
             studentPriceLabel.text = HWStrings.Controllers.Dining.pricesFree
