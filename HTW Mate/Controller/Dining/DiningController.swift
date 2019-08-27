@@ -96,7 +96,7 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
 
     private func reloadMenu() {
-        CafeteriaStorage.shared.reload(forDate: self.date, cafeteria: .treskowallee, internationalied: true)
+        CafeteriaStorage.shared.reload(forDate: self.date, cafeteria: .treskowallee)
     }
 
     @objc func didRequestDateSelector(_ sender: UIBarButtonItem) {

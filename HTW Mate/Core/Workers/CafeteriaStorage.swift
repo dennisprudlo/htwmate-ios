@@ -33,8 +33,13 @@ class CafeteriaStorage {
      var delegate: CafeteriaStorageDelegate?
 
     /// Reloads the cafeteria dishes from the API
-    func reload(forDate date: Date, cafeteria: CafeteriaDish.Cafeteria, internationalied: Bool) -> Void {
-        API.shared.cafeteriaResource().get(forDate: date, cafeteria: cafeteria, internationalied: internationalied, completion: { (cafeteriaDishes, response) in
+    func reload(forDate date: Date, cafeteria: CafeteriaDish.Cafeteria) -> Void {
+        var internationalized: Bool = true
+        if let langCode = Locale.current.languageCode, langCode == "de" {
+            internationalized = false
+        }
+
+        API.shared.cafeteriaResource().get(forDate: date, cafeteria: cafeteria, internationalied: internationalized, completion: { (cafeteriaDishes, response) in
             self.cafeteriaDishes = cafeteriaDishes
             self.buildDisplayedCafeteriaDishes()
         })
