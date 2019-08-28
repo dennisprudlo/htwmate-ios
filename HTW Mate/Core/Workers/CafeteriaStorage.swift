@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CafeteriaStorageDelegate {
-    func cafeteriaStorage(didReloadDishes dishes: [CafeteriaDish])
+    func cafeteriaStorage(didReloadDishes dishes: [CafeteriaDish], count: Int)
 }
 
 class CafeteriaStorage {
@@ -74,7 +74,7 @@ class CafeteriaStorage {
         
         if delegate != nil {
             DispatchQueue.main.async {
-                self.delegate!.cafeteriaStorage(didReloadDishes: self.cafeteriaDishes)
+                self.delegate!.cafeteriaStorage(didReloadDishes: self.cafeteriaDishes, count: self.cafeteriaDishes.count)
             }
         }
     }

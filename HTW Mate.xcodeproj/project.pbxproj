@@ -11,6 +11,7 @@
 		813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF862315660B00854C30 /* CafeteriaDish.swift */; };
 		813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8923156FD500854C30 /* CafeteriaStorage.swift */; };
 		813CAF8D23157B7B00854C30 /* CafeteriaDishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */; };
+		813CAF9023158CD400854C30 /* HWMissingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8F23158CD400854C30 /* HWMissingContentView.swift */; };
 		816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2A22D9D04000FA507E /* HWStrings.swift */; };
 		816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */; };
 		816B7A3122DA86B900FA507E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A3022DA86B900FA507E /* Event.swift */; };
@@ -78,6 +79,7 @@
 		813CAF862315660B00854C30 /* CafeteriaDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDish.swift; sourceTree = "<group>"; };
 		813CAF8923156FD500854C30 /* CafeteriaStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaStorage.swift; sourceTree = "<group>"; };
 		813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishTableViewCell.swift; sourceTree = "<group>"; };
+		813CAF8F23158CD400854C30 /* HWMissingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWMissingContentView.swift; sourceTree = "<group>"; };
 		816B7A2A22D9D04000FA507E /* HWStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWStrings.swift; sourceTree = "<group>"; };
 		816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateEventsAPI.swift; sourceTree = "<group>"; };
 		816B7A3022DA86B900FA507E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				813CAF8B23157B6300854C30 /* Dining */,
 				81BFA8FA22E4D1A50036BACC /* Lecturers */,
 				81EB7DC322D2705500E00485 /* Dashboard */,
+				813CAF8F23158CD400854C30 /* HWMissingContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				81EB7DB322D1448700E00485 /* UIColor+Initalizers.swift in Sources */,
 				817662F922F5D1F3004E0A07 /* LecturerInfoTableViewCell.swift in Sources */,
 				81BFA8FE22E4DC2A0036BACC /* HWImage.swift in Sources */,
+				813CAF9023158CD400854C30 /* HWMissingContentView.swift in Sources */,
 				81E0F1DD22D3B5130065849D /* HWFontSize.swift in Sources */,
 				817738992304B0D200D0F8D4 /* UINavigationController+StatusBarStyle.swift in Sources */,
 				81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */,

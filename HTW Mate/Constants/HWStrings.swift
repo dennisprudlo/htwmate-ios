@@ -68,6 +68,8 @@ struct HWStrings {
             static let title = NSLocalizedString("controller.dining.title", comment: "The title for the main dining view")
             static let todayLabel = NSLocalizedString("controller.dining.todaylabel", comment: "The label for the button to display the menu of today")
             static let pricesFree = NSLocalizedString("controller.dining.prices.free", comment: "The text for the prices label of a dish when its free")
+            static let missingContentTitle = NSLocalizedString("controller.dining.missingcontent.title", comment: "The text for the missing content title in the dining view")
+            static let missingContentSubtitle = NSLocalizedString("controller.dining.missingcontent.subtitle", comment: "The text for the missing content subtitle in the dining view")
             struct Categories {
                 static let appetizer = NSLocalizedString("controller.dining.categories.appetizer", comment: "The title for the cafeteria menu category for the appetizers")
                 static let salad = NSLocalizedString("controller.dining.categories.salad", comment: "The title for the cafeteria menu category for the salads")

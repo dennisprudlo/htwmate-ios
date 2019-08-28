@@ -32,8 +32,16 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
     /// Whether to update the menu when the view appears
     public static var updateOnAppear: Bool = false
 
-    override func viewDidAppear(_ animated: Bool) {
+    var overlayView = HWMissingContentView(displayType: .text(title: HWStrings.Controllers.Dining.missingContentTitle, subtitle: HWStrings.Controllers.Dining.missingContentSubtitle))
+
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
+        if CafeteriaStorage.shared.displayedCafeteriaDishes.count > 0 {
+            overlayView.hide()
+        } else {
+            overlayView.show(completion: nil)
+        }
 
         //
         // Handles the menu reload after updating the cafeteria settings
@@ -47,6 +55,7 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         super.title = HWStrings.Controllers.Dining.title
+
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -91,12 +100,23 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
         dateButton = UIBarButtonItem(title: self.dateString, style: .plain, target: self, action: #selector(didRequestDateSelector(_:)))
         navigationItem.leftBarButtonItem = dateButton
+
+        self.view.addSubview(overlayView)
+        overlayView.snap(toEdgesOf: self.view)
     }
 
     // MARK: - Lecturer storage handler
 
-    func cafeteriaStorage(didReloadDishes dishes: [CafeteriaDish]) {
-        tableView.reloadData()
+    func cafeteriaStorage(didReloadDishes dishes: [CafeteriaDish], count: Int) {
+        if count > 0 {
+            overlayView.hide()
+            tableView.reloadData()
+        } else {
+            overlayView.show {
+                self.tableView.reloadData()
+            }
+        }
+
         tableView.refreshControl?.endRefreshing()
     }
 
@@ -129,6 +149,8 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
         if show {
             self.datePicker.isHidden = false
             self.datePickerToolbar.isHidden = false
+            self.view.bringSubviewToFront(self.datePicker)
+            self.view.bringSubviewToFront(self.datePickerToolbar)
         }
 
         datePickerBottomConstraint.constant = show ? 0 : datePickerDisclosePosition

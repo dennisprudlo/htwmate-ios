@@ -71,13 +71,13 @@ class CafeteriaDishTableViewCell: UITableViewCell, Dequeable {
         badgesStackView.backgroundColor = .red
 
         studentPriceLabel.translatesAutoresizingMaskIntoConstraints = false
-        studentPriceLabel.font = UIFont.systemFont(ofSize: HWFontSize.enlargedText, weight: .bold)
+        studentPriceLabel.font = UIFont.monospacedDigitSystemFont(ofSize: HWFontSize.enlargedText, weight: .bold)
         studentPriceLabel.trailingAnchor.constraint(equalTo: ratingView.leadingAnchor, constant: -horizontalSpacing).isActive = true
         studentPriceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
         studentPriceLabel.lastBaselineAnchor.constraint(equalTo: badgesStackView.bottomAnchor).isActive = true
 
         otherPriceLabel.translatesAutoresizingMaskIntoConstraints = false
-        otherPriceLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .regular)
+        otherPriceLabel.font = UIFont.monospacedDigitSystemFont(ofSize: HWFontSize.metaInfo, weight: .regular)
         otherPriceLabel.trailingAnchor.constraint(equalTo: studentPriceLabel.leadingAnchor, constant: -5).isActive = true
         otherPriceLabel.lastBaselineAnchor.constraint(equalTo: studentPriceLabel.lastBaselineAnchor).isActive = true
         otherPriceLabel.leadingAnchor.constraint(equalTo: badgesStackView.trailingAnchor, constant: 16).isActive = true
