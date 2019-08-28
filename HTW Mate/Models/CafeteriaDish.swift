@@ -42,18 +42,32 @@ class CafeteriaDish : DatabaseModel {
         }
     }
 
+    enum Badge: String {
+        case vegan = "BADGE_VEGAN"
+        case climateFriendly = "BADGE_CLIMATE"
+        case vegetarian = "BADGE_VEGETARIAN"
+        case sustainable = "BADGE_SUSTAINABLE"
+        case sustainableFish = "BADGE_SUSTAINABLE_FISH"
+    }
+
+    typealias Ingredient = (identifier: String, number: String, isAllergen: Bool)
+
     let cafeteria: CafeteriaDish.Cafeteria
     let category: CafeteriaDish.Category
     let rating: CafeteriaDish.Rating
     let title: String
     let prices: CafeteriaDish.Prices
+    let badges: [CafeteriaDish.Badge]
+    let ingredients: [CafeteriaDish.Ingredient]
 
-    init(databaseId: Int, cafeteria: Cafeteria, category: Category, rating: Rating, title: String, prices: Prices) {
+    init(databaseId: Int, cafeteria: Cafeteria, category: Category, rating: Rating, title: String, prices: Prices, badges: [Badge], ingredients: [Ingredient]) {
         self.cafeteria = cafeteria
         self.category = category
         self.rating = rating
         self.title = title
         self.prices = prices
+        self.badges = badges
+        self.ingredients = ingredients
 
         super.init(databaseId: databaseId)
     }
@@ -71,7 +85,39 @@ class CafeteriaDish : DatabaseModel {
         let priceRegular = dictionary.value(forKey: "price_regular") as? Double ?? 0
         let prices = Prices(student: priceStudent, employee: priceEmplyoee, regular: priceRegular)
 
-        return CafeteriaDish(databaseId: databaseId, cafeteria: cafeteria, category: category, rating: rating, title: title, prices: prices)
+        var badges: [Badge] = []
+        (dictionary.value(forKey: "badges") as? [String] ?? []).forEach { (badge) in
+            if let badgeCase = Badge.init(rawValue: badge) {
+                badges.append(badgeCase)
+            }
+        }
+
+        var ingredients: [Ingredient] = []
+        (dictionary.value(forKey: "ingredients") as? [NSDictionary] ?? []).forEach { (ingredient) in
+            let identifier = ingredient.value(forKey: "identifier") as? String ?? "INGREDIENT_UNDEFINED"
+            let number = ingredient.value(forKey: "number") as? String ?? "0"
+            let isAllergen = ingredient.value(forKey: "allergen") as? Int ?? 0
+
+            ingredients.append(Ingredient(identifier: identifier, number: number, isAllergen: isAllergen == 1))
+        }
+
+        return CafeteriaDish(databaseId: databaseId, cafeteria: cafeteria, category: category, rating: rating, title: title, prices: prices, badges: badges, ingredients: ingredients)
     }
 
+    public func getIngredientsNumberChain() -> String? {
+        if self.ingredients.count == 0 {
+            return nil
+        }
+
+        var output = "("
+        for index in 0..<self.ingredients.count {
+            let number = self.ingredients[index].number
+            output = output + number
+
+            if index < self.ingredients.count - 1 {
+                output = output + ", "
+            }
+        }
+        return output + ")"
+    }
 }

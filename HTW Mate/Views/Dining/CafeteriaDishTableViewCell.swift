@@ -98,7 +98,7 @@ class CafeteriaDishTableViewCell: UITableViewCell, Dequeable {
         }
 
         titleLabel.text = cafeteriaDish.title
-        ingredientsLabel.text = nil
+        ingredientsLabel.text = cafeteriaDish.getIngredientsNumberChain()
 
         if cafeteriaDish.prices.isFree() {
             studentPriceLabel.text = HWStrings.Controllers.Dining.pricesFree
