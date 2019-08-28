@@ -54,7 +54,7 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
         wrapperView.addSubview(lecturerNameLabel)
 
         lecturerTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        lecturerTitleLabel.font = UIFont.systemFont(ofSize: HWFontSize.lecturerTitle, weight: .bold)
+        lecturerTitleLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .bold)
         lecturerTitleLabel.textColor = .lightGray
 
         lecturerTitleLabel.topAnchor.constraint(equalTo: wrapperView.topAnchor).isActive = true
@@ -63,7 +63,7 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
         lecturerTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: wrapperView.trailingAnchor).isActive = true
 
         lecturerNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        lecturerNameLabel.font = UIFont.systemFont(ofSize: HWFontSize.lecturerNameCell, weight: .bold)
+        lecturerNameLabel.font = UIFont.systemFont(ofSize: HWFontSize.enlargedText, weight: .bold)
 
         lecturerNameLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor).isActive = true
         lecturerNameLabel.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor).isActive = true

@@ -32,7 +32,7 @@ class LecturerInfoTableViewCell: UITableViewCell {
             sectionHeadlineLabel.translatesAutoresizingMaskIntoConstraints = false
             sectionHeadlineLabel.text = headline
             sectionHeadlineLabel.numberOfLines = 1
-            sectionHeadlineLabel.font = UIFont.systemFont(ofSize: HWFontSize.sectionTitleSmall, weight: .bold)
+            sectionHeadlineLabel.font = UIFont.systemFont(ofSize: HWFontSize.enlargedText, weight: .bold)
             sectionHeadlineLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: cellPadding).isActive = true
             sectionHeadlineLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: cellPadding).isActive = true
             sectionHeadlineLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -cellPadding).isActive = true
