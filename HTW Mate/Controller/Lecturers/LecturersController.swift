@@ -10,10 +10,6 @@ import UIKit
 
 class LecturersController: UISplitViewController {
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         super.title = HWStrings.Controllers.Lecturers.title

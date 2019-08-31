@@ -12,7 +12,7 @@ import CoreGraphics
 struct HWFontSize {
 
     /// The font size fot a dashboard section title of 24pt
-    static let sectionTitle: CGFloat = 24;
+    static let sectionTitle: CGFloat = 28;
 
     /// The font size for a detail view headline of 27pt
     static let title: CGFloat = 27;

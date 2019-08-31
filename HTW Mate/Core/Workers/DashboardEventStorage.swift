@@ -19,6 +19,8 @@ class DashboardEventStorage {
         Event(), Event(), Event(), Event(), Event(), Event()
     ]
 
+    var allEvents: [Event] = []
+
     public func reload() {
         guard let dashboardController = self.delegate else {
             return
@@ -32,6 +34,10 @@ class DashboardEventStorage {
             DispatchQueue.main.async {
                 dashboardController.checkCollectionViewReload()
             }
+        }
+
+        API.shared.eventsResource().get(limit: nil) { (events, response) in
+            self.allEvents = events
         }
     }
 

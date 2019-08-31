@@ -13,7 +13,7 @@ class SectionTitleCollectionReusableView: UICollectionReusableView, Dequeable {
     private var titleLabel = UILabel()
     private var detailLabel = UILabel()
 
-    public var navigationController: UINavigationController!
+    public var viewController: UIViewController!
 
     enum SectionType {
         case topNews
@@ -26,7 +26,7 @@ class SectionTitleCollectionReusableView: UICollectionReusableView, Dequeable {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        let outerInset = HWInsets.medium
+        let outerInset = HWInsets.standard
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.sectionTitle, weight: .bold)
@@ -83,9 +83,9 @@ class SectionTitleCollectionReusableView: UICollectionReusableView, Dequeable {
         case .topNews:
             print("top news")
         case .events:
-            let eventsController = DashboardEventsController(style: .plain)
-            guard let presenter = navigationController else { return }
-            presenter.pushViewController(eventsController, animated: true)
+            let eventsController = DashboardEventsController()
+            guard let presenter = viewController else { return }
+            presenter.present(eventsController, animated: true, completion: nil)
         }
     }
 }

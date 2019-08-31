@@ -20,6 +20,7 @@ class EventTableViewCell: UITableViewCell, Dequeable {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         self.accessoryType = .disclosureIndicator
+        self.backgroundColor = HWColors.contentBackground
 
         contentView.addSubview(dateLabel)
         contentView.addSubview(titleLabel)

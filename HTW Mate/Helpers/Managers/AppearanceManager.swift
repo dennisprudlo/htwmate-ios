@@ -15,14 +15,18 @@ struct AppearanceManager {
     public static func updateNavigationBarAppearance() -> Void {
         let appearance = UINavigationBar.appearance(whenContainedInInstancesOf: [HWNavigationController.self])
 
-        appearance.barStyle = .blackTranslucent
-        appearance.tintColor = HWColors.whitePrimary
+        appearance.barStyle = .default
+        appearance.barTintColor = HWColors.whitePrimary
+        appearance.tintColor = HWColors.StyleGuide.primaryGreen
 
-        let textAttributes = [
-            NSAttributedString.Key.foregroundColor: HWColors.whitePrimary
-        ]
-        appearance.titleTextAttributes = textAttributes
-        appearance.largeTitleTextAttributes = textAttributes
+        // Remove the bottom shadow from each navigation bar
+        appearance.shadowImage = UIImage()
+    }
+
+    public static func updateControlsAppearance() -> Void {
+        let appearance = UISwitch.appearance()
+
+        appearance.onTintColor = HWColors.StyleGuide.primaryGreen
     }
 
     /// Updates the global appearance of the tab bar controls
@@ -32,11 +36,11 @@ struct AppearanceManager {
         appearance.tintColor = HWColors.whitePrimary
     }
 
-    public static func dropShadow(for view: UIView, withRadius radius: CGFloat = 10, opacity: Float = 0.3) {
+    public static func dropShadow(for view: UIView, withRadius radius: CGFloat = 10, opacity: Float = 0.5) {
         view.backgroundColor = HWColors.whitePrimary
         view.layer.shadowColor = HWColors.shadowDrop.cgColor
         view.layer.shadowOpacity = opacity
-        view.layer.shadowOffset = CGSize.zero
+        view.layer.shadowOffset = CGSize(width: 0, height: 5)
         view.layer.shadowRadius = radius
         view.layer.masksToBounds = false
     }

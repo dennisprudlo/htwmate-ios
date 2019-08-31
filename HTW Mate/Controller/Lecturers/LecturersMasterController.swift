@@ -39,7 +39,7 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = HWStrings.Controllers.Lecturers.searchBarTitle
         searchController.searchBar.tintColor = HWColors.StyleGuide.primaryGreen
-        searchController.searchBar.barStyle = .blackTranslucent
+        searchController.searchBar.barStyle = .default
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         definesPresentationContext = true
@@ -90,13 +90,6 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
         cell.setModel(LecturerStorage.shared.lecturers(inSection: indexPath.section)[indexPath.row])
         cell.layoutSubviews()
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = HWColors.StyleGuide.primaryGreen
-        if let header = view as? UITableViewHeaderFooterView {
-            header.textLabel?.textColor = HWColors.whitePrimary
-        }
     }
 
     // MARK: - Search bar results updating

@@ -11,7 +11,7 @@ import UIKit
 class DashboardController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
 
     private var itemsPerRow: CGFloat = 1
-    private let sectionInsets = UIEdgeInsets(top: HWInsets.medium, left: HWInsets.medium, bottom: HWInsets.medium, right: HWInsets.medium)
+    private let sectionInsets = UIEdgeInsets(top: HWInsets.standard, left: HWInsets.standard, bottom: HWInsets.standard, right: HWInsets.standard)
 
     let sectionTypes: [SectionTitleCollectionReusableView.SectionType] = [.topNews, .events]
 
@@ -21,6 +21,8 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     override func viewDidLoad() {
         super.viewDidLoad()
         super.title = HWStrings.Controllers.Dashboard.title
+
+        self.setStatusBarOverlay()
 
         //
         // Add the refresh control to the collection view. In case of a iOS 9 system or even older system
@@ -115,7 +117,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         if kind == UICollectionView.elementKindSectionHeader {
             let sectionHeader = SectionTitleCollectionReusableView.dequeue(from: collectionView, ofKind: kind, for: indexPath)
             sectionHeader.setSection(ofType: sectionTypes[indexPath.section])
-            sectionHeader.navigationController = self.navigationController
+            sectionHeader.viewController = self
             return sectionHeader
         }
 
