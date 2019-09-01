@@ -132,7 +132,7 @@ class CafeteriaDish : DatabaseModel {
                 customInfo.text = "vegan"
                 customInfo.color = HWColors.Cafeteria.badgeVegan
             case .climateFriendly:
-                customInfo.text = "cli. friendly"
+                customInfo.text = "climate fr."
                 customInfo.color = HWColors.Cafeteria.badgeClimateFriendly
             case .vegetarian:
                 customInfo.text = "vegetarian"
