@@ -39,7 +39,7 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
 
         lecturerImageView.translatesAutoresizingMaskIntoConstraints = false
         lecturerImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        lecturerImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset * 2).isActive = true
+        lecturerImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         lecturerImageView.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
         lecturerImageView.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
         lecturerImageView.image = HWImage.lecturersProfilePlaceholder
@@ -111,6 +111,8 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
             mailController.setToRecipients([mail])
             mailController.setMessageBody("", isHTML: false)
             mailController.mailComposeDelegate = self
+            mailController.navigationBar.tintColor = HWColors.StyleGuide.primaryGreen
+            mailController.view.tintColor = HWColors.StyleGuide.primaryGreen
 
             tableViewController.present(mailController, animated: true)
         } else {
