@@ -6,7 +6,7 @@
 //  Copyright © 2019 Dennis Prudlo. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class CafeteriaDish : DatabaseModel {
 
@@ -119,5 +119,56 @@ class CafeteriaDish : DatabaseModel {
             }
         }
         return output + ")"
+    }
+
+    public func getBadgeViews() -> [UIView] {
+        var badgeViews: [UIView] = []
+
+        badges.forEach { (badge) in
+
+            var customInfo: (text: String?, color: UIColor?) = (text: nil, color: nil)
+            switch badge {
+            case .vegan:
+                customInfo.text = "vegan"
+                customInfo.color = HWColors.Cafeteria.badgeVegan
+            case .climateFriendly:
+                customInfo.text = "cli. friendly"
+                customInfo.color = HWColors.Cafeteria.badgeClimateFriendly
+            case .vegetarian:
+                customInfo.text = "vegetarian"
+                customInfo.color = HWColors.Cafeteria.badgeVegetarian
+            case .sustainable:
+                customInfo.text = "sust. food"
+                customInfo.color = HWColors.Cafeteria.badgeSustainable
+            case .sustainableFish:
+                customInfo.text = "sust. fisheries"
+                customInfo.color = HWColors.Cafeteria.badgeSustainableFish
+            }
+
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = customInfo.color
+            view.layer.cornerRadius = HWInsets.CornerRadius.label
+
+            let padding: CGFloat = HWInsets.small
+
+            let label = UILabel()
+            view.addSubview(label)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.adjustsFontSizeToFitWidth = true
+            label.numberOfLines = 1
+            label.text = customInfo.text?.uppercased()
+            label.textAlignment = .center
+            label.textColor = .white
+            label.font = UIFont.systemFont(ofSize: HWFontSize.label, weight: .bold)
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding).isActive = true
+            label.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding).isActive = true
+            label.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
+            badgeViews.append(view)
+        }
+
+        return badgeViews
     }
 }

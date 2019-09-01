@@ -66,23 +66,25 @@ class CafeteriaDishTableViewCell: UITableViewCell, Dequeable {
         ingredientsLabel.trailingAnchor.constraint(lessThanOrEqualTo: ratingView.leadingAnchor, constant: -horizontalSpacing).isActive = true
 
         badgesStackView.translatesAutoresizingMaskIntoConstraints = false
+        badgesStackView.distribution = .equalSpacing
+        badgesStackView.spacing = 8
         badgesStackView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: 16).isActive = true
         badgesStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: horizontalSpacing).isActive = true
-        badgesStackView.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        badgesStackView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         badgesStackView.backgroundColor = .red
 
         studentPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         studentPriceLabel.font = UIFont.monospacedDigitSystemFont(ofSize: HWFontSize.enlargedText, weight: .bold)
         studentPriceLabel.trailingAnchor.constraint(equalTo: ratingView.leadingAnchor, constant: -horizontalSpacing).isActive = true
         studentPriceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
-        studentPriceLabel.lastBaselineAnchor.constraint(equalTo: badgesStackView.bottomAnchor).isActive = true
+        studentPriceLabel.bottomAnchor.constraint(equalTo: badgesStackView.bottomAnchor).isActive = true
 
         otherPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         otherPriceLabel.font = UIFont.monospacedDigitSystemFont(ofSize: HWFontSize.metaInfo, weight: .regular)
         otherPriceLabel.textColor = HWColors.darkPrimary
         otherPriceLabel.trailingAnchor.constraint(equalTo: studentPriceLabel.leadingAnchor, constant: -5).isActive = true
         otherPriceLabel.lastBaselineAnchor.constraint(equalTo: studentPriceLabel.lastBaselineAnchor).isActive = true
-        otherPriceLabel.leadingAnchor.constraint(equalTo: badgesStackView.trailingAnchor, constant: 16).isActive = true
+        otherPriceLabel.leadingAnchor.constraint(greaterThanOrEqualTo: badgesStackView.trailingAnchor, constant: 16).isActive = true
     }
 
     func setModel(_ cafeteriaDish: CafeteriaDish) {
@@ -117,6 +119,20 @@ class CafeteriaDishTableViewCell: UITableViewCell, Dequeable {
 
             studentPriceLabel.text = "\(studentPrice ?? String(cafeteriaDish.prices.student)) €"
             otherPriceLabel.text = "\(regularPrice ?? String(cafeteriaDish.prices.regular)) / \(employeePrice ?? String(cafeteriaDish.prices.employee)) /"
+        }
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        badgesStackView.arrangedSubviews.forEach { (subview) in
+            subview.removeFromSuperview()
+        }
+
+        guard let dish = cafeteriaDish else { return }
+
+        dish.getBadgeViews().forEach { (badgeView) in
+            badgesStackView.addArrangedSubview(badgeView)
         }
     }
 }

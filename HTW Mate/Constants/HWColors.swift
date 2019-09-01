@@ -25,6 +25,12 @@ struct HWColors {
         public static let ratingOrange = UIColor(fromHex: 0xE9A000)
         public static let ratingRed = UIColor(fromHex: 0xD60019)
         public static let ratingUndefined = HWColors.StyleGuide.secondaryGray
+
+        public static let badgeVegan = UIColor(fromHex: 0x4F8C00)
+        public static let badgeVegetarian = UIColor(fromHex: 0xA8D63D)
+        public static let badgeClimateFriendly = UIColor(fromHex: 0x02A9D2)
+        public static let badgeSustainable = UIColor(fromHex: 0x00803B)
+        public static let badgeSustainableFish = UIColor(fromHex: 0x013D7A)
     }
 
     // Navigation Layout

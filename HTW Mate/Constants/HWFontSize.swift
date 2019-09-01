@@ -17,6 +17,9 @@ struct HWFontSize {
     /// The font size for a detail view headline of 27pt
     static let title: CGFloat = 27;
 
+    /// The font size for a small label of 10pt
+    static let label: CGFloat = 10;
+
     /// The font size for a meta information of 12pt
     static let metaInfo: CGFloat = 12;
 
