@@ -15,7 +15,7 @@ class LecturerInfoTableViewCell: UITableViewCell {
 
     let sectionHeadlineLabel = UILabel()
 
-    let cellPadding = HWInsets.medium
+    let cellPadding = HWInsets.standard
     let sectionTitlePadding = HWInsets.small
 
     var sectionTopAnchor: NSLayoutYAxisAnchor!

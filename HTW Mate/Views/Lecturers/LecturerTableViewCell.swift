@@ -55,7 +55,7 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
 
         lecturerTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         lecturerTitleLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .bold)
-        lecturerTitleLabel.textColor = .lightGray
+        lecturerTitleLabel.textColor = HWColors.darkSecondaryUltraLight
 
         lecturerTitleLabel.topAnchor.constraint(equalTo: wrapperView.topAnchor).isActive = true
         lecturerTitleLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor).isActive = true

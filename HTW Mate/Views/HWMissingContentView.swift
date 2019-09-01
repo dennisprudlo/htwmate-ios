@@ -16,7 +16,7 @@ class HWMissingContentView: UIView {
 
     private var hideContentView: UIView?
     private let transparentColor = UIColor(fromHexRed: 0xFF, green: 0xFF, blue: 0xFF, alpha: 0x00)
-    private let viewBackgroundColor: UIColor = .groupTableViewBackground
+    private let viewBackgroundColor: UIColor = HWColors.contentBackground
 
     private let fadeTimeInterval: TimeInterval = 0.1 
 
@@ -103,7 +103,7 @@ class HWMissingContentView: UIView {
             titleLabel.numberOfLines = 0
             titleLabel.textAlignment = .center
             titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.enlargedText, weight: .heavy)
-            titleLabel.textColor = .lightGray
+            titleLabel.textColor = HWColors.darkSecondaryUltraLight
             titleLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor).isActive = true
             titleLabel.topAnchor.constraint(equalTo: wrapperView.topAnchor).isActive = true
             titleLabel.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor).isActive = true
@@ -113,7 +113,7 @@ class HWMissingContentView: UIView {
             subtitleLabel.numberOfLines = 0
             subtitleLabel.textAlignment = .center
             subtitleLabel.font = UIFont.systemFont(ofSize: HWFontSize.strongText, weight: .semibold)
-            subtitleLabel.textColor = .lightGray
+            subtitleLabel.textColor = HWColors.darkSecondaryUltraLight
             subtitleLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor).isActive = true
             subtitleLabel.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor).isActive = true
             subtitleLabel.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor).isActive = true

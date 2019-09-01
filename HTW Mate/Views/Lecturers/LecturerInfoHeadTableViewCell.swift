@@ -50,7 +50,7 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .bold)
-        titleLabel.textColor = .lightGray
+        titleLabel.textColor = HWColors.darkSecondaryUltraLight
         titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: lecturerImageView.bottomAnchor, constant: inset).isActive = true
 
