@@ -12,7 +12,6 @@ class LecturersController: UISplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.title = HWStrings.Controllers.Lecturers.title
     }
     
 }

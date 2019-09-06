@@ -18,7 +18,6 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.title = HWStrings.Controllers.Lecturers.title
 
         splitViewController?.delegate = self
 

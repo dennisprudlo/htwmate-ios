@@ -20,8 +20,6 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.title = HWStrings.Controllers.Dashboard.title
-
         self.setStatusBarOverlay()
 
         //

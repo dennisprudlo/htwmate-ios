@@ -54,8 +54,7 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.title = HWStrings.Controllers.Dining.title
-
+//        super.title = HWStrings.Controllers.Dining.title
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -192,6 +191,18 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        #warning("TODO: Implement the segue to the detail view of a dish")
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let dishes = CafeteriaStorage.shared.cafeteriaDishes(inSection: indexPath.section)
+        if indexPath.row > dishes.count {
+            return
+        }
+
+        let diningDetailController = DiningDetailController()
+        diningDetailController.cafeteriaDish = dishes[indexPath.row]
+
+        tabBarController?.view.backgroundColor = HWColors.contentBackground
+
+        navigationController?.pushViewController(diningDetailController, animated: true)
     }
 }

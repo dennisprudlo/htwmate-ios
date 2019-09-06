@@ -20,6 +20,7 @@ class HWTabBarController: UITabBarController {
         lecturersController.tabBarItem = UITabBarItem(title: HWStrings.Controllers.Lecturers.title, image: HWIcons.lecturers, tag: 2)
 
         let masterViewController = LecturersMasterController()
+        masterViewController.title = HWStrings.Controllers.Lecturers.title
         let detailViewController = LecturersDetailController()
 
         let masterController = HWNavigationController(rootViewController: masterViewController)
@@ -28,12 +29,14 @@ class HWTabBarController: UITabBarController {
         lecturersController.viewControllers = [masterController, detailController]
 
         let diningController = DiningController()
-        diningController.tabBarItem = UITabBarItem(title: HWStrings.Controllers.Dining.title, image: HWIcons.dining, tag: 3)
+        diningController.title = HWStrings.Controllers.Dining.title
+        let diningNavigationController = HWNavigationController(rootViewController: diningController)
+        diningNavigationController.tabBarItem = UITabBarItem(title: HWStrings.Controllers.Dining.title, image: HWIcons.dining, tag: 3)
 
         viewControllers = [
             dashboardController,
             lecturersController,
-            HWNavigationController(rootViewController: diningController)
+            diningNavigationController
         ]
     }
     
