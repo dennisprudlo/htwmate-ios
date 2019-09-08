@@ -24,6 +24,8 @@ class CafeteriaDishTableViewCell: UITableViewCell, Dequeable {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        selectionStyle = .none
+
         setupUI()
     }
 
@@ -131,8 +133,8 @@ class CafeteriaDishTableViewCell: UITableViewCell, Dequeable {
 
         guard let dish = cafeteriaDish else { return }
 
-        dish.getBadgeViews().forEach { (badgeView) in
-            badgesStackView.addArrangedSubview(badgeView)
+        dish.getBadgeViews().forEach { (badgeData) in
+            badgesStackView.addArrangedSubview(badgeData.view)
         }
     }
 }

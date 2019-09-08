@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //
         // Preload app data
         LecturerStorage.shared.reload()
-        CafeteriaStorage.shared.reload(forDate: Date(), cafeteria: .treskowallee)
+        CafeteriaStorage.shared.reload(forDate: DiningMasterController.getInitialDate(), cafeteria: .treskowallee)
 
         return true
     }

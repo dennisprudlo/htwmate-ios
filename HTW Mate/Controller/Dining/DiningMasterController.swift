@@ -10,7 +10,7 @@ import UIKit
 
 class DiningMasterController: UIViewController, UITableViewDelegate, UITableViewDataSource, CafeteriaStorageDelegate {
 
-    var date = Date() {
+    var date = DiningMasterController.getInitialDate() {
         didSet {
             dateButton.title = dateString
         }
@@ -101,15 +101,19 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
 
         self.view.addSubview(overlayView)
         overlayView.snap(toEdgesOf: self.view)
+    }
 
-        let components = Calendar.current.dateComponents([.weekday], from: self.date)
+    static func getInitialDate() -> Date {
+        let components = Calendar.current.dateComponents([.weekday], from: Date())
         if let weekday = components.weekday, weekday == 1 || weekday == 7 {
             // Today is saturday or sunday. jump to the next monday
             var skippingWeekendComponents = DateComponents()
             skippingWeekendComponents.day = weekday == 1 ? 1 : 2
 
-            self.date = Calendar.current.date(byAdding: skippingWeekendComponents, to: self.date) ?? Date()
+            return Calendar.current.date(byAdding: skippingWeekendComponents, to: Date()) ?? Date()
         }
+
+        return Date()
     }
 
     // MARK: - Lecturer storage handler

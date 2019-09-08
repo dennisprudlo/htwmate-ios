@@ -32,6 +32,7 @@ class DiningDetailController: UIViewController, UITableViewDelegate, UITableView
         tableView.rowHeight = UITableView.automaticDimension
 
         tableView.register(CafeteriaDishInfoMainTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishInfoMainTableViewCell.self))
+        tableView.register(CafeteriaDishBadgeTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishBadgeTableViewCell.self))
 
         self.view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false

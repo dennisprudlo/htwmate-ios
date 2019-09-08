@@ -79,6 +79,13 @@ struct HWStrings {
                 static let side = NSLocalizedString("controller.dining.categories.side", comment: "The title for the cafeteria menu category for the side dishes")
                 static let dessert = NSLocalizedString("controller.dining.categories.dessert", comment: "The title for the cafeteria menu category for the desserts")
             }
+            struct Badges {
+                static let vegan = NSLocalizedString("controller.dining.badges.vegan", comment: "The badge description for vegan dishes")
+                static let climateFriendly = NSLocalizedString("controller.dining.badges.climatefriendly", comment: "The badge description for climate friendly dishes")
+                static let vegetarian = NSLocalizedString("controller.dining.badges.vegetarian", comment: "The badge description for vegetarian dishes")
+                static let sustainable = NSLocalizedString("controller.dining.badges.sustainable", comment: "The badge description for sustainable dishes")
+                static let sustainableFish = NSLocalizedString("controller.dining.badges.sustainablefish", comment: "The badge description for sustainable fish dishes")
+            }
         }
     }
 }

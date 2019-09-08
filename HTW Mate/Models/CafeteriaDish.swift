@@ -121,8 +121,8 @@ class CafeteriaDish : DatabaseModel {
         return output + ")"
     }
 
-    public func getBadgeViews() -> [UIView] {
-        var badgeViews: [UIView] = []
+    public func getBadgeViews(withFullTitle fullTitle: Bool = false) -> [(badge: Badge, view: UIView)] {
+        var badgeViews: [(badge: Badge, view: UIView)] = []
 
         badges.forEach { (badge) in
 
@@ -132,16 +132,16 @@ class CafeteriaDish : DatabaseModel {
                 customInfo.text = "vegan"
                 customInfo.color = HWColors.Cafeteria.badgeVegan
             case .climateFriendly:
-                customInfo.text = "climate fr."
+                customInfo.text = fullTitle ? "climate friendly" : "climate fr."
                 customInfo.color = HWColors.Cafeteria.badgeClimateFriendly
             case .vegetarian:
-                customInfo.text = "veget."
+                customInfo.text = fullTitle ? "vegetarian" : "veget."
                 customInfo.color = HWColors.Cafeteria.badgeVegetarian
             case .sustainable:
-                customInfo.text = "sust. food"
+                customInfo.text = fullTitle ? "sustainable food" : "sust. food"
                 customInfo.color = HWColors.Cafeteria.badgeSustainable
             case .sustainableFish:
-                customInfo.text = "sust. fisheries"
+                customInfo.text = fullTitle ? "sustainable fisheries" : "sust. fisheries"
                 customInfo.color = HWColors.Cafeteria.badgeSustainableFish
             }
 
@@ -166,19 +166,36 @@ class CafeteriaDish : DatabaseModel {
             label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding).isActive = true
             label.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
-            badgeViews.append(view)
+            badgeViews.append((badge: badge, view: view))
         }
 
         return badgeViews
     }
 
     public func getInfoCells() -> [UITableViewCell] {
-        var cells: [UITableViewCell] = []
+        var infoCells: [UITableViewCell] = []
 
         let cell = CafeteriaDishInfoMainTableViewCell()
         cell.titleLabel.text = self.title
-        cells.append(cell)
+        infoCells.append(cell)
 
-        return cells
+        getBadgeViews(withFullTitle: true).forEach { (badgeData) in
+            let badgeCell = CafeteriaDishBadgeTableViewCell()
+            badgeCell.setBadge(badgeData.view)
+            badgeCell.descriptionLabel.text = localizedDescription(forBadge: badgeData.badge)
+            infoCells.append(badgeCell)
+        }
+
+        return infoCells
+    }
+
+    public func localizedDescription(forBadge badge: Badge) -> String {
+        switch badge {
+        case .vegan: return HWStrings.Controllers.Dining.Badges.vegan
+        case .climateFriendly: return HWStrings.Controllers.Dining.Badges.climateFriendly
+        case .vegetarian: return HWStrings.Controllers.Dining.Badges.vegetarian
+        case .sustainable: return HWStrings.Controllers.Dining.Badges.sustainable
+        case .sustainableFish: return HWStrings.Controllers.Dining.Badges.sustainableFish
+        }
     }
 }
