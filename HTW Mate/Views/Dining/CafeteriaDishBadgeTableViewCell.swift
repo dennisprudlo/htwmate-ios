@@ -31,19 +31,19 @@ class CafeteriaDishBadgeTableViewCell: UITableViewCell {
 
         let inset = HWInsets.standard
         badgeView.translatesAutoresizingMaskIntoConstraints = false
-        badgeView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset).isActive = true
+        badgeView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: HWInsets.small).isActive = true
         badgeView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset).isActive = true
-        badgeView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        badgeView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor).isActive = true
         badgeView.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textColor = HWColors.darkPrimary
         descriptionLabel.font = UIFont.systemFont(ofSize: HWFontSize.text, weight: .regular)
-        descriptionLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: badgeView.trailingAnchor, constant: inset).isActive = true
-        descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -inset).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: badgeView.topAnchor).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: badgeView.trailingAnchor, constant: HWInsets.medium).isActive = true
+        descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -inset).isActive = true
     }
 
     func setBadge(_ badge: UIView) {

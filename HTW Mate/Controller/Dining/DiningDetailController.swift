@@ -31,6 +31,7 @@ class DiningDetailController: UIViewController, UITableViewDelegate, UITableView
         tableView.estimatedRowHeight = 64
         tableView.rowHeight = UITableView.automaticDimension
 
+        tableView.register(CafeteriaDishRatingTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishRatingTableViewCell.self))
         tableView.register(CafeteriaDishInfoMainTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishInfoMainTableViewCell.self))
         tableView.register(CafeteriaDishBadgeTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishBadgeTableViewCell.self))
 

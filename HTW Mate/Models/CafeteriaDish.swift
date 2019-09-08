@@ -175,6 +175,10 @@ class CafeteriaDish : DatabaseModel {
     public func getInfoCells() -> [UITableViewCell] {
         var infoCells: [UITableViewCell] = []
 
+        let ratingCell = CafeteriaDishRatingTableViewCell()
+        ratingCell.rating = self.rating
+        infoCells.append(ratingCell)
+
         let cell = CafeteriaDishInfoMainTableViewCell()
         cell.titleLabel.text = self.title
         infoCells.append(cell)

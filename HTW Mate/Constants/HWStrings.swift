@@ -86,6 +86,16 @@ struct HWStrings {
                 static let sustainable = NSLocalizedString("controller.dining.badges.sustainable", comment: "The badge description for sustainable dishes")
                 static let sustainableFish = NSLocalizedString("controller.dining.badges.sustainablefish", comment: "The badge description for sustainable fish dishes")
             }
+            struct Ratings {
+                static let greenLeading = NSLocalizedString("controller.dining.ratings.green.leading", comment: "The leading part for the description of green rated dishes")
+                static let greenTrailing = NSLocalizedString("controller.dining.ratings.green.trailing", comment: "The trailing part for the description of green rated dishes")
+                static let orangeLeading = NSLocalizedString("controller.dining.ratings.orange.leading", comment: "The leading part for the description of orange rated dishes")
+                static let orangeTrailing = NSLocalizedString("controller.dining.ratings.orange.trailing", comment: "The trailing part for the description of orange rated dishes")
+                static let redLeading = NSLocalizedString("controller.dining.ratings.red.leading", comment: "The leading part for the description of red rated dishes")
+                static let redTrailing = NSLocalizedString("controller.dining.ratings.red.trailing", comment: "The trailing part for the description of red rated dishes")
+                static let undefinedLeading = NSLocalizedString("controller.dining.ratings.undefined.leading", comment: "The leading part for the description of undefined rated dishes")
+                static let undefinedTrailing = NSLocalizedString("controller.dining.ratings.undefined.trailing", comment: "The trailing part for the description of undefined rated dishes")
+            }
         }
     }
 }

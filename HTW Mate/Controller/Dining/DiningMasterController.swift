@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiningMasterController: UIViewController, UITableViewDelegate, UITableViewDataSource, CafeteriaStorageDelegate {
+class DiningMasterController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISplitViewControllerDelegate, CafeteriaStorageDelegate {
 
     var date = DiningMasterController.getInitialDate() {
         didSet {
@@ -54,6 +54,8 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        splitViewController?.delegate = self
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -101,6 +103,12 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
 
         self.view.addSubview(overlayView)
         overlayView.snap(toEdgesOf: self.view)
+    }
+
+    // MARK: - Split view controller collapse
+
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return true
     }
 
     static func getInitialDate() -> Date {
