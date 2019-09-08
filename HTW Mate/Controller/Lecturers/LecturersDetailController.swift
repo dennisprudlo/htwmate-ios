@@ -73,13 +73,8 @@ class LecturersDetailController: UITableViewController {
     }
 
     @objc func didTapActionButton(_ sender: UIBarButtonItem) {
-
         let contact = lecturer.createContact()
-        do {
-            try shareContactWithThirdParty(contact)
-        } catch{
-            LogManager(ofType: .error).put("Contact could not be creatd.").from(contact)
-        }
+        try? shareContactWithThirdParty(contact)
     }
 
     func shareContactWithThirdParty(_ contact: CNContact) throws {

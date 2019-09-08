@@ -28,7 +28,6 @@ class DashboardNewsStorage {
         API.shared.newsResource().get(limit: 6) { (news, response) in
             self.news = news
             self.loaded = true
-            LogManager.shared.put("Dashboard news articles loaded")
             DispatchQueue.main.async {
                 dashboardController.checkCollectionViewReload()
             }

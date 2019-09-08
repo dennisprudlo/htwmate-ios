@@ -30,7 +30,6 @@ class DashboardEventStorage {
         API.shared.eventsResource().get(limit: 6) { (events, response) in
             self.events = events
             self.loaded = true
-            LogManager.shared.put("Dashboard events loaded")
             DispatchQueue.main.async {
                 dashboardController.checkCollectionViewReload()
             }
