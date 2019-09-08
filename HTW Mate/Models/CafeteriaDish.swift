@@ -171,4 +171,14 @@ class CafeteriaDish : DatabaseModel {
 
         return badgeViews
     }
+
+    public func getInfoCells() -> [UITableViewCell] {
+        var cells: [UITableViewCell] = []
+
+        let cell = CafeteriaDishInfoMainTableViewCell()
+        cell.titleLabel.text = self.title
+        cells.append(cell)
+
+        return cells
+    }
 }

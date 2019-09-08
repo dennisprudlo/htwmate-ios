@@ -12,6 +12,8 @@ class LecturersController: UISplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        preferredDisplayMode = .allVisible
     }
     
 }
