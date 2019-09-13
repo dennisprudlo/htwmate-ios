@@ -70,6 +70,9 @@ struct HWStrings {
             static let pricesFree = NSLocalizedString("controller.dining.prices.free", comment: "The text for the prices label of a dish when its free")
             static let missingContentTitle = NSLocalizedString("controller.dining.missingcontent.title", comment: "The text for the missing content title in the dining view")
             static let missingContentSubtitle = NSLocalizedString("controller.dining.missingcontent.subtitle", comment: "The text for the missing content subtitle in the dining view")
+            static let sectionTitleBadge = NSLocalizedString("controller.dining.sectiontitle.badge", comment: "The section title for the badges in the dish detail view")
+            static let sectionTitleAdditive = NSLocalizedString("controller.dining.sectiontitle.additive", comment: "The section title for the additives in the dish detail view")
+            static let sectionTitleAllergen = NSLocalizedString("controller.dining.sectiontitle.allergen", comment: "The section title for the allergens in the dish detail view")
             struct Categories {
                 static let appetizer = NSLocalizedString("controller.dining.categories.appetizer", comment: "The title for the cafeteria menu category for the appetizers")
                 static let salad = NSLocalizedString("controller.dining.categories.salad", comment: "The title for the cafeteria menu category for the salads")
@@ -96,6 +99,9 @@ struct HWStrings {
                 static let undefinedLeading = NSLocalizedString("controller.dining.ratings.undefined.leading", comment: "The leading part for the description of undefined rated dishes")
                 static let undefinedTrailing = NSLocalizedString("controller.dining.ratings.undefined.trailing", comment: "The trailing part for the description of undefined rated dishes")
             }
+        }
+        struct Settings {
+            static let title = NSLocalizedString("controller.settings.title", comment: "The title for the main settings controller")
         }
     }
 }

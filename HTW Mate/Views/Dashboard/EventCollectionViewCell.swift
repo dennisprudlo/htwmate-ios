@@ -100,7 +100,6 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable {
             DispatchQueue.main.async {
                 if granted && error == nil {
                     let eventController = HWEventEditViewController()
-                    eventController.delegate = self.viewController
                     eventController.eventStore = eventStore
                     eventController.eventModel = self.event
                     eventController.editViewDelegate = self

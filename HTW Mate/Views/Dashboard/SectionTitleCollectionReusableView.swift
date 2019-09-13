@@ -15,13 +15,7 @@ class SectionTitleCollectionReusableView: UICollectionReusableView, Dequeable {
 
     public var viewController: UIViewController!
 
-    enum SectionType {
-        case topNews
-        case events
-    }
-    var sectionType: SectionType = .topNews
-
-    public static let height: CGFloat = 40
+    public var sectionType: DashboardController.SectionType!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,7 +49,7 @@ class SectionTitleCollectionReusableView: UICollectionReusableView, Dequeable {
         super.init(coder: aDecoder)
     }
 
-    public func setSection(ofType sectionType: SectionTitleCollectionReusableView.SectionType) {
+    public func setSection(ofType sectionType: DashboardController.SectionType) {
         self.sectionType = sectionType
 
         switch sectionType {
@@ -67,6 +61,10 @@ class SectionTitleCollectionReusableView: UICollectionReusableView, Dequeable {
             titleLabel.text = HWStrings.Controllers.Dashboard.sectionEvents
             detailLabel.text = HWStrings.Controllers.Dashboard.metaMore
             detailLabel.isUserInteractionEnabled = true
+        default:
+            titleLabel.text = nil
+            detailLabel.text = nil
+            detailLabel.isUserInteractionEnabled = false
         }
     }
 
@@ -79,13 +77,17 @@ class SectionTitleCollectionReusableView: UICollectionReusableView, Dequeable {
     }
 
     @objc func showMore(_ sender: UITapGestureRecognizer) {
-        switch self.sectionType {
-        case .topNews:
-            print("top news")
-        case .events:
-            let eventsController = DashboardEventsController()
-            guard let presenter = viewController else { return }
-            presenter.present(eventsController, animated: true, completion: nil)
+        guard let type = sectionType else {
+            return
+        }
+
+        switch type {
+            case .events:
+                let eventsController = DashboardEventsController()
+                guard let presenter = viewController else { return }
+                presenter.present(eventsController, animated: true, completion: nil)
+            default:
+                break
         }
     }
 }

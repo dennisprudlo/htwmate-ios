@@ -182,7 +182,7 @@ class CafeteriaDish : DatabaseModel {
         let badgesData = getBadgeViews()
         if badgesData.count > 0 {
             let badgeTitle = CafeteriaDishTitleTableViewCell()
-            badgeTitle.titleLabel.text = "Badges"
+            badgeTitle.titleLabel.text = HWStrings.Controllers.Dining.sectionTitleBadge
             infoCells.append(badgeTitle)
 
             badgesData.forEach { (badgeData) in
@@ -209,7 +209,7 @@ class CafeteriaDish : DatabaseModel {
 
         if additives.count > 0 {
             let additivesTitleCell = CafeteriaDishTitleTableViewCell()
-            additivesTitleCell.titleLabel.text = "Additives"
+            additivesTitleCell.titleLabel.text = HWStrings.Controllers.Dining.sectionTitleAdditive
             infoCells.append(additivesTitleCell)
 
             additives.forEach { (cell) in
@@ -219,7 +219,7 @@ class CafeteriaDish : DatabaseModel {
 
         if allergens.count > 0 {
             let allergensTitleCell = CafeteriaDishTitleTableViewCell()
-            allergensTitleCell.titleLabel.text = "Allergens"
+            allergensTitleCell.titleLabel.text = HWStrings.Controllers.Dining.sectionTitleAllergen
             infoCells.append(allergensTitleCell)
 
             allergens.forEach { (cell) in
