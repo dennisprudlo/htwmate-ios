@@ -121,8 +121,8 @@ class CafeteriaDish : DatabaseModel {
         return output + ")"
     }
 
-    public func getBadgeViews(withFullTitle fullTitle: Bool = false) -> [(badge: Badge, view: UIView)] {
-        var badgeViews: [(badge: Badge, view: UIView)] = []
+    public func getBadgeViews(withFullTitle fullTitle: Bool = false) -> [(badge: Badge, title: String?, color: UIColor?, view: UIView)] {
+        var badgeViews: [(badge: Badge, title: String?, color: UIColor?, view: UIView)] = []
 
         badges.forEach { (badge) in
 
@@ -166,7 +166,7 @@ class CafeteriaDish : DatabaseModel {
             label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding).isActive = true
             label.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
-            badgeViews.append((badge: badge, view: view))
+            badgeViews.append((badge: badge, title: customInfo.text, color: customInfo.color, view: view))
         }
 
         return badgeViews
@@ -180,10 +180,18 @@ class CafeteriaDish : DatabaseModel {
         infoCells.append(cell)
 
         getBadgeViews(withFullTitle: false).forEach { (badgeData) in
-            let badgeCell = CafeteriaDishBadgeTableViewCell()
-            badgeCell.setBadge(badgeData.view)
-            badgeCell.descriptionLabel.text = localizedDescription(forBadge: badgeData.badge)
+            let badgeCell = CafeteriaDishAttributeTableViewCell()
+            badgeCell.setColor(badgeData.color)
+            badgeCell.setSymbol(" ")
+            badgeCell.setDescription(CafeteriaDish.localizedDescription(forBadge: badgeData.badge))
             infoCells.append(badgeCell)
+        }
+
+        ingredients.forEach { (ingredient) in
+            let ingredientCell = CafeteriaDishAttributeTableViewCell()
+            ingredientCell.setSymbol(ingredient.number)
+            ingredientCell.setDescription(CafeteriaDish.localizedDescription(forIngredient: ingredient))
+            infoCells.append(ingredientCell)
         }
 
         return infoCells
@@ -218,7 +226,7 @@ class CafeteriaDish : DatabaseModel {
         return (student: studentText, other: otherText)
     }
 
-    public func localizedDescription(forBadge badge: Badge) -> String {
+    public static func localizedDescription(forBadge badge: Badge) -> String {
         switch badge {
         case .vegan: return HWStrings.Controllers.Dining.Badges.vegan
         case .climateFriendly: return HWStrings.Controllers.Dining.Badges.climateFriendly
@@ -248,5 +256,10 @@ class CafeteriaDish : DatabaseModel {
         }
 
         return (leading: descriptionTextLeading, trailing: descriptionTextTrailing)
+    }
+
+    public static func localizedDescription(forIngredient ingredient: CafeteriaDish.Ingredient) -> String {
+        let identifierString = "controller.dining.ingredients.\(ingredient.identifier)"
+        return NSLocalizedString(identifierString, comment: "")
     }
 }

@@ -18,7 +18,6 @@ class DiningDetailController: UIViewController, UITableViewDelegate, UITableView
 
     var tableView = UITableView()
 
-    let ratingWrapper = UIView()
     let ratingView = UIView()
     let priceStudentLabel = UILabel()
     let priceOtherLabel = UILabel()
@@ -41,27 +40,23 @@ class DiningDetailController: UIViewController, UITableViewDelegate, UITableView
         tableView.rowHeight = UITableView.automaticDimension
 
         tableView.register(CafeteriaDishInfoMainTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishInfoMainTableViewCell.self))
-        tableView.register(CafeteriaDishBadgeTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishBadgeTableViewCell.self))
+        tableView.register(CafeteriaDishAttributeTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishAttributeTableViewCell.self))
 
         self.view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
 
-        self.view.addSubview(ratingWrapper)
-        ratingWrapper.translatesAutoresizingMaskIntoConstraints = false
-        ratingWrapper.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        ratingWrapper.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        ratingWrapper.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-
-        self.ratingWrapper.addSubview(ratingView)
+        self.view.addSubview(ratingView)
         ratingView.translatesAutoresizingMaskIntoConstraints = false
-        ratingView.leadingAnchor.constraint(greaterThanOrEqualTo: ratingWrapper.leadingAnchor, constant: HWInsets.standard).isActive = true
-        ratingView.trailingAnchor.constraint(equalTo: ratingWrapper.trailingAnchor, constant: -HWInsets.standard).isActive = true
-        ratingView.bottomAnchor.constraint(equalTo: ratingWrapper.bottomAnchor, constant: -HWInsets.standard).isActive = true
-        ratingView.topAnchor.constraint(equalTo: ratingWrapper.topAnchor, constant: HWInsets.standard).isActive = true
+        ratingView.leadingAnchor.constraint(greaterThanOrEqualTo: self.view.leadingAnchor, constant: HWInsets.standard).isActive = true
+        ratingView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -HWInsets.standard).isActive = true
+        ratingView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -HWInsets.standard).isActive = true
+        ratingView.topAnchor.constraint(greaterThanOrEqualTo: self.view.topAnchor, constant: HWInsets.standard).isActive = true
         ratingView.layer.cornerRadius = HWInsets.CornerRadius.panel
+        AppearanceManager.dropShadow(for: ratingView, withRadius: 5, opacity: 0.3, ignoreBackground: true)
 
         self.ratingView.addSubview(priceStudentLabel)
         priceStudentLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -80,8 +75,6 @@ class DiningDetailController: UIViewController, UITableViewDelegate, UITableView
         priceOtherLabel.leadingAnchor.constraint(equalTo: ratingView.leadingAnchor, constant: HWInsets.standard).isActive = true
         priceOtherLabel.trailingAnchor.constraint(equalTo: priceStudentLabel.leadingAnchor, constant: self.paddingConstant).isActive = true
         priceOtherLabel.lastBaselineAnchor.constraint(equalTo: priceStudentLabel.lastBaselineAnchor).isActive = true
-
-        tableView.bottomAnchor.constraint(equalTo: self.ratingView.topAnchor).isActive = true
     }
 
     public func rebuildUI() {
