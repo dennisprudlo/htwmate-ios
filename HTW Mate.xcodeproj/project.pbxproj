@@ -38,6 +38,7 @@
 		81BFA90722F1B3820036BACC /* LecturersDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA90622F1B3820036BACC /* LecturersDetailController.swift */; };
 		81BFA90922F1DC780036BACC /* LecturerInfoHeadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA90822F1DC780036BACC /* LecturerInfoHeadTableViewCell.swift */; };
 		81C21EA4232BA1860005E2B0 /* CafeteriaDishAttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EA3232BA1860005E2B0 /* CafeteriaDishAttributeTableViewCell.swift */; };
+		81C21EA6232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EA5232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift */; };
 		81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */; };
 		81D7A2D3230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A2D2230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift */; };
 		81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */; };
@@ -110,6 +111,7 @@
 		81BFA90622F1B3820036BACC /* LecturersDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturersDetailController.swift; sourceTree = "<group>"; };
 		81BFA90822F1DC780036BACC /* LecturerInfoHeadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoHeadTableViewCell.swift; sourceTree = "<group>"; };
 		81C21EA3232BA1860005E2B0 /* CafeteriaDishAttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishAttributeTableViewCell.swift; sourceTree = "<group>"; };
+		81C21EA5232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishTitleTableViewCell.swift; sourceTree = "<group>"; };
 		81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+removeAllSubviews.swift"; sourceTree = "<group>"; };
 		81D7A2D2230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoOfficeTableViewCell.swift; sourceTree = "<group>"; };
 		81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWNavigationController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */,
 				810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */,
 				81C21EA3232BA1860005E2B0 /* CafeteriaDishAttributeTableViewCell.swift */,
+				81C21EA5232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift */,
 			);
 			path = Dining;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				81F942AB23076A240042EC3C /* HWLecturerRendererListComponent.swift in Sources */,
 				81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */,
 				81D7D6272322D16D0021A16E /* DiningDetailController.swift in Sources */,
+				81C21EA6232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift in Sources */,
 				816B7A3122DA86B900FA507E /* Event.swift in Sources */,
 				81F942A1230753400042EC3C /* HWLecturerRendererTextComponent.swift in Sources */,
 				81F942B22308187B0042EC3C /* EventTableViewCell.swift in Sources */,

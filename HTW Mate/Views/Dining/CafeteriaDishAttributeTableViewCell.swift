@@ -8,8 +8,6 @@
 
 import UIKit
 
-import UIKit
-
 class CafeteriaDishAttributeTableViewCell: UITableViewCell {
 
     let badgeView = UIView()
@@ -35,10 +33,10 @@ class CafeteriaDishAttributeTableViewCell: UITableViewCell {
 
         let inset = HWInsets.standard
         badgeView.translatesAutoresizingMaskIntoConstraints = false
-        badgeView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: HWInsets.medium).isActive = true
+        badgeView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: HWInsets.small).isActive = true
         badgeView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset).isActive = true
         badgeView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor).isActive = true
-        badgeView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        badgeView.widthAnchor.constraint(equalToConstant: 42).isActive = true
         badgeView.backgroundColor = HWColors.darkPrimary
         badgeView.layer.cornerRadius = HWInsets.CornerRadius.label
 

@@ -41,6 +41,7 @@ class DiningDetailController: UIViewController, UITableViewDelegate, UITableView
 
         tableView.register(CafeteriaDishInfoMainTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishInfoMainTableViewCell.self))
         tableView.register(CafeteriaDishAttributeTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishAttributeTableViewCell.self))
+        tableView.register(CafeteriaDishTitleTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishTitleTableViewCell.self))
 
         self.view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false

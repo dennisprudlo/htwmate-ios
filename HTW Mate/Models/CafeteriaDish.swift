@@ -155,7 +155,7 @@ class CafeteriaDish : DatabaseModel {
             let label = UILabel()
             view.addSubview(label)
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.adjustsFontSizeToFitWidth = true
+            label.adjustsFontSizeToFitWidth = false
             label.numberOfLines = 1
             label.text = customInfo.text?.uppercased()
             label.textAlignment = .center
@@ -179,19 +179,52 @@ class CafeteriaDish : DatabaseModel {
         cell.titleLabel.text = self.title
         infoCells.append(cell)
 
-        getBadgeViews(withFullTitle: false).forEach { (badgeData) in
-            let badgeCell = CafeteriaDishAttributeTableViewCell()
-            badgeCell.setColor(badgeData.color)
-            badgeCell.setSymbol(" ")
-            badgeCell.setDescription(CafeteriaDish.localizedDescription(forBadge: badgeData.badge))
-            infoCells.append(badgeCell)
+        let badgesData = getBadgeViews()
+        if badgesData.count > 0 {
+            let badgeTitle = CafeteriaDishTitleTableViewCell()
+            badgeTitle.titleLabel.text = "Badges"
+            infoCells.append(badgeTitle)
+
+            badgesData.forEach { (badgeData) in
+                let badgeCell = CafeteriaDishAttributeTableViewCell()
+                badgeCell.setColor(badgeData.color)
+                badgeCell.setSymbol(" ")
+                badgeCell.setDescription(CafeteriaDish.localizedDescription(forBadge: badgeData.badge))
+                infoCells.append(badgeCell)
+            }
         }
 
+        var additives: [CafeteriaDishAttributeTableViewCell] = []
+        var allergens: [CafeteriaDishAttributeTableViewCell] = []
         ingredients.forEach { (ingredient) in
             let ingredientCell = CafeteriaDishAttributeTableViewCell()
             ingredientCell.setSymbol(ingredient.number)
             ingredientCell.setDescription(CafeteriaDish.localizedDescription(forIngredient: ingredient))
-            infoCells.append(ingredientCell)
+            if ingredient.isAllergen {
+                allergens.append(ingredientCell)
+            } else {
+                additives.append(ingredientCell)
+            }
+        }
+
+        if additives.count > 0 {
+            let additivesTitleCell = CafeteriaDishTitleTableViewCell()
+            additivesTitleCell.titleLabel.text = "Additives"
+            infoCells.append(additivesTitleCell)
+
+            additives.forEach { (cell) in
+                infoCells.append(cell)
+            }
+        }
+
+        if allergens.count > 0 {
+            let allergensTitleCell = CafeteriaDishTitleTableViewCell()
+            allergensTitleCell.titleLabel.text = "Allergens"
+            infoCells.append(allergensTitleCell)
+
+            allergens.forEach { (cell) in
+                infoCells.append(cell)
+            }
         }
 
         return infoCells
