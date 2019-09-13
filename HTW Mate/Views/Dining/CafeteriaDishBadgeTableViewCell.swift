@@ -31,11 +31,12 @@ class CafeteriaDishBadgeTableViewCell: UITableViewCell {
 
         let inset = HWInsets.standard
         badgeView.translatesAutoresizingMaskIntoConstraints = false
-        badgeView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: HWInsets.small).isActive = true
+        badgeView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: HWInsets.medium).isActive = true
         badgeView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset).isActive = true
         badgeView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor).isActive = true
         badgeView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-
+        badgeView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textColor = HWColors.darkPrimary
@@ -50,7 +51,7 @@ class CafeteriaDishBadgeTableViewCell: UITableViewCell {
         badgeView.addSubview(badge)
         badge.topAnchor.constraint(equalTo: badgeView.topAnchor).isActive = true
         badge.leadingAnchor.constraint(equalTo: badgeView.leadingAnchor).isActive = true
-        badge.trailingAnchor.constraint(equalTo: badgeView.trailingAnchor).isActive = true
+        badge.trailingAnchor.constraint(lessThanOrEqualTo: badgeView.trailingAnchor).isActive = true
         badge.bottomAnchor.constraint(equalTo: badgeView.bottomAnchor).isActive = true
     }
 }

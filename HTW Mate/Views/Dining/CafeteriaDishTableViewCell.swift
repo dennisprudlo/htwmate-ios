@@ -106,22 +106,10 @@ class CafeteriaDishTableViewCell: UITableViewCell, Dequeable {
         titleLabel.text = cafeteriaDish.title
         ingredientsLabel.text = cafeteriaDish.getIngredientsNumberChain()
 
-        if cafeteriaDish.prices.isFree() {
-            studentPriceLabel.text = HWStrings.Controllers.Dining.pricesFree
-            otherPriceLabel.text = nil
-        } else {
-            let numberFormatter = NumberFormatter()
-            numberFormatter.minimumFractionDigits = 2
-            numberFormatter.maximumFractionDigits = 2
-            numberFormatter.minimumIntegerDigits = 1
+        let priceLabels = cafeteriaDish.getPriceLabels()
 
-            let studentPrice = numberFormatter.string(from: cafeteriaDish.prices.student as NSNumber)
-            let employeePrice = numberFormatter.string(from: cafeteriaDish.prices.employee as NSNumber)
-            let regularPrice = numberFormatter.string(from: cafeteriaDish.prices.regular as NSNumber)
-
-            studentPriceLabel.text = "\(studentPrice ?? String(cafeteriaDish.prices.student)) €"
-            otherPriceLabel.text = "\(regularPrice ?? String(cafeteriaDish.prices.regular)) / \(employeePrice ?? String(cafeteriaDish.prices.employee)) /"
-        }
+        studentPriceLabel.text = priceLabels.student
+        otherPriceLabel.text = priceLabels.other
     }
 
     override func layoutSubviews() {

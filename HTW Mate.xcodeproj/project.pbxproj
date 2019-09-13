@@ -10,7 +10,6 @@
 		810C8FA92322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */; };
 		810C8FAB2325204B007B13F1 /* DiningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C8FAA2325204B007B13F1 /* DiningController.swift */; };
 		810C8FAD23252CC1007B13F1 /* CafeteriaDishBadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C8FAC23252CC1007B13F1 /* CafeteriaDishBadgeTableViewCell.swift */; };
-		810C8FAF2325A337007B13F1 /* CafeteriaDishRatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C8FAE2325A337007B13F1 /* CafeteriaDishRatingTableViewCell.swift */; };
 		8112C6E9231C538800818868 /* HWFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112C6E8231C538800818868 /* HWFontSize.swift */; };
 		813CAF85231565A700854C30 /* HTWMateCafeteriaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */; };
 		813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF862315660B00854C30 /* CafeteriaDish.swift */; };
@@ -82,7 +81,6 @@
 		810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishInfoMainTableViewCell.swift; sourceTree = "<group>"; };
 		810C8FAA2325204B007B13F1 /* DiningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningController.swift; sourceTree = "<group>"; };
 		810C8FAC23252CC1007B13F1 /* CafeteriaDishBadgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishBadgeTableViewCell.swift; sourceTree = "<group>"; };
-		810C8FAE2325A337007B13F1 /* CafeteriaDishRatingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishRatingTableViewCell.swift; sourceTree = "<group>"; };
 		8112C6E8231C538800818868 /* HWFontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWFontSize.swift; sourceTree = "<group>"; };
 		813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateCafeteriaAPI.swift; sourceTree = "<group>"; };
 		813CAF862315660B00854C30 /* CafeteriaDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDish.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */,
 				810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */,
 				810C8FAC23252CC1007B13F1 /* CafeteriaDishBadgeTableViewCell.swift */,
-				810C8FAE2325A337007B13F1 /* CafeteriaDishRatingTableViewCell.swift */,
 			);
 			path = Dining;
 			sourceTree = "<group>";
@@ -538,7 +535,6 @@
 				816B7A3122DA86B900FA507E /* Event.swift in Sources */,
 				81F942A1230753400042EC3C /* HWLecturerRendererTextComponent.swift in Sources */,
 				81F942B22308187B0042EC3C /* EventTableViewCell.swift in Sources */,
-				810C8FAF2325A337007B13F1 /* CafeteriaDishRatingTableViewCell.swift in Sources */,
 				81BFA8FC22E4D1D40036BACC /* LecturerTableViewCell.swift in Sources */,
 				817738972304A14900D0F8D4 /* DashboardEventStorage.swift in Sources */,
 				81F942A7230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift in Sources */,

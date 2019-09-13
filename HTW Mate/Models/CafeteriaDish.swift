@@ -141,7 +141,7 @@ class CafeteriaDish : DatabaseModel {
                 customInfo.text = fullTitle ? "sustainable food" : "sust. food"
                 customInfo.color = HWColors.Cafeteria.badgeSustainable
             case .sustainableFish:
-                customInfo.text = fullTitle ? "sustainable fisheries" : "sust. fisheries"
+                customInfo.text = fullTitle ? "sustainable fisheries" : "sust. fish."
                 customInfo.color = HWColors.Cafeteria.badgeSustainableFish
             }
 
@@ -175,15 +175,11 @@ class CafeteriaDish : DatabaseModel {
     public func getInfoCells() -> [UITableViewCell] {
         var infoCells: [UITableViewCell] = []
 
-        let ratingCell = CafeteriaDishRatingTableViewCell()
-        ratingCell.rating = self.rating
-        infoCells.append(ratingCell)
-
         let cell = CafeteriaDishInfoMainTableViewCell()
         cell.titleLabel.text = self.title
         infoCells.append(cell)
 
-        getBadgeViews(withFullTitle: true).forEach { (badgeData) in
+        getBadgeViews(withFullTitle: false).forEach { (badgeData) in
             let badgeCell = CafeteriaDishBadgeTableViewCell()
             badgeCell.setBadge(badgeData.view)
             badgeCell.descriptionLabel.text = localizedDescription(forBadge: badgeData.badge)
@@ -191,6 +187,35 @@ class CafeteriaDish : DatabaseModel {
         }
 
         return infoCells
+    }
+
+    public func getColor() -> UIColor {
+        switch rating {
+        case .green: return HWColors.Cafeteria.ratingGreen
+        case .orange: return HWColors.Cafeteria.ratingOrange
+        case .red: return HWColors.Cafeteria.ratingRed
+        case .undefined: return HWColors.Cafeteria.ratingUndefined
+        }
+    }
+
+    public func getPriceLabels() -> (student: String, other: String?) {
+        if prices.isFree() {
+            return (student: HWStrings.Controllers.Dining.pricesFree, other: nil)
+        }
+
+        let numberFormatter = NumberFormatter()
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.minimumIntegerDigits = 1
+
+        let studentPrice = numberFormatter.string(from: prices.student as NSNumber)
+        let employeePrice = numberFormatter.string(from: prices.employee as NSNumber)
+        let regularPrice = numberFormatter.string(from: prices.regular as NSNumber)
+
+        let studentText = "\(studentPrice ?? String(prices.student)) €"
+        let otherText = "\(regularPrice ?? String(prices.regular)) / \(employeePrice ?? String(prices.employee)) /"
+
+        return (student: studentText, other: otherText)
     }
 
     public func localizedDescription(forBadge badge: Badge) -> String {
@@ -201,5 +226,27 @@ class CafeteriaDish : DatabaseModel {
         case .sustainable: return HWStrings.Controllers.Dining.Badges.sustainable
         case .sustainableFish: return HWStrings.Controllers.Dining.Badges.sustainableFish
         }
+    }
+
+    public static func localizedDescription(forRating rating: CafeteriaDish.Rating) -> (leading: String, trailing: String) {
+        var descriptionTextLeading = HWStrings.Controllers.Dining.Ratings.undefinedLeading
+        var descriptionTextTrailing = HWStrings.Controllers.Dining.Ratings.undefinedTrailing
+
+        switch rating {
+        case .green:
+            descriptionTextLeading = HWStrings.Controllers.Dining.Ratings.greenLeading
+            descriptionTextTrailing = HWStrings.Controllers.Dining.Ratings.greenTrailing
+        case .orange:
+            descriptionTextLeading = HWStrings.Controllers.Dining.Ratings.orangeLeading
+            descriptionTextTrailing = HWStrings.Controllers.Dining.Ratings.orangeTrailing
+        case .red:
+            descriptionTextLeading = HWStrings.Controllers.Dining.Ratings.redLeading
+            descriptionTextTrailing = HWStrings.Controllers.Dining.Ratings.redTrailing
+        case .undefined:
+            descriptionTextLeading = HWStrings.Controllers.Dining.Ratings.undefinedLeading
+            descriptionTextTrailing = HWStrings.Controllers.Dining.Ratings.undefinedTrailing
+        }
+
+        return (leading: descriptionTextLeading, trailing: descriptionTextTrailing)
     }
 }
