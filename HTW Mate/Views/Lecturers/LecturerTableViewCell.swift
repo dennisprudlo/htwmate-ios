@@ -83,17 +83,18 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
         //
         // Set the placeholder image
         lecturerImageView.image = lecturer.image
+        let lecturerId = lecturer.htwId
 
         if !lecturer.imageSet {
             lecturer.downloadImage { (image) in
-                self.lecturerImageView.image = image
+                // Check if the lecturerImageView is still the image view for the lecturer
+                // which image was downloaded. It may occur, that this is now another lecturer
+                // due to the reusable cells
+                if lecturerId == self.lecturer.htwId {
+                    self.lecturerImageView.image = image
+                }
             }
         }
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.lecturerImageView.image = nil
     }
 
 }

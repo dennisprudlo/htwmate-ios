@@ -98,6 +98,7 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = LecturerTableViewCell.dequeue(from: tableView)
         cell.setModel(LecturerStorage.shared.lecturers(inSection: indexPath.section)[indexPath.row])
+        cell.lecturerImageView.image = nil
         cell.layoutSubviews()
         return cell
     }
