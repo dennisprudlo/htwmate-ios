@@ -53,10 +53,16 @@ class SettingsAboutController: UITableViewController {
             let textLabel = UILabel()
             textLabel.numberOfLines = 0
             textLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .regular)
-            textLabel.text = "HTW Mate v0.2"
+            textLabel.text = "HTW Mate"
             textLabel.textAlignment = .center
             tableViewCell.contentView.addSubview(textLabel)
             textLabel.pin(to: tableViewCell.contentView, withInset: UIEdgeInsets(top: HWInsets.medium, left: HWInsets.standard, bottom: HWInsets.medium, right: HWInsets.standard))
+
+            if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+                textLabel.text = """
+                    HTW Mate \(version) (\(build))
+                """
+            }
         case .development:
             let textLabel = UILabel()
             textLabel.numberOfLines = 0
