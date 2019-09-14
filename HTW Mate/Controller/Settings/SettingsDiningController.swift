@@ -18,9 +18,9 @@ class SettingsDiningController: UITableViewController {
     }
 
     let sections: [(type: SectionType, header: String?, footer: String?)] = [
-        (type: .campus, header: nil, footer: "Select the campus where you are primarily eating lunch at."),
+        (type: .campus, header: nil, footer: HWStrings.Controllers.Settings.Dining.campusDescription),
         (type: .filter, header: nil, footer: nil),
-        (type: .rating, header: "Rating", footer: nil),
+        (type: .rating, header: HWStrings.Controllers.Dining.sectionTitleRating, footer: nil),
         (type: .badges, header: HWStrings.Controllers.Dining.sectionTitleBadge, footer: nil)
     ]
 
@@ -48,9 +48,9 @@ class SettingsDiningController: UITableViewController {
     }
 
     func configureCells() {
-        self.campusCell.textLabel?.text = "Campus"
+        self.campusCell.textLabel?.text = HWStrings.Controllers.Settings.Dining.campus
 
-        self.filterCell.textLabel?.text = "Filter"
+        self.filterCell.textLabel?.text = HWStrings.Controllers.Settings.Dining.filter
         self.filterCell.selectionStyle = .none
         self.filterCell.accessoryView = self.filterSwitch
         self.filterSwitch.addTarget(self, action: #selector(filterSwitchChanged), for: .valueChanged)

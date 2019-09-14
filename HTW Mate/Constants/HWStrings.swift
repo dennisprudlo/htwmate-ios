@@ -70,6 +70,7 @@ struct HWStrings {
             static let pricesFree = NSLocalizedString("controller.dining.prices.free", comment: "The text for the prices label of a dish when its free")
             static let missingContentTitle = NSLocalizedString("controller.dining.missingcontent.title", comment: "The text for the missing content title in the dining view")
             static let missingContentSubtitle = NSLocalizedString("controller.dining.missingcontent.subtitle", comment: "The text for the missing content subtitle in the dining view")
+            static let sectionTitleRating = NSLocalizedString("controller.dining.sectiontitle.rating", comment: "The section title for the rating in the dish detail view")
             static let sectionTitleBadge = NSLocalizedString("controller.dining.sectiontitle.badge", comment: "The section title for the badges in the dish detail view")
             static let sectionTitleAdditive = NSLocalizedString("controller.dining.sectiontitle.additive", comment: "The section title for the additives in the dish detail view")
             static let sectionTitleAllergen = NSLocalizedString("controller.dining.sectiontitle.allergen", comment: "The section title for the allergens in the dish detail view")
@@ -104,6 +105,11 @@ struct HWStrings {
             static let title = NSLocalizedString("controller.settings.title", comment: "The title for the main settings controller")
             static let itemAbout = NSLocalizedString("controller.settings.item.about", comment: "The title for the about item")
             static let itemLegal = NSLocalizedString("controller.settings.item.legal", comment: "The title for the legal item")
+            struct Dining {
+                static let campus = NSLocalizedString("controller.settings.dining.campus", comment: "The title for the campus selection setting")
+                static let campusDescription = NSLocalizedString("controller.settings.dining.campus.description", comment: "The description for the campus selection setting")
+                static let filter = NSLocalizedString("controller.settings.dining.filter", comment: "The title for the dining filter setting")
+            }
         }
     }
 }
