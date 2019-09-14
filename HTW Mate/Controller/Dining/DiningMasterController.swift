@@ -55,6 +55,8 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: HWIcons.filter, style: .plain, target: self, action: #selector(didTapFilter))
+
         splitViewController?.delegate = self
 
         tableView.delegate = self
@@ -105,6 +107,14 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
         overlayView.snap(toEdgesOf: self.view)
     }
 
+    @objc func didTapFilter() {
+        let settingsController = SettingsDiningController(style: .grouped)
+        settingsController.overrideTitle = "Filter"
+        settingsController.navigationBar = navigationController?.navigationBar
+        navigationController?.navigationBar.shadowImage = nil
+        navigationController?.pushViewController(settingsController, animated: true)
+    }
+
     // MARK: - Split view controller collapse
 
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
@@ -140,7 +150,7 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
     }
 
     private func reloadMenu() {
-        CafeteriaStorage.shared.reload(forDate: self.date, cafeteria: .treskowallee)
+        CafeteriaStorage.shared.reload(forDate: self.date, cafeteria: HWDefault.diningCampus == 0 ? .treskowallee : .wilhelminenhof)
     }
 
     @objc func didRequestDateSelector(_ sender: UIBarButtonItem) {

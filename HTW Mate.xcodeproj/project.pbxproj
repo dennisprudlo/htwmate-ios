@@ -46,6 +46,8 @@
 		81C21EB3232CD7180005E2B0 /* SettingsLegalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB2232CD7180005E2B0 /* SettingsLegalController.swift */; };
 		81C21EB6232CDA1B0005E2B0 /* UIView+pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB5232CDA1B0005E2B0 /* UIView+pin.swift */; };
 		81C21EB8232CDE860005E2B0 /* SettingsAboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB7232CDE860005E2B0 /* SettingsAboutController.swift */; };
+		81C21EBA232CE44A0005E2B0 /* SettingsDiningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB9232CE44A0005E2B0 /* SettingsDiningController.swift */; };
+		81C21EBC232CE4D00005E2B0 /* HWDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EBB232CE4D00005E2B0 /* HWDefault.swift */; };
 		81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */; };
 		81D7A2D3230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A2D2230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift */; };
 		81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */; };
@@ -126,6 +128,8 @@
 		81C21EB2232CD7180005E2B0 /* SettingsLegalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLegalController.swift; sourceTree = "<group>"; };
 		81C21EB5232CDA1B0005E2B0 /* UIView+pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+pin.swift"; sourceTree = "<group>"; };
 		81C21EB7232CDE860005E2B0 /* SettingsAboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAboutController.swift; sourceTree = "<group>"; };
+		81C21EB9232CE44A0005E2B0 /* SettingsDiningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDiningController.swift; sourceTree = "<group>"; };
+		81C21EBB232CE4D00005E2B0 /* HWDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWDefault.swift; sourceTree = "<group>"; };
 		81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+removeAllSubviews.swift"; sourceTree = "<group>"; };
 		81D7A2D2230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoOfficeTableViewCell.swift; sourceTree = "<group>"; };
 		81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWNavigationController.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 				81C21EAA232BE4150005E2B0 /* SettingController.swift */,
 				81C21EB2232CD7180005E2B0 /* SettingsLegalController.swift */,
 				81C21EB7232CDE860005E2B0 /* SettingsAboutController.swift */,
+				81C21EB9232CE44A0005E2B0 /* SettingsDiningController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				816B7A2A22D9D04000FA507E /* HWStrings.swift */,
 				81BFA8FD22E4DC2A0036BACC /* HWImage.swift */,
 				8112C6E8231C538800818868 /* HWFontSize.swift */,
+				81C21EBB232CE4D00005E2B0 /* HWDefault.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -555,8 +561,10 @@
 				810C8FA92322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift in Sources */,
 				8169C35C231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift in Sources */,
 				81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */,
+				81C21EBC232CE4D00005E2B0 /* HWDefault.swift in Sources */,
 				816B7A3322DA89F600FA507E /* EventCollectionViewCell.swift in Sources */,
 				81F942A5230765EC0042EC3C /* LecturerInfoMainAreaTableViewCell.swift in Sources */,
+				81C21EBA232CE44A0005E2B0 /* SettingsDiningController.swift in Sources */,
 				81C21EB1232CCF3E0005E2B0 /* SettingsSectionCell.swift in Sources */,
 				81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */,
 				81BFA90522F199490036BACC /* LecturerStorage.swift in Sources */,
