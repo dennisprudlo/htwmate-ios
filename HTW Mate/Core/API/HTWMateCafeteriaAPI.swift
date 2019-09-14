@@ -10,11 +10,6 @@ import Foundation
 
 class HTWMateCafeteriaAPI {
 
-    enum Cafeteria: String {
-        case wilhelminenhof = "CAMPUS_WILHELMINENHOF"
-        case treskowallee = "CAMPUS_TRESKOWALLEE"
-    }
-
     /// The endpoint for the events resource
     let endpoint = "cafeteria"
 
@@ -22,7 +17,7 @@ class HTWMateCafeteriaAPI {
     ///
     /// - Parameters:
     ///   - completion: The completion handler after a successful request
-    func get(forDate date: Date, cafeteria: CafeteriaDish.Cafeteria, internationalied: Bool, completion: @escaping ([CafeteriaDish], URLResponse) -> Void) {
+    func get(forDate date: Date, cafeteria: CafeteriaDish.Cafeteria, internationalied: Bool, filter: [String], completion: @escaping ([CafeteriaDish], URLResponse) -> Void) {
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -32,6 +27,7 @@ class HTWMateCafeteriaAPI {
         components.queryItems?.append(URLQueryItem(name: "date", value: stringDate))
         components.queryItems?.append(URLQueryItem(name: "cafeteria", value: cafeteria.rawValue))
         components.queryItems?.append(URLQueryItem(name: "internationalized", value: internationalied ? "1" : "0"))
+        components.queryItems?.append(URLQueryItem(name: "filter", value: filter.joined(separator: ",")))
 
         API.shared.get(route: components) { (data, response) in
             do {

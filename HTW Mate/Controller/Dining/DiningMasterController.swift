@@ -150,7 +150,7 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
     }
 
     private func reloadMenu() {
-        CafeteriaStorage.shared.reload(forDate: self.date, cafeteria: HWDefault.diningCampus == 0 ? .treskowallee : .wilhelminenhof)
+        CafeteriaStorage.shared.reload(forDate: self.date)
     }
 
     @objc func didRequestDateSelector(_ sender: UIBarButtonItem) {

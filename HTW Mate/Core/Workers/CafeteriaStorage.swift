@@ -33,13 +33,44 @@ class CafeteriaStorage {
      var delegate: CafeteriaStorageDelegate?
 
     /// Reloads the cafeteria dishes from the API
-    func reload(forDate date: Date, cafeteria: CafeteriaDish.Cafeteria) -> Void {
+    func reload(forDate date: Date) -> Void {
+
+        let cafeteria: CafeteriaDish.Cafeteria = HWDefault.diningCampus == 0 ? .treskowallee : .wilhelminenhof
+
         var internationalized: Bool = true
         if let langCode = Locale.current.languageCode, langCode == "de" {
             internationalized = false
         }
 
-        API.shared.cafeteriaResource().get(forDate: date, cafeteria: cafeteria, internationalied: internationalized, completion: { (cafeteriaDishes, response) in
+        var filterIdentifiers: [String] = []
+
+        if HWDefault.diningIsFilterOn {
+            CafeteriaDish.Rating.allCases.forEach { (rating) in
+                if HWDefault.diningFilterRating(for: rating) {
+                    filterIdentifiers.append(rating.rawValue)
+                }
+            }
+
+            CafeteriaDish.Badge.allCases.forEach { (badge) in
+                if HWDefault.diningFilterBadge(for: badge) {
+                    filterIdentifiers.append(badge.rawValue)
+                }
+            }
+
+            CafeteriaDish.Additive.allCases.forEach { (additive) in
+                if HWDefault.diningFilterAdditive(for: additive) {
+                    filterIdentifiers.append(additive.rawValue)
+                }
+            }
+
+            CafeteriaDish.Allergen.allCases.forEach { (allergen) in
+                if HWDefault.diningFilterAllergen(for: allergen) {
+                    filterIdentifiers.append(allergen.rawValue)
+                }
+            }
+        }
+
+        API.shared.cafeteriaResource().get(forDate: date, cafeteria: cafeteria, internationalied: internationalized, filter: filterIdentifiers, completion: { (cafeteriaDishes, response) in
             self.cafeteriaDishes = cafeteriaDishes
             self.buildDisplayedCafeteriaDishes()
         })

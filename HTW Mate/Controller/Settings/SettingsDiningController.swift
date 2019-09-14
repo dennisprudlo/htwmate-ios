@@ -234,6 +234,8 @@ class SettingsDiningController: UITableViewController {
             return
         }
 
+        DiningMasterController.updateOnAppear = true
+
         let sectionType = sections[indexPath.section].type
         switch sectionType {
         case .campus:
@@ -244,7 +246,6 @@ class SettingsDiningController: UITableViewController {
                 HWDefault.diningCampus = 0
                 self.campusCell.detailTextLabel?.text = self.campusTitles[0]
             }
-            DiningMasterController.updateOnAppear = true
         case .filter:
             break
         case .rating:
@@ -272,7 +273,7 @@ class SettingsDiningController: UITableViewController {
             HWDefault.diningFilterAdditive(set: !filtered, for: additive)
             cell.accessoryType = !filtered ? .none : .checkmark
         case .allergens:
-            guard let allergen = HWMetaContainer.retrieve(fromKey: "alelrgen", of: cell) as? CafeteriaDish.Allergen else {
+            guard let allergen = HWMetaContainer.retrieve(fromKey: "allergen", of: cell) as? CafeteriaDish.Allergen else {
                 return
             }
 
