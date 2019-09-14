@@ -94,7 +94,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     ///
     /// - Parameter size: The size to use for the calculation
     func calculateItemsPerRow(forSize size: CGSize) {
-        if size.width <= 375.0 {
+        if size.width <= 414.0 {
             self.itemsPerRow = 1
         } else if size.width < 1000.0 {
             self.itemsPerRow = 2
