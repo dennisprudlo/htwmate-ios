@@ -53,6 +53,17 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
         tableView.refreshControl?.addTarget(self, action: #selector(didRefreshCollectionView(_:)), for: .valueChanged)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        //
+        // Due to the search controller the shadow image of the navigation bar cannot be removed.
+        // So it has to be set hidden on runtime
+        if let imageView = navigationItem.searchController?.searchBar.superview?.subviews.first?.subviews.first as? UIImageView {
+            imageView.isHidden = true
+        }
+    }
+
     // MARK: - Lecturer storage handler
 
     func lecturerStorage(didReloadLecturers lecturers: [Lecturer]) {

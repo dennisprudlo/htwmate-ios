@@ -41,6 +41,11 @@
 		81C21EA6232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EA5232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift */; };
 		81C21EA8232BE00D0005E2B0 /* SectionSettingsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EA7232BE00D0005E2B0 /* SectionSettingsCollectionReusableView.swift */; };
 		81C21EAB232BE4150005E2B0 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EAA232BE4150005E2B0 /* SettingController.swift */; };
+		81C21EAE232CCEDB0005E2B0 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EAD232CCEDB0005E2B0 /* SettingsSection.swift */; };
+		81C21EB1232CCF3E0005E2B0 /* SettingsSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB0232CCF3E0005E2B0 /* SettingsSectionCell.swift */; };
+		81C21EB3232CD7180005E2B0 /* SettingsLegalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB2232CD7180005E2B0 /* SettingsLegalController.swift */; };
+		81C21EB6232CDA1B0005E2B0 /* UIView+pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB5232CDA1B0005E2B0 /* UIView+pin.swift */; };
+		81C21EB8232CDE860005E2B0 /* SettingsAboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB7232CDE860005E2B0 /* SettingsAboutController.swift */; };
 		81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */; };
 		81D7A2D3230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A2D2230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift */; };
 		81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */; };
@@ -116,6 +121,11 @@
 		81C21EA5232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishTitleTableViewCell.swift; sourceTree = "<group>"; };
 		81C21EA7232BE00D0005E2B0 /* SectionSettingsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionSettingsCollectionReusableView.swift; sourceTree = "<group>"; };
 		81C21EAA232BE4150005E2B0 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		81C21EAD232CCEDB0005E2B0 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		81C21EB0232CCF3E0005E2B0 /* SettingsSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionCell.swift; sourceTree = "<group>"; };
+		81C21EB2232CD7180005E2B0 /* SettingsLegalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLegalController.swift; sourceTree = "<group>"; };
+		81C21EB5232CDA1B0005E2B0 /* UIView+pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+pin.swift"; sourceTree = "<group>"; };
+		81C21EB7232CDE860005E2B0 /* SettingsAboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAboutController.swift; sourceTree = "<group>"; };
 		81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+removeAllSubviews.swift"; sourceTree = "<group>"; };
 		81D7A2D2230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoOfficeTableViewCell.swift; sourceTree = "<group>"; };
 		81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWNavigationController.swift; sourceTree = "<group>"; };
@@ -231,6 +241,7 @@
 		81BFA90322F199310036BACC /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				81C21EAF232CCF300005E2B0 /* Settings */,
 				81F9429B230716490042EC3C /* LecturerRenderer */,
 				81BFA90422F199490036BACC /* LecturerStorage.swift */,
 				8177389423049FDF00D0F8D4 /* DashboardNewsStorage.swift */,
@@ -244,6 +255,17 @@
 			isa = PBXGroup;
 			children = (
 				81C21EAA232BE4150005E2B0 /* SettingController.swift */,
+				81C21EB2232CD7180005E2B0 /* SettingsLegalController.swift */,
+				81C21EB7232CDE860005E2B0 /* SettingsAboutController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		81C21EAF232CCF300005E2B0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				81C21EAD232CCEDB0005E2B0 /* SettingsSection.swift */,
+				81C21EB0232CCF3E0005E2B0 /* SettingsSectionCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -289,6 +311,7 @@
 				81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */,
 				81F942982306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift */,
 				8169C35B231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift */,
+				81C21EB5232CDA1B0005E2B0 /* UIView+pin.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -534,6 +557,7 @@
 				81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */,
 				816B7A3322DA89F600FA507E /* EventCollectionViewCell.swift in Sources */,
 				81F942A5230765EC0042EC3C /* LecturerInfoMainAreaTableViewCell.swift in Sources */,
+				81C21EB1232CCF3E0005E2B0 /* SettingsSectionCell.swift in Sources */,
 				81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */,
 				81BFA90522F199490036BACC /* LecturerStorage.swift in Sources */,
 				81C21EA8232BE00D0005E2B0 /* SectionSettingsCollectionReusableView.swift in Sources */,
@@ -549,6 +573,7 @@
 				816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */,
 				81F942AB23076A240042EC3C /* HWLecturerRendererListComponent.swift in Sources */,
 				81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */,
+				81C21EB8232CDE860005E2B0 /* SettingsAboutController.swift in Sources */,
 				81D7D6272322D16D0021A16E /* DiningDetailController.swift in Sources */,
 				81C21EA6232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift in Sources */,
 				816B7A3122DA86B900FA507E /* Event.swift in Sources */,
@@ -574,18 +599,21 @@
 				810C8FAB2325204B007B13F1 /* DiningController.swift in Sources */,
 				813CAF8D23157B7B00854C30 /* CafeteriaDishTableViewCell.swift in Sources */,
 				817738922304966200D0F8D4 /* HWTabBarController.swift in Sources */,
+				81C21EAE232CCEDB0005E2B0 /* SettingsSection.swift in Sources */,
 				81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */,
 				81EB7DC122D2636C00E00485 /* DatabaseModel.swift in Sources */,
 				813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */,
 				81EB7DBF22D2631800E00485 /* News.swift in Sources */,
 				81EB7DB722D1462800E00485 /* AppearanceManager.swift in Sources */,
 				81F942B0230811370042EC3C /* DashboardEventsController.swift in Sources */,
+				81C21EB3232CD7180005E2B0 /* SettingsLegalController.swift in Sources */,
 				81BFA90922F1DC780036BACC /* LecturerInfoHeadTableViewCell.swift in Sources */,
 				81EB7DD022D2A07C00E00485 /* API.swift in Sources */,
 				817738802302E93D00D0F8D4 /* LecturerInfoUpdatedTableViewCell.swift in Sources */,
 				81EB7DC522D270A000E00485 /* NewsCollectionViewCell.swift in Sources */,
 				8177389523049FDF00D0F8D4 /* DashboardNewsStorage.swift in Sources */,
 				81EB7DD222D2A0F000E00485 /* HTWMateNewsAPI.swift in Sources */,
+				81C21EB6232CDA1B0005E2B0 /* UIView+pin.swift in Sources */,
 				81EB7DBC22D2066A00E00485 /* HWIcons.swift in Sources */,
 				81C21EAB232BE4150005E2B0 /* SettingController.swift in Sources */,
 				81BFA8F722E4CE2D0036BACC /* LecturersController.swift in Sources */,

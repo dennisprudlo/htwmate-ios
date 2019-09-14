@@ -13,20 +13,23 @@ class HWTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // MARK: Dashboard Tab
+
         let dashboardController = DashboardController(collectionViewLayout: UICollectionViewFlowLayout())
         dashboardController.tabBarItem = UITabBarItem(title: HWStrings.Controllers.Dashboard.title, image: HWIcons.dashboard, tag: 1)
+
+        // MARK: Lecturers Tab
 
         let lecturersController = LecturersController()
         lecturersController.tabBarItem = UITabBarItem(title: HWStrings.Controllers.Lecturers.title, image: HWIcons.lecturers, tag: 2)
 
-        let masterViewController = LecturersMasterController()
-        masterViewController.title = HWStrings.Controllers.Lecturers.title
-        let detailViewController = LecturersDetailController()
+        let lecturersMasterController = LecturersMasterController()
+        lecturersMasterController.title = HWStrings.Controllers.Lecturers.title
+        let lecturersMasterNavigationController = HWNavigationController(rootViewController: lecturersMasterController)
 
-        let masterController = HWNavigationController(rootViewController: masterViewController)
-        let detailController = HWNavigationController(rootViewController: detailViewController)
+        let lecturersDetailNavigationController = HWNavigationController(rootViewController: LecturersDetailController())
 
-        lecturersController.viewControllers = [masterController, detailController]
+        lecturersController.viewControllers = [lecturersMasterNavigationController, lecturersDetailNavigationController]
 
         // MARK: Dining Tab
 

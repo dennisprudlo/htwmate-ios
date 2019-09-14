@@ -102,6 +102,8 @@ struct HWStrings {
         }
         struct Settings {
             static let title = NSLocalizedString("controller.settings.title", comment: "The title for the main settings controller")
+            static let itemAbout = NSLocalizedString("controller.settings.item.about", comment: "The title for the about item")
+            static let itemLegal = NSLocalizedString("controller.settings.item.legal", comment: "The title for the legal item")
         }
     }
 }
