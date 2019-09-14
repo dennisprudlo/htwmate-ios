@@ -15,13 +15,17 @@ class SettingsDiningController: UITableViewController {
         case filter
         case rating
         case badges
+        case additives
+        case allergens
     }
 
     let sections: [(type: SectionType, header: String?, footer: String?)] = [
         (type: .campus, header: nil, footer: HWStrings.Controllers.Settings.Dining.campusDescription),
         (type: .filter, header: nil, footer: nil),
         (type: .rating, header: HWStrings.Controllers.Dining.sectionTitleRating, footer: nil),
-        (type: .badges, header: HWStrings.Controllers.Dining.sectionTitleBadge, footer: nil)
+        (type: .badges, header: HWStrings.Controllers.Dining.sectionTitleBadge, footer: nil),
+        (type: .additives, header: HWStrings.Controllers.Dining.sectionTitleAdditive, footer: nil),
+        (type: .allergens, header: HWStrings.Controllers.Dining.sectionTitleAllergen, footer: nil)
     ]
 
     let campusCell = UITableViewCell(style: .value1, reuseIdentifier: nil)
@@ -30,6 +34,8 @@ class SettingsDiningController: UITableViewController {
 
     var ratingCells: [UITableViewCell] = []
     var badgesCells: [UITableViewCell] = []
+    var additivesCells: [UITableViewCell] = []
+    var allergensCells: [UITableViewCell] = []
 
     var overrideTitle: String?
     var navigationBar: UINavigationBar?
@@ -81,6 +87,26 @@ class SettingsDiningController: UITableViewController {
             badgesCells.append(badgeCell)
         }
 
+        CafeteriaDish.Additive.allCases.forEach { (additive) in
+            let additiveCell = UITableViewCell(style: .default, reuseIdentifier: nil)
+            additiveCell.textLabel?.text = CafeteriaDish.localizedDescription(forIngredientWithIdentifier: additive.rawValue)
+            additiveCell.textLabel?.numberOfLines = 0
+
+            HWMetaContainer.write(additive, forKey: "additive", in: additiveCell)
+
+            additivesCells.append(additiveCell)
+        }
+
+        CafeteriaDish.Allergen.allCases.forEach { (allergen) in
+            let allergenCell = UITableViewCell(style: .default, reuseIdentifier: nil)
+            allergenCell.textLabel?.text = CafeteriaDish.localizedDescription(forIngredientWithIdentifier: allergen.rawValue)
+            allergenCell.textLabel?.numberOfLines = 0
+
+            HWMetaContainer.write(allergen, forKey: "allergen", in: allergenCell)
+
+            allergensCells.append(allergenCell)
+        }
+
         updateUI()
     }
 
@@ -110,7 +136,23 @@ class SettingsDiningController: UITableViewController {
             badgeCell.accessoryType = HWDefault.diningFilterBadge(for: badge) ? .none : .checkmark
         }
 
-        let merged = ratingCells + badgesCells
+        additivesCells.forEach { (additiveCell) in
+            guard let additive = HWMetaContainer.retrieve(fromKey: "additive", of: additiveCell) as? CafeteriaDish.Additive else {
+                return
+            }
+
+            additiveCell.accessoryType = HWDefault.diningFilterAdditive(for: additive) ? .none : .checkmark
+        }
+
+        allergensCells.forEach { (allergenCell) in
+            guard let allergen = HWMetaContainer.retrieve(fromKey: "allergen", of: allergenCell) as? CafeteriaDish.Allergen else {
+                return
+            }
+
+            allergenCell.accessoryType = HWDefault.diningFilterAllergen(for: allergen) ? .none : .checkmark
+        }
+
+        let merged = ratingCells + badgesCells + additivesCells + allergensCells
         merged.forEach { (cell) in
             disableCell(cell, disable: !self.filterSwitch.isOn)
         }
@@ -128,7 +170,7 @@ class SettingsDiningController: UITableViewController {
 
         DiningMasterController.updateOnAppear = true
 
-        let merged = ratingCells + badgesCells
+        let merged = ratingCells + badgesCells + additivesCells + allergensCells
         merged.forEach { (cell) in
             disableCell(cell, disable: !self.filterSwitch.isOn)
         }
@@ -148,19 +190,15 @@ class SettingsDiningController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section < 2 {
-            return 1
+        switch section {
+        case 0: return 1
+        case 1: return 1
+        case 2: return ratingCells.count
+        case 3: return badgesCells.count
+        case 4: return additivesCells.count
+        case 5: return allergensCells.count
+        default: return 0
         }
-
-        if section == 2 {
-            return ratingCells.count
-        }
-
-        if section == 3 {
-            return badgesCells.count
-        }
-
-        return 0
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -183,6 +221,10 @@ class SettingsDiningController: UITableViewController {
             return ratingCells[indexPath.row]
         case .badges:
             return badgesCells[indexPath.row]
+        case .additives:
+            return additivesCells[indexPath.row]
+        case .allergens:
+            return allergensCells[indexPath.row]
         }
     }
 
@@ -220,6 +262,22 @@ class SettingsDiningController: UITableViewController {
 
             let filtered = HWDefault.diningFilterBadge(for: badge)
             HWDefault.diningFilterBadge(set: !filtered, for: badge)
+            cell.accessoryType = !filtered ? .none : .checkmark
+        case .additives:
+            guard let additive = HWMetaContainer.retrieve(fromKey: "additive", of: cell) as? CafeteriaDish.Additive else {
+                return
+            }
+
+            let filtered = HWDefault.diningFilterAdditive(for: additive)
+            HWDefault.diningFilterAdditive(set: !filtered, for: additive)
+            cell.accessoryType = !filtered ? .none : .checkmark
+        case .allergens:
+            guard let allergen = HWMetaContainer.retrieve(fromKey: "alelrgen", of: cell) as? CafeteriaDish.Allergen else {
+                return
+            }
+
+            let filtered = HWDefault.diningFilterAllergen(for: allergen)
+            HWDefault.diningFilterAllergen(set: !filtered, for: allergen)
             cell.accessoryType = !filtered ? .none : .checkmark
         }
     }

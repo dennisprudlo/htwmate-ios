@@ -44,4 +44,20 @@ struct HWDefault {
     static func diningFilterBadge(set newValue: Bool, for badge: CafeteriaDish.Badge) {
         UserDefaults.standard.set(newValue, forKey: "settings.dining.filter.badge.\(badge.rawValue)")
     }
+
+    static func diningFilterAdditive(for additive: CafeteriaDish.Additive) -> Bool {
+        return UserDefaults.standard.bool(forKey: "settings.dining.filter.additive.\(additive.rawValue)")
+    }
+
+    static func diningFilterAdditive(set newValue: Bool, for additive: CafeteriaDish.Additive) {
+        UserDefaults.standard.set(newValue, forKey: "settings.dining.filter.additive.\(additive.rawValue)")
+    }
+
+    static func diningFilterAllergen(for allergen: CafeteriaDish.Allergen) -> Bool {
+        return UserDefaults.standard.bool(forKey: "settings.dining.filter.allergen.\(allergen.rawValue)")
+    }
+
+    static func diningFilterAllergen(set newValue: Bool, for allergen: CafeteriaDish.Allergen) {
+        UserDefaults.standard.set(newValue, forKey: "settings.dining.filter.allergen.\(allergen.rawValue)")
+    }
 }

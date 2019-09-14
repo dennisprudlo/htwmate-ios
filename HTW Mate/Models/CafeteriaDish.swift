@@ -50,6 +50,58 @@ class CafeteriaDish : DatabaseModel {
         case sustainableFish = "BADGE_SUSTAINABLE_FISH"
     }
 
+    enum Additive: String, CaseIterable {
+        case porkGelatine = "INGREDIENT_ADD_PORK_GELATINE"
+        case alcohol = "INGREDIENT_ADD_ALCOHOL"
+        case flavorEnhancer = "INGREDIENT_ADD_FLAVOR_ENHANCER"
+        case waxed = "INGREDIENT_ADD_WAXED"
+        case preservative = "INGREDIENT_ADD_PRESERVATIVE"
+        case antioxidant = "INGREDIENT_ADD_ANTIOXIDANT"
+        case artificialColors = "INGREDIENT_ADD_ARTIFICIAL_COLORS"
+        case phosphate = "INGREDIENT_ADD_PHOSPHATE"
+        case blackened = "INGREDIENT_ADD_BLACKENED"
+        case phenylalanine = "INGREDIENT_ADD_PHENYLALANINE"
+        case artificialSweeteners = "INGREDIENT_ADD_ARTIFICIAL_SWEETENERS"
+        case finelyGroundMeat = "INGREDIENT_ADD_FINELY_GROUND_MEAT"
+        case caffeine = "INGREDIENT_ADD_CAFFEINE"
+        case quinine = "INGREDIENT_ADD_QUININE"
+        case sulphuretted = "INGREDIENT_ADD_SULPHURETTED"
+        case laxativeEffect = "INGREDIENT_ADD_LAXATIVE_EFFECT"
+    }
+
+    enum Allergen: String, CaseIterable {
+        case glutenFromGrain = "INGREDIENT_ALG_GLUTEN_FROM_GRAIN"
+        case wheat = "INGREDIENT_ALG_WHEAT"
+        case rye = "INGREDIENT_ALG_RYE"
+        case barley = "INGREDIENT_ALG_BARLEY"
+        case oat = "INGREDIENT_ALG_OAT"
+        case spelt = "INGREDIENT_ALG_SPELT"
+        case kamut = "INGREDIENT_ALG_KAMUT"
+        case crustacean = "INGREDIENT_ALG_CRUSTACEANS"
+        case eggs = "INGREDIENT_ALG_EGGS"
+        case fish = "INGREDIENT_ALG_FISH"
+        case peanuts = "INGREDIENT_ALG_PEANUTS"
+        case shellFruits = "INGREDIENT_ALG_SHELL_FRUITS"
+        case almonds = "INGREDIENT_ALG_ALMONDS"
+        case hazelnut = "INGREDIENT_ALG_HAZELNUT"
+        case walnut = "INGREDIENT_ALG_WALNUT"
+        case cashewNut = "INGREDIENT_ALG_CASHEW_NUT"
+        case pecans = "INGREDIENT_ALG_PECANS"
+        case brazilNut = "INGREDIENT_ALG_BRAZIL_NUT"
+        case pistachio = "INGREDIENT_ALG_PISTACHIO"
+        case macadamia = "INGREDIENT_ALG_MACADAMIA"
+        case celery = "INGREDIENT_ALG_CELERY"
+        case soyProtein = "INGREDIENT_ALG_SOY_PROTEIN"
+        case mustarde = "INGREDIENT_ALG_MUSTARDE"
+        case milkDairyLactose = "INGREDIENT_ALG_MILK_DAIRY_LACTOSE"
+        case sesameSeed = "INGREDIENT_ALG_SESAME_SEED"
+        case sulphurOxideSulfide = "INGREDIENT_ALG_SULPHUR_OXIDE_SULFIDE"
+        case lupine = "INGREDIENT_ALG_LUPINE"
+        case molluscs = "INGREDIENT_ALG_MOLLUSCS"
+        case nitriteCuringSalt = "INGREDIENT_ALG_NITRITE_CURING_SALT"
+        case yeast = "INGREDIENT_ALG_YEAST"
+    }
+
     typealias Ingredient = (identifier: String, number: String, isAllergen: Bool)
 
     let cafeteria: CafeteriaDish.Cafeteria
@@ -199,7 +251,7 @@ class CafeteriaDish : DatabaseModel {
         ingredients.forEach { (ingredient) in
             let ingredientCell = CafeteriaDishAttributeTableViewCell()
             ingredientCell.setSymbol(ingredient.number)
-            ingredientCell.setDescription(CafeteriaDish.localizedDescription(forIngredient: ingredient))
+            ingredientCell.setDescription(CafeteriaDish.localizedDescription(forIngredientWithIdentifier: ingredient.identifier))
             if ingredient.isAllergen {
                 allergens.append(ingredientCell)
             } else {
@@ -300,8 +352,8 @@ class CafeteriaDish : DatabaseModel {
         return (leading: descriptionTextLeading, trailing: descriptionTextTrailing)
     }
 
-    public static func localizedDescription(forIngredient ingredient: CafeteriaDish.Ingredient) -> String {
-        let identifierString = "controller.dining.ingredients.\(ingredient.identifier)"
+    public static func localizedDescription(forIngredientWithIdentifier ingredient: String) -> String {
+        let identifierString = "controller.dining.ingredients.\(ingredient)"
         return NSLocalizedString(identifierString, comment: "")
     }
 }
