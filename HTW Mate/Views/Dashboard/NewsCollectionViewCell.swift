@@ -56,7 +56,7 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
 
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .regular)
-        subtitleLabel.textColor = HWColors.whitePrimary
+        subtitleLabel.textColor = .white
         subtitleLabel.numberOfLines = 3
         imageView.addSubview(subtitleLabel)
 
@@ -66,7 +66,7 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold)
-        titleLabel.textColor = HWColors.whitePrimary
+        titleLabel.textColor = .white
         titleLabel.numberOfLines = 2
         imageView.addSubview(titleLabel)
 

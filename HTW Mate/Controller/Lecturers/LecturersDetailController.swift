@@ -25,6 +25,9 @@ class LecturersDetailController: UITableViewController {
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
 
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapActionButton(_:)))
 
         tableView.register(LecturerInfoHeadTableViewCell.self, forCellReuseIdentifier: String(describing: LecturerInfoHeadTableViewCell.self))
@@ -42,8 +45,6 @@ class LecturersDetailController: UITableViewController {
     }
 
     func rebuildUI() -> Void {
-        self.title = lecturer.lastname
-
         sectionCells = lecturer.getInfoCellTypes()
         tableView.reloadData()
     }
@@ -72,13 +73,8 @@ class LecturersDetailController: UITableViewController {
     }
 
     @objc func didTapActionButton(_ sender: UIBarButtonItem) {
-
         let contact = lecturer.createContact()
-        do {
-            try shareContactWithThirdParty(contact)
-        } catch{
-            LogManager(ofType: .error).put("Contact could not be creatd.").from(contact)
-        }
+        try? shareContactWithThirdParty(contact)
     }
 
     func shareContactWithThirdParty(_ contact: CNContact) throws {

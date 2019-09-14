@@ -100,7 +100,6 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable {
             DispatchQueue.main.async {
                 if granted && error == nil {
                     let eventController = HWEventEditViewController()
-                    eventController.delegate = self.viewController
                     eventController.eventStore = eventStore
                     eventController.eventModel = self.event
                     eventController.editViewDelegate = self
@@ -117,7 +116,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable {
 
         dateMonthLabel.translatesAutoresizingMaskIntoConstraints = false
         dateMonthLabel.font = UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold)
-        dateMonthLabel.textColor = HWColors.whitePrimary
+        dateMonthLabel.textColor = HWColors.contentBackground
         dateMonthLabel.numberOfLines = 1
         dateMonthLabel.textAlignment = .center
         dateView.addSubview(dateMonthLabel)
@@ -128,7 +127,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable {
 
         dateDayLabel.translatesAutoresizingMaskIntoConstraints = false
         dateDayLabel.font = UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold)
-        dateDayLabel.textColor = HWColors.whitePrimary
+        dateDayLabel.textColor = HWColors.contentBackground
         dateDayLabel.numberOfLines = 1
         dateDayLabel.textAlignment = .center
         dateView.addSubview(dateDayLabel)

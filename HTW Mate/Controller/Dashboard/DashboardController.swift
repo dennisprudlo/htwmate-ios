@@ -8,19 +8,24 @@
 
 import UIKit
 
-class DashboardController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
+class DashboardController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     private var itemsPerRow: CGFloat = 1
-    private let sectionInsets = UIEdgeInsets(top: HWInsets.medium, left: HWInsets.medium, bottom: HWInsets.medium, right: HWInsets.medium)
+    private let sectionInsets = UIEdgeInsets(top: HWInsets.standard, left: HWInsets.standard, bottom: HWInsets.standard, right: HWInsets.standard)
 
-    let sectionTypes: [SectionTitleCollectionReusableView.SectionType] = [.topNews, .events]
+    var sections: [UICollectionReusableView] = []
+    enum SectionType: Int {
+        case settings = 0
+        case topNews = 1
+        case events = 2
+    }
 
     /// The refresh control to easily update the displayed date
     private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.title = HWStrings.Controllers.Dashboard.title
+        self.setStatusBarOverlay()
 
         //
         // Add the refresh control to the collection view. In case of a iOS 9 system or even older system
@@ -44,6 +49,7 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         collectionView.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: EventCollectionViewCell.self))
         collectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: NewsCollectionViewCell.self))
         collectionView.register(SectionTitleCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: SectionTitleCollectionReusableView.self))
+        collectionView.register(SectionSettingsCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: SectionSettingsCollectionReusableView.self))
 
         //
         // Adjust safe area insets for header and footer views
@@ -60,6 +66,16 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         //
         // Calculate the items per row on view load
         calculateItemsPerRow(forSize: view.frame.size)
+
+        let sectionTopNews = SectionTitleCollectionReusableView()
+        sectionTopNews.setSection(ofType: .topNews)
+
+        let sectionEvents = SectionTitleCollectionReusableView()
+        sectionEvents.setSection(ofType: .events)
+
+        sections.append(SectionSettingsCollectionReusableView())
+        sections.append(sectionTopNews)
+        sections.append(sectionEvents)
     }
 
     public func checkCollectionViewReload() -> Void {
@@ -98,14 +114,15 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sectionTypes.count
+        return sections.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0: return DashboardNewsStorage.shared.news.count
-        case 1: return DashboardEventStorage.shared.events.count
-        default: return 0
+            case SectionType.settings.rawValue: return 0
+            case SectionType.topNews.rawValue: return DashboardNewsStorage.shared.news.count
+            case SectionType.events.rawValue: return DashboardEventStorage.shared.events.count
+            default: return 0
         }
     }
 
@@ -113,31 +130,43 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         let headerView = UICollectionReusableView(frame: CGRect.zero)
 
         if kind == UICollectionView.elementKindSectionHeader {
-            let sectionHeader = SectionTitleCollectionReusableView.dequeue(from: collectionView, ofKind: kind, for: indexPath)
-            sectionHeader.setSection(ofType: sectionTypes[indexPath.section])
-            sectionHeader.navigationController = self.navigationController
-            return sectionHeader
+
+            if indexPath.section == 0 {
+                let headerCell = SectionSettingsCollectionReusableView.dequeue(from: collectionView, ofKind: kind, for: indexPath)
+                headerCell.viewController = self
+                return headerCell
+            }
+
+            if let sectionTitle = sections[indexPath.section] as? SectionTitleCollectionReusableView {
+                let headerCell = SectionTitleCollectionReusableView.dequeue(from: collectionView, ofKind: kind, for: indexPath)
+                headerCell.setSection(ofType: sectionTitle.sectionType)
+                headerCell.viewController = self
+                return headerCell
+            }
+
+            return sections[indexPath.section]
         }
 
         return headerView
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: SectionTitleCollectionReusableView.height)
+        return CGSize(width: collectionView.frame.width, height: 40)
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var collectionViewCell = UICollectionViewCell(frame: CGRect.zero)
-
         switch indexPath.section {
-            case 0:
+            case SectionType.settings.rawValue:
+                break;
+            case SectionType.topNews.rawValue:
                 let newsCell = NewsCollectionViewCell.dequeue(from: collectionView, for: indexPath)
                 newsCell.viewController = self
                 newsCell.setModel(DashboardNewsStorage.shared.model(for: indexPath))
 
                 collectionViewCell = newsCell
                 break
-            case 1:
+            case SectionType.events.rawValue:
                 let eventCell = EventCollectionViewCell.dequeue(from: collectionView, for: indexPath)
                 eventCell.viewController = self
                 eventCell.setModel(DashboardEventStorage.shared.model(for: indexPath))
@@ -160,8 +189,9 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
 
         var size: CGFloat
         switch indexPath.section {
-            case 0: size = 300
-            case 1: size = 83
+            case SectionType.settings.rawValue: size = 0
+            case SectionType.topNews.rawValue: size = 300
+            case SectionType.events.rawValue: size = 83
             default: size = 0
         }
 
@@ -169,14 +199,14 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if section == 0 {
+            return UIEdgeInsets(top: 0, left: HWInsets.standard, bottom: 0, right: HWInsets.standard)
+        }
+
         return sectionInsets
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
-    }
-
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        viewController.title = HWStrings.Controllers.Dashboard.sectionEvents
     }
 }

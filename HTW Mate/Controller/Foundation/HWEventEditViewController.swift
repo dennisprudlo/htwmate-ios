@@ -28,6 +28,8 @@ class HWEventEditViewController: EKEventEditViewController {
     }
 
     private func prepareView() {
+        self.navigationBar.tintColor = HWColors.StyleGuide.primaryGreen
+
         let event = EKEvent(eventStore: eventStore)
         event.title = self.eventModel.title
         event.notes = self.eventModel.subtitle

@@ -39,7 +39,7 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
 
         lecturerImageView.translatesAutoresizingMaskIntoConstraints = false
         lecturerImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        lecturerImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset * 2).isActive = true
+        lecturerImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         lecturerImageView.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
         lecturerImageView.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
         lecturerImageView.image = HWImage.lecturersProfilePlaceholder
@@ -49,13 +49,13 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
         lecturerImageView.tintColor = UIColor.groupTableViewBackground
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.lecturerTitle, weight: .bold)
-        titleLabel.textColor = .lightGray
+        titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .bold)
+        titleLabel.textColor = HWColors.darkSecondaryUltraLight
         titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: lecturerImageView.bottomAnchor, constant: inset).isActive = true
 
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.font = UIFont.systemFont(ofSize: HWFontSize.lecturerName, weight: .bold)
+        nameLabel.font = UIFont.systemFont(ofSize: HWFontSize.title, weight: .bold)
         nameLabel.numberOfLines = 0
         nameLabel.textAlignment = .center
         nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
@@ -111,6 +111,7 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
             mailController.setToRecipients([mail])
             mailController.setMessageBody("", isHTML: false)
             mailController.mailComposeDelegate = self
+            mailController.navigationBar.tintColor = HWColors.StyleGuide.primaryGreen
 
             tableViewController.present(mailController, animated: true)
         } else {

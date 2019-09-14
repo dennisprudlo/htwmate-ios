@@ -50,7 +50,7 @@ class HWLecturerRendererListComponent: HWLecturerRendererComponent {
             let bulletPoint = UILabel()
             bulletPoint.translatesAutoresizingMaskIntoConstraints = false
             bulletPoint.text = "\u{2022}"
-            bulletPoint.font = UIFont.systemFont(ofSize: HWFontSize.lecturerGenericText)
+            bulletPoint.font = UIFont.systemFont(ofSize: HWFontSize.strongText)
             listItemView.addSubview(bulletPoint)
             bulletPoint.topAnchor.constraint(equalTo: listItemView.topAnchor).isActive = true
             bulletPoint.leadingAnchor.constraint(equalTo: listItemView.leadingAnchor).isActive = true

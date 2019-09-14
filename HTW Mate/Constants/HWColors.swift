@@ -25,15 +25,21 @@ struct HWColors {
         public static let ratingOrange = UIColor(fromHex: 0xE9A000)
         public static let ratingRed = UIColor(fromHex: 0xD60019)
         public static let ratingUndefined = HWColors.StyleGuide.secondaryGray
+
+        public static let badgeVegan = UIColor(fromHex: 0x4F8C00)
+        public static let badgeVegetarian = UIColor(fromHex: 0xA8D63D)
+        public static let badgeClimateFriendly = UIColor(fromHex: 0x02A9D2)
+        public static let badgeSustainable = UIColor(fromHex: 0x00803B)
+        public static let badgeSustainableFish = UIColor(fromHex: 0x013D7A)
     }
 
     // Navigation Layout
-    static let darkPrimary = UIColor(fromHexRed: 0x22, green: 0x22, blue: 0x22)
-    static let darkSecondary = UIColor(fromHexRed: 0x66, green: 0x66, blue: 0x66)
-    static let darkSecondaryLight = UIColor(fromHexRed: 0x99, green: 0x99, blue: 0x99)
+    static let darkPrimary = UIColor(fromHex: 0x222222)
+    static let darkSecondary = UIColor(fromHex: 0x666666)
+    static let darkSecondaryLight = UIColor(fromHex: 0x999999)
+    static let darkSecondaryUltraLight = UIColor(fromHex: 0xBBBBBB)
 
-    static let whitePrimary = UIColor.white
-    static let contentBackground = UIColor(fromHexRed: 0xEE, green: 0xEE, blue: 0xEE)
+    static let contentBackground = UIColor.white
     static let shadowDrop = UIColor(fromHexRed: 0x33, green: 0x33, blue: 0x33)
 
     static let skeletonGray = HWColors.contentBackground

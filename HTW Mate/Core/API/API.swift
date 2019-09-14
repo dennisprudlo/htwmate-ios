@@ -25,6 +25,10 @@ class API {
         return HTWMateLecturersAPI()
     }
 
+    func cafeteriaResource() -> HTWMateCafeteriaAPI {
+        return HTWMateCafeteriaAPI()
+    }
+
     /// Gets the API secret needed to access the HTW Mates API data
     ///
     /// - Returns: The API secret

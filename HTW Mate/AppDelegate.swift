@@ -25,10 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Update app appearance styles
         AppearanceManager.updateNavigationBarAppearance()
         AppearanceManager.updateTabBarAppearance()
+        AppearanceManager.updateControlsAppearance()
 
         //
         // Preload app data
         LecturerStorage.shared.reload()
+        CafeteriaStorage.shared.reload(forDate: DiningMasterController.getInitialDate())
 
         return true
     }

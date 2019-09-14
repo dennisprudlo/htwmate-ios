@@ -15,28 +15,33 @@ struct AppearanceManager {
     public static func updateNavigationBarAppearance() -> Void {
         let appearance = UINavigationBar.appearance(whenContainedInInstancesOf: [HWNavigationController.self])
 
-        appearance.barStyle = .blackTranslucent
-        appearance.tintColor = HWColors.whitePrimary
+        appearance.barStyle = .default
+        appearance.barTintColor = HWColors.contentBackground
+        appearance.tintColor = HWColors.StyleGuide.primaryGreen
 
-        let textAttributes = [
-            NSAttributedString.Key.foregroundColor: HWColors.whitePrimary
-        ]
-        appearance.titleTextAttributes = textAttributes
-        appearance.largeTitleTextAttributes = textAttributes
+        // Remove the bottom shadow from each navigation bar
+        appearance.shadowImage = UIImage()
+    }
+
+    public static func updateControlsAppearance() -> Void {
+        let switchAppearance = UISwitch.appearance()
+        switchAppearance.onTintColor = HWColors.StyleGuide.primaryGreen
     }
 
     /// Updates the global appearance of the tab bar controls
     public static func updateTabBarAppearance() -> Void {
         let appearance = UITabBar.appearance()
         appearance.barStyle = .black
-        appearance.tintColor = HWColors.whitePrimary
+        appearance.tintColor = .white
     }
 
-    public static func dropShadow(for view: UIView, withRadius radius: CGFloat = 10, opacity: Float = 0.3) {
-        view.backgroundColor = HWColors.whitePrimary
+    public static func dropShadow(for view: UIView, withRadius radius: CGFloat = 10, opacity: Float = 0.5, ignoreBackground ignore: Bool = false) {
+        if !ignore {
+            view.backgroundColor = .white
+        }
         view.layer.shadowColor = HWColors.shadowDrop.cgColor
         view.layer.shadowOpacity = opacity
-        view.layer.shadowOffset = CGSize.zero
+        view.layer.shadowOffset = CGSize(width: 0, height: radius / 2)
         view.layer.shadowRadius = radius
         view.layer.masksToBounds = false
     }

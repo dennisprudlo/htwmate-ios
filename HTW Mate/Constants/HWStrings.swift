@@ -64,5 +64,52 @@ struct HWStrings {
                 static let lastUpdateDateFormat = NSLocalizedString("controller.lecturer.detail.lastupdate.dateformat", comment: "The NSDateFormatters date format for the current locale")
             }
         }
+        struct Dining {
+            static let title = NSLocalizedString("controller.dining.title", comment: "The title for the main dining view")
+            static let todayLabel = NSLocalizedString("controller.dining.todaylabel", comment: "The label for the button to display the menu of today")
+            static let pricesFree = NSLocalizedString("controller.dining.prices.free", comment: "The text for the prices label of a dish when its free")
+            static let missingContentTitle = NSLocalizedString("controller.dining.missingcontent.title", comment: "The text for the missing content title in the dining view")
+            static let missingContentSubtitle = NSLocalizedString("controller.dining.missingcontent.subtitle", comment: "The text for the missing content subtitle in the dining view")
+            static let sectionTitleRating = NSLocalizedString("controller.dining.sectiontitle.rating", comment: "The section title for the rating in the dish detail view")
+            static let sectionTitleBadge = NSLocalizedString("controller.dining.sectiontitle.badge", comment: "The section title for the badges in the dish detail view")
+            static let sectionTitleAdditive = NSLocalizedString("controller.dining.sectiontitle.additive", comment: "The section title for the additives in the dish detail view")
+            static let sectionTitleAllergen = NSLocalizedString("controller.dining.sectiontitle.allergen", comment: "The section title for the allergens in the dish detail view")
+            struct Categories {
+                static let appetizer = NSLocalizedString("controller.dining.categories.appetizer", comment: "The title for the cafeteria menu category for the appetizers")
+                static let salad = NSLocalizedString("controller.dining.categories.salad", comment: "The title for the cafeteria menu category for the salads")
+                static let soup = NSLocalizedString("controller.dining.categories.soup", comment: "The title for the cafeteria menu category for the soups")
+                static let special = NSLocalizedString("controller.dining.categories.special", comment: "The title for the cafeteria menu category for the specials")
+                static let main = NSLocalizedString("controller.dining.categories.main", comment: "The title for the cafeteria menu category for the main dishes")
+                static let side = NSLocalizedString("controller.dining.categories.side", comment: "The title for the cafeteria menu category for the side dishes")
+                static let dessert = NSLocalizedString("controller.dining.categories.dessert", comment: "The title for the cafeteria menu category for the desserts")
+            }
+            struct Badges {
+                static let vegan = NSLocalizedString("controller.dining.badges.vegan", comment: "The badge description for vegan dishes")
+                static let climateFriendly = NSLocalizedString("controller.dining.badges.climatefriendly", comment: "The badge description for climate friendly dishes")
+                static let vegetarian = NSLocalizedString("controller.dining.badges.vegetarian", comment: "The badge description for vegetarian dishes")
+                static let sustainable = NSLocalizedString("controller.dining.badges.sustainable", comment: "The badge description for sustainable dishes")
+                static let sustainableFish = NSLocalizedString("controller.dining.badges.sustainablefish", comment: "The badge description for sustainable fish dishes")
+            }
+            struct Ratings {
+                static let greenLeading = NSLocalizedString("controller.dining.ratings.green.leading", comment: "The leading part for the description of green rated dishes")
+                static let greenTrailing = NSLocalizedString("controller.dining.ratings.green.trailing", comment: "The trailing part for the description of green rated dishes")
+                static let orangeLeading = NSLocalizedString("controller.dining.ratings.orange.leading", comment: "The leading part for the description of orange rated dishes")
+                static let orangeTrailing = NSLocalizedString("controller.dining.ratings.orange.trailing", comment: "The trailing part for the description of orange rated dishes")
+                static let redLeading = NSLocalizedString("controller.dining.ratings.red.leading", comment: "The leading part for the description of red rated dishes")
+                static let redTrailing = NSLocalizedString("controller.dining.ratings.red.trailing", comment: "The trailing part for the description of red rated dishes")
+                static let undefinedLeading = NSLocalizedString("controller.dining.ratings.undefined.leading", comment: "The leading part for the description of undefined rated dishes")
+                static let undefinedTrailing = NSLocalizedString("controller.dining.ratings.undefined.trailing", comment: "The trailing part for the description of undefined rated dishes")
+            }
+        }
+        struct Settings {
+            static let title = NSLocalizedString("controller.settings.title", comment: "The title for the main settings controller")
+            static let itemAbout = NSLocalizedString("controller.settings.item.about", comment: "The title for the about item")
+            static let itemLegal = NSLocalizedString("controller.settings.item.legal", comment: "The title for the legal item")
+            struct Dining {
+                static let campus = NSLocalizedString("controller.settings.dining.campus", comment: "The title for the campus selection setting")
+                static let campusDescription = NSLocalizedString("controller.settings.dining.campus.description", comment: "The description for the campus selection setting")
+                static let filter = NSLocalizedString("controller.settings.dining.filter", comment: "The title for the dining filter setting")
+            }
+        }
     }
 }

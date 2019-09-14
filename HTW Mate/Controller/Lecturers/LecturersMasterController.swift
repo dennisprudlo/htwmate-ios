@@ -18,7 +18,6 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.title = HWStrings.Controllers.Lecturers.title
 
         splitViewController?.delegate = self
 
@@ -39,7 +38,7 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = HWStrings.Controllers.Lecturers.searchBarTitle
         searchController.searchBar.tintColor = HWColors.StyleGuide.primaryGreen
-        searchController.searchBar.barStyle = .blackTranslucent
+        searchController.searchBar.barStyle = .default
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         definesPresentationContext = true
@@ -52,6 +51,17 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
 
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(didRefreshCollectionView(_:)), for: .valueChanged)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        //
+        // Due to the search controller the shadow image of the navigation bar cannot be removed.
+        // So it has to be set hidden on runtime
+        if let imageView = navigationItem.searchController?.searchBar.superview?.subviews.first?.subviews.first as? UIImageView {
+            imageView.isHidden = true
+        }
     }
 
     // MARK: - Lecturer storage handler
@@ -78,7 +88,7 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return LecturerStorage.shared.sections.count
+        return LecturerStorage.shared.displayedSections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,15 +98,9 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = LecturerTableViewCell.dequeue(from: tableView)
         cell.setModel(LecturerStorage.shared.lecturers(inSection: indexPath.section)[indexPath.row])
+        cell.lecturerImageView.image = nil
         cell.layoutSubviews()
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = HWColors.StyleGuide.primaryGreen
-        if let header = view as? UITableViewHeaderFooterView {
-            header.textLabel?.textColor = HWColors.whitePrimary
-        }
     }
 
     // MARK: - Search bar results updating
