@@ -112,7 +112,6 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
             mailController.setMessageBody("", isHTML: false)
             mailController.mailComposeDelegate = self
             mailController.navigationBar.tintColor = HWColors.StyleGuide.primaryGreen
-            mailController.view.tintColor = HWColors.StyleGuide.primaryGreen
 
             tableViewController.present(mailController, animated: true)
         } else {
