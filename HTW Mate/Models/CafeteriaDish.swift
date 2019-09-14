@@ -25,7 +25,7 @@ class CafeteriaDish : DatabaseModel {
         case dessert = "CATEGORY_DESSERT"
     }
 
-    enum Rating: String {
+    enum Rating: String, CaseIterable {
         case green = "RATING_GREEN"
         case orange = "RATING_ORANGE"
         case red = "RATING_RED"
@@ -42,7 +42,7 @@ class CafeteriaDish : DatabaseModel {
         }
     }
 
-    enum Badge: String {
+    enum Badge: String, CaseIterable {
         case vegan = "BADGE_VEGAN"
         case climateFriendly = "BADGE_CLIMATE"
         case vegetarian = "BADGE_VEGETARIAN"
@@ -231,6 +231,15 @@ class CafeteriaDish : DatabaseModel {
     }
 
     public func getColor() -> UIColor {
+        switch rating {
+        case .green: return HWColors.Cafeteria.ratingGreen
+        case .orange: return HWColors.Cafeteria.ratingOrange
+        case .red: return HWColors.Cafeteria.ratingRed
+        case .undefined: return HWColors.Cafeteria.ratingUndefined
+        }
+    }
+
+    public static func getColor(ofRating rating: CafeteriaDish.Rating) -> UIColor {
         switch rating {
         case .green: return HWColors.Cafeteria.ratingGreen
         case .orange: return HWColors.Cafeteria.ratingOrange

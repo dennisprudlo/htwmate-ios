@@ -10,19 +10,26 @@ import UIKit
 
 class SettingsDiningController: UITableViewController {
 
-    enum SectionType {
+    enum SectionType: CaseIterable {
         case campus
         case filter
+        case rating
+        case badges
     }
 
     let sections: [(type: SectionType, header: String?, footer: String?)] = [
         (type: .campus, header: nil, footer: "Select the campus where you are primarily eating lunch at."),
-        (type: .filter, header: nil, footer: nil)
+        (type: .filter, header: nil, footer: nil),
+        (type: .rating, header: "Rating", footer: nil),
+        (type: .badges, header: HWStrings.Controllers.Dining.sectionTitleBadge, footer: nil)
     ]
 
     let campusCell = UITableViewCell(style: .value1, reuseIdentifier: nil)
     let filterCell = UITableViewCell(style: .default, reuseIdentifier: nil)
     let filterSwitch = UISwitch()
+
+    var ratingCells: [UITableViewCell] = []
+    var badgesCells: [UITableViewCell] = []
 
     var overrideTitle: String?
     var navigationBar: UINavigationBar?
@@ -42,20 +49,89 @@ class SettingsDiningController: UITableViewController {
 
     func configureCells() {
         self.campusCell.textLabel?.text = "Campus"
-        self.campusCell.detailTextLabel?.text = self.campusTitles[HWDefault.diningCampus]
 
         self.filterCell.textLabel?.text = "Filter"
         self.filterCell.selectionStyle = .none
         self.filterCell.accessoryView = self.filterSwitch
-
-        self.filterSwitch.isOn = HWDefault.diningIsFilterOn
         self.filterSwitch.addTarget(self, action: #selector(filterSwitchChanged), for: .valueChanged)
+
+        CafeteriaDish.Rating.allCases.forEach { (rating) in
+            if rating == .undefined { return }
+
+            let ratingCell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+
+            let localized = CafeteriaDish.localizedDescription(forRating: rating)
+            ratingCell.textLabel?.text = localized.leading
+            ratingCell.textLabel?.font = UIFont.systemFont(ofSize: ratingCell.textLabel?.font.pointSize ?? HWFontSize.text, weight: .semibold)
+            ratingCell.textLabel?.textColor = CafeteriaDish.getColor(ofRating: rating)
+            ratingCell.detailTextLabel?.text = localized.trailing
+
+            HWMetaContainer.write(rating, forKey: "rating", in: ratingCell)
+
+            ratingCells.append(ratingCell)
+        }
+
+        CafeteriaDish.Badge.allCases.forEach { (badge) in
+            let badgeCell = UITableViewCell(style: .default, reuseIdentifier: nil)
+            badgeCell.textLabel?.text = CafeteriaDish.localizedDescription(forBadge: badge)
+            badgeCell.textLabel?.numberOfLines = 0
+
+            HWMetaContainer.write(badge, forKey: "badge", in: badgeCell)
+
+            badgesCells.append(badgeCell)
+        }
+
+        updateUI()
     }
 
-    @objc func filterSwitchChanged(_ sender: UISwitch) {
-        HWDefault.diningIsFilterOn = !HWDefault.diningIsFilterOn
-        self.filterSwitch.setOn(HWDefault.diningIsFilterOn, animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        updateUI()
+    }
+
+    func updateUI() {
+        self.campusCell.detailTextLabel?.text = self.campusTitles[HWDefault.diningCampus]
+        self.filterSwitch.isOn = HWDefault.diningIsFilterOn
+
+        ratingCells.forEach { (ratingCell) in
+            guard let rating = HWMetaContainer.retrieve(fromKey: "rating", of: ratingCell) as? CafeteriaDish.Rating else {
+                return
+            }
+
+            ratingCell.accessoryType = HWDefault.diningFilterRating(for: rating) ? .none : .checkmark
+        }
+
+        badgesCells.forEach { (badgeCell) in
+            guard let badge = HWMetaContainer.retrieve(fromKey: "badge", of: badgeCell) as? CafeteriaDish.Badge else {
+                return
+            }
+
+            badgeCell.accessoryType = HWDefault.diningFilterBadge(for: badge) ? .none : .checkmark
+        }
+
+        let merged = ratingCells + badgesCells
+        merged.forEach { (cell) in
+            disableCell(cell, disable: !self.filterSwitch.isOn)
+        }
+    }
+
+    private func disableCell(_ cell: UITableViewCell, disable: Bool) {
+        cell.isUserInteractionEnabled = !disable
+        cell.textLabel?.isEnabled = !disable
+        cell.detailTextLabel?.isEnabled = !disable
+        cell.tintColor = disable ? HWColors.StyleGuide.secondaryGray : HWColors.StyleGuide.primaryGreen
+    }
+
+    @objc func filterSwitchChanged() {
+        HWDefault.diningIsFilterOn = self.filterSwitch.isOn
+
         DiningMasterController.updateOnAppear = true
+
+        let merged = ratingCells + badgesCells
+        merged.forEach { (cell) in
+            disableCell(cell, disable: !self.filterSwitch.isOn)
+        }
     }
 
     override func willMove(toParent parent: UIViewController?) {
@@ -72,7 +148,19 @@ class SettingsDiningController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section < 2 {
+            return 1
+        }
+
+        if section == 2 {
+            return ratingCells.count
+        }
+
+        if section == 3 {
+            return badgesCells.count
+        }
+
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -91,11 +179,18 @@ class SettingsDiningController: UITableViewController {
             return self.campusCell
         case .filter:
             return self.filterCell
+        case .rating:
+            return ratingCells[indexPath.row]
+        case .badges:
+            return badgesCells[indexPath.row]
         }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let cell = tableView.cellForRow(at: indexPath) else {
+            return
+        }
 
         let sectionType = sections[indexPath.section].type
         switch sectionType {
@@ -109,7 +204,23 @@ class SettingsDiningController: UITableViewController {
             }
             DiningMasterController.updateOnAppear = true
         case .filter:
-            break;
+            break
+        case .rating:
+            guard let rating = HWMetaContainer.retrieve(fromKey: "rating", of: cell) as? CafeteriaDish.Rating else {
+                return
+            }
+
+            let filtered = HWDefault.diningFilterRating(for: rating)
+            HWDefault.diningFilterRating(set: !filtered, for: rating)
+            cell.accessoryType = !filtered ? .none : .checkmark
+        case .badges:
+            guard let badge = HWMetaContainer.retrieve(fromKey: "badge", of: cell) as? CafeteriaDish.Badge else {
+                return
+            }
+
+            let filtered = HWDefault.diningFilterBadge(for: badge)
+            HWDefault.diningFilterBadge(set: !filtered, for: badge)
+            cell.accessoryType = !filtered ? .none : .checkmark
         }
     }
 }

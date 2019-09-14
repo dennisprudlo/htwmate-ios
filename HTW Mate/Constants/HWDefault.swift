@@ -28,4 +28,20 @@ struct HWDefault {
             UserDefaults.standard.set(isOn, forKey: "settings.dining.isfilteron")
         }
     }
+
+    static func diningFilterRating(for rating: CafeteriaDish.Rating) -> Bool {
+        return UserDefaults.standard.bool(forKey: "settings.dining.filter.rating.\(rating.rawValue)")
+    }
+
+    static func diningFilterRating(set newValue: Bool, for rating: CafeteriaDish.Rating) {
+        UserDefaults.standard.set(newValue, forKey: "settings.dining.filter.rating.\(rating.rawValue)")
+    }
+
+    static func diningFilterBadge(for badge: CafeteriaDish.Badge) -> Bool {
+        return UserDefaults.standard.bool(forKey: "settings.dining.filter.badge.\(badge.rawValue)")
+    }
+
+    static func diningFilterBadge(set newValue: Bool, for badge: CafeteriaDish.Badge) {
+        UserDefaults.standard.set(newValue, forKey: "settings.dining.filter.badge.\(badge.rawValue)")
+    }
 }

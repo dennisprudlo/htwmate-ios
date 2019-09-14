@@ -48,6 +48,7 @@
 		81C21EB8232CDE860005E2B0 /* SettingsAboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB7232CDE860005E2B0 /* SettingsAboutController.swift */; };
 		81C21EBA232CE44A0005E2B0 /* SettingsDiningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB9232CE44A0005E2B0 /* SettingsDiningController.swift */; };
 		81C21EBC232CE4D00005E2B0 /* HWDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EBB232CE4D00005E2B0 /* HWDefault.swift */; };
+		81C21EBE232CF9580005E2B0 /* HWMetaContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EBD232CF9580005E2B0 /* HWMetaContainer.swift */; };
 		81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */; };
 		81D7A2D3230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A2D2230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift */; };
 		81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */; };
@@ -130,6 +131,7 @@
 		81C21EB7232CDE860005E2B0 /* SettingsAboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAboutController.swift; sourceTree = "<group>"; };
 		81C21EB9232CE44A0005E2B0 /* SettingsDiningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDiningController.swift; sourceTree = "<group>"; };
 		81C21EBB232CE4D00005E2B0 /* HWDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWDefault.swift; sourceTree = "<group>"; };
+		81C21EBD232CF9580005E2B0 /* HWMetaContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWMetaContainer.swift; sourceTree = "<group>"; };
 		81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+removeAllSubviews.swift"; sourceTree = "<group>"; };
 		81D7A2D2230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoOfficeTableViewCell.swift; sourceTree = "<group>"; };
 		81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWNavigationController.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 			children = (
 				81EB7DCC22D29BF300E00485 /* API */,
 				81BFA90322F199310036BACC /* Workers */,
+				81C21EBD232CF9580005E2B0 /* HWMetaContainer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				816B7A3322DA89F600FA507E /* EventCollectionViewCell.swift in Sources */,
 				81F942A5230765EC0042EC3C /* LecturerInfoMainAreaTableViewCell.swift in Sources */,
 				81C21EBA232CE44A0005E2B0 /* SettingsDiningController.swift in Sources */,
+				81C21EBE232CF9580005E2B0 /* HWMetaContainer.swift in Sources */,
 				81C21EB1232CCF3E0005E2B0 /* SettingsSectionCell.swift in Sources */,
 				81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */,
 				81BFA90522F199490036BACC /* LecturerStorage.swift in Sources */,

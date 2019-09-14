@@ -24,9 +24,8 @@ struct AppearanceManager {
     }
 
     public static func updateControlsAppearance() -> Void {
-        let appearance = UISwitch.appearance()
-
-        appearance.onTintColor = HWColors.StyleGuide.primaryGreen
+        let switchAppearance = UISwitch.appearance()
+        switchAppearance.onTintColor = HWColors.StyleGuide.primaryGreen
     }
 
     /// Updates the global appearance of the tab bar controls
