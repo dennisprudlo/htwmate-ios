@@ -37,6 +37,7 @@ class SectionSettingsCollectionReusableView: UICollectionReusableView, Dequeable
     }
 
     @objc func composeSettingsController(_ sender: UIButton) {
+        print("test")
         let settingsController = SettingController(style: .grouped)
         let settingsNavigationController = HWNavigationController(rootViewController: settingsController)
         viewController?.present(settingsNavigationController, animated: true, completion: nil)

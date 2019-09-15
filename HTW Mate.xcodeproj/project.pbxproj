@@ -86,6 +86,10 @@
 		81F942B22308187B0042EC3C /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942B12308187B0042EC3C /* EventTableViewCell.swift */; };
 		81F942B4230821420042EC3C /* HWEventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942B3230821420042EC3C /* HWEventEditViewController.swift */; };
 		81F942B723082DF30042EC3C /* DiningMasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942B623082DF30042EC3C /* DiningMasterController.swift */; };
+		81FBAEF3232E6E43004F5CD5 /* DashboardSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FBAEF2232E6E43004F5CD5 /* DashboardSection.swift */; };
+		81FBAEF5232E7C03004F5CD5 /* DashboardSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FBAEF4232E7C03004F5CD5 /* DashboardSettingsSection.swift */; };
+		81FBAEF7232E7E48004F5CD5 /* DashboardNewsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FBAEF6232E7E48004F5CD5 /* DashboardNewsSection.swift */; };
+		81FBAEF9232E7E74004F5CD5 /* DashboardEventSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FBAEF8232E7E74004F5CD5 /* DashboardEventSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +175,10 @@
 		81F942B12308187B0042EC3C /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		81F942B3230821420042EC3C /* HWEventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWEventEditViewController.swift; sourceTree = "<group>"; };
 		81F942B623082DF30042EC3C /* DiningMasterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningMasterController.swift; sourceTree = "<group>"; };
+		81FBAEF2232E6E43004F5CD5 /* DashboardSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSection.swift; sourceTree = "<group>"; };
+		81FBAEF4232E7C03004F5CD5 /* DashboardSettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSettingsSection.swift; sourceTree = "<group>"; };
+		81FBAEF6232E7E48004F5CD5 /* DashboardNewsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardNewsSection.swift; sourceTree = "<group>"; };
+		81FBAEF8232E7E74004F5CD5 /* DashboardEventSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEventSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +255,7 @@
 		81BFA90322F199310036BACC /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				81FBAEF1232E6E22004F5CD5 /* Dashboard */,
 				81C21EAF232CCF300005E2B0 /* Settings */,
 				81F9429B230716490042EC3C /* LecturerRenderer */,
 				81BFA90422F199490036BACC /* LecturerStorage.swift */,
@@ -463,6 +472,17 @@
 			path = Dining;
 			sourceTree = "<group>";
 		};
+		81FBAEF1232E6E22004F5CD5 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				81FBAEF2232E6E43004F5CD5 /* DashboardSection.swift */,
+				81FBAEF4232E7C03004F5CD5 /* DashboardSettingsSection.swift */,
+				81FBAEF6232E7E48004F5CD5 /* DashboardNewsSection.swift */,
+				81FBAEF8232E7E74004F5CD5 /* DashboardEventSection.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -597,6 +617,7 @@
 				81BFA90722F1B3820036BACC /* LecturersDetailController.swift in Sources */,
 				81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */,
 				8112C6E9231C538800818868 /* HWFontSize.swift in Sources */,
+				81FBAEF7232E7E48004F5CD5 /* DashboardNewsSection.swift in Sources */,
 				81D7A2D3230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift in Sources */,
 				81EB7DC822D270F100E00485 /* Dequeable.swift in Sources */,
 				81EB7DB122D143C300E00485 /* HWColors.swift in Sources */,
@@ -609,14 +630,17 @@
 				81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */,
 				81BFA90022E507C70036BACC /* Lecturer.swift in Sources */,
 				810C8FAB2325204B007B13F1 /* DiningController.swift in Sources */,
+				81FBAEF5232E7C03004F5CD5 /* DashboardSettingsSection.swift in Sources */,
 				813CAF8D23157B7B00854C30 /* CafeteriaDishTableViewCell.swift in Sources */,
 				817738922304966200D0F8D4 /* HWTabBarController.swift in Sources */,
+				81FBAEF3232E6E43004F5CD5 /* DashboardSection.swift in Sources */,
 				81C21EAE232CCEDB0005E2B0 /* SettingsSection.swift in Sources */,
 				81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */,
 				81EB7DC122D2636C00E00485 /* DatabaseModel.swift in Sources */,
 				813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */,
 				81EB7DBF22D2631800E00485 /* News.swift in Sources */,
 				81EB7DB722D1462800E00485 /* AppearanceManager.swift in Sources */,
+				81FBAEF9232E7E74004F5CD5 /* DashboardEventSection.swift in Sources */,
 				81F942B0230811370042EC3C /* DashboardEventsController.swift in Sources */,
 				81C21EB3232CD7180005E2B0 /* SettingsLegalController.swift in Sources */,
 				81BFA90922F1DC780036BACC /* LecturerInfoHeadTableViewCell.swift in Sources */,
