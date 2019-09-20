@@ -471,9 +471,9 @@
 		81F942B523082DC00042EC3C /* Dining */ = {
 			isa = PBXGroup;
 			children = (
+				810C8FAA2325204B007B13F1 /* DiningController.swift */,
 				81F942B623082DF30042EC3C /* DiningMasterController.swift */,
 				81D7D6262322D16D0021A16E /* DiningDetailController.swift */,
-				810C8FAA2325204B007B13F1 /* DiningController.swift */,
 			);
 			path = Dining;
 			sourceTree = "<group>";

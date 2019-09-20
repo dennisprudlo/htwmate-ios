@@ -221,8 +221,7 @@ class Lecturer : DatabaseModel {
 
         let actionView = UIView()
         actionView.translatesAutoresizingMaskIntoConstraints = false
-        actionView.heightAnchor.constraint(equalToConstant: bubbleSize
-            ).isActive = true
+        actionView.heightAnchor.constraint(equalToConstant: bubbleSize).isActive = true
         actionView.heightAnchor.constraint(equalTo: actionView.widthAnchor).isActive = true
         actionView.backgroundColor = active ? HWColors.StyleGuide.primaryGreen : .systemGroupedBackground
         actionView.layer.cornerRadius = bubbleSize / 2

@@ -129,11 +129,16 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let detailNavigationController = detailViewDelegate?.navigationController {
-            let lecturer = LecturerStorage.shared.lecturers(inSection: indexPath.section)[indexPath.row]
-            detailViewDelegate?.lecturer = lecturer
-            splitViewController?.showDetailViewController(detailNavigationController, sender: nil)
+
+        let lecturers = LecturerStorage.shared.lecturers(inSection: indexPath.section)
+        if indexPath.row > lecturers.count {
+            return
         }
+
+        let lecturerDetailController = LecturersDetailController()
+        lecturerDetailController.lecturer = lecturers[indexPath.row]
+
+        splitViewController?.showDetailViewController(lecturerDetailController, sender: nil)
     }
 
     @objc private func didRefreshCollectionView(_ sender: Any) {
