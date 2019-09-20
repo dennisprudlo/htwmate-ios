@@ -35,7 +35,7 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
         lecturerImageView.translatesAutoresizingMaskIntoConstraints = false
         lecturerImageView.layer.cornerRadius = imageHeight / 2
         lecturerImageView.clipsToBounds = true
-        lecturerImageView.tintColor = UIColor.groupTableViewBackground
+        lecturerImageView.tintColor = UIColor.systemGroupedBackground
 
         lecturerImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 11).isActive = true
         lecturerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true

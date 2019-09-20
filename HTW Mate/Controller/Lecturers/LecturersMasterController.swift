@@ -35,7 +35,7 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
         // Prepare search controller
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = HWStrings.Controllers.Lecturers.searchBarTitle
         searchController.searchBar.tintColor = HWColors.StyleGuide.primaryGreen
         searchController.searchBar.barStyle = .default

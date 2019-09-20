@@ -812,6 +812,7 @@
 				HTWMATE_API_SCHEME = http;
 				HTWMATE_API_TOKEN = lpFsm7wKsge4GrIHARMwRhQaTCdzCG0oumBWInqCIGVardMHPhyin6OWAlPW4CLv;
 				INFOPLIST_FILE = "HTW Mate/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -834,6 +835,7 @@
 				HTWMATE_API_SCHEME = https;
 				HTWMATE_API_TOKEN = lpFsm7wKsge4GrIHARMwRhQaTCdzCG0oumBWInqCIGVardMHPhyin6OWAlPW4CLv;
 				INFOPLIST_FILE = "HTW Mate/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

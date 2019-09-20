@@ -80,7 +80,7 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         datePicker.datePickerMode = .date
         datePicker.date = self.date
-        datePicker.backgroundColor = UIColor.groupTableViewBackground
+        datePicker.backgroundColor = UIColor.systemGroupedBackground
         datePicker.heightAnchor.constraint(equalToConstant: 200).isActive = true
         datePicker.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         datePicker.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
