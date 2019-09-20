@@ -60,6 +60,7 @@
 		81E707E822D12F01000B8EE6 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E722D12F01000B8EE6 /* AppIcon.xcassets */; };
 		81E707EB22D12F01000B8EE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E922D12F01000B8EE6 /* LaunchScreen.storyboard */; };
 		81E9066023350EE900F19CD5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E9065F23350EE900F19CD5 /* Colors.xcassets */; };
+		81E906622335300900F19CD5 /* HWSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E906612335300900F19CD5 /* HWSplitViewController.swift */; };
 		81EB7DB122D143C300E00485 /* HWColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB022D143C300E00485 /* HWColors.swift */; };
 		81EB7DB322D1448700E00485 /* UIColor+Initalizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */; };
 		81EB7DB722D1462800E00485 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB622D1462800E00485 /* AppearanceManager.swift */; };
@@ -151,6 +152,7 @@
 		81E707EA22D12F01000B8EE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81E707EC22D12F01000B8EE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E9065F23350EE900F19CD5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		81E906612335300900F19CD5 /* HWSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSplitViewController.swift; sourceTree = "<group>"; };
 		81EB7DB022D143C300E00485 /* HWColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWColors.swift; sourceTree = "<group>"; };
 		81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Initalizers.swift"; sourceTree = "<group>"; };
 		81EB7DB622D1462800E00485 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */,
 				817738912304966200D0F8D4 /* HWTabBarController.swift */,
 				81F942B3230821420042EC3C /* HWEventEditViewController.swift */,
+				81E906612335300900F19CD5 /* HWSplitViewController.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				81BFA90722F1B3820036BACC /* LecturersDetailController.swift in Sources */,
 				81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */,
 				8112C6E9231C538800818868 /* HWFontSize.swift in Sources */,
+				81E906622335300900F19CD5 /* HWSplitViewController.swift in Sources */,
 				81FBAEF7232E7E48004F5CD5 /* DashboardNewsSection.swift in Sources */,
 				81D7A2D3230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift in Sources */,
 				81EB7DC822D270F100E00485 /* Dequeable.swift in Sources */,

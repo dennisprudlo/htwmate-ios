@@ -39,6 +39,8 @@ class SectionSettingsCollectionReusableView: UICollectionReusableView, Dequeable
     @objc func composeSettingsController(_ sender: UIButton) {
         let settingsController = SettingController(style: .insetGrouped)
         let settingsNavigationController = HWNavigationController(rootViewController: settingsController)
+		settingsNavigationController.navigationItem.largeTitleDisplayMode = .never
+		settingsNavigationController.navigationBar.prefersLargeTitles = false
         viewController?.present(settingsNavigationController, animated: true, completion: nil)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiningMasterController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISplitViewControllerDelegate, CafeteriaStorageDelegate {
+class DiningMasterController: UIViewController, UITableViewDelegate, UITableViewDataSource, CafeteriaStorageDelegate {
 
     var date = DiningMasterController.getInitialDate() {
         didSet {
@@ -38,9 +38,9 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidAppear(animated)
 
         if CafeteriaStorage.shared.displayedCafeteriaDishes.count > 0 {
-            overlayView.hide()
+//            overlayView.hide()
         } else {
-            overlayView.show(completion: nil)
+//            overlayView.show(completion: nil)
         }
 
         //
@@ -54,10 +54,6 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: HWIcons.filter, style: .plain, target: self, action: #selector(didTapFilter))
-
-        splitViewController?.delegate = self
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -89,12 +85,13 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
 
         self.view.addSubview(datePickerToolbar)
         datePickerToolbar.tintColor = HWColors.StyleGuide.primaryGreen
-        datePickerToolbar.items = [
-            UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didCancelDatePicker(_:))),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: HWStrings.Controllers.Dining.todayLabel, style: .plain, target: self, action: #selector(didTodaySubmitDatePicker(_:))),
-            UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didSubmitDatePicker(_:)))
-        ]
+		datePickerToolbar.setItems([
+			UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didCancelDatePicker(_:))),
+			UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+			UIBarButtonItem(title: HWStrings.Controllers.Dining.todayLabel, style: .plain, target: self, action: #selector(didTodaySubmitDatePicker(_:))),
+			UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didSubmitDatePicker(_:)))
+		], animated: true)
+
         datePickerToolbar.translatesAutoresizingMaskIntoConstraints = false
         datePickerToolbar.leadingAnchor.constraint(equalTo: datePicker.leadingAnchor).isActive = true
         datePickerToolbar.trailingAnchor.constraint(equalTo: datePicker.trailingAnchor).isActive = true
@@ -102,26 +99,24 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
 
         dateButton = UIBarButtonItem(title: self.dateString, style: .plain, target: self, action: #selector(didRequestDateSelector(_:)))
         navigationItem.leftBarButtonItem = dateButton
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: HWIcons.filter, style: .plain, target: self, action: #selector(didTapFilter))
+
 
         self.view.addSubview(overlayView)
         overlayView.snap(toEdgesOf: self.view)
+		overlayView.hide()
     }
 
     @objc func didTapFilter() {
-        let settingsController = SettingsDiningController(style: .grouped)
+        let settingsController = SettingsDiningController(style: .insetGrouped)
         settingsController.overrideTitle = "Filter"
         settingsController.navigationBar = navigationController?.navigationBar
         navigationController?.navigationBar.shadowImage = nil
         navigationController?.pushViewController(settingsController, animated: true)
     }
 
-    // MARK: - Split view controller collapse
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return true
-    }
-
     static func getInitialDate() -> Date {
+//		return Date(timeInterval: 60*60*24*4, since: Date())
         let components = Calendar.current.dateComponents([.weekday], from: Date())
         if let weekday = components.weekday, weekday == 1 || weekday == 7 {
             // Today is saturday or sunday. jump to the next monday

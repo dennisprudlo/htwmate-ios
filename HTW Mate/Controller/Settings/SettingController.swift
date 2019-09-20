@@ -16,9 +16,7 @@ class SettingController: UITableViewController {
         super.viewDidLoad()
         self.title = HWStrings.Controllers.Settings.title
 
-        navigationController?.navigationBar.shadowImage = nil
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissSettings))
-
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissSettings))
         configureSections()
     }
 

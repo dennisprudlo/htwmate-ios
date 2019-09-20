@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LecturersMasterController: UITableViewController, UISplitViewControllerDelegate, UISearchResultsUpdating, LecturerStorageDelegate {
+class LecturersMasterController: UITableViewController, UISearchResultsUpdating, LecturerStorageDelegate {
 
     let searchController = UISearchController(searchResultsController: nil)
     var detailViewDelegate: LecturersDetailController?
@@ -18,8 +18,6 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        splitViewController?.delegate = self
 
         LecturerStorage.shared.delegate = self
 
@@ -69,12 +67,6 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     func lecturerStorage(didReloadLecturers lecturers: [Lecturer]) {
         tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
-    }
-
-    // MARK: - Split view controller collapse
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return true
     }
 
     // MARK: - Table view data source

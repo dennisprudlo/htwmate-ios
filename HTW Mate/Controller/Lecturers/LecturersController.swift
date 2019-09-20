@@ -8,12 +8,10 @@
 
 import UIKit
 
-class LecturersController: UISplitViewController {
+class LecturersController: HWSplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        preferredDisplayMode = .allVisible
     }
     
 }

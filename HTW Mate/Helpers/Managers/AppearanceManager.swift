@@ -20,7 +20,7 @@ struct AppearanceManager {
         appearance.tintColor = HWColors.StyleGuide.primaryGreen
 
         // Remove the bottom shadow from each navigation bar
-        appearance.shadowImage = UIImage()
+//        appearance.shadowImage = nil
     }
 
     public static func updateControlsAppearance() -> Void {

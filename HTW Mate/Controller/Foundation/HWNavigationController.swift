@@ -14,6 +14,11 @@ class HWNavigationController: UINavigationController {
         super.viewDidLoad()
 
         navigationBar.prefersLargeTitles = true
+
+		let appearance = UINavigationBarAppearance()
+		appearance.configureWithOpaqueBackground()
+
+		navigationBar.standardAppearance = appearance
     }
 
 }
