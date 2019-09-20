@@ -24,12 +24,12 @@ class SettingController: UITableViewController {
 
     func configureSections() {
         let categoriesSection = SettingsSection(header: nil, footer: nil, presentingController: self)
-        categoriesSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Dining.title, present: SettingsDiningController(style: .grouped))
+        categoriesSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Dining.title, present: SettingsDiningController(style: .insetGrouped))
         sections.append(categoriesSection)
 
         let legalSection = SettingsSection(header: nil, footer: nil, presentingController: self)
-        legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.itemAbout, present: SettingsAboutController(style: .grouped))
-        legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.itemLegal, present: SettingsLegalController(style: .grouped))
+        legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.itemAbout, present: SettingsAboutController(style: .insetGrouped))
+        legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.itemLegal, present: SettingsLegalController(style: .insetGrouped))
         sections.append(legalSection)
     }
 
