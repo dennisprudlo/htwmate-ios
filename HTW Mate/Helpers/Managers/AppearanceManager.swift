@@ -32,6 +32,7 @@ struct AppearanceManager {
     public static func updateTabBarAppearance() -> Void {
         let appearance = UITabBar.appearance()
         appearance.barStyle = .black
+        appearance.isTranslucent = true
         appearance.tintColor = .white
     }
 
@@ -39,7 +40,7 @@ struct AppearanceManager {
         if !ignore {
             view.backgroundColor = .white
         }
-        view.layer.shadowColor = HWColors.shadowDrop.cgColor
+        view.layer.shadowColor = HWColors.shadowDrop?.cgColor
         view.layer.shadowOpacity = opacity
         view.layer.shadowOffset = CGSize(width: 0, height: radius / 2)
         view.layer.shadowRadius = radius

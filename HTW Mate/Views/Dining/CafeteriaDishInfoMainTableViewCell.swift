@@ -30,7 +30,7 @@ class CafeteriaDishInfoMainTableViewCell: UITableViewCell {
         let inset = HWInsets.standard
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.title, weight: .bold)
-        titleLabel.textColor = HWColors.darkPrimary
+        titleLabel.textColor = HWColors.primaryText
         titleLabel.numberOfLines = 0
         titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: HWInsets.small).isActive = true

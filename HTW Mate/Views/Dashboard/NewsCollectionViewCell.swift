@@ -36,6 +36,7 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = HWColors.coverBackground
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = HWInsets.CornerRadius.panel
         addSubview(imageView)

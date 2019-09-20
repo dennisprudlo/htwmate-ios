@@ -16,7 +16,7 @@ class HWMissingContentView: UIView {
 
     private var hideContentView: UIView?
     private let transparentColor = UIColor(fromHexRed: 0xFF, green: 0xFF, blue: 0xFF, alpha: 0x00)
-    private let viewBackgroundColor: UIColor = HWColors.contentBackground
+    private let viewBackgroundColor: UIColor? = HWColors.contentBackground
 
     private let fadeTimeInterval: TimeInterval = 0.1 
 

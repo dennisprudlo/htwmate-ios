@@ -28,13 +28,14 @@ class EventTableViewCell: UITableViewCell, Dequeable {
 
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         dateLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .medium)
-        dateLabel.textColor = HWColors.darkSecondary
+        dateLabel.textColor = HWColors.secondaryText
         dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: HWInsets.medium).isActive = true
         dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.strongText, weight: .bold)
+        titleLabel.textColor = HWColors.primaryText
         titleLabel.numberOfLines = 0
         titleLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: HWInsets.extraSmall).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: dateLabel.leadingAnchor).isActive = true
@@ -42,6 +43,7 @@ class EventTableViewCell: UITableViewCell, Dequeable {
 
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.font = UIFont.systemFont(ofSize: HWFontSize.text, weight: .regular)
+        subtitleLabel.textColor = HWColors.primaryText
         subtitleLabel.numberOfLines = 0
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: HWInsets.extraSmall).isActive = true
         subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = true

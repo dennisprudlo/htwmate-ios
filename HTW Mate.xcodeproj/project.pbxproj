@@ -59,6 +59,7 @@
 		81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E707E222D12F00000B8EE6 /* DashboardController.swift */; };
 		81E707E822D12F01000B8EE6 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E722D12F01000B8EE6 /* AppIcon.xcassets */; };
 		81E707EB22D12F01000B8EE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E922D12F01000B8EE6 /* LaunchScreen.storyboard */; };
+		81E9066023350EE900F19CD5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E9065F23350EE900F19CD5 /* Colors.xcassets */; };
 		81EB7DB122D143C300E00485 /* HWColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB022D143C300E00485 /* HWColors.swift */; };
 		81EB7DB322D1448700E00485 /* UIColor+Initalizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */; };
 		81EB7DB722D1462800E00485 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB622D1462800E00485 /* AppearanceManager.swift */; };
@@ -149,6 +150,7 @@
 		81E707E722D12F01000B8EE6 /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 		81E707EA22D12F01000B8EE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81E707EC22D12F01000B8EE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81E9065F23350EE900F19CD5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		81EB7DB022D143C300E00485 /* HWColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWColors.swift; sourceTree = "<group>"; };
 		81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Initalizers.swift"; sourceTree = "<group>"; };
 		81EB7DB622D1462800E00485 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				81E707E722D12F01000B8EE6 /* AppIcon.xcassets */,
 				81EB7DB922D2060200E00485 /* Icons.xcassets */,
 				8177388D230308FE00D0F8D4 /* Localizable.strings */,
+				81E9065F23350EE900F19CD5 /* Colors.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81E9066023350EE900F19CD5 /* Colors.xcassets in Resources */,
 				81E707EB22D12F01000B8EE6 /* LaunchScreen.storyboard in Resources */,
 				81E707E822D12F01000B8EE6 /* AppIcon.xcassets in Resources */,
 				8177388B230308FE00D0F8D4 /* Localizable.strings in Resources */,

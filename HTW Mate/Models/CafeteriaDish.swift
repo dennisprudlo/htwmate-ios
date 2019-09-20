@@ -282,7 +282,7 @@ class CafeteriaDish : DatabaseModel {
         return infoCells
     }
 
-    public func getColor() -> UIColor {
+    public func getColor() -> UIColor? {
         switch rating {
         case .green: return HWColors.Cafeteria.ratingGreen
         case .orange: return HWColors.Cafeteria.ratingOrange
@@ -291,7 +291,7 @@ class CafeteriaDish : DatabaseModel {
         }
     }
 
-    public static func getColor(ofRating rating: CafeteriaDish.Rating) -> UIColor {
+    public static func getColor(ofRating rating: CafeteriaDish.Rating) -> UIColor? {
         switch rating {
         case .green: return HWColors.Cafeteria.ratingGreen
         case .orange: return HWColors.Cafeteria.ratingOrange
