@@ -72,6 +72,7 @@
 		81EB7DCE22D29C0F00E00485 /* NetworkWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DCD22D29C0F00E00485 /* NetworkWrapper.swift */; };
 		81EB7DD022D2A07C00E00485 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DCF22D2A07C00E00485 /* API.swift */; };
 		81EB7DD222D2A0F000E00485 /* HTWMateNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DD122D2A0F000E00485 /* HTWMateNewsAPI.swift */; };
+		81F7A8AC233504CB000CE799 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F7A8AB233504CB000CE799 /* SceneDelegate.swift */; };
 		81F942992306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942982306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift */; };
 		81F9429D2307165B0042EC3C /* HWLecturerRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F9429C2307165B0042EC3C /* HWLecturerRenderer.swift */; };
 		81F9429F230718820042EC3C /* HWLecturerRendererComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F9429E230718820042EC3C /* HWLecturerRendererComponent.swift */; };
@@ -161,6 +162,7 @@
 		81EB7DCD22D29C0F00E00485 /* NetworkWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWrapper.swift; sourceTree = "<group>"; };
 		81EB7DCF22D2A07C00E00485 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		81EB7DD122D2A0F000E00485 /* HTWMateNewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateNewsAPI.swift; sourceTree = "<group>"; };
+		81F7A8AB233504CB000CE799 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		81F942982306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CNContactVCardSerialization+Image.swift"; sourceTree = "<group>"; };
 		81F9429C2307165B0042EC3C /* HWLecturerRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWLecturerRenderer.swift; sourceTree = "<group>"; };
 		81F9429E230718820042EC3C /* HWLecturerRendererComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWLecturerRendererComponent.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				81EB7DAF22D143B500E00485 /* Constants */,
 				81EB7DB822D205E200E00485 /* Assets */,
 				81E707E022D12F00000B8EE6 /* AppDelegate.swift */,
+				81F7A8AB233504CB000CE799 /* SceneDelegate.swift */,
 				81E707E922D12F01000B8EE6 /* LaunchScreen.storyboard */,
 				81E707EC22D12F01000B8EE6 /* Info.plist */,
 			);
@@ -633,6 +636,7 @@
 				81FBAEF5232E7C03004F5CD5 /* DashboardSettingsSection.swift in Sources */,
 				813CAF8D23157B7B00854C30 /* CafeteriaDishTableViewCell.swift in Sources */,
 				817738922304966200D0F8D4 /* HWTabBarController.swift in Sources */,
+				81F7A8AC233504CB000CE799 /* SceneDelegate.swift in Sources */,
 				81FBAEF3232E6E43004F5CD5 /* DashboardSection.swift in Sources */,
 				81C21EAE232CCEDB0005E2B0 /* SettingsSection.swift in Sources */,
 				81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */,
