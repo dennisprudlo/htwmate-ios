@@ -223,7 +223,7 @@ class Lecturer : DatabaseModel {
         actionView.translatesAutoresizingMaskIntoConstraints = false
         actionView.heightAnchor.constraint(equalToConstant: bubbleSize).isActive = true
         actionView.heightAnchor.constraint(equalTo: actionView.widthAnchor).isActive = true
-        actionView.backgroundColor = active ? HWColors.StyleGuide.primaryGreen : .systemGroupedBackground
+        actionView.backgroundColor = active ? HWColors.StyleGuide.primaryGreen : HWColors.lecturerPlaceholderTint
         actionView.layer.cornerRadius = bubbleSize / 2
 
         let iconView = UIImageView(image: icon)

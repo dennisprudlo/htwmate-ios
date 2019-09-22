@@ -42,5 +42,7 @@ struct HWColors {
     static let secondaryText = UIColor(named: "secondary-text")
     static let shadowDrop = UIColor(named: "shadow-drop")
 
+	static let lecturerPlaceholderTint = UIColor(named: "lecturer-placeholder-tint")
+
     static let skeletonGray = HWColors.coverBackground
 }

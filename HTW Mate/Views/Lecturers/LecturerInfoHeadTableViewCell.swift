@@ -46,7 +46,7 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
 
         lecturerImageView.layer.cornerRadius = imageSize / 2
         lecturerImageView.clipsToBounds = true
-        lecturerImageView.tintColor = UIColor.systemGroupedBackground
+		lecturerImageView.tintColor = HWColors.lecturerPlaceholderTint
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .bold)

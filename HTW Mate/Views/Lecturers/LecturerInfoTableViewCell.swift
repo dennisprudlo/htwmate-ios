@@ -31,6 +31,7 @@ class LecturerInfoTableViewCell: UITableViewCell {
 
             sectionHeadlineLabel.translatesAutoresizingMaskIntoConstraints = false
             sectionHeadlineLabel.text = headline
+			sectionHeadlineLabel.textColor = HWColors.primaryText
             sectionHeadlineLabel.numberOfLines = 1
             sectionHeadlineLabel.font = UIFont.systemFont(ofSize: HWFontSize.enlargedText, weight: .bold)
             sectionHeadlineLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: cellPadding).isActive = true

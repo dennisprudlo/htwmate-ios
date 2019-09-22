@@ -73,6 +73,10 @@ class LecturersDetailController: UITableViewController {
     }
 
     @objc func didTapActionButton(_ sender: UIBarButtonItem) {
+		guard lecturer != nil else {
+			return
+		}
+
         let contact = lecturer.createContact()
         try? shareContactWithThirdParty(contact)
     }
@@ -94,6 +98,6 @@ class LecturersDetailController: UITableViewController {
         try data.write(to: fileUrl, options: Data.WritingOptions.atomicWrite)
 
         let activityViewController = UIActivityViewController(activityItems: [fileUrl], applicationActivities: nil)
-        present(activityViewController, animated: true, completion: nil)
+		present(activityViewController, animated: true, completion: nil)
     }
 }

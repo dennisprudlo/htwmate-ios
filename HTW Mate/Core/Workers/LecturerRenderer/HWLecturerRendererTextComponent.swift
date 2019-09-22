@@ -46,6 +46,7 @@ class HWLecturerRendererTextComponent: HWLecturerRendererComponent {
         textComponent.textContainerInset = UIEdgeInsets.zero
         textComponent.textContainer.lineFragmentPadding = 0
         textComponent.font = UIFont.systemFont(ofSize: HWFontSize.strongText)
+		textComponent.textColor = HWColors.primaryText
         textComponent.linkTextAttributes = [NSAttributedString.Key.foregroundColor: HWColors.StyleGuide.primaryGreen]
         return textComponent
     }
