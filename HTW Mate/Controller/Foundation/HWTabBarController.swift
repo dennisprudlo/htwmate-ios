@@ -49,6 +49,10 @@ class HWTabBarController: UITabBarController {
             lecturersController,
             diningController
         ]
+
+		tabBar.barStyle = .black
+        tabBar.isTranslucent = true
+        tabBar.tintColor = .white
     }
     
 }

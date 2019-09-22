@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //
         // Update app appearance styles
-        AppearanceManager.updateTabBarAppearance()
         AppearanceManager.updateControlsAppearance()
 
         //

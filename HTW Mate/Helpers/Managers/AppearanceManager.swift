@@ -16,14 +16,6 @@ struct AppearanceManager {
         switchAppearance.onTintColor = HWColors.StyleGuide.primaryGreen
     }
 
-    /// Updates the global appearance of the tab bar controls
-    public static func updateTabBarAppearance() -> Void {
-        let appearance = UITabBar.appearance()
-        appearance.barStyle = .black
-        appearance.isTranslucent = true
-        appearance.tintColor = .white
-    }
-
     public static func dropShadow(for view: UIView, withRadius radius: CGFloat = 10, opacity: Float = 0.5, ignoreBackground ignore: Bool = false) {
         if !ignore {
             view.backgroundColor = .white
