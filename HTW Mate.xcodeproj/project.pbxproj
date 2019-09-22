@@ -14,7 +14,6 @@
 		813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF862315660B00854C30 /* CafeteriaDish.swift */; };
 		813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8923156FD500854C30 /* CafeteriaStorage.swift */; };
 		813CAF8D23157B7B00854C30 /* CafeteriaDishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */; };
-		813CAF9023158CD400854C30 /* HWMissingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8F23158CD400854C30 /* HWMissingContentView.swift */; };
 		8169C35C231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169C35B231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift */; };
 		816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2A22D9D04000FA507E /* HWStrings.swift */; };
 		816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */; };
@@ -26,6 +25,7 @@
 		817738922304966200D0F8D4 /* HWTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817738912304966200D0F8D4 /* HWTabBarController.swift */; };
 		8177389523049FDF00D0F8D4 /* DashboardNewsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177389423049FDF00D0F8D4 /* DashboardNewsStorage.swift */; };
 		817738972304A14900D0F8D4 /* DashboardEventStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817738962304A14900D0F8D4 /* DashboardEventStorage.swift */; };
+		817A8E402337B88600AD5383 /* UITableView+BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817A8E3F2337B88600AD5383 /* UITableView+BackgroundView.swift */; };
 		81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8EC22E34CBB0036BACC /* AlertManager.swift */; };
 		81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */; };
 		81BFA8F722E4CE2D0036BACC /* LecturersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8F622E4CE2D0036BACC /* LecturersController.swift */; };
@@ -103,7 +103,6 @@
 		813CAF862315660B00854C30 /* CafeteriaDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDish.swift; sourceTree = "<group>"; };
 		813CAF8923156FD500854C30 /* CafeteriaStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaStorage.swift; sourceTree = "<group>"; };
 		813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishTableViewCell.swift; sourceTree = "<group>"; };
-		813CAF8F23158CD400854C30 /* HWMissingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWMissingContentView.swift; sourceTree = "<group>"; };
 		8169C35B231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+BlurredStatusBar.swift"; sourceTree = "<group>"; };
 		816B7A2A22D9D04000FA507E /* HWStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWStrings.swift; sourceTree = "<group>"; };
 		816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateEventsAPI.swift; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		817738912304966200D0F8D4 /* HWTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWTabBarController.swift; sourceTree = "<group>"; };
 		8177389423049FDF00D0F8D4 /* DashboardNewsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardNewsStorage.swift; sourceTree = "<group>"; };
 		817738962304A14900D0F8D4 /* DashboardEventStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEventStorage.swift; sourceTree = "<group>"; };
+		817A8E3F2337B88600AD5383 /* UITableView+BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+BackgroundView.swift"; sourceTree = "<group>"; };
 		81BFA8EC22E34CBB0036BACC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+DisplayName.swift"; sourceTree = "<group>"; };
 		81BFA8F622E4CE2D0036BACC /* LecturersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturersController.swift; sourceTree = "<group>"; };
@@ -336,6 +336,7 @@
 				81F942982306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift */,
 				8169C35B231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift */,
 				81C21EB5232CDA1B0005E2B0 /* UIView+pin.swift */,
+				817A8E3F2337B88600AD5383 /* UITableView+BackgroundView.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -403,7 +404,6 @@
 				813CAF8B23157B6300854C30 /* Dining */,
 				81BFA8FA22E4D1A50036BACC /* Lecturers */,
 				81EB7DC322D2705500E00485 /* Dashboard */,
-				813CAF8F23158CD400854C30 /* HWMissingContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -637,7 +637,6 @@
 				81EB7DB322D1448700E00485 /* UIColor+Initalizers.swift in Sources */,
 				817662F922F5D1F3004E0A07 /* LecturerInfoTableViewCell.swift in Sources */,
 				81BFA8FE22E4DC2A0036BACC /* HWImage.swift in Sources */,
-				813CAF9023158CD400854C30 /* HWMissingContentView.swift in Sources */,
 				81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */,
 				81BFA90022E507C70036BACC /* Lecturer.swift in Sources */,
 				810C8FAB2325204B007B13F1 /* DiningController.swift in Sources */,
@@ -667,6 +666,7 @@
 				81BFA8F722E4CE2D0036BACC /* LecturersController.swift in Sources */,
 				81F942A32307575E0042EC3C /* LecturerInfoFieldOfWorkTableViewCell.swift in Sources */,
 				81EB7DCA22D2803300E00485 /* HWInsets.swift in Sources */,
+				817A8E402337B88600AD5383 /* UITableView+BackgroundView.swift in Sources */,
 				81F942A9230768730042EC3C /* LecturerInfoOfficialCapacityTableViewCell.swift in Sources */,
 				81EB7DCE22D29C0F00E00485 /* NetworkWrapper.swift in Sources */,
 			);
@@ -827,6 +827,7 @@
 				INFOPLIST_FILE = "HTW Mate/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
@@ -853,6 +854,7 @@
 				INFOPLIST_FILE = "HTW Mate/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);

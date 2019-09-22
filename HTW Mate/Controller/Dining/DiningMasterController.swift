@@ -32,16 +32,10 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
     /// Whether to update the menu when the view appears
     public static var updateOnAppear: Bool = false
 
-    var overlayView = HWMissingContentView(displayType: .text(title: HWStrings.Controllers.Dining.missingContentTitle, subtitle: HWStrings.Controllers.Dining.missingContentSubtitle))
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if CafeteriaStorage.shared.displayedCafeteriaDishes.count > 0 {
-//            overlayView.hide()
-        } else {
-//            overlayView.show(completion: nil)
-        }
+		self.tableViewDidReload(withCount: CafeteriaStorage.shared.displayedCafeteriaDishes.count)
 
         //
         // Handles the menu reload after updating the cafeteria settings
@@ -100,11 +94,6 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
         dateButton = UIBarButtonItem(title: self.dateString, style: .plain, target: self, action: #selector(didRequestDateSelector(_:)))
         navigationItem.leftBarButtonItem = dateButton
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: HWIcons.filter, style: .plain, target: self, action: #selector(didTapFilter))
-
-
-        self.view.addSubview(overlayView)
-        overlayView.snap(toEdgesOf: self.view)
-		overlayView.hide()
     }
 
     @objc func didTapFilter() {
@@ -132,17 +121,18 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
     // MARK: - Lecturer storage handler
 
     func cafeteriaStorage(didReloadDishes dishes: [CafeteriaDish], count: Int) {
-        if count > 0 {
-            overlayView.hide()
-            tableView.reloadData()
-        } else {
-            overlayView.show {
-                self.tableView.reloadData()
-            }
-        }
-
-        tableView.refreshControl?.endRefreshing()
+        self.tableView.reloadData()
+		self.tableView.refreshControl?.endRefreshing()
+		self.tableViewDidReload(withCount: count)
     }
+
+	private func tableViewDidReload(withCount count: Int) {
+		if count == 0 {
+			self.tableView.setEmptyView(title: HWStrings.Controllers.Dining.missingContentTitle, message: HWStrings.Controllers.Dining.missingContentSubtitle)
+		} else {
+			self.tableView.restore()
+		}
+	}
 
     private func reloadMenu() {
         CafeteriaStorage.shared.reload(forDate: self.date)

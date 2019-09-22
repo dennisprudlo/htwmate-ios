@@ -11,7 +11,6 @@ import UIKit
 class LecturersMasterController: UITableViewController, UISearchResultsUpdating, LecturerStorageDelegate {
 
     let searchController = UISearchController(searchResultsController: nil)
-    var detailViewDelegate: LecturersDetailController?
 
     var searchDelayTimer: Timer?
     var waitForNextLoop = false
@@ -36,16 +35,9 @@ class LecturersMasterController: UITableViewController, UISearchResultsUpdating,
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = HWStrings.Controllers.Lecturers.searchBarTitle
         searchController.searchBar.tintColor = HWColors.StyleGuide.primaryGreen
-        searchController.searchBar.barStyle = .default
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
-        definesPresentationContext = true
-
-        if let splitViewController = splitViewController, let detailViewNavigationController = splitViewController.viewControllers.last as? UINavigationController {
-            if let detailViewController = detailViewNavigationController.viewControllers.last as? LecturersDetailController {
-                detailViewDelegate = detailViewController
-            }
-        }
+        navigationItem.hidesSearchBarWhenScrolling = false
+		definesPresentationContext = true
 
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(didRefreshCollectionView(_:)), for: .valueChanged)

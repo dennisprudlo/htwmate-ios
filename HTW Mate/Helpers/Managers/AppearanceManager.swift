@@ -11,18 +11,6 @@ import UIKit
 
 struct AppearanceManager {
 
-    /// Updates the global appearance of the navigation bar controls
-    public static func updateNavigationBarAppearance() -> Void {
-        let appearance = UINavigationBar.appearance(whenContainedInInstancesOf: [HWNavigationController.self])
-
-        appearance.barStyle = .default
-        appearance.barTintColor = HWColors.contentBackground
-        appearance.tintColor = HWColors.StyleGuide.primaryGreen
-
-        // Remove the bottom shadow from each navigation bar
-//        appearance.shadowImage = nil
-    }
-
     public static func updateControlsAppearance() -> Void {
         let switchAppearance = UISwitch.appearance()
         switchAppearance.onTintColor = HWColors.StyleGuide.primaryGreen
