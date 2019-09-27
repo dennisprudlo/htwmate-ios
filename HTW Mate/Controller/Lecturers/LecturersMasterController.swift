@@ -57,7 +57,13 @@ class LecturersMasterController: UITableViewController, UISearchResultsUpdating,
     // MARK: - Lecturer storage handler
 
     func lecturerStorage(didReloadLecturers lecturers: [Lecturer]) {
-        tableView.reloadData()
+		if LecturerStorage.shared.displayedLecturers.count == 0 {
+			self.tableView.setEmptyView(title: HWStrings.Controllers.Lecturers.missingContentTitle, message: HWStrings.Controllers.Lecturers.missingContentSubtitle)
+		} else {
+			self.tableView.restore()
+		}
+
+		tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
     }
 

@@ -37,8 +37,10 @@ class CafeteriaStorage {
 
         let cafeteria: CafeteriaDish.Cafeteria = HWDefault.diningCampus == 0 ? .treskowallee : .wilhelminenhof
 
+		let locales = Bundle.main.preferredLocalizations
+
         var internationalized: Bool = true
-        if let langCode = Locale.current.languageCode, langCode == "de" {
+		if let langCode = locales.first, langCode == "de" {
             internationalized = false
         }
 

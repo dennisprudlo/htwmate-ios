@@ -25,7 +25,6 @@ class HWNavigationController: UINavigationController {
 		navBarAppearance.shadowColor = HWColors.contentBackground
 
 		navigationBar.standardAppearance = navBarAppearance
-		navigationBar.scrollEdgeAppearance = navBarAppearance
 	}
 
 }

@@ -48,6 +48,8 @@ struct HWStrings {
         struct Lecturers {
             static let title = NSLocalizedString("controller.lecturer.title", comment: "The title for the view where the lecturers will be displayed")
             static let searchBarTitle = NSLocalizedString("controller.lecturer.searchbartitle", comment: "The placeholder string for the lecturers search bar")
+			static let missingContentTitle = NSLocalizedString("controller.lecturer.missingcontent.title", comment: "The text for the missing content title in the lecturer view")
+            static let missingContentSubtitle = NSLocalizedString("controller.lecturer.missingcontent.subtitle", comment: "The text for the missing content subtitle in the lecturer view")
             struct Detail {
                 static let mail = NSLocalizedString("controller.lecturer.detail.mail", comment: "The text description for the 'send mail' quick action")
                 static let call = NSLocalizedString("controller.lecturer.detail.call", comment: "The text description for the 'call' quick action")
