@@ -31,7 +31,7 @@ class LecturersMasterController: UITableViewController, UISearchResultsUpdating,
         //
         // Prepare search controller
         searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = true
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = HWStrings.Controllers.Lecturers.searchBarTitle
         searchController.searchBar.tintColor = HWColors.StyleGuide.primaryGreen

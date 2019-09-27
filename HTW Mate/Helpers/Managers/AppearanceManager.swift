@@ -14,6 +14,9 @@ struct AppearanceManager {
     public static func updateControlsAppearance() -> Void {
         let switchAppearance = UISwitch.appearance()
         switchAppearance.onTintColor = HWColors.StyleGuide.primaryGreen
+
+		let barButtonItems = UIBarButtonItem.appearance(whenContainedInInstancesOf: [HWNavigationController.self])
+		barButtonItems.tintColor = HWColors.StyleGuide.primaryGreen
     }
 
     public static func dropShadow(for view: UIView, withRadius radius: CGFloat = 10, opacity: Float = 0.5, ignoreBackground ignore: Bool = false) {
