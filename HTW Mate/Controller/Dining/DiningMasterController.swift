@@ -94,7 +94,12 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
         dateButton = UIBarButtonItem(title: self.dateString, style: .plain, target: self, action: #selector(didRequestDateSelector(_:)))
         navigationItem.leftBarButtonItem = dateButton
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: HWIcons.filter, style: .plain, target: self, action: #selector(didTapFilter))
-    }
+
+		if let appearance = navigationController?.navigationBar.standardAppearance.copy() {
+			appearance.shadowColor = HWColors.contentBackground
+			navigationController?.navigationBar.standardAppearance = appearance
+		}
+	}
 
     @objc func didTapFilter() {
         let settingsController = SettingsDiningController(style: .insetGrouped)

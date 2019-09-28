@@ -16,6 +16,8 @@ class SettingsSectionCell {
 
     enum CellStyle {
         case disclosure
+		case disclosureLabel
+		case link
     }
 
     init(style: CellStyle, handler: @escaping () -> Void) {
@@ -26,11 +28,23 @@ class SettingsSectionCell {
     }
 
     func generateTableViewCell() {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        var cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+
+		if self.style == .disclosureLabel {
+			cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+		}
 
         switch self.style {
             case .disclosure:
                 cell.accessoryType = .disclosureIndicator
+			case .disclosureLabel:
+				cell.accessoryType = .disclosureIndicator
+			case .link:
+				cell.accessoryType = .none
+				let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+				imageView.image = HWIcons.link
+				imageView.tintColor = HWColors.StyleGuide.primaryGreen
+				cell.accessoryView = imageView
         }
 
         self.tableViewCell = cell
@@ -39,4 +53,8 @@ class SettingsSectionCell {
     func setTitle(_ title: String?) {
         self.tableViewCell.textLabel?.text = title
     }
+
+	func setDetailTitle(_ detailTitle: String?) {
+		self.tableViewCell.detailTextLabel?.text = detailTitle
+	}
 }

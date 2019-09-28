@@ -22,7 +22,6 @@ class HWNavigationController: UINavigationController {
 		navBarAppearance.titleTextAttributes = [.foregroundColor: HWColors.primaryText ?? .black]
 		navBarAppearance.largeTitleTextAttributes = [.foregroundColor: HWColors.primaryText ?? .black]
 		navBarAppearance.backgroundColor = HWColors.contentBackground
-		navBarAppearance.shadowColor = HWColors.contentBackground
 
 		navigationBar.standardAppearance = navBarAppearance
 	}

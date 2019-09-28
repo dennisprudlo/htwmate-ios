@@ -116,6 +116,17 @@ struct HWStrings {
         }
 		struct Studies {
 			static let title = NSLocalizedString("controller.studies.title", comment: "The title for the main studies controller")
+			struct Lectures {
+				static let title = NSLocalizedString("controller.studies.lectures.title", comment: "The headline for the main studies lectures section")
+				struct Cancelled {
+					static let title = NSLocalizedString("controller.studies.lectures.cancelled.title", comment: "The title for the main studies cancelled lectures item")
+				}
+			}
+			struct HtwServices {
+				static let title = NSLocalizedString("controller.studies.htwservices.title", comment: "The headline for the main studies htw services section")
+				static let universityLibrary = NSLocalizedString("controller.studies.htwservices.universitylibrary", comment: "The title for the main studies university library links")
+				static let mediaLibrary = NSLocalizedString("controller.studies.htwservices.medialibrary", comment: "The title for the main studies media library link")
+			}
 		}
     }
 }
