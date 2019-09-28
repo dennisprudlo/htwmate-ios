@@ -18,6 +18,7 @@ struct HWIcons {
     static let dashboard = UIImage(named: "dashboard")
     static let lecturers = UIImage(named: "lecturers")
     static let dining = UIImage(named: "dining")
+    static let studies = UIImage(named: "graduation-cap")
 
     static let lecturersQuickActionMessage = UIImage(named: "message")
     static let lecturersQuickActionPhone = UIImage(named: "phone")

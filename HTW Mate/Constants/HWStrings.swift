@@ -44,6 +44,7 @@ struct HWStrings {
             static let metaMore = NSLocalizedString("controller.dashboard.meta.more", comment: "The title for the label which shows the user a view with more of the content he sees right now")
             static let sectionNews = NSLocalizedString("controller.dashboard.section.news", comment: "The title for the top news section, where some news are listed")
             static let sectionEvents = NSLocalizedString("controller.dashboard.section.events", comment: "The title for the events section, where some events are listed")
+			static let newsFeatured = NSLocalizedString("controller.dashboard.news.featured", comment: "The display text for featured articles")
         }
         struct Lecturers {
             static let title = NSLocalizedString("controller.lecturer.title", comment: "The title for the view where the lecturers will be displayed")
@@ -113,5 +114,8 @@ struct HWStrings {
                 static let filter = NSLocalizedString("controller.settings.dining.filter", comment: "The title for the dining filter setting")
             }
         }
+		struct Studies {
+			static let title = NSLocalizedString("controller.studies.title", comment: "The title for the main studies controller")
+		}
     }
 }

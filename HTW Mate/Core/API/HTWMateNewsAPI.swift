@@ -37,9 +37,10 @@ class HTWMateNewsAPI {
                         guard let subtitle = newsItem.value(forKey: "subtitle") as? String else { return }
                         guard let url = newsItem.value(forKey: "url") as? String else { return }
                         guard let imageUrl = newsItem.value(forKey: "image_url") as? String else { return }
+                        guard let featured = newsItem.value(forKey: "featured") as? Bool else { return }
                         guard let publishDate = newsItem.value(forKey: "created_at") as? String else { return }
 
-                        guard let newsArticle = News(databaseId: id, title: title, subtitle: subtitle, url: url, imageUrl: imageUrl, publishDate: publishDate) else { return }
+						guard let newsArticle = News(databaseId: id, title: title, subtitle: subtitle, url: url, imageUrl: imageUrl, isFeatured: featured, publishDate: publishDate) else { return }
                         news.append(newsArticle)
                     })
                     completion(news, response)
