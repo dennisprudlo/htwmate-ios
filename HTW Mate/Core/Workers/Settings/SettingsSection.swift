@@ -32,9 +32,16 @@ class SettingsSection {
 		return sectionCell
     }
 
-	@discardableResult public func addCell(ofType type: SettingsSectionCell.CellStyle, title: String, handler: @escaping () -> Void) -> SettingsSectionCell {
+	@discardableResult public func addCell(ofType type: SettingsSectionCell.CellStyle, title: String, handler: (() -> Void)?) -> SettingsSectionCell {
         let sectionCell = SettingsSectionCell(style: type, handler: handler)
         sectionCell.setTitle(title)
+
+        self.cells.append(sectionCell)
+		return sectionCell
+    }
+
+	@discardableResult public func addCustomCell(cell: UITableViewCell, handler: (() -> Void)?) -> SettingsSectionCell {
+		let sectionCell = SettingsSectionCell(cell: cell, handler: handler)
 
         self.cells.append(sectionCell)
 		return sectionCell

@@ -12,19 +12,26 @@ class SettingsSectionCell {
 
     var tableViewCell: UITableViewCell = UITableViewCell()
     var style: CellStyle
-    var handler: () -> Void
+    var handler: (() -> Void)?
 
     enum CellStyle {
         case disclosure
 		case disclosureLabel
 		case link
+		case custom
     }
 
-    init(style: CellStyle, handler: @escaping () -> Void) {
+    init(style: CellStyle, handler: (() -> Void)?) {
         self.style = style
         self.handler = handler
 
         generateTableViewCell()
+    }
+
+	init(cell: UITableViewCell, handler: (() -> Void)?) {
+		self.style = .custom
+		self.tableViewCell = cell
+        self.handler = handler
     }
 
     func generateTableViewCell() {
@@ -45,7 +52,13 @@ class SettingsSectionCell {
 				imageView.image = HWIcons.link
 				imageView.tintColor = HWColors.StyleGuide.primaryGreen
 				cell.accessoryView = imageView
+			case .custom:
+				break
         }
+
+		if handler == nil {
+			cell.selectionStyle = .none
+		}
 
         self.tableViewCell = cell
     }

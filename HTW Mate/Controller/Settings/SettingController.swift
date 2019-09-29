@@ -59,6 +59,6 @@ class SettingController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.sections[indexPath.section].cells[indexPath.row].handler()
+        self.sections[indexPath.section].cells[indexPath.row].handler?()
     }
 }

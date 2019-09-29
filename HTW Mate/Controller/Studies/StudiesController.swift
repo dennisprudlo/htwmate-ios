@@ -20,8 +20,8 @@ class StudiesController: UITableViewController {
     }
 
 	func configureSections() {
-		let lecturesSection = SettingsSection(header: HWStrings.Controllers.Studies.Lectures.title, footer: nil)
-		lecturesSection.addCell(ofType: .disclosureLabel, title: HWStrings.Controllers.Studies.Lectures.Cancelled.title, present: SettingController())
+		let lecturesSection = SettingsSection(header: HWStrings.Controllers.Studies.Lectures.title, footer: nil, presentingController: self)
+		lecturesSection.addCell(ofType: .disclosureLabel, title: HWStrings.Controllers.Studies.Lectures.Cancelled.title, present: StudiesLecturesCancelledController(style: .insetGrouped))
 		sections.append(lecturesSection)
 
 		let htwServicesSection = SettingsSection(header: HWStrings.Controllers.Studies.HtwServices.title, footer: nil)
@@ -57,6 +57,6 @@ class StudiesController: UITableViewController {
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.sections[indexPath.section].cells[indexPath.row].handler()
+        self.sections[indexPath.section].cells[indexPath.row].handler?()
     }
 }

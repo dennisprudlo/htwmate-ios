@@ -120,6 +120,7 @@ struct HWStrings {
 				static let title = NSLocalizedString("controller.studies.lectures.title", comment: "The headline for the main studies lectures section")
 				struct Cancelled {
 					static let title = NSLocalizedString("controller.studies.lectures.cancelled.title", comment: "The title for the main studies cancelled lectures item")
+					static let comment = NSLocalizedString("controller.studies.lectures.cancelled.comment", comment: "The title for the alert shown when the detail button on a lecture was tapped")
 				}
 			}
 			struct HtwServices {
