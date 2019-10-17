@@ -20,16 +20,8 @@ class HWTabBarController: UITabBarController {
 
         // MARK: Lecturers Tab
 
-        let lecturersController = LecturersController()
+        let lecturersController = HWNavigationController(rootViewController: LecturersController())
         lecturersController.tabBarItem = UITabBarItem(title: HWStrings.Controllers.Lecturers.title, image: HWIcons.lecturers, tag: 2)
-
-        let lecturersMasterController = LecturersMasterController()
-        lecturersMasterController.title = HWStrings.Controllers.Lecturers.title
-        let lecturersMasterNavigationController = HWNavigationController(rootViewController: lecturersMasterController)
-
-        let lecturersDetailNavigationController = HWNavigationController(rootViewController: LecturersDetailController())
-
-        lecturersController.viewControllers = [lecturersMasterNavigationController, lecturersDetailNavigationController]
 
         // MARK: Dining Tab
 
