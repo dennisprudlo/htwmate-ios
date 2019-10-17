@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiningMasterController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISplitViewControllerDelegate, CafeteriaStorageDelegate {
+class DiningMasterController: UIViewController, UITableViewDelegate, UITableViewDataSource, CafeteriaStorageDelegate {
 
     var date = DiningMasterController.getInitialDate() {
         didSet {
@@ -32,16 +32,10 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
     /// Whether to update the menu when the view appears
     public static var updateOnAppear: Bool = false
 
-    var overlayView = HWMissingContentView(displayType: .text(title: HWStrings.Controllers.Dining.missingContentTitle, subtitle: HWStrings.Controllers.Dining.missingContentSubtitle))
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if CafeteriaStorage.shared.displayedCafeteriaDishes.count > 0 {
-            overlayView.hide()
-        } else {
-            overlayView.show(completion: nil)
-        }
+		self.tableViewDidReload(withCount: CafeteriaStorage.shared.displayedCafeteriaDishes.count)
 
         //
         // Handles the menu reload after updating the cafeteria settings
@@ -54,10 +48,6 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: HWIcons.filter, style: .plain, target: self, action: #selector(didTapFilter))
-
-        splitViewController?.delegate = self
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -80,7 +70,7 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         datePicker.datePickerMode = .date
         datePicker.date = self.date
-        datePicker.backgroundColor = UIColor.groupTableViewBackground
+        datePicker.backgroundColor = UIColor.systemGroupedBackground
         datePicker.heightAnchor.constraint(equalToConstant: 200).isActive = true
         datePicker.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         datePicker.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
@@ -89,12 +79,13 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
 
         self.view.addSubview(datePickerToolbar)
         datePickerToolbar.tintColor = HWColors.StyleGuide.primaryGreen
-        datePickerToolbar.items = [
-            UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didCancelDatePicker(_:))),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: HWStrings.Controllers.Dining.todayLabel, style: .plain, target: self, action: #selector(didTodaySubmitDatePicker(_:))),
-            UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didSubmitDatePicker(_:)))
-        ]
+		datePickerToolbar.setItems([
+			UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didCancelDatePicker(_:))),
+			UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+			UIBarButtonItem(title: HWStrings.Controllers.Dining.todayLabel, style: .plain, target: self, action: #selector(didTodaySubmitDatePicker(_:))),
+			UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didSubmitDatePicker(_:)))
+		], animated: true)
+
         datePickerToolbar.translatesAutoresizingMaskIntoConstraints = false
         datePickerToolbar.leadingAnchor.constraint(equalTo: datePicker.leadingAnchor).isActive = true
         datePickerToolbar.trailingAnchor.constraint(equalTo: datePicker.trailingAnchor).isActive = true
@@ -102,26 +93,24 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
 
         dateButton = UIBarButtonItem(title: self.dateString, style: .plain, target: self, action: #selector(didRequestDateSelector(_:)))
         navigationItem.leftBarButtonItem = dateButton
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: HWIcons.filter, style: .plain, target: self, action: #selector(didTapFilter))
 
-        self.view.addSubview(overlayView)
-        overlayView.snap(toEdgesOf: self.view)
-    }
+		if let appearance = navigationController?.navigationBar.standardAppearance.copy() {
+			appearance.shadowColor = HWColors.contentBackground
+			navigationController?.navigationBar.standardAppearance = appearance
+		}
+	}
 
     @objc func didTapFilter() {
-        let settingsController = SettingsDiningController(style: .grouped)
+        let settingsController = SettingsDiningController(style: .insetGrouped)
         settingsController.overrideTitle = "Filter"
         settingsController.navigationBar = navigationController?.navigationBar
         navigationController?.navigationBar.shadowImage = nil
         navigationController?.pushViewController(settingsController, animated: true)
     }
 
-    // MARK: - Split view controller collapse
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return true
-    }
-
     static func getInitialDate() -> Date {
+//		return Date(timeInterval: 60*60*24*4, since: Date())
         let components = Calendar.current.dateComponents([.weekday], from: Date())
         if let weekday = components.weekday, weekday == 1 || weekday == 7 {
             // Today is saturday or sunday. jump to the next monday
@@ -137,17 +126,18 @@ class DiningMasterController: UIViewController, UITableViewDelegate, UITableView
     // MARK: - Lecturer storage handler
 
     func cafeteriaStorage(didReloadDishes dishes: [CafeteriaDish], count: Int) {
-        if count > 0 {
-            overlayView.hide()
-            tableView.reloadData()
-        } else {
-            overlayView.show {
-                self.tableView.reloadData()
-            }
-        }
-
-        tableView.refreshControl?.endRefreshing()
+        self.tableView.reloadData()
+		self.tableView.refreshControl?.endRefreshing()
+		self.tableViewDidReload(withCount: count)
     }
+
+	private func tableViewDidReload(withCount count: Int) {
+		if count == 0 {
+			self.tableView.setEmptyView(title: HWStrings.Controllers.Dining.missingContentTitle, message: HWStrings.Controllers.Dining.missingContentSubtitle)
+		} else {
+			self.tableView.restore()
+		}
+	}
 
     private func reloadMenu() {
         CafeteriaStorage.shared.reload(forDate: self.date)

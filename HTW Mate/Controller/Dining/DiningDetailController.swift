@@ -63,7 +63,7 @@ class DiningDetailController: UIViewController, UITableViewDelegate, UITableView
         priceStudentLabel.translatesAutoresizingMaskIntoConstraints = false
         priceStudentLabel.numberOfLines = 0
         priceStudentLabel.font = UIFont.monospacedDigitSystemFont(ofSize: HWFontSize.enlargedText * pricePointSizeFactor, weight: .bold)
-        priceStudentLabel.textColor = HWColors.contentBackground
+        priceStudentLabel.textColor = UIColor.white
         priceStudentLabel.topAnchor.constraint(equalTo: ratingView.topAnchor, constant: HWInsets.medium).isActive = true
         priceStudentLabel.bottomAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: -HWInsets.medium).isActive = true
         priceStudentLabel.trailingAnchor.constraint(equalTo: ratingView.trailingAnchor, constant: -HWInsets.standard).isActive = true
@@ -72,7 +72,7 @@ class DiningDetailController: UIViewController, UITableViewDelegate, UITableView
         priceOtherLabel.translatesAutoresizingMaskIntoConstraints = false
         priceOtherLabel.numberOfLines = 0
         priceOtherLabel.font = UIFont.monospacedDigitSystemFont(ofSize: HWFontSize.metaInfo * pricePointSizeFactor, weight: .regular)
-        priceOtherLabel.textColor = HWColors.contentBackground
+        priceOtherLabel.textColor = UIColor.white
         priceOtherLabel.leadingAnchor.constraint(equalTo: ratingView.leadingAnchor, constant: HWInsets.standard).isActive = true
         priceOtherLabel.trailingAnchor.constraint(equalTo: priceStudentLabel.leadingAnchor, constant: self.paddingConstant).isActive = true
         priceOtherLabel.lastBaselineAnchor.constraint(equalTo: priceStudentLabel.lastBaselineAnchor).isActive = true

@@ -30,7 +30,7 @@ class LecturerInfoUpdatedTableViewCell : LecturerInfoTableViewCell {
         updatedAtLabel.translatesAutoresizingMaskIntoConstraints = false
         updatedAtLabel.numberOfLines = 1
         updatedAtLabel.textAlignment = .center
-        updatedAtLabel.textColor = HWColors.darkSecondaryLight
+        updatedAtLabel.textColor = HWColors.secondaryText
         updatedAtLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .medium)
         updatedAtLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: cellPadding).isActive = true
         updatedAtLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -cellPadding * 2).isActive = true

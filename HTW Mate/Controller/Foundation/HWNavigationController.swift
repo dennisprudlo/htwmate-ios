@@ -13,7 +13,17 @@ class HWNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.prefersLargeTitles = true
-    }
+		navigationBar.prefersLargeTitles = true
+		navigationBar.tintColor = HWColors.StyleGuide.primaryGreen
+		navigationBar.barTintColor = HWColors.contentBackground
+
+		let navBarAppearance = UINavigationBarAppearance()
+		navBarAppearance.configureWithOpaqueBackground()
+		navBarAppearance.titleTextAttributes = [.foregroundColor: HWColors.primaryText ?? .black]
+		navBarAppearance.largeTitleTextAttributes = [.foregroundColor: HWColors.primaryText ?? .black]
+		navBarAppearance.backgroundColor = HWColors.contentBackground
+
+		navigationBar.standardAppearance = navBarAppearance
+	}
 
 }

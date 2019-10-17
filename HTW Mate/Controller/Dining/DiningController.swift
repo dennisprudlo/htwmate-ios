@@ -8,11 +8,9 @@
 
 import UIKit
 
-class DiningController: UISplitViewController {
+class DiningController: HWSplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        preferredDisplayMode = .allVisible
     }
 }

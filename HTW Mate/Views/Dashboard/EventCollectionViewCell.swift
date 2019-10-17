@@ -38,9 +38,10 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable {
 
         AppearanceManager.dropShadow(for: contentView, withRadius: 4, opacity: 0.2)
         contentView.layer.cornerRadius = HWInsets.CornerRadius.panel
+        contentView.backgroundColor = HWColors.coverBackground
 
         dateView.translatesAutoresizingMaskIntoConstraints = false
-        dateView.backgroundColor = HWColors.darkPrimary
+        dateView.backgroundColor = HWColors.primaryText
         dateView.layer.cornerRadius = HWInsets.CornerRadius.label
         setupDateView()
         contentView.addSubview(dateView)
@@ -52,7 +53,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable {
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold)
-        titleLabel.textColor = HWColors.darkPrimary
+        titleLabel.textColor = HWColors.primaryText
         titleLabel.numberOfLines = 1
         contentView.addSubview(titleLabel)
 
@@ -62,7 +63,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable {
 
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .regular)
-        subtitleLabel.textColor = HWColors.darkPrimary
+        subtitleLabel.textColor = HWColors.primaryText
         subtitleLabel.numberOfLines = 2
         contentView.addSubview(subtitleLabel)
 
@@ -151,7 +152,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable {
             dateMonthLabel.text = nil
             dateDayLabel.text = nil
         } else {
-            dateView.backgroundColor = HWColors.darkPrimary
+            dateView.backgroundColor = HWColors.primaryText
         }
     }
 

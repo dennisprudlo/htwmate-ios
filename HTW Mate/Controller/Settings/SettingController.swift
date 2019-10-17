@@ -16,20 +16,18 @@ class SettingController: UITableViewController {
         super.viewDidLoad()
         self.title = HWStrings.Controllers.Settings.title
 
-        navigationController?.navigationBar.shadowImage = nil
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissSettings))
-
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissSettings))
         configureSections()
     }
 
     func configureSections() {
         let categoriesSection = SettingsSection(header: nil, footer: nil, presentingController: self)
-        categoriesSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Dining.title, present: SettingsDiningController(style: .grouped))
+        categoriesSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Dining.title, present: SettingsDiningController(style: .insetGrouped))
         sections.append(categoriesSection)
 
         let legalSection = SettingsSection(header: nil, footer: nil, presentingController: self)
-        legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.itemAbout, present: SettingsAboutController(style: .grouped))
-        legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.itemLegal, present: SettingsLegalController(style: .grouped))
+        legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.itemAbout, present: SettingsAboutController(style: .insetGrouped))
+        legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.itemLegal, present: SettingsLegalController(style: .insetGrouped))
         sections.append(legalSection)
     }
 
@@ -61,6 +59,6 @@ class SettingController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.sections[indexPath.section].cells[indexPath.row].handler()
+        self.sections[indexPath.section].cells[indexPath.row].handler?()
     }
 }

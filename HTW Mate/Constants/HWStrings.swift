@@ -44,10 +44,13 @@ struct HWStrings {
             static let metaMore = NSLocalizedString("controller.dashboard.meta.more", comment: "The title for the label which shows the user a view with more of the content he sees right now")
             static let sectionNews = NSLocalizedString("controller.dashboard.section.news", comment: "The title for the top news section, where some news are listed")
             static let sectionEvents = NSLocalizedString("controller.dashboard.section.events", comment: "The title for the events section, where some events are listed")
+			static let newsFeatured = NSLocalizedString("controller.dashboard.news.featured", comment: "The display text for featured articles")
         }
         struct Lecturers {
             static let title = NSLocalizedString("controller.lecturer.title", comment: "The title for the view where the lecturers will be displayed")
             static let searchBarTitle = NSLocalizedString("controller.lecturer.searchbartitle", comment: "The placeholder string for the lecturers search bar")
+			static let missingContentTitle = NSLocalizedString("controller.lecturer.missingcontent.title", comment: "The text for the missing content title in the lecturer view")
+            static let missingContentSubtitle = NSLocalizedString("controller.lecturer.missingcontent.subtitle", comment: "The text for the missing content subtitle in the lecturer view")
             struct Detail {
                 static let mail = NSLocalizedString("controller.lecturer.detail.mail", comment: "The text description for the 'send mail' quick action")
                 static let call = NSLocalizedString("controller.lecturer.detail.call", comment: "The text description for the 'call' quick action")
@@ -111,5 +114,20 @@ struct HWStrings {
                 static let filter = NSLocalizedString("controller.settings.dining.filter", comment: "The title for the dining filter setting")
             }
         }
+		struct Studies {
+			static let title = NSLocalizedString("controller.studies.title", comment: "The title for the main studies controller")
+			struct Lectures {
+				static let title = NSLocalizedString("controller.studies.lectures.title", comment: "The headline for the main studies lectures section")
+				struct Cancelled {
+					static let title = NSLocalizedString("controller.studies.lectures.cancelled.title", comment: "The title for the main studies cancelled lectures item")
+					static let comment = NSLocalizedString("controller.studies.lectures.cancelled.comment", comment: "The title for the alert shown when the detail button on a lecture was tapped")
+				}
+			}
+			struct HtwServices {
+				static let title = NSLocalizedString("controller.studies.htwservices.title", comment: "The headline for the main studies htw services section")
+				static let universityLibrary = NSLocalizedString("controller.studies.htwservices.universitylibrary", comment: "The title for the main studies university library links")
+				static let mediaLibrary = NSLocalizedString("controller.studies.htwservices.medialibrary", comment: "The title for the main studies media library link")
+			}
+		}
     }
 }

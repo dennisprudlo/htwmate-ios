@@ -37,7 +37,7 @@ class CafeteriaDishAttributeTableViewCell: UITableViewCell {
         badgeView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset).isActive = true
         badgeView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor).isActive = true
         badgeView.widthAnchor.constraint(equalToConstant: 42).isActive = true
-        badgeView.backgroundColor = HWColors.darkPrimary
+        badgeView.backgroundColor = HWColors.primaryText
         badgeView.layer.cornerRadius = HWInsets.CornerRadius.label
 
         let symbolInset = HWInsets.extraSmall
@@ -53,7 +53,7 @@ class CafeteriaDishAttributeTableViewCell: UITableViewCell {
 
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.textColor = HWColors.darkPrimary
+        descriptionLabel.textColor = HWColors.primaryText
         descriptionLabel.font = UIFont.systemFont(ofSize: HWFontSize.text, weight: .medium)
         descriptionLabel.topAnchor.constraint(equalTo: symbolLabel.topAnchor).isActive = true
         descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor).isActive = true

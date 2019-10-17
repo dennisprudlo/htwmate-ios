@@ -22,6 +22,9 @@ class News : DatabaseModel {
     /// The url to the article header image
     var imageUrl: URL
 
+	/// Whether the news article is a features article or not
+	var isFeatured: Bool
+
     /// The date the news was added to the feed
     var publishDate: Date
 
@@ -34,11 +37,12 @@ class News : DatabaseModel {
     ///   - url: The url to the article
     ///   - imageUrl: The url to the article header image
     ///   - publishDate: The date the news was added to the feed
-    init(databaseId id: Int, title: String, subtitle: String, url: URL, imageUrl: URL, publishDate: Date) {
+	init(databaseId id: Int, title: String, subtitle: String, url: URL, imageUrl: URL, isFeatured featured: Bool, publishDate: Date) {
         self.title = title
         self.subtitle = subtitle
         self.url = url
         self.imageUrl = imageUrl
+		self.isFeatured = featured
         self.publishDate = publishDate
 
         super.init(databaseId: id)
@@ -53,7 +57,7 @@ class News : DatabaseModel {
     ///   - url: The url to the article as as string. It will be parsed to a URL object automatically
     ///   - imageUrl: The url to the article header image as a string. It will be paresed to a URL object automatically
     ///   - publishDate: The date the news was added to the feed as a string in the format "YYY-MM-DD hh:mm:ss". It will be parsed to a Date object automatically
-    convenience init?(databaseId id: Int, title: String, subtitle: String, url: String, imageUrl: String, publishDate: String) {
+	convenience init?(databaseId id: Int, title: String, subtitle: String, url: String, imageUrl: String, isFeatured featured: Bool, publishDate: String) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
@@ -61,10 +65,10 @@ class News : DatabaseModel {
             return nil
         }
 
-        self.init(databaseId: id, title: title, subtitle: subtitle, url: parsedUrl, imageUrl: parsedImageUrl, publishDate: parsedPublishDate)
+		self.init(databaseId: id, title: title, subtitle: subtitle, url: parsedUrl, imageUrl: parsedImageUrl, isFeatured: featured, publishDate: parsedPublishDate)
     }
 
     convenience init() {
-        self.init(databaseId: -1, title: "", subtitle: "", url: URL(fileURLWithPath: ""), imageUrl: URL(fileURLWithPath: ""), publishDate: Date())
+		self.init(databaseId: -1, title: "", subtitle: "", url: URL(fileURLWithPath: ""), imageUrl: URL(fileURLWithPath: ""), isFeatured: false, publishDate: Date())
     }
 }

@@ -21,9 +21,9 @@ struct HWColors {
 
     /// Defines the colors used in the canteen menu from the studierendenWERK
     struct Cafeteria {
-        public static let ratingGreen = UIColor(fromHex: 0x50A225)
-        public static let ratingOrange = UIColor(fromHex: 0xE9A000)
-        public static let ratingRed = UIColor(fromHex: 0xD60019)
+        public static let ratingGreen = UIColor(named: "dining-rating-green")
+        public static let ratingOrange = UIColor(named: "dining-rating-orange")
+        public static let ratingRed = UIColor(named: "dining-rating-red")
         public static let ratingUndefined = HWColors.StyleGuide.secondaryGray
 
         public static let badgeVegan = UIColor(fromHex: 0x4F8C00)
@@ -34,13 +34,15 @@ struct HWColors {
     }
 
     // Navigation Layout
-    static let darkPrimary = UIColor(fromHex: 0x222222)
-    static let darkSecondary = UIColor(fromHex: 0x666666)
-    static let darkSecondaryLight = UIColor(fromHex: 0x999999)
     static let darkSecondaryUltraLight = UIColor(fromHex: 0xBBBBBB)
 
-    static let contentBackground = UIColor.white
-    static let shadowDrop = UIColor(fromHexRed: 0x33, green: 0x33, blue: 0x33)
+    static let contentBackground = UIColor(named: "content-background")
+    static let coverBackground = UIColor(named: "cover-background")
+    static let primaryText = UIColor(named: "primary-text")
+    static let secondaryText = UIColor(named: "secondary-text")
+    static let shadowDrop = UIColor(named: "shadow-drop")
 
-    static let skeletonGray = HWColors.contentBackground
+	static let lecturerPlaceholderTint = UIColor(named: "lecturer-placeholder-tint")
+
+    static let skeletonGray = HWColors.coverBackground
 }

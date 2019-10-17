@@ -16,7 +16,7 @@ class DashboardNewsStorage {
     var loaded: Bool = false
 
     var news: [News] = [
-        News(), News(), News(), News(), News(), News()
+        News(), News(), News(), News(), News()
     ]
 
     public func reload() {
@@ -25,7 +25,7 @@ class DashboardNewsStorage {
         }
 
         self.loaded = false
-        API.shared.newsResource().get(limit: 6) { (news, response) in
+        API.shared.newsResource().get(limit: 10) { (news, response) in
             self.news = news
             self.loaded = true
             DispatchQueue.main.async {

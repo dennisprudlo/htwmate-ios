@@ -10,6 +10,7 @@ import UIKit
 
 class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
 
+	private var featuredView = UIView()
     private var titleLabel = UILabel()
     private var subtitleLabel = UILabel()
     private var imageView = UIImageView()
@@ -36,6 +37,7 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = HWColors.coverBackground
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = HWInsets.CornerRadius.panel
         addSubview(imageView)
@@ -44,6 +46,16 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
         imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+
+		//
+		// Add featured label
+		setupFeaturedView()
+		imageView.addSubview(featuredView)
+
+		let featuredInset: CGFloat = HWInsets.decent
+		featuredView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: featuredInset).isActive = true
+		featuredView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: featuredInset).isActive = true
+		featuredView.trailingAnchor.constraint(lessThanOrEqualTo: imageView.trailingAnchor, constant: -featuredInset).isActive = true
 
         //
         // Add visual effect view
@@ -85,11 +97,36 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
         UIApplication.shared.open(news.url, options: [:], completionHandler: nil)
     }
 
+	public func setupFeaturedView() {
+		featuredView.translatesAutoresizingMaskIntoConstraints = false
+		featuredView.backgroundColor = HWColors.StyleGuide.primaryGreen
+		featuredView.layer.cornerRadius = HWInsets.CornerRadius.label
+		featuredView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+		featuredView.isHidden = true
+
+		let padding: CGFloat = HWInsets.small
+
+		let featuredLabel = UILabel()
+		featuredView.addSubview(featuredLabel)
+		featuredLabel.translatesAutoresizingMaskIntoConstraints = false
+		featuredLabel.numberOfLines = 1
+		featuredLabel.text = HWStrings.Controllers.Dashboard.newsFeatured
+		featuredLabel.textAlignment = .center
+		featuredLabel.textColor = .white
+		featuredLabel.font = UIFont.systemFont(ofSize: HWFontSize.label, weight: .bold)
+		featuredLabel.leadingAnchor.constraint(equalTo: featuredView.leadingAnchor, constant: padding).isActive = true
+		featuredLabel.topAnchor.constraint(equalTo: featuredView.topAnchor).isActive = true
+		featuredLabel.trailingAnchor.constraint(equalTo: featuredView.trailingAnchor, constant: -padding).isActive = true
+		featuredLabel.bottomAnchor.constraint(equalTo: featuredView.bottomAnchor).isActive = true
+	}
+
     public func setModel(_ news: News) {
         self.news = news
 
         setTitle(news.title)
         setSubtitle(news.subtitle)
+
+		featuredView.isHidden = !news.isFeatured
 
         blurView.isHidden = news.isSkeleton
         if news.isSkeleton {
@@ -97,6 +134,9 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
         } else {
             AppearanceManager.dropShadow(for: contentView)
         }
+
+		imageView.layer.borderColor = HWColors.StyleGuide.primaryGreen.cgColor
+		imageView.layer.borderWidth = news.isFeatured ? 5 : 0
 
         guard news.databaseId != -1 else {
             return

@@ -44,11 +44,21 @@ class HWTabBarController: UITabBarController {
 
         diningController.viewControllers = [diningMasterNavigationController, diningDetailNavigationController]
 
+		// MARK: Studies Tab
+
+		let studiesController = HWNavigationController(rootViewController: StudiesController(style: .insetGrouped))
+		studiesController.tabBarItem = UITabBarItem(title: HWStrings.Controllers.Studies.title, image: HWIcons.studies, tag: 4)
+
         viewControllers = [
             dashboardController,
             lecturersController,
-            diningController
+            diningController,
+			studiesController
         ]
+
+		tabBar.barStyle = .black
+        tabBar.isTranslucent = true
+        tabBar.tintColor = .white
     }
     
 }

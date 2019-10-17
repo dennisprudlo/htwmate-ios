@@ -8,18 +8,15 @@
 
 import UIKit
 
-class LecturersMasterController: UITableViewController, UISplitViewControllerDelegate, UISearchResultsUpdating, LecturerStorageDelegate {
+class LecturersMasterController: UITableViewController, UISearchResultsUpdating, LecturerStorageDelegate {
 
     let searchController = UISearchController(searchResultsController: nil)
-    var detailViewDelegate: LecturersDetailController?
 
     var searchDelayTimer: Timer?
     var waitForNextLoop = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        splitViewController?.delegate = self
 
         LecturerStorage.shared.delegate = self
 
@@ -34,20 +31,13 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
         //
         // Prepare search controller
         searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = HWStrings.Controllers.Lecturers.searchBarTitle
         searchController.searchBar.tintColor = HWColors.StyleGuide.primaryGreen
-        searchController.searchBar.barStyle = .default
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
-        definesPresentationContext = true
-
-        if let splitViewController = splitViewController, let detailViewNavigationController = splitViewController.viewControllers.last as? UINavigationController {
-            if let detailViewController = detailViewNavigationController.viewControllers.last as? LecturersDetailController {
-                detailViewDelegate = detailViewController
-            }
-        }
+        navigationItem.hidesSearchBarWhenScrolling = false
+		definesPresentationContext = true
 
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(didRefreshCollectionView(_:)), for: .valueChanged)
@@ -67,14 +57,14 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
     // MARK: - Lecturer storage handler
 
     func lecturerStorage(didReloadLecturers lecturers: [Lecturer]) {
-        tableView.reloadData()
+		if LecturerStorage.shared.displayedLecturers.count == 0 {
+			self.tableView.setEmptyView(title: HWStrings.Controllers.Lecturers.missingContentTitle, message: HWStrings.Controllers.Lecturers.missingContentSubtitle)
+		} else {
+			self.tableView.restore()
+		}
+
+		tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
-    }
-
-    // MARK: - Split view controller collapse
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return true
     }
 
     // MARK: - Table view data source
@@ -129,11 +119,16 @@ class LecturersMasterController: UITableViewController, UISplitViewControllerDel
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let detailNavigationController = detailViewDelegate?.navigationController {
-            let lecturer = LecturerStorage.shared.lecturers(inSection: indexPath.section)[indexPath.row]
-            detailViewDelegate?.lecturer = lecturer
-            splitViewController?.showDetailViewController(detailNavigationController, sender: nil)
+
+        let lecturers = LecturerStorage.shared.lecturers(inSection: indexPath.section)
+        if indexPath.row > lecturers.count {
+            return
         }
+
+        let lecturerDetailController = LecturersDetailController()
+        lecturerDetailController.lecturer = lecturers[indexPath.row]
+
+        splitViewController?.showDetailViewController(lecturerDetailController, sender: nil)
     }
 
     @objc private func didRefreshCollectionView(_ sender: Any) {

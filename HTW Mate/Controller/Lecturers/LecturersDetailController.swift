@@ -73,6 +73,10 @@ class LecturersDetailController: UITableViewController {
     }
 
     @objc func didTapActionButton(_ sender: UIBarButtonItem) {
+		guard lecturer != nil else {
+			return
+		}
+
         let contact = lecturer.createContact()
         try? shareContactWithThirdParty(contact)
     }
@@ -85,7 +89,7 @@ class LecturersDetailController: UITableViewController {
         var filename = UUID().uuidString
 
         if let fullname = CNContactFormatter().string(from: contact) {
-            filename = fullname.components(separatedBy: " ").joined(separator: "")
+            filename = fullname
         }
 
         let fileUrl = directoryUrl.appendingPathComponent(filename).appendingPathExtension("vcf")
@@ -94,6 +98,6 @@ class LecturersDetailController: UITableViewController {
         try data.write(to: fileUrl, options: Data.WritingOptions.atomicWrite)
 
         let activityViewController = UIActivityViewController(activityItems: [fileUrl], applicationActivities: nil)
-        present(activityViewController, animated: true, completion: nil)
+		present(activityViewController, animated: true, completion: nil)
     }
 }

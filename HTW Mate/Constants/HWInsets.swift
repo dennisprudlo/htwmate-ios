@@ -17,6 +17,9 @@ struct HWInsets {
     /// Small inset of 8pt
     static let small: CGFloat = 8
 
+	/// Decent inset of 10pt
+	static let decent: CGFloat = 12
+
     /// Medium inset of 16pt
     static let medium: CGFloat = 16
 
