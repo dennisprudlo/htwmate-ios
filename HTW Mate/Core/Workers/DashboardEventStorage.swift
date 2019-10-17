@@ -27,16 +27,13 @@ class DashboardEventStorage {
         }
 
         self.loaded = false
-        API.shared.eventsResource().get(limit: 6) { (events, response) in
-            self.events = events
+        API.shared.eventsResource().get(limit: nil) { (events, response) in
+			self.allEvents = events
+			self.events = Array(self.allEvents.prefix(10))
             self.loaded = true
             DispatchQueue.main.async {
                 dashboardController.checkCollectionViewReload()
             }
-        }
-
-        API.shared.eventsResource().get(limit: nil) { (events, response) in
-            self.allEvents = events
         }
     }
 

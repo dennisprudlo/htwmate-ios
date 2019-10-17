@@ -33,16 +33,8 @@ class HWTabBarController: UITabBarController {
 
         // MARK: Dining Tab
 
-        let diningController = DiningController()
-        diningController.tabBarItem = UITabBarItem(title: HWStrings.Controllers.Dining.title, image: HWIcons.dining, tag: 3)
-
-        let diningMasterController = DiningMasterController()
-        diningMasterController.title = HWStrings.Controllers.Dining.title
-        let diningMasterNavigationController = HWNavigationController(rootViewController: diningMasterController)
-
-        let diningDetailNavigationController = HWNavigationController(rootViewController: DiningDetailController())
-
-        diningController.viewControllers = [diningMasterNavigationController, diningDetailNavigationController]
+        let diningController = HWNavigationController(rootViewController: DiningController())
+		diningController.tabBarItem = UITabBarItem(title: HWStrings.Controllers.Dining.title, image: HWIcons.dining, tag: 3)
 
 		// MARK: Studies Tab
 

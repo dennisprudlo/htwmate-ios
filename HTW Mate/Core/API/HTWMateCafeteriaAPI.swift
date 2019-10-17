@@ -27,7 +27,10 @@ class HTWMateCafeteriaAPI {
         components.queryItems?.append(URLQueryItem(name: "date", value: stringDate))
         components.queryItems?.append(URLQueryItem(name: "cafeteria", value: cafeteria.rawValue))
         components.queryItems?.append(URLQueryItem(name: "internationalized", value: internationalied ? "1" : "0"))
-        components.queryItems?.append(URLQueryItem(name: "filter", value: filter.joined(separator: ",")))
+
+		if !filter.isEmpty {
+			components.queryItems?.append(URLQueryItem(name: "filter", value: filter.joined(separator: ",")))
+		}
 
         API.shared.get(route: components) { (data, response) in
             do {

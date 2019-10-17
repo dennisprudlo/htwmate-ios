@@ -168,7 +168,7 @@ class SettingsDiningController: UITableViewController {
     @objc func filterSwitchChanged() {
         HWDefault.diningIsFilterOn = self.filterSwitch.isOn
 
-        DiningMasterController.updateOnAppear = true
+        DiningController.updateOnAppear = true
 
         let merged = ratingCells + badgesCells + additivesCells + allergensCells
         merged.forEach { (cell) in
@@ -234,7 +234,7 @@ class SettingsDiningController: UITableViewController {
             return
         }
 
-        DiningMasterController.updateOnAppear = true
+        DiningController.updateOnAppear = true
 
         let sectionType = sections[indexPath.section].type
         switch sectionType {
