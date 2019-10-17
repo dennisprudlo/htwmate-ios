@@ -10,21 +10,27 @@ import UIKit
 
 class SettingsLegalController: UITableViewController {
 
-    enum SectionType {
-        case disclaimer
-        case externalLinks
-    }
-
-    let sections: [(type: SectionType, header: String?, footer: String?)] = [
-        (type: .disclaimer, header: "Disclaimer", footer: nil),
-        (type: .externalLinks, header: "External Links Disclaimer", footer: nil)
-    ]
-
-    let bearerTitle = "The developer"
+    var sections: [SettingsSection] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = HWStrings.Controllers.Settings.itemLegal
+
+		configureSections()
+    }
+
+	func configureSections() {
+
+		let external = SettingsSection(header: nil, footer: nil)
+		external.addLinkCell(withTitle: "Privacy Policy", opening: URL(string: "https://htwmate.com/privacy"))
+		external.addLinkCell(withTitle: "Masthead", opening: URL(string: "https://htwmate.com/masthead"))
+		external.addLinkCell(withTitle: "Terms of Use", opening: URL(string: "https://htwmate.com/terms-of-use"))
+		external.addLinkCell(withTitle: "Support", opening: URL(string: "https://htwmate.com/support"))
+		sections.append(external)
+
+		let supportSection = SettingsSection(header: nil, footer: nil)
+		supportSection.addLinkCell(withTitle: "Support", opening: URL(string: "https://htwmate.com/support"))
+		sections.append(supportSection)
     }
 
     // MARK: - Table view data source
@@ -34,7 +40,7 @@ class SettingsLegalController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+		return sections[section].cells.count
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -46,37 +52,11 @@ class SettingsLegalController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let sectionType = sections[indexPath.section].type
-        let tableViewCell = UITableViewCell()
-        tableViewCell.selectionStyle = .none
+		return sections[indexPath.section].cells[indexPath.row].tableViewCell
+	}
 
-        switch sectionType {
-        case .disclaimer:
-            let textLabel = UILabel()
-            textLabel.numberOfLines = 0
-            textLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .regular)
-            textLabel.text = """
-            The information contained in the HTW Mate mobile application (the "Service") is for general information purposes only.
-
-            \(bearerTitle) assumes no responsibility for errors or omissions in the contents of the Service.
-
-            In no event shall the \(bearerTitle.lowercased()) be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out of or in connection with the use of the Service or the contents of the Service. \(bearerTitle) reserves the right to make additions, deletions, or modification to the contents of the Service at any time without prior notice.
-            """
-            tableViewCell.contentView.addSubview(textLabel)
-            textLabel.pin(to: tableViewCell.contentView, withInset: UIEdgeInsets(top: HWInsets.medium, left: HWInsets.standard, bottom: HWInsets.medium, right: HWInsets.standard))
-        case .externalLinks:
-            let textLabel = UILabel()
-            textLabel.numberOfLines = 0
-            textLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .regular)
-            textLabel.text = """
-            HTW Mate mobile application may contain links to external websites that are not provided or maintained by or in any way affiliated with \(bearerTitle.lowercased()).
-
-            Please note that the application does not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.
-            """
-            tableViewCell.contentView.addSubview(textLabel)
-            textLabel.pin(to: tableViewCell.contentView, withInset: UIEdgeInsets(top: HWInsets.medium, left: HWInsets.standard, bottom: HWInsets.medium, right: HWInsets.standard))
-        }
-
-        return tableViewCell
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.sections[indexPath.section].cells[indexPath.row].handler?()
     }
 }
