@@ -30,19 +30,13 @@ class CafeteriaStorage {
 
     private var cafeteriaDishes: [CafeteriaDish] = []
 
-     var delegate: CafeteriaStorageDelegate?
+	var delegate: CafeteriaStorageDelegate?
 
     /// Reloads the cafeteria dishes from the API
     func reload(forDate date: Date) -> Void {
 
-        let cafeteria: CafeteriaDish.Cafeteria = HWDefault.diningCampus == 0 ? .treskowallee : .wilhelminenhof
-
-		let locales = Bundle.main.preferredLocalizations
-
-        var internationalized: Bool = true
-		if let langCode = locales.first, langCode == "de" {
-            internationalized = false
-        }
+        let cafeteria = selectedCafeteria()
+        let internationalized = isInternationalized()
 
         var filterIdentifiers: [String] = []
 
@@ -126,4 +120,17 @@ class CafeteriaStorage {
 
         return displayedCafeteriaDishes[section]
     }
+
+	func selectedCafeteria() -> CafeteriaDish.Cafeteria {
+		return HWDefault.diningCampus == 0 ? .treskowallee : .wilhelminenhof
+	}
+
+	func isInternationalized() -> Bool {
+		let locales = Bundle.main.preferredLocalizations
+
+        if let langCode = locales.first, langCode == "de" {
+			return false
+        }
+		return true
+	}
 }

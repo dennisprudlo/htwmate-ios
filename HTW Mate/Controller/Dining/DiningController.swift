@@ -115,7 +115,12 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
 
 	@objc func didTapDownloadMenu() {
-		let diningMenuPdfController = PDFViewController.make(from: URL(string: "https://www.stw.berlin/assets/speiseplaene/320/aktuelle_woche_de.pdf"), withTitle: HWStrings.Controllers.Dining.weekMenuTitle)
+		let cafeteriaId			= CafeteriaStorage.shared.selectedCafeteria() == .treskowallee ? 320 : 319
+		let languageIdentifier	= CafeteriaStorage.shared.isInternationalized() ? "en" : "de"
+
+		let url					= "https://www.stw.berlin/assets/speiseplaene/\(cafeteriaId)/aktuelle_woche_\(languageIdentifier).pdf"
+
+		let diningMenuPdfController = PDFViewController.make(from: URL(string: url), withTitle: HWStrings.Controllers.Dining.weekMenuTitle)
 
 		self.present(diningMenuPdfController, animated: true, completion: nil)
 	}
