@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8106FFE22359C037009AFEB1 /* DiningDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8106FFE12359C037009AFEB1 /* DiningDatePicker.swift */; };
 		810C8FA92322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */; };
 		8112C6E9231C538800818868 /* HWFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112C6E8231C538800818868 /* HWFontSize.swift */; };
 		813CAF85231565A700854C30 /* HTWMateCafeteriaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */; };
@@ -97,6 +98,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8106FFE12359C037009AFEB1 /* DiningDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningDatePicker.swift; sourceTree = "<group>"; };
 		810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishInfoMainTableViewCell.swift; sourceTree = "<group>"; };
 		8112C6E8231C538800818868 /* HWFontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWFontSize.swift; sourceTree = "<group>"; };
 		813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateCafeteriaAPI.swift; sourceTree = "<group>"; };
@@ -200,6 +202,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8106FFE02359C01C009AFEB1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8106FFE12359C037009AFEB1 /* DiningDatePicker.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		8127AF6D22D1422200179BD1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +431,7 @@
 		81EB7DC222D2704700E00485 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8106FFE02359C01C009AFEB1 /* Components */,
 				81915BF32340F08F00F796F4 /* Studies */,
 				813CAF8B23157B6300854C30 /* Dining */,
 				81BFA8FA22E4D1A50036BACC /* Lecturers */,
@@ -618,6 +629,7 @@
 				81F942A5230765EC0042EC3C /* LecturerInfoMainAreaTableViewCell.swift in Sources */,
 				81C21EBA232CE44A0005E2B0 /* SettingsDiningController.swift in Sources */,
 				81C21EBE232CF9580005E2B0 /* HWMetaContainer.swift in Sources */,
+				8106FFE22359C037009AFEB1 /* DiningDatePicker.swift in Sources */,
 				81C21EB1232CCF3E0005E2B0 /* SettingsSectionCell.swift in Sources */,
 				81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */,
 				81BFA90522F199490036BACC /* LecturerStorage.swift in Sources */,

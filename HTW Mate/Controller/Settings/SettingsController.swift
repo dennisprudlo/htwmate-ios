@@ -37,7 +37,7 @@ class SettingsController: UITableViewController {
 		// The legal section contains links and information to legal notices
         let legalSection = SettingsSection(header: nil, footer: nil, presentingController: self)
         legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.itemAbout, present: SettingsAboutController(style: .insetGrouped))
-        legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.itemLegal, present: SettingsLegalController(style: .insetGrouped))
+		legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.Legal.title, present: SettingsLegalController(style: .insetGrouped))
         sections.append(legalSection)
     }
 

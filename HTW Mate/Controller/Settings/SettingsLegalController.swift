@@ -14,7 +14,7 @@ class SettingsLegalController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = HWStrings.Controllers.Settings.itemLegal
+		self.title = HWStrings.Controllers.Settings.Legal.title
 
 		configureSections()
     }
@@ -22,14 +22,13 @@ class SettingsLegalController: UITableViewController {
 	func configureSections() {
 
 		let external = SettingsSection(header: nil, footer: nil)
-		external.addLinkCell(withTitle: "Privacy Policy", opening: URL(string: "https://htwmate.com/privacy"))
-		external.addLinkCell(withTitle: "Masthead", opening: URL(string: "https://htwmate.com/masthead"))
-		external.addLinkCell(withTitle: "Terms of Use", opening: URL(string: "https://htwmate.com/terms-of-use"))
-		external.addLinkCell(withTitle: "Support", opening: URL(string: "https://htwmate.com/support"))
+		external.addLinkCell(withTitle: HWStrings.Controllers.Settings.Legal.privacyPolicy,	opening: URL(string: "https://htwmate.com/privacy"))
+		external.addLinkCell(withTitle: HWStrings.Controllers.Settings.Legal.masthead,		opening: URL(string: "https://htwmate.com/masthead"))
+		external.addLinkCell(withTitle: HWStrings.Controllers.Settings.Legal.termsOfUse,	opening: URL(string: "https://htwmate.com/terms-of-use"))
 		sections.append(external)
 
 		let supportSection = SettingsSection(header: nil, footer: nil)
-		supportSection.addLinkCell(withTitle: "Support", opening: URL(string: "https://htwmate.com/support"))
+		supportSection.addLinkCell(withTitle: HWStrings.Controllers.Settings.Legal.support,	opening: URL(string: "https://htwmate.com/support"))
 		sections.append(supportSection)
     }
 
