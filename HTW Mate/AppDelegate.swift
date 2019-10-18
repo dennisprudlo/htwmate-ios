@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Preload app data
         LecturerStorage.shared.reload()
         CafeteriaStorage.shared.reload(forDate: DiningController.getInitialDate())
+
+		//
+		// Request notification permissions
+		registerForPushNotifications()
 
         return true
     }
@@ -49,6 +54,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+	// MARK: Register for Push Notifications
 
+	func registerForPushNotifications() -> Void {
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { [weak self] granted, error in
+			guard granted else {
+				return
+			}
+
+			self?.getNotificationSettings()
+		}
+	}
+
+	func getNotificationSettings() {
+		UNUserNotificationCenter.current().getNotificationSettings { settings in
+			guard settings.authorizationStatus == .authorized else {
+				return
+			}
+
+			DispatchQueue.main.async {
+				UIApplication.shared.registerForRemoteNotifications()
+			}
+		}
+	}
+
+	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+
+		//
+		// Map the responded device token to a hex string
+		let tokenParts	= deviceToken.map { data in String(format: "%02.2hhx", data) }
+		let token		= tokenParts.joined()
+
+		//
+		// Send the device token to the database
+		let route = API.shared.route("apns/request", query: false)
+		API.shared.post(route: route, params: ["deviceToken": token]) { (data, response) in
+
+		}
+	}
+
+	func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+		print("Failed to register for device token: \(error)")
+	}
 }
 

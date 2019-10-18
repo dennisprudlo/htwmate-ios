@@ -119,4 +119,37 @@ class API {
 
         sessionTask.resume()
     }
+
+	func post(route: URLComponents, params: [String: String], completion: @escaping (Data, URLResponse) -> Void) {
+		guard let url = route.url else {
+			return print("[\(self.self)] Target URL could not be resolved.")
+		}
+
+		var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0)
+		request.httpMethod = "POST"
+		request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue(token(), forHTTPHeaderField: "HTW-Mate-Authorization")
+		request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+
+		var postString = ""
+		params.forEach { (key, value) in
+			postString.append("\(key)=\(value)&")
+		}
+		postString = String(postString.dropLast())
+
+		request.httpBody = postString.data(using: .utf8)
+
+		let sessionTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+			guard let data = data, let response = response else {
+				if let error = error {
+					print(error.localizedDescription)
+				}
+				return
+			}
+
+			completion(data, response)
+		}
+
+		sessionTask.resume()
+	}
 }

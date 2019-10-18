@@ -36,7 +36,7 @@ class CafeteriaStorage {
     func reload(forDate date: Date) -> Void {
 
         let cafeteria = selectedCafeteria()
-        let internationalized = isInternationalized()
+		let internationalized = Application.locale.internationalized
 
         var filterIdentifiers: [String] = []
 
