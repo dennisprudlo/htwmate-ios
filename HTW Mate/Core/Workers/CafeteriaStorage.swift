@@ -124,13 +124,4 @@ class CafeteriaStorage {
 	func selectedCafeteria() -> CafeteriaDish.Cafeteria {
 		return HWDefault.diningCampus == 0 ? .treskowallee : .wilhelminenhof
 	}
-
-	func isInternationalized() -> Bool {
-		let locales = Bundle.main.preferredLocalizations
-
-        if let langCode = locales.first, langCode == "de" {
-			return false
-        }
-		return true
-	}
 }

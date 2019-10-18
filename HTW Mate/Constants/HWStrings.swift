@@ -77,7 +77,8 @@ struct HWStrings {
             static let sectionTitleBadge = NSLocalizedString("controller.dining.sectiontitle.badge", comment: "The section title for the badges in the dish detail view")
             static let sectionTitleAdditive = NSLocalizedString("controller.dining.sectiontitle.additive", comment: "The section title for the additives in the dish detail view")
             static let sectionTitleAllergen = NSLocalizedString("controller.dining.sectiontitle.allergen", comment: "The section title for the allergens in the dish detail view")
-            static let weekMenuTitle = NSLocalizedString("controller.dining.sectiontitle.weekmenutitle", comment: "The title for the pdf view that shows the menu for the current week")
+            static let weekMenuTitle = NSLocalizedString("controller.dining.weekmenutitle", comment: "The title for the pdf view that shows the menu for the current week")
+			static let currentDateFormat = NSLocalizedString("controller.dining.currentdateformat", comment: "The format for the current date display in the dining controller")
             struct Categories {
                 static let appetizer = NSLocalizedString("controller.dining.categories.appetizer", comment: "The title for the cafeteria menu category for the appetizers")
                 static let salad = NSLocalizedString("controller.dining.categories.salad", comment: "The title for the cafeteria menu category for the salads")

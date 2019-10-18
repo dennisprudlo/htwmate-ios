@@ -17,9 +17,10 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     var dateString: String {
         let dateFormatter = DateFormatter()
-		dateFormatter.dateStyle = .full
-        return dateFormatter.string(from: self.date)
-    }
+		dateFormatter.locale = Application.locale.original
+		dateFormatter.dateFormat = HWStrings.Controllers.Dining.currentDateFormat
+		return dateFormatter.string(from: self.date)
+	}
 
     var dateButton: UIBarButtonItem!
 
@@ -116,7 +117,7 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
 	@objc func didTapDownloadMenu() {
 		let cafeteriaId			= CafeteriaStorage.shared.selectedCafeteria() == .treskowallee ? 320 : 319
-		let languageIdentifier	= CafeteriaStorage.shared.isInternationalized() ? "en" : "de"
+		let languageIdentifier	= Application.locale.internationalized ? "en" : "de"
 
 		let url					= "https://www.stw.berlin/assets/speiseplaene/\(cafeteriaId)/aktuelle_woche_\(languageIdentifier).pdf"
 

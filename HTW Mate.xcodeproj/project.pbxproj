@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8106FFE42359C6EC009AFEB1 /* PDFRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8106FFE32359C6EC009AFEB1 /* PDFRootViewController.swift */; };
 		8106FFE72359CCFF009AFEB1 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8106FFE62359CCFF009AFEB1 /* PDFViewController.swift */; };
+		8106FFEC235A0077009AFEB1 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8106FFEB235A0077009AFEB1 /* Application.swift */; };
+		8106FFEF235A05A3009AFEB1 /* ApplicationLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8106FFEE235A05A3009AFEB1 /* ApplicationLocale.swift */; };
 		810C8FA92322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */; };
 		8112C6E9231C538800818868 /* HWFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112C6E8231C538800818868 /* HWFontSize.swift */; };
 		813CAF85231565A700854C30 /* HTWMateCafeteriaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */; };
@@ -101,6 +103,8 @@
 /* Begin PBXFileReference section */
 		8106FFE32359C6EC009AFEB1 /* PDFRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFRootViewController.swift; sourceTree = "<group>"; };
 		8106FFE62359CCFF009AFEB1 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		8106FFEB235A0077009AFEB1 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		8106FFEE235A05A3009AFEB1 /* ApplicationLocale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLocale.swift; sourceTree = "<group>"; };
 		810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishInfoMainTableViewCell.swift; sourceTree = "<group>"; };
 		8112C6E8231C538800818868 /* HWFontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWFontSize.swift; sourceTree = "<group>"; };
 		813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateCafeteriaAPI.swift; sourceTree = "<group>"; };
@@ -211,6 +215,15 @@
 				8106FFE62359CCFF009AFEB1 /* PDFViewController.swift */,
 			);
 			path = PDFViewController;
+			sourceTree = "<group>";
+		};
+		8106FFED235A0593009AFEB1 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8106FFEB235A0077009AFEB1 /* Application.swift */,
+				8106FFEE235A05A3009AFEB1 /* ApplicationLocale.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		8127AF6D22D1422200179BD1 /* Controller */ = {
@@ -391,6 +404,7 @@
 		81EB7DB422D145FF00E00485 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8106FFED235A0593009AFEB1 /* Application */,
 				81EB7DAE22D1438B00E00485 /* Extenstions */,
 				81EB7DC622D270D900E00485 /* Protocols */,
 				81EB7DB522D1460500E00485 /* Managers */,
@@ -661,6 +675,7 @@
 				81F942A7230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift in Sources */,
 				81BFA90722F1B3820036BACC /* LecturersDetailController.swift in Sources */,
 				81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */,
+				8106FFEF235A05A3009AFEB1 /* ApplicationLocale.swift in Sources */,
 				8112C6E9231C538800818868 /* HWFontSize.swift in Sources */,
 				81E9F5D2233EE8A400E21C6B /* StudiesController.swift in Sources */,
 				81E906622335300900F19CD5 /* HWSplitViewController.swift in Sources */,
@@ -691,6 +706,7 @@
 				81F942B0230811370042EC3C /* DashboardEventsController.swift in Sources */,
 				81C21EB3232CD7180005E2B0 /* SettingsLegalController.swift in Sources */,
 				81BFA90922F1DC780036BACC /* LecturerInfoHeadTableViewCell.swift in Sources */,
+				8106FFEC235A0077009AFEB1 /* Application.swift in Sources */,
 				81EB7DD022D2A07C00E00485 /* API.swift in Sources */,
 				817738802302E93D00D0F8D4 /* LecturerInfoUpdatedTableViewCell.swift in Sources */,
 				81EB7DC522D270A000E00485 /* NewsCollectionViewCell.swift in Sources */,
