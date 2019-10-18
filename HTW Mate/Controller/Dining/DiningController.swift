@@ -17,7 +17,7 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     var dateString: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
+		dateFormatter.dateStyle = .full
         return dateFormatter.string(from: self.date)
     }
 
