@@ -148,15 +148,13 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         var collectionViewCell = UICollectionViewCell(frame: CGRect.zero)
         switch indexPath.section {
             case 0:
-                break;
-            case 1:
                 let newsCell = NewsCollectionViewCell.dequeue(from: collectionView, for: indexPath)
                 newsCell.viewController = self
                 newsCell.setModel(DashboardNewsStorage.shared.model(for: indexPath))
 
                 collectionViewCell = newsCell
                 break
-            case 2:
+            case 1:
                 let eventCell = EventCollectionViewCell.dequeue(from: collectionView, for: indexPath)
                 eventCell.viewController = self
                 eventCell.setModel(DashboardEventStorage.shared.model(for: indexPath))
