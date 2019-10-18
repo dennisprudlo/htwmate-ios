@@ -95,7 +95,10 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
         dateButton = UIBarButtonItem(title: self.dateString, style: .plain, target: self, action: #selector(didRequestDateSelector(_:)))
         navigationItem.leftBarButtonItem = dateButton
-		navigationItem.rightBarButtonItem = UIBarButtonItem(image: HWIcons.filter, style: .plain, target: self, action: #selector(didTapFilter))
+		navigationItem.rightBarButtonItems = [
+			UIBarButtonItem(image: HWIcons.filter, style: .plain, target: self, action: #selector(didTapFilter)),
+			UIBarButtonItem(image: HWIcons.download, style: .plain, target: self, action: #selector(didTapDownloadMenu))
+		]
 
 		if let appearance = navigationController?.navigationBar.standardAppearance.copy() {
 			appearance.shadowColor = HWColors.contentBackground
@@ -110,6 +113,12 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
         navigationController?.navigationBar.shadowImage = nil
         navigationController?.pushViewController(settingsController, animated: true)
     }
+
+	@objc func didTapDownloadMenu() {
+		let diningMenuPdfController = PDFViewController.make(from: URL(string: "https://www.stw.berlin/assets/speiseplaene/320/aktuelle_woche_de.pdf"), withTitle: HWStrings.Controllers.Dining.weekMenuTitle)
+
+		self.present(diningMenuPdfController, animated: true, completion: nil)
+	}
 
     static func getInitialDate() -> Date {
         let components = Calendar.current.dateComponents([.weekday], from: Date())

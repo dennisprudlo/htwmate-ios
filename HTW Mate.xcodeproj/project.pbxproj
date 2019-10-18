@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8106FFE22359C037009AFEB1 /* DiningDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8106FFE12359C037009AFEB1 /* DiningDatePicker.swift */; };
+		8106FFE42359C6EC009AFEB1 /* PDFRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8106FFE32359C6EC009AFEB1 /* PDFRootViewController.swift */; };
+		8106FFE72359CCFF009AFEB1 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8106FFE62359CCFF009AFEB1 /* PDFViewController.swift */; };
 		810C8FA92322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */; };
 		8112C6E9231C538800818868 /* HWFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112C6E8231C538800818868 /* HWFontSize.swift */; };
 		813CAF85231565A700854C30 /* HTWMateCafeteriaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */; };
@@ -98,7 +99,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8106FFE12359C037009AFEB1 /* DiningDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningDatePicker.swift; sourceTree = "<group>"; };
+		8106FFE32359C6EC009AFEB1 /* PDFRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFRootViewController.swift; sourceTree = "<group>"; };
+		8106FFE62359CCFF009AFEB1 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishInfoMainTableViewCell.swift; sourceTree = "<group>"; };
 		8112C6E8231C538800818868 /* HWFontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWFontSize.swift; sourceTree = "<group>"; };
 		813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateCafeteriaAPI.swift; sourceTree = "<group>"; };
@@ -202,12 +204,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8106FFE02359C01C009AFEB1 /* Components */ = {
+		8106FFE52359CCB3009AFEB1 /* PDFViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8106FFE12359C037009AFEB1 /* DiningDatePicker.swift */,
+				8106FFE32359C6EC009AFEB1 /* PDFRootViewController.swift */,
+				8106FFE62359CCFF009AFEB1 /* PDFViewController.swift */,
 			);
-			path = Components;
+			path = PDFViewController;
 			sourceTree = "<group>";
 		};
 		8127AF6D22D1422200179BD1 /* Controller */ = {
@@ -237,6 +240,7 @@
 		8177389323049F5F00D0F8D4 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				8106FFE52359CCB3009AFEB1 /* PDFViewController */,
 				81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */,
 				817738912304966200D0F8D4 /* HWTabBarController.swift */,
 				81F942B3230821420042EC3C /* HWEventEditViewController.swift */,
@@ -431,7 +435,6 @@
 		81EB7DC222D2704700E00485 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8106FFE02359C01C009AFEB1 /* Components */,
 				81915BF32340F08F00F796F4 /* Studies */,
 				813CAF8B23157B6300854C30 /* Dining */,
 				81BFA8FA22E4D1A50036BACC /* Lecturers */,
@@ -629,7 +632,6 @@
 				81F942A5230765EC0042EC3C /* LecturerInfoMainAreaTableViewCell.swift in Sources */,
 				81C21EBA232CE44A0005E2B0 /* SettingsDiningController.swift in Sources */,
 				81C21EBE232CF9580005E2B0 /* HWMetaContainer.swift in Sources */,
-				8106FFE22359C037009AFEB1 /* DiningDatePicker.swift in Sources */,
 				81C21EB1232CCF3E0005E2B0 /* SettingsSectionCell.swift in Sources */,
 				81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */,
 				81BFA90522F199490036BACC /* LecturerStorage.swift in Sources */,
@@ -671,6 +673,7 @@
 				81EB7DB322D1448700E00485 /* UIColor+Initalizers.swift in Sources */,
 				817662F922F5D1F3004E0A07 /* LecturerInfoTableViewCell.swift in Sources */,
 				81BFA8FE22E4DC2A0036BACC /* HWImage.swift in Sources */,
+				8106FFE42359C6EC009AFEB1 /* PDFRootViewController.swift in Sources */,
 				81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */,
 				81BFA90022E507C70036BACC /* Lecturer.swift in Sources */,
 				81915BF72340F17500F796F4 /* LectureCancelled.swift in Sources */,
@@ -693,6 +696,7 @@
 				81EB7DC522D270A000E00485 /* NewsCollectionViewCell.swift in Sources */,
 				8177389523049FDF00D0F8D4 /* DashboardNewsStorage.swift in Sources */,
 				81EB7DD222D2A0F000E00485 /* HTWMateNewsAPI.swift in Sources */,
+				8106FFE72359CCFF009AFEB1 /* PDFViewController.swift in Sources */,
 				81C21EB6232CDA1B0005E2B0 /* UIView+pin.swift in Sources */,
 				81EB7DBC22D2066A00E00485 /* HWIcons.swift in Sources */,
 				81C21EAB232BE4150005E2B0 /* SettingsController.swift in Sources */,

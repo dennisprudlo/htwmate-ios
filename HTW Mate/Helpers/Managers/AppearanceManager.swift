@@ -17,6 +17,9 @@ struct AppearanceManager {
 
 		let barButtonItems = UIBarButtonItem.appearance(whenContainedInInstancesOf: [HWNavigationController.self])
 		barButtonItems.tintColor = HWColors.StyleGuide.primaryGreen
+
+		let greenController = UIBarButtonItem.appearance(whenContainedInInstancesOf: [PDFViewController.self])
+		greenController.tintColor = HWColors.contentBackground
     }
 
     public static func dropShadow(for view: UIView, withRadius radius: CGFloat = 10, opacity: Float = 0.5, ignoreBackground ignore: Bool = false) {
