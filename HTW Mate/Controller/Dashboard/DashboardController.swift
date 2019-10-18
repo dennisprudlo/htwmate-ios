@@ -53,7 +53,6 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         collectionView.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: EventCollectionViewCell.self))
         collectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: NewsCollectionViewCell.self))
         collectionView.register(SectionTitleCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: SectionTitleCollectionReusableView.self))
-        collectionView.register(SectionSettingsCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: SectionSettingsCollectionReusableView.self))
 
         //
         // Adjust safe area insets for header and footer views
@@ -70,7 +69,6 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
 
     /// Build the section array for dynamic display of the collection view
     func configureSections() {
-        dashboardSections.append(DashboardSettingsSection())
         dashboardSections.append(DashboardNewsSection())
         dashboardSections.append(DashboardEventSection())
     }

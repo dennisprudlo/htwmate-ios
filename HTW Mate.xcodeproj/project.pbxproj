@@ -41,8 +41,7 @@
 		81BFA90922F1DC780036BACC /* LecturerInfoHeadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA90822F1DC780036BACC /* LecturerInfoHeadTableViewCell.swift */; };
 		81C21EA4232BA1860005E2B0 /* CafeteriaDishAttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EA3232BA1860005E2B0 /* CafeteriaDishAttributeTableViewCell.swift */; };
 		81C21EA6232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EA5232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift */; };
-		81C21EA8232BE00D0005E2B0 /* SectionSettingsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EA7232BE00D0005E2B0 /* SectionSettingsCollectionReusableView.swift */; };
-		81C21EAB232BE4150005E2B0 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EAA232BE4150005E2B0 /* SettingController.swift */; };
+		81C21EAB232BE4150005E2B0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EAA232BE4150005E2B0 /* SettingsController.swift */; };
 		81C21EAE232CCEDB0005E2B0 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EAD232CCEDB0005E2B0 /* SettingsSection.swift */; };
 		81C21EB1232CCF3E0005E2B0 /* SettingsSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB0232CCF3E0005E2B0 /* SettingsSectionCell.swift */; };
 		81C21EB3232CD7180005E2B0 /* SettingsLegalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB2232CD7180005E2B0 /* SettingsLegalController.swift */; };
@@ -93,7 +92,6 @@
 		81F942B4230821420042EC3C /* HWEventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942B3230821420042EC3C /* HWEventEditViewController.swift */; };
 		81F942B723082DF30042EC3C /* DiningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F942B623082DF30042EC3C /* DiningController.swift */; };
 		81FBAEF3232E6E43004F5CD5 /* DashboardSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FBAEF2232E6E43004F5CD5 /* DashboardSection.swift */; };
-		81FBAEF5232E7C03004F5CD5 /* DashboardSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FBAEF4232E7C03004F5CD5 /* DashboardSettingsSection.swift */; };
 		81FBAEF7232E7E48004F5CD5 /* DashboardNewsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FBAEF6232E7E48004F5CD5 /* DashboardNewsSection.swift */; };
 		81FBAEF9232E7E74004F5CD5 /* DashboardEventSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FBAEF8232E7E74004F5CD5 /* DashboardEventSection.swift */; };
 /* End PBXBuildFile section */
@@ -134,8 +132,7 @@
 		81BFA90822F1DC780036BACC /* LecturerInfoHeadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoHeadTableViewCell.swift; sourceTree = "<group>"; };
 		81C21EA3232BA1860005E2B0 /* CafeteriaDishAttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishAttributeTableViewCell.swift; sourceTree = "<group>"; };
 		81C21EA5232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishTitleTableViewCell.swift; sourceTree = "<group>"; };
-		81C21EA7232BE00D0005E2B0 /* SectionSettingsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionSettingsCollectionReusableView.swift; sourceTree = "<group>"; };
-		81C21EAA232BE4150005E2B0 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		81C21EAA232BE4150005E2B0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		81C21EAD232CCEDB0005E2B0 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		81C21EB0232CCF3E0005E2B0 /* SettingsSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionCell.swift; sourceTree = "<group>"; };
 		81C21EB2232CD7180005E2B0 /* SettingsLegalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLegalController.swift; sourceTree = "<group>"; };
@@ -188,7 +185,6 @@
 		81F942B3230821420042EC3C /* HWEventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWEventEditViewController.swift; sourceTree = "<group>"; };
 		81F942B623082DF30042EC3C /* DiningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningController.swift; sourceTree = "<group>"; };
 		81FBAEF2232E6E43004F5CD5 /* DashboardSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSection.swift; sourceTree = "<group>"; };
-		81FBAEF4232E7C03004F5CD5 /* DashboardSettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSettingsSection.swift; sourceTree = "<group>"; };
 		81FBAEF6232E7E48004F5CD5 /* DashboardNewsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardNewsSection.swift; sourceTree = "<group>"; };
 		81FBAEF8232E7E74004F5CD5 /* DashboardEventSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEventSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -290,7 +286,7 @@
 		81C21EA9232BE3F80005E2B0 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				81C21EAA232BE4150005E2B0 /* SettingController.swift */,
+				81C21EAA232BE4150005E2B0 /* SettingsController.swift */,
 				81C21EB2232CD7180005E2B0 /* SettingsLegalController.swift */,
 				81C21EB7232CDE860005E2B0 /* SettingsAboutController.swift */,
 				81C21EB9232CE44A0005E2B0 /* SettingsDiningController.swift */,
@@ -440,7 +436,6 @@
 				81E0F1DA22D3A1B20065849D /* SectionTitleCollectionReusableView.swift */,
 				816B7A3222DA89F600FA507E /* EventCollectionViewCell.swift */,
 				81F942B12308187B0042EC3C /* EventTableViewCell.swift */,
-				81C21EA7232BE00D0005E2B0 /* SectionSettingsCollectionReusableView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -510,7 +505,6 @@
 			isa = PBXGroup;
 			children = (
 				81FBAEF2232E6E43004F5CD5 /* DashboardSection.swift */,
-				81FBAEF4232E7C03004F5CD5 /* DashboardSettingsSection.swift */,
 				81FBAEF6232E7E48004F5CD5 /* DashboardNewsSection.swift */,
 				81FBAEF8232E7E74004F5CD5 /* DashboardEventSection.swift */,
 			);
@@ -627,7 +621,6 @@
 				81C21EB1232CCF3E0005E2B0 /* SettingsSectionCell.swift in Sources */,
 				81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */,
 				81BFA90522F199490036BACC /* LecturerStorage.swift in Sources */,
-				81C21EA8232BE00D0005E2B0 /* SectionSettingsCollectionReusableView.swift in Sources */,
 				81BFA8F922E4CEAC0036BACC /* LecturersController.swift in Sources */,
 				813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */,
 				81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */,
@@ -668,7 +661,6 @@
 				81BFA8FE22E4DC2A0036BACC /* HWImage.swift in Sources */,
 				81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */,
 				81BFA90022E507C70036BACC /* Lecturer.swift in Sources */,
-				81FBAEF5232E7C03004F5CD5 /* DashboardSettingsSection.swift in Sources */,
 				81915BF72340F17500F796F4 /* LectureCancelled.swift in Sources */,
 				813CAF8D23157B7B00854C30 /* CafeteriaDishTableViewCell.swift in Sources */,
 				817738922304966200D0F8D4 /* HWTabBarController.swift in Sources */,
@@ -691,7 +683,7 @@
 				81EB7DD222D2A0F000E00485 /* HTWMateNewsAPI.swift in Sources */,
 				81C21EB6232CDA1B0005E2B0 /* UIView+pin.swift in Sources */,
 				81EB7DBC22D2066A00E00485 /* HWIcons.swift in Sources */,
-				81C21EAB232BE4150005E2B0 /* SettingController.swift in Sources */,
+				81C21EAB232BE4150005E2B0 /* SettingsController.swift in Sources */,
 				81F942A32307575E0042EC3C /* LecturerInfoFieldOfWorkTableViewCell.swift in Sources */,
 				81EB7DCA22D2803300E00485 /* HWInsets.swift in Sources */,
 				817A8E402337B88600AD5383 /* UITableView+BackgroundView.swift in Sources */,
