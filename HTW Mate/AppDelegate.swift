@@ -84,11 +84,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Map the responded device token to a hex string
 		let tokenParts	= deviceToken.map { data in String(format: "%02.2hhx", data) }
 		let token		= tokenParts.joined()
+		let locale		= Application.locale.original.languageCode ?? "en"
 
 		//
 		// Send the device token to the database
 		let route = API.shared.route("apns/request", query: false)
-		API.shared.post(route: route, params: ["deviceToken": token]) { (data, response) in
+		API.shared.post(route: route, params: ["deviceToken": token, "locale": locale]) { (data, response) in
 
 		}
 	}

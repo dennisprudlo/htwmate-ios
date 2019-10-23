@@ -12,18 +12,22 @@ typealias TitleDescriptionPair = (title: String, description: String)
 
 struct HWStrings {
 
+	public static func localized(_ key: String) -> String {
+		return NSLocalizedString(key, comment: "")
+	}
+
     // MARK: Default Navigation
-    static let yes = NSLocalizedString("base.yes", comment: "The title for a button which agrees with the situation")
-    static let no = NSLocalizedString("base.no", comment: "The title for a button which disagrees with the situation")
-    static let ok = NSLocalizedString("base.ok", comment: "The title for a button which just represents and 'ok'")
-    static let cancel = NSLocalizedString("base.cancel", comment: "The title for a button which cancels the operation")
-    static let settings = NSLocalizedString("base.settings", comment: "The title for a button which navigates to the settings of the application")
+	static let yes		= HWStrings.localized("base.yes")
+    static let no		= HWStrings.localized("base.no")
+    static let ok		= HWStrings.localized("base.ok")
+    static let cancel	= HWStrings.localized("base.cancel")
+    static let settings	= HWStrings.localized("base.settings")
 
     // MARK: Permission alerts
     struct Permissions {
         static let eventStore: TitleDescriptionPair = (
-            title: NSLocalizedString("permission.eventstore.title", comment: "The title for the information that the calendar settings were denied"),
-            description: NSLocalizedString("permission.eventstore.description", comment: "The information that the user can change the calendar permissions in the settings")
+            title:			HWStrings.localized("permission.eventstore.title"),
+            description:	HWStrings.localized("permission.eventstore.description")
         )
     }
 
