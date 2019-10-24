@@ -28,21 +28,18 @@ class PDFViewController: HWNavigationController {
 		navigationBar.standardAppearance = navBarAppearance
 	}
 
-	static func make(from url: URL?, withTitle title: String = "PDF") -> PDFViewController {
-		var document = PDFDocument()
-		var pdfData: Data? = nil
-		if let safeUrl = url, let safeDocument = PDFDocument(url: safeUrl) {
-			document = safeDocument
-			pdfData = try? Data(contentsOf: safeUrl)
+	func getRootView() -> PDFRootViewController {
+		guard let pdfRoot = self.viewControllers.first as? PDFRootViewController else {
+			return PDFRootViewController()
 		}
 
+		return pdfRoot
+	}
+
+	static func make(from url: URL?) -> PDFViewController {
 		let rootViewController = PDFRootViewController()
-		rootViewController.title = title
-		rootViewController.pdfData = pdfData
-		rootViewController.pdfView.document = document
+		rootViewController.pdfUrl = url
 
-		let controller = PDFViewController(rootViewController: rootViewController)
-
-		return controller
+		return PDFViewController(rootViewController: rootViewController)
 	}
 }

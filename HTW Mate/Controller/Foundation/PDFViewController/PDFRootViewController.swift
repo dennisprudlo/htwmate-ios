@@ -11,23 +11,21 @@ import PDFKit
 
 class PDFRootViewController: UIViewController {
 
-	public var pdfView = PDFView()
-	public var pdfData: Data? = nil
+	var pdfUrl: URL?
+	var pdfView = PDFView()
+	var pdfData: Data? = nil
+
+	var customTitle: String = "PDF"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		title = customTitle
 
 		view.backgroundColor = HWColors.StyleGuide.primaryGreen
 
 		pdfView.backgroundColor = HWColors.StyleGuide.primaryGreen
 		pdfView.displayMode = .singlePageContinuous
 		pdfView.pageShadowsEnabled = true
-		pdfView.autoScales = true
-		pdfView.minScaleFactor = 0.2
-		pdfView.scaleFactor = 0.4
-		pdfView.maxScaleFactor = 5
-		pdfView.sizeToFit()
-		pdfView.layoutDocumentView()
 
 		view.addSubview(pdfView)
 		pdfView.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +35,29 @@ class PDFRootViewController: UIViewController {
 		pdfView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare(_:)))
+		navigationItem.rightBarButtonItem?.isEnabled = false
+
+		DispatchQueue.global(qos: .background).async {
+			if let safeUrl = self.pdfUrl, let safeDocument = PDFDocument(url: safeUrl) {
+				self.pdfData = try? Data(contentsOf: safeUrl)
+				DispatchQueue.main.async {
+					self.pdfView.document = safeDocument
+					self.pdfView.autoScales = true
+					self.pdfView.minScaleFactor = 0.2
+					self.pdfView.scaleFactor = 0.4
+					self.pdfView.maxScaleFactor = 5
+					self.pdfView.sizeToFit()
+					self.pdfView.layoutDocumentView()
+
+					self.navigationItem.rightBarButtonItem?.isEnabled = true
+				}
+			}
+		}
     }
+
+	func setTitle(_ title: String) {
+		customTitle = title
+	}
 
 	@objc func didTapShare(_ sender: UIBarButtonItem) {
 		if let data = self.pdfData {

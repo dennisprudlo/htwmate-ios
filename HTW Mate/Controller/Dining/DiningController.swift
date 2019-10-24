@@ -121,7 +121,8 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
 		let url					= "https://www.stw.berlin/assets/speiseplaene/\(cafeteriaId)/aktuelle_woche_\(languageIdentifier).pdf"
 
-		let diningMenuPdfController = PDFViewController.make(from: URL(string: url), withTitle: HWStrings.Controllers.Dining.weekMenuTitle)
+		let diningMenuPdfController = PDFViewController.make(from: URL(string: url))
+		diningMenuPdfController.getRootView().setTitle(HWStrings.Controllers.Dining.weekMenuTitle)
 
 		self.present(diningMenuPdfController, animated: true, completion: nil)
 	}
