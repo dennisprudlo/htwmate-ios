@@ -13,6 +13,7 @@
 		8106FFEF235A05A3009AFEB1 /* ApplicationLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8106FFEE235A05A3009AFEB1 /* ApplicationLocale.swift */; };
 		810C8FA92322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */; };
 		8112C6E9231C538800818868 /* HWFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112C6E8231C538800818868 /* HWFontSize.swift */; };
+		8129C4E02361C15A0034E0B4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8129C4DF2361C15A0034E0B4 /* NotificationManager.swift */; };
 		813CAF85231565A700854C30 /* HTWMateCafeteriaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */; };
 		813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF862315660B00854C30 /* CafeteriaDish.swift */; };
 		813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8923156FD500854C30 /* CafeteriaStorage.swift */; };
@@ -108,6 +109,7 @@
 		8106FFF0235A0E13009AFEB1 /* HTW Mate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HTW Mate.entitlements"; sourceTree = "<group>"; };
 		810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishInfoMainTableViewCell.swift; sourceTree = "<group>"; };
 		8112C6E8231C538800818868 /* HWFontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWFontSize.swift; sourceTree = "<group>"; };
+		8129C4DF2361C15A0034E0B4 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateCafeteriaAPI.swift; sourceTree = "<group>"; };
 		813CAF862315660B00854C30 /* CafeteriaDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDish.swift; sourceTree = "<group>"; };
 		813CAF8923156FD500854C30 /* CafeteriaStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaStorage.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				81EB7DB622D1462800E00485 /* AppearanceManager.swift */,
 				81E0F1D622D394F10065849D /* DownloadManager.swift */,
 				81BFA8EC22E34CBB0036BACC /* AlertManager.swift */,
+				8129C4DF2361C15A0034E0B4 /* NotificationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				81C21EB6232CDA1B0005E2B0 /* UIView+pin.swift in Sources */,
 				81EB7DBC22D2066A00E00485 /* HWIcons.swift in Sources */,
 				81C21EAB232BE4150005E2B0 /* SettingsController.swift in Sources */,
+				8129C4E02361C15A0034E0B4 /* NotificationManager.swift in Sources */,
 				81F942A32307575E0042EC3C /* LecturerInfoFieldOfWorkTableViewCell.swift in Sources */,
 				81EB7DCA22D2803300E00485 /* HWInsets.swift in Sources */,
 				817A8E402337B88600AD5383 /* UITableView+BackgroundView.swift in Sources */,
