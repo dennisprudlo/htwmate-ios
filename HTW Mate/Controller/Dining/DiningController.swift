@@ -109,7 +109,7 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     @objc func didTapFilter() {
         let settingsController = SettingsDiningController(style: .insetGrouped)
-        settingsController.overrideTitle = "Filter"
+        settingsController.overrideTitle = HWStrings.Controllers.Settings.Dining.filter
         settingsController.navigationBar = navigationController?.navigationBar
         navigationController?.navigationBar.shadowImage = nil
         navigationController?.pushViewController(settingsController, animated: true)
