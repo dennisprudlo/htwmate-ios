@@ -128,18 +128,18 @@ struct HWStrings {
 			}
         }
 		struct Studies {
-			static let title = NSLocalizedString("controller.studies.title", comment: "The title for the main studies controller")
+			static let title = HWStrings.localized("controller.studies.title")
 			struct Lectures {
-				static let title = NSLocalizedString("controller.studies.lectures.title", comment: "The headline for the main studies lectures section")
+				static let title = HWStrings.localized("controller.studies.lectures.title")
 				struct Cancelled {
-					static let title	= NSLocalizedString("controller.studies.lectures.cancelled.title", comment: "The title for the main studies cancelled lectures item")
-					static let comment	= NSLocalizedString("controller.studies.lectures.cancelled.comment", comment: "The title for the alert shown when the detail button on a lecture was tapped")
+					static let title	= HWStrings.localized("controller.studies.lectures.cancelled.title")
+					static let comment	= HWStrings.localized("controller.studies.lectures.cancelled.comment")
 				}
 			}
 			struct HtwServices {
-				static let title				= NSLocalizedString("controller.studies.htwservices.title", comment: "The headline for the main studies htw services section")
-				static let universityLibrary	= NSLocalizedString("controller.studies.htwservices.universitylibrary", comment: "The title for the main studies university library links")
-				static let mediaLibrary			= NSLocalizedString("controller.studies.htwservices.medialibrary", comment: "The title for the main studies media library link")
+				static let title				= HWStrings.localized("controller.studies.htwservices.title")
+				static let universityLibrary	= HWStrings.localized("controller.studies.htwservices.universitylibrary")
+				static let mediaLibrary			= HWStrings.localized("controller.studies.htwservices.medialibrary")
 			}
 		}
     }

@@ -38,7 +38,7 @@ class LecturersController: UITableViewController, UISearchResultsUpdating, Lectu
         searchController.searchBar.placeholder = HWStrings.Controllers.Lecturers.searchBarTitle
         searchController.searchBar.tintColor = HWColors.StyleGuide.primaryGreen
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.hidesSearchBarWhenScrolling = true
 		definesPresentationContext = true
 
         tableView.refreshControl = UIRefreshControl()
