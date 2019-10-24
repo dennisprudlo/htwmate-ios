@@ -42,7 +42,12 @@ class LecturersController: UITableViewController, UISearchResultsUpdating, Lectu
 		definesPresentationContext = true
 
         tableView.refreshControl = UIRefreshControl()
-        tableView.refreshControl?.addTarget(self, action: #selector(didRefreshCollectionView(_:)), for: .valueChanged)
+		tableView.refreshControl?.addTarget(self, action: #selector(didRefreshCollectionView(_:)), for: .valueChanged)
+
+		//
+		// Call the lecturer storage delegate so the info view will be displayed
+		// while the lecturers are still loading instead of empty cells
+		self.lecturerStorage(didReloadLecturers: [])
     }
 
     override func viewDidAppear(_ animated: Bool) {
