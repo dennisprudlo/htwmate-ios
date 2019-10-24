@@ -31,7 +31,7 @@ class StudiesCancelledLectureCell: UITableViewCell {
 
 		self.detailTextLabel?.text = cancelledLecture.getDetailText()
 
-		if let comment = cancelledLecture.comment {
+		if let _ = cancelledLecture.comment {
 			self.tintColor = HWColors.StyleGuide.primaryGreen
 			self.accessoryType = .detailButton
 		}
