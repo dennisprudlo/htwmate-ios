@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		UNUserNotificationCenter.current().delegate = self
 
         //
         // Update app appearance styles
@@ -22,33 +22,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //
         // Preload app data
         LecturerStorage.shared.reload()
-        CafeteriaStorage.shared.reload(forDate: DiningMasterController.getInitialDate())
+        CafeteriaStorage.shared.reload(forDate: DiningController.getInitialDate())
+
+		//
+		// Request notification permissions
+		NotificationManager.shared.registerForPushNotifications()
 
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
+	// MARK: User Notification Center
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
+	/// Handles the response from the apple push notification service with the current device token
+	/// - Parameter application: the ui application instance
+	/// - Parameter deviceToken: the deveice token as data
+	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+		NotificationManager.shared.refreshDeviceToken(tokenData: deviceToken)
+	}
 
 
+	/// Handles the receival of a notification response (when tapping a notification)
+	/// - Parameter center: The used notification center
+	/// - Parameter response: The notification response data
+	/// - Parameter completionHandler: The completion handler
+	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+		NotificationManager.shared.registerResponse(response)
+		NotificationManager.shared.handle()
+		completionHandler()
+	}
+
+	/// Handles the presentation of a notification within the application
+	/// - Parameter center: the used notification center
+	/// - Parameter notification: The notification that will be displayed
+	/// - Parameter completionHandler: The completion handler
+	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		// Display the notification even in the user in inside the application
+		// But do not add a bage or play a sound
+		completionHandler([.alert])
+	}
 }
 

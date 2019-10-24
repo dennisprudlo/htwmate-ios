@@ -12,18 +12,22 @@ typealias TitleDescriptionPair = (title: String, description: String)
 
 struct HWStrings {
 
+	public static func localized(_ key: String) -> String {
+		return NSLocalizedString(key, comment: "")
+	}
+
     // MARK: Default Navigation
-    static let yes = NSLocalizedString("base.yes", comment: "The title for a button which agrees with the situation")
-    static let no = NSLocalizedString("base.no", comment: "The title for a button which disagrees with the situation")
-    static let ok = NSLocalizedString("base.ok", comment: "The title for a button which just represents and 'ok'")
-    static let cancel = NSLocalizedString("base.cancel", comment: "The title for a button which cancels the operation")
-    static let settings = NSLocalizedString("base.settings", comment: "The title for a button which navigates to the settings of the application")
+	static let yes		= HWStrings.localized("base.yes")
+    static let no		= HWStrings.localized("base.no")
+    static let ok		= HWStrings.localized("base.ok")
+    static let cancel	= HWStrings.localized("base.cancel")
+    static let settings	= HWStrings.localized("base.settings")
 
     // MARK: Permission alerts
     struct Permissions {
         static let eventStore: TitleDescriptionPair = (
-            title: NSLocalizedString("permission.eventstore.title", comment: "The title for the information that the calendar settings were denied"),
-            description: NSLocalizedString("permission.eventstore.description", comment: "The information that the user can change the calendar permissions in the settings")
+            title:			HWStrings.localized("permission.eventstore.title"),
+            description:	HWStrings.localized("permission.eventstore.description")
         )
     }
 
@@ -77,6 +81,8 @@ struct HWStrings {
             static let sectionTitleBadge = NSLocalizedString("controller.dining.sectiontitle.badge", comment: "The section title for the badges in the dish detail view")
             static let sectionTitleAdditive = NSLocalizedString("controller.dining.sectiontitle.additive", comment: "The section title for the additives in the dish detail view")
             static let sectionTitleAllergen = NSLocalizedString("controller.dining.sectiontitle.allergen", comment: "The section title for the allergens in the dish detail view")
+            static let weekMenuTitle = NSLocalizedString("controller.dining.weekmenutitle", comment: "The title for the pdf view that shows the menu for the current week")
+			static let currentDateFormat = NSLocalizedString("controller.dining.currentdateformat", comment: "The format for the current date display in the dining controller")
             struct Categories {
                 static let appetizer = NSLocalizedString("controller.dining.categories.appetizer", comment: "The title for the cafeteria menu category for the appetizers")
                 static let salad = NSLocalizedString("controller.dining.categories.salad", comment: "The title for the cafeteria menu category for the salads")
@@ -105,28 +111,35 @@ struct HWStrings {
             }
         }
         struct Settings {
-            static let title = NSLocalizedString("controller.settings.title", comment: "The title for the main settings controller")
-            static let itemAbout = NSLocalizedString("controller.settings.item.about", comment: "The title for the about item")
-            static let itemLegal = NSLocalizedString("controller.settings.item.legal", comment: "The title for the legal item")
+            static let title		= NSLocalizedString("controller.settings.title", comment: "The title for the main settings controller")
+            static let itemAbout	= NSLocalizedString("controller.settings.item.about", comment: "The title for the about item")
+            static let itemLegal	= NSLocalizedString("controller.settings.item.legal", comment: "The title for the legal item")
             struct Dining {
-                static let campus = NSLocalizedString("controller.settings.dining.campus", comment: "The title for the campus selection setting")
-                static let campusDescription = NSLocalizedString("controller.settings.dining.campus.description", comment: "The description for the campus selection setting")
-                static let filter = NSLocalizedString("controller.settings.dining.filter", comment: "The title for the dining filter setting")
+                static let campus				= NSLocalizedString("controller.settings.dining.campus", comment: "The title for the campus selection setting")
+                static let campusDescription	= NSLocalizedString("controller.settings.dining.campus.description", comment: "The description for the campus selection setting")
+                static let filter				= NSLocalizedString("controller.settings.dining.filter", comment: "The title for the dining filter setting")
             }
+			struct Legal {
+				static let title			= NSLocalizedString("controller.settings.legal.title", comment: "The title for the legal section in the settings menu")
+				static let privacyPolicy	= NSLocalizedString("controller.settings.legal.privacypolicy", comment: "The title for the privacy policy link")
+				static let masthead			= NSLocalizedString("controller.settings.legal.masthead", comment: "The title for the masthead link")
+				static let termsOfUse		= NSLocalizedString("controller.settings.legal.termsofuse", comment: "The title for the terms of use link")
+				static let support			= NSLocalizedString("controller.settings.legal.support", comment: "The title for the support link")
+			}
         }
 		struct Studies {
-			static let title = NSLocalizedString("controller.studies.title", comment: "The title for the main studies controller")
+			static let title = HWStrings.localized("controller.studies.title")
 			struct Lectures {
-				static let title = NSLocalizedString("controller.studies.lectures.title", comment: "The headline for the main studies lectures section")
+				static let title = HWStrings.localized("controller.studies.lectures.title")
 				struct Cancelled {
-					static let title = NSLocalizedString("controller.studies.lectures.cancelled.title", comment: "The title for the main studies cancelled lectures item")
-					static let comment = NSLocalizedString("controller.studies.lectures.cancelled.comment", comment: "The title for the alert shown when the detail button on a lecture was tapped")
+					static let title	= HWStrings.localized("controller.studies.lectures.cancelled.title")
+					static let comment	= HWStrings.localized("controller.studies.lectures.cancelled.comment")
 				}
 			}
 			struct HtwServices {
-				static let title = NSLocalizedString("controller.studies.htwservices.title", comment: "The headline for the main studies htw services section")
-				static let universityLibrary = NSLocalizedString("controller.studies.htwservices.universitylibrary", comment: "The title for the main studies university library links")
-				static let mediaLibrary = NSLocalizedString("controller.studies.htwservices.medialibrary", comment: "The title for the main studies media library link")
+				static let title				= HWStrings.localized("controller.studies.htwservices.title")
+				static let universityLibrary	= HWStrings.localized("controller.studies.htwservices.universitylibrary")
+				static let mediaLibrary			= HWStrings.localized("controller.studies.htwservices.medialibrary")
 			}
 		}
     }

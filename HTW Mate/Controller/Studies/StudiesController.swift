@@ -31,6 +31,10 @@ class StudiesController: UITableViewController {
 		htwServicesSection.addLinkCell(withTitle: HWStrings.Controllers.Studies.HtwServices.universityLibrary, opening: URL(string: "https://bibliothek.htw-berlin.de"))
 		htwServicesSection.addLinkCell(withTitle: HWStrings.Controllers.Studies.HtwServices.mediaLibrary, opening: URL(string: "https://mediathek.htw-berlin.de"))
         sections.append(htwServicesSection)
+
+		let settingsSection = SettingsSection(header: nil, footer: nil, presentingController: self)
+		settingsSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.title, present: SettingsController(style: .insetGrouped))
+		sections.append(settingsSection)
     }
 
     // MARK: - Table view data source

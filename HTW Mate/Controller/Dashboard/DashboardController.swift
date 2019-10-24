@@ -53,7 +53,6 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         collectionView.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: EventCollectionViewCell.self))
         collectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: NewsCollectionViewCell.self))
         collectionView.register(SectionTitleCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: SectionTitleCollectionReusableView.self))
-        collectionView.register(SectionSettingsCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: SectionSettingsCollectionReusableView.self))
 
         //
         // Adjust safe area insets for header and footer views
@@ -70,7 +69,6 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
 
     /// Build the section array for dynamic display of the collection view
     func configureSections() {
-        dashboardSections.append(DashboardSettingsSection())
         dashboardSections.append(DashboardNewsSection())
         dashboardSections.append(DashboardEventSection())
     }
@@ -150,15 +148,13 @@ class DashboardController: UICollectionViewController, UICollectionViewDelegateF
         var collectionViewCell = UICollectionViewCell(frame: CGRect.zero)
         switch indexPath.section {
             case 0:
-                break;
-            case 1:
                 let newsCell = NewsCollectionViewCell.dequeue(from: collectionView, for: indexPath)
                 newsCell.viewController = self
                 newsCell.setModel(DashboardNewsStorage.shared.model(for: indexPath))
 
                 collectionViewCell = newsCell
                 break
-            case 2:
+            case 1:
                 let eventCell = EventCollectionViewCell.dequeue(from: collectionView, for: indexPath)
                 eventCell.viewController = self
                 eventCell.setModel(DashboardEventStorage.shared.model(for: indexPath))
