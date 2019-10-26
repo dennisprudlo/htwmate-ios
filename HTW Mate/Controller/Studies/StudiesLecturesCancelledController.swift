@@ -8,9 +8,8 @@
 
 import UIKit
 
-class StudiesLecturesCancelledController: UITableViewController {
+class StudiesLecturesCancelledController: HWSectionableTableViewController {
 
-	var sections: [SettingsSection] = []
 	var cancelledLecturesSet: [(date: Date, lectures: [LectureCancelled])] = []
 
     override func viewDidLoad() {
@@ -35,7 +34,7 @@ class StudiesLecturesCancelledController: UITableViewController {
 		}
     }
 
-	func configureSections() {
+	override func configureSections() {
 		self.cancelledLecturesSet.forEach { (lecturesSet) in
 			var sectionTitle = ""
 
@@ -57,30 +56,6 @@ class StudiesLecturesCancelledController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-		return sections.count
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return sections[section].cells.count
-    }
-
-	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return sections[section].header
-	}
-
-	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-		return sections[section].footer
-	}
-
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return sections[indexPath.section].cells[indexPath.row].tableViewCell
-	}
-
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
-	}
 
 	override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
 		let lecture = self.cancelledLecturesSet[indexPath.section].lectures[indexPath.row]

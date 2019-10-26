@@ -121,7 +121,7 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
 		let url					= API.shared.url("publicapi/downloads/cafeteria-week-plan/\(cafeteria)/\(languageIdentifier)")
 
-		let diningMenuPdfController = PDFViewController.make(from: URL(string: url))
+		let diningMenuPdfController = PDFViewController.make(from: url)
 		diningMenuPdfController.getRootView().setTitle(HWStrings.Controllers.Dining.weekMenuTitle)
 
 		self.present(diningMenuPdfController, animated: true, completion: nil)

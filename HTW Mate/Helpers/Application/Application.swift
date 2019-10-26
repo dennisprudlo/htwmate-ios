@@ -18,7 +18,7 @@ class Application {
 		let year = components.year ?? 0
 		let month = components.month ?? 1
 
-		return ApplicationSemester(type: month >= 10 ? .winter : .summer, year: year)
+		return ApplicationSemester(type: month >= 10 || month < 4 ? .winter : .summer, year: year)
 	}
 
 }

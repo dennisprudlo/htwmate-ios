@@ -153,7 +153,7 @@ class API {
 		sessionTask.resume()
 	}
 
-	func url(_ endpoint: String, queryItems: [URLQueryItem]? = nil) -> String {
+	func url(_ endpoint: String, queryItems: [URLQueryItem]? = nil) -> URL {
 		var urlComponents = URLComponents()
 		urlComponents.scheme = self.scheme()
 		urlComponents.host = self.host()
@@ -165,9 +165,9 @@ class API {
 		}
 
 		guard let url = urlComponents.url else {
-			return "https://htwmate.com"
+			return URL(string: "https://htwmate.com")!
 		}
 
-		return url.absoluteString
+		return url.absoluteURL
 	}
 }

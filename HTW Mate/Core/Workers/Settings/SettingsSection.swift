@@ -40,6 +40,16 @@ class SettingsSection {
 		return sectionCell
     }
 
+	@discardableResult public func addPushCell(withTitle title: String, present target: UIViewController) -> SettingsSection {
+		let sectionCell = SettingsSectionCell(style: .disclosure) {
+			self.presentingViewController?.navigationController?.pushViewController(target, animated: true)
+		}
+		sectionCell.setTitle(title)
+		self.cells.append(sectionCell)
+
+		return self
+	}
+
 	@discardableResult public func addCustomCell(cell: UITableViewCell, handler: (() -> Void)?) -> SettingsSection {
         self.cells.append(SettingsSectionCell(cell: cell, handler: handler))
 		return self
@@ -54,7 +64,7 @@ class SettingsSection {
 		return self
 	}
 
-	@discardableResult public func addPDFCell(withTitle title: String, opening url: URL?, subtitle: String?) -> SettingsSection {
+	@discardableResult public func addPDFCell(withTitle title: String, opening url: URL?, subtitle: String? = nil) -> SettingsSection {
 		let type: SettingsSectionCell.CellStyle = subtitle == nil ? .link(icon: HWIcons.pdf) : .linkSubtitle(icon: HWIcons.pdf)
 		let cell = self.addCell(ofType: type, title: title) {
 			guard let url = url else {

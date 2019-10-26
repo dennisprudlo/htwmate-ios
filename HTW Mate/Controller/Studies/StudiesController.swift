@@ -20,21 +20,8 @@ class StudiesController: UITableViewController {
     }
 
 	func configureSections() {
-		let lecturesSection = SettingsSection(header: HWStrings.Controllers.Studies.Lectures.title, footer: nil, presentingController: self)
-		lecturesSection.addCell(ofType: .disclosureLabel, title: HWStrings.Controllers.Studies.Lectures.Cancelled.title, present: StudiesLecturesCancelledController(style: .insetGrouped))
-		sections.append(lecturesSection)
-
-        sections.append(SettingsSection(header: "Downloads", footer: nil, presentingController: self)
-			.addPDFCell(
-				withTitle: "Academic Calendar",
-				opening: URL(string: API.shared.url("publicapi/downloads/academic-calendar/next")),
-				subtitle: Application.currentSemester().readable()
-			)
-			.addPDFCell(
-				withTitle: "Academic Calendar",
-				opening: URL(string: API.shared.url("publicapi/downloads/academic-calendar/next")),
-				subtitle: Application.currentSemester().next().readable()
-			)
+		sections.append(SettingsSection(header: HWStrings.Controllers.Studies.Lectures.title, footer: nil, presentingController: self)
+			.addPushCell(withTitle: HWStrings.Controllers.Studies.Lectures.Cancelled.title, present: StudiesLecturesCancelledController(style: .insetGrouped))
 		)
 
 		sections.append(SettingsSection(header: HWStrings.Controllers.Studies.HtwServices.title, footer: nil)
@@ -45,9 +32,10 @@ class StudiesController: UITableViewController {
 			.addLinkCell(withTitle: HWStrings.Controllers.Studies.HtwServices.mediaLibrary,			opening: URL(string: "https://mediathek.htw-berlin.de"))
         )
 
-		let settingsSection = SettingsSection(header: nil, footer: nil, presentingController: self)
-		settingsSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.title, present: SettingsController(style: .insetGrouped))
-		sections.append(settingsSection)
+		sections.append(SettingsSection(header: nil, footer: nil, presentingController: self)
+			.addPushCell(withTitle: "Downloads", present: StudiesDownloadsController(style: .insetGrouped))
+			.addPushCell(withTitle: HWStrings.Controllers.Settings.title, present: SettingsController(style: .insetGrouped))
+		)
     }
 
     // MARK: - Table view data source
