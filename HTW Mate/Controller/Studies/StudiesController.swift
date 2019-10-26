@@ -24,13 +24,26 @@ class StudiesController: UITableViewController {
 		lecturesSection.addCell(ofType: .disclosureLabel, title: HWStrings.Controllers.Studies.Lectures.Cancelled.title, present: StudiesLecturesCancelledController(style: .insetGrouped))
 		sections.append(lecturesSection)
 
-		let htwServicesSection = SettingsSection(header: HWStrings.Controllers.Studies.HtwServices.title, footer: nil)
-		htwServicesSection.addLinkCell(withTitle: "LSF", opening: URL(string: "https://lsf.htw-berlin.de"))
-		htwServicesSection.addLinkCell(withTitle: "Moodle", opening: URL(string: "https://moodle.htw-berlin.de/login"))
-		htwServicesSection.addLinkCell(withTitle: "Webmail", opening: URL(string: "https://webmail.htw-berlin.de"))
-		htwServicesSection.addLinkCell(withTitle: HWStrings.Controllers.Studies.HtwServices.universityLibrary, opening: URL(string: "https://bibliothek.htw-berlin.de"))
-		htwServicesSection.addLinkCell(withTitle: HWStrings.Controllers.Studies.HtwServices.mediaLibrary, opening: URL(string: "https://mediathek.htw-berlin.de"))
-        sections.append(htwServicesSection)
+        sections.append(SettingsSection(header: "Downloads", footer: nil, presentingController: self)
+			.addPDFCell(
+				withTitle: "Academic Calendar",
+				opening: URL(string: API.shared.url("publicapi/downloads/academic-calendar/next")),
+				subtitle: Application.currentSemester().readable()
+			)
+			.addPDFCell(
+				withTitle: "Academic Calendar",
+				opening: URL(string: API.shared.url("publicapi/downloads/academic-calendar/next")),
+				subtitle: Application.currentSemester().next().readable()
+			)
+		)
+
+		sections.append(SettingsSection(header: HWStrings.Controllers.Studies.HtwServices.title, footer: nil)
+			.addLinkCell(withTitle: "LSF",															opening: URL(string: "https://lsf.htw-berlin.de"))
+			.addLinkCell(withTitle: "Moodle",														opening: URL(string: "https://moodle.htw-berlin.de/login"))
+			.addLinkCell(withTitle: "Webmail",														opening: URL(string: "https://webmail.htw-berlin.de"))
+			.addLinkCell(withTitle: HWStrings.Controllers.Studies.HtwServices.universityLibrary,	opening: URL(string: "https://bibliothek.htw-berlin.de"))
+			.addLinkCell(withTitle: HWStrings.Controllers.Studies.HtwServices.mediaLibrary,			opening: URL(string: "https://mediathek.htw-berlin.de"))
+        )
 
 		let settingsSection = SettingsSection(header: nil, footer: nil, presentingController: self)
 		settingsSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.title, present: SettingsController(style: .insetGrouped))

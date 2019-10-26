@@ -17,7 +17,8 @@ class SettingsSectionCell {
     enum CellStyle {
         case disclosure
 		case disclosureLabel
-		case link
+		case link(icon: UIImage?)
+		case linkSubtitle(icon: UIImage?)
 		case custom
     }
 
@@ -37,19 +38,23 @@ class SettingsSectionCell {
     func generateTableViewCell() {
         var cell = UITableViewCell(style: .default, reuseIdentifier: nil)
 
-		if self.style == .disclosureLabel {
-			cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
-		}
-
         switch self.style {
             case .disclosure:
                 cell.accessoryType = .disclosureIndicator
 			case .disclosureLabel:
+				cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
 				cell.accessoryType = .disclosureIndicator
-			case .link:
+			case .link(let icon):
 				cell.accessoryType = .none
 				let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-				imageView.image = HWIcons.link
+				imageView.image = icon
+				imageView.tintColor = HWColors.StyleGuide.primaryGreen
+				cell.accessoryView = imageView
+			case .linkSubtitle(let icon):
+				cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+				cell.accessoryType = .none
+				let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+				imageView.image = icon
 				imageView.tintColor = HWColors.StyleGuide.primaryGreen
 				cell.accessoryView = imageView
 			case .custom:

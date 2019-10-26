@@ -12,4 +12,13 @@ class Application {
 
 	static let locale = ApplicationLocale()
 
+	static func currentSemester() -> ApplicationSemester {
+		let components = Calendar.current.dateComponents([.year, .month], from: Date())
+
+		let year = components.year ?? 0
+		let month = components.month ?? 1
+
+		return ApplicationSemester(type: month >= 10 ? .winter : .summer, year: year)
+	}
+
 }

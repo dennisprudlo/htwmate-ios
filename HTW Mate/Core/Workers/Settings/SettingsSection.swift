@@ -27,30 +27,51 @@ class SettingsSection {
             self.presentingViewController?.navigationController?.pushViewController(target, animated: true)
         }
         sectionCell.setTitle(title)
-
         self.cells.append(sectionCell)
+
 		return sectionCell
     }
 
 	@discardableResult public func addCell(ofType type: SettingsSectionCell.CellStyle, title: String, handler: (() -> Void)?) -> SettingsSectionCell {
         let sectionCell = SettingsSectionCell(style: type, handler: handler)
         sectionCell.setTitle(title)
-
         self.cells.append(sectionCell)
+
 		return sectionCell
     }
 
-	@discardableResult public func addCustomCell(cell: UITableViewCell, handler: (() -> Void)?) -> SettingsSectionCell {
-		let sectionCell = SettingsSectionCell(cell: cell, handler: handler)
-
-        self.cells.append(sectionCell)
-		return sectionCell
+	@discardableResult public func addCustomCell(cell: UITableViewCell, handler: (() -> Void)?) -> SettingsSection {
+        self.cells.append(SettingsSectionCell(cell: cell, handler: handler))
+		return self
     }
 
-	@discardableResult public func addLinkCell(withTitle title: String, opening url: URL?) -> SettingsSectionCell {
-		return self.addCell(ofType: .link, title: title) {
+	@discardableResult public func addLinkCell(withTitle title: String, opening url: URL?) -> SettingsSection {
+		self.addCell(ofType: .link(icon: HWIcons.link), title: title) {
 			guard let unwrappedUrl = url else { return }
 			UIApplication.shared.open(unwrappedUrl, options: [:], completionHandler: nil)
 		}
+
+		return self
+	}
+
+	@discardableResult public func addPDFCell(withTitle title: String, opening url: URL?, subtitle: String?) -> SettingsSection {
+		let type: SettingsSectionCell.CellStyle = subtitle == nil ? .link(icon: HWIcons.pdf) : .linkSubtitle(icon: HWIcons.pdf)
+		let cell = self.addCell(ofType: type, title: title) {
+			guard let url = url else {
+				return
+			}
+
+			let pdfViewController = PDFViewController.make(from: url)
+			pdfViewController.getRootView().setTitle(title)
+			pdfViewController.getRootView().setPreset(.a4)
+
+			self.presentingViewController?.present(pdfViewController, animated: true, completion: nil)
+		}
+
+		if let subtitle = subtitle {
+			cell.setDetailTitle(subtitle)
+		}
+
+		return self
 	}
 }

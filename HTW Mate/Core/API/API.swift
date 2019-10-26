@@ -152,4 +152,22 @@ class API {
 
 		sessionTask.resume()
 	}
+
+	func url(_ endpoint: String, queryItems: [URLQueryItem]? = nil) -> String {
+		var urlComponents = URLComponents()
+		urlComponents.scheme = self.scheme()
+		urlComponents.host = self.host()
+		urlComponents.port = self.port()
+		urlComponents.path = "/\(endpoint)"
+
+		if queryItems != nil {
+			urlComponents.queryItems = queryItems
+		}
+
+		guard let url = urlComponents.url else {
+			return "https://htwmate.com"
+		}
+
+		return url.absoluteString
+	}
 }
