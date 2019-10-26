@@ -33,8 +33,8 @@ class StudiesController: UITableViewController {
         )
 
 		sections.append(SettingsSection(header: nil, footer: nil, presentingController: self)
-			.addPushCell(withTitle: "Downloads", present: StudiesDownloadsController(style: .insetGrouped))
-			.addPushCell(withTitle: HWStrings.Controllers.Settings.title, present: SettingsController(style: .insetGrouped))
+			.addPushCell(withTitle: HWStrings.Downloads.title,				present: StudiesDownloadsController(style: .insetGrouped))
+			.addPushCell(withTitle: HWStrings.Controllers.Settings.title,	present: SettingsController(style: .insetGrouped))
 		)
     }
 

@@ -143,4 +143,24 @@ struct HWStrings {
 			}
 		}
     }
+
+
+
+	struct Downloads {
+		static let title					= HWStrings.localized("downloads.title")
+		static let sectionAcademicCalendars	= HWStrings.localized("downloads.sectionAcademicCalendars")
+		static let sectionRequestsForms		= HWStrings.localized("downloads.sectionRequestsForms")
+
+		struct Forms {
+			static let certificates				= HWStrings.localized("downloads.forms.certificates")
+			static let reimbursement			= HWStrings.localized("downloads.forms.reimbursement")
+			static let leaveOfAbsence			= HWStrings.localized("downloads.forms.leaveOfAbsence")
+			static let partTimeStudies			= HWStrings.localized("downloads.forms.partTimeStudies")
+			static let revokePartTimeStudies	= HWStrings.localized("downloads.forms.revokePartTimeStudies")
+			static let exmatriculation			= HWStrings.localized("downloads.forms.exmatriculation")
+			static let semesterTicket			= HWStrings.localized("downloads.forms.semesterTicket")
+			static let pregnancyPeriod			= HWStrings.localized("downloads.forms.pregnancyPeriod")
+		}
+
+	}
 }
