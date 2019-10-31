@@ -27,6 +27,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     }
 
+	func sceneWillEnterForeground(_ scene: UIScene) {
+
+    }
+
     func sceneDidBecomeActive(_ scene: UIScene) {
 
     }
@@ -35,11 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     }
 
-    func sceneWillEnterForeground(_ scene: UIScene) {
-
-    }
-
     func sceneDidEnterBackground(_ scene: UIScene) {
-        
+
     }
 }

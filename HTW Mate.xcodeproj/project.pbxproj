@@ -14,6 +14,7 @@
 		810C8FA92322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */; };
 		8112C6E9231C538800818868 /* HWFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112C6E8231C538800818868 /* HWFontSize.swift */; };
 		8129C4E02361C15A0034E0B4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8129C4DF2361C15A0034E0B4 /* NotificationManager.swift */; };
+		8129C4E2236306720034E0B4 /* ApplicationSemester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8129C4E1236306720034E0B4 /* ApplicationSemester.swift */; };
 		813CAF85231565A700854C30 /* HTWMateCafeteriaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */; };
 		813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF862315660B00854C30 /* CafeteriaDish.swift */; };
 		813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8923156FD500854C30 /* CafeteriaStorage.swift */; };
@@ -34,6 +35,8 @@
 		81915BF52340F0AB00F796F4 /* StudiesCancelledLectureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF42340F0AB00F796F4 /* StudiesCancelledLectureCell.swift */; };
 		81915BF72340F17500F796F4 /* LectureCancelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF62340F17500F796F4 /* LectureCancelled.swift */; };
 		81915BF92340F38D00F796F4 /* HTWMateLecturesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF82340F38D00F796F4 /* HTWMateLecturesAPI.swift */; };
+		81A87D5D2364747B009F957C /* StudiesDownloadsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87D5C2364747B009F957C /* StudiesDownloadsController.swift */; };
+		81A87D5F2364767D009F957C /* HWSectionableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87D5E2364767D009F957C /* HWSectionableTableViewController.swift */; };
 		81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8EC22E34CBB0036BACC /* AlertManager.swift */; };
 		81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */; };
 		81BFA8F922E4CEAC0036BACC /* LecturersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8F822E4CEAC0036BACC /* LecturersController.swift */; };
@@ -110,6 +113,7 @@
 		810C8FA82322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishInfoMainTableViewCell.swift; sourceTree = "<group>"; };
 		8112C6E8231C538800818868 /* HWFontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWFontSize.swift; sourceTree = "<group>"; };
 		8129C4DF2361C15A0034E0B4 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		8129C4E1236306720034E0B4 /* ApplicationSemester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSemester.swift; sourceTree = "<group>"; };
 		813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateCafeteriaAPI.swift; sourceTree = "<group>"; };
 		813CAF862315660B00854C30 /* CafeteriaDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDish.swift; sourceTree = "<group>"; };
 		813CAF8923156FD500854C30 /* CafeteriaStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaStorage.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 		81915BF42340F0AB00F796F4 /* StudiesCancelledLectureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesCancelledLectureCell.swift; sourceTree = "<group>"; };
 		81915BF62340F17500F796F4 /* LectureCancelled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureCancelled.swift; sourceTree = "<group>"; };
 		81915BF82340F38D00F796F4 /* HTWMateLecturesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateLecturesAPI.swift; sourceTree = "<group>"; };
+		81A87D5C2364747B009F957C /* StudiesDownloadsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesDownloadsController.swift; sourceTree = "<group>"; };
+		81A87D5E2364767D009F957C /* HWSectionableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSectionableTableViewController.swift; sourceTree = "<group>"; };
 		81BFA8EC22E34CBB0036BACC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+DisplayName.swift"; sourceTree = "<group>"; };
 		81BFA8F822E4CEAC0036BACC /* LecturersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturersController.swift; sourceTree = "<group>"; };
@@ -225,6 +231,7 @@
 			children = (
 				8106FFEB235A0077009AFEB1 /* Application.swift */,
 				8106FFEE235A05A3009AFEB1 /* ApplicationLocale.swift */,
+				8129C4E1236306720034E0B4 /* ApplicationSemester.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -261,6 +268,7 @@
 				817738912304966200D0F8D4 /* HWTabBarController.swift */,
 				81F942B3230821420042EC3C /* HWEventEditViewController.swift */,
 				81E906612335300900F19CD5 /* HWSplitViewController.swift */,
+				81A87D5E2364767D009F957C /* HWSectionableTableViewController.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -373,6 +381,7 @@
 			children = (
 				81E9F5D1233EE8A400E21C6B /* StudiesController.swift */,
 				81915BF12340E99300F796F4 /* StudiesLecturesCancelledController.swift */,
+				81A87D5C2364747B009F957C /* StudiesDownloadsController.swift */,
 			);
 			path = Studies;
 			sourceTree = "<group>";
@@ -656,6 +665,7 @@
 				81BFA90522F199490036BACC /* LecturerStorage.swift in Sources */,
 				81BFA8F922E4CEAC0036BACC /* LecturersController.swift in Sources */,
 				813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */,
+				8129C4E2236306720034E0B4 /* ApplicationSemester.swift in Sources */,
 				81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */,
 				816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */,
 				81915BF22340E99300F796F4 /* StudiesLecturesCancelledController.swift in Sources */,
@@ -677,11 +687,13 @@
 				81F942B22308187B0042EC3C /* EventTableViewCell.swift in Sources */,
 				81BFA8FC22E4D1D40036BACC /* LecturerTableViewCell.swift in Sources */,
 				817738972304A14900D0F8D4 /* DashboardEventStorage.swift in Sources */,
+				81A87D5F2364767D009F957C /* HWSectionableTableViewController.swift in Sources */,
 				81F942A7230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift in Sources */,
 				81BFA90722F1B3820036BACC /* LecturersDetailController.swift in Sources */,
 				81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */,
 				8106FFEF235A05A3009AFEB1 /* ApplicationLocale.swift in Sources */,
 				8112C6E9231C538800818868 /* HWFontSize.swift in Sources */,
+				81A87D5D2364747B009F957C /* StudiesDownloadsController.swift in Sources */,
 				81E9F5D2233EE8A400E21C6B /* StudiesController.swift in Sources */,
 				81E906622335300900F19CD5 /* HWSplitViewController.swift in Sources */,
 				81FBAEF7232E7E48004F5CD5 /* DashboardNewsSection.swift in Sources */,
@@ -890,12 +902,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dennisprudlo.htwmate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -918,12 +930,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dennisprudlo.htwmate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

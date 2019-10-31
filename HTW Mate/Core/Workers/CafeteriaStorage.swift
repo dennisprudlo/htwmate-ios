@@ -18,11 +18,11 @@ class CafeteriaStorage {
 
     let sections: [String] = [
         HWStrings.Controllers.Dining.Categories.appetizer,
-        HWStrings.Controllers.Dining.Categories.salad,
         HWStrings.Controllers.Dining.Categories.soup,
         HWStrings.Controllers.Dining.Categories.special,
         HWStrings.Controllers.Dining.Categories.main,
         HWStrings.Controllers.Dining.Categories.side,
+        HWStrings.Controllers.Dining.Categories.salad,
         HWStrings.Controllers.Dining.Categories.dessert
     ]
     var displayedSections: [String] = []
@@ -80,11 +80,11 @@ class CafeteriaStorage {
             var category = CafeteriaDish.Category.main
             switch index {
             case 0: category = CafeteriaDish.Category.appetizer
-            case 1: category = CafeteriaDish.Category.salad
-            case 2: category = CafeteriaDish.Category.soup
-            case 3: category = CafeteriaDish.Category.special
-            case 4: category = CafeteriaDish.Category.main
-            case 5: category = CafeteriaDish.Category.side
+            case 1: category = CafeteriaDish.Category.soup
+            case 2: category = CafeteriaDish.Category.special
+            case 3: category = CafeteriaDish.Category.main
+            case 4: category = CafeteriaDish.Category.side
+			case 5: category = CafeteriaDish.Category.salad
             case 6: category = CafeteriaDish.Category.dessert
             default: category = CafeteriaDish.Category.main
             }

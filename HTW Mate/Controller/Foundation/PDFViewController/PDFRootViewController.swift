@@ -17,6 +17,15 @@ class PDFRootViewController: UIViewController {
 
 	var customTitle: String = "PDF"
 
+	var customAutoScale: Bool			= true
+	var customMinScaleFactor: CGFloat	= 0.2
+	var customScaleFactor: CGFloat		= 0.4
+	var customMaxScaleFactor: CGFloat	= 5
+
+	enum PDFViewPreset {
+		case a4
+	}
+
     override func viewDidLoad() {
         super.viewDidLoad()
 		title = customTitle
@@ -41,11 +50,11 @@ class PDFRootViewController: UIViewController {
 			if let safeUrl = self.pdfUrl, let safeDocument = PDFDocument(url: safeUrl) {
 				self.pdfData = try? Data(contentsOf: safeUrl)
 				DispatchQueue.main.async {
-					self.pdfView.document = safeDocument
-					self.pdfView.autoScales = true
-					self.pdfView.minScaleFactor = 0.2
-					self.pdfView.scaleFactor = 0.4
-					self.pdfView.maxScaleFactor = 5
+					self.pdfView.document		= safeDocument
+					self.pdfView.autoScales		= self.customAutoScale
+					self.pdfView.minScaleFactor	= self.customMinScaleFactor
+					self.pdfView.scaleFactor	= self.customScaleFactor
+					self.pdfView.maxScaleFactor	= self.customMaxScaleFactor
 					self.pdfView.sizeToFit()
 					self.pdfView.layoutDocumentView()
 
@@ -57,6 +66,13 @@ class PDFRootViewController: UIViewController {
 
 	func setTitle(_ title: String) {
 		customTitle = title
+	}
+
+	func setPreset(_ preset: PDFViewPreset) {
+		switch preset {
+			case .a4:
+				self.customScaleFactor = 0.55
+		}
 	}
 
 	@objc func didTapShare(_ sender: UIBarButtonItem) {

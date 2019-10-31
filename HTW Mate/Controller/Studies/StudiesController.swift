@@ -20,21 +20,25 @@ class StudiesController: UITableViewController {
     }
 
 	func configureSections() {
-		let lecturesSection = SettingsSection(header: HWStrings.Controllers.Studies.Lectures.title, footer: nil, presentingController: self)
-		lecturesSection.addCell(ofType: .disclosureLabel, title: HWStrings.Controllers.Studies.Lectures.Cancelled.title, present: StudiesLecturesCancelledController(style: .insetGrouped))
-		sections.append(lecturesSection)
+		sections.append(SettingsSection(header: HWStrings.Controllers.Studies.Lectures.title, footer: nil, presentingController: self)
+			.addPushCell(withTitle: HWStrings.Controllers.Studies.Lectures.Cancelled.title, present: StudiesLecturesCancelledController(style: .insetGrouped))
+		)
 
-		let htwServicesSection = SettingsSection(header: HWStrings.Controllers.Studies.HtwServices.title, footer: nil)
-		htwServicesSection.addLinkCell(withTitle: "LSF", opening: URL(string: "https://lsf.htw-berlin.de"))
-		htwServicesSection.addLinkCell(withTitle: "Moodle", opening: URL(string: "https://moodle.htw-berlin.de/login"))
-		htwServicesSection.addLinkCell(withTitle: "Webmail", opening: URL(string: "https://webmail.htw-berlin.de"))
-		htwServicesSection.addLinkCell(withTitle: HWStrings.Controllers.Studies.HtwServices.universityLibrary, opening: URL(string: "https://bibliothek.htw-berlin.de"))
-		htwServicesSection.addLinkCell(withTitle: HWStrings.Controllers.Studies.HtwServices.mediaLibrary, opening: URL(string: "https://mediathek.htw-berlin.de"))
-        sections.append(htwServicesSection)
+		sections.append(SettingsSection(header: nil, footer: nil, presentingController: self)
+			.addPushCell(withTitle: HWStrings.Downloads.title, present: StudiesDownloadsController(style: .insetGrouped))
+		)
 
-		let settingsSection = SettingsSection(header: nil, footer: nil, presentingController: self)
-		settingsSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.title, present: SettingsController(style: .insetGrouped))
-		sections.append(settingsSection)
+		sections.append(SettingsSection(header: HWStrings.Controllers.Studies.HtwServices.title, footer: nil)
+			.addLinkCell(withTitle: "LSF",															opening: URL(string: "https://lsf.htw-berlin.de"))
+			.addLinkCell(withTitle: "Moodle",														opening: URL(string: "https://moodle.htw-berlin.de/login"))
+			.addLinkCell(withTitle: "Webmail",														opening: URL(string: "https://webmail.htw-berlin.de"))
+			.addLinkCell(withTitle: HWStrings.Controllers.Studies.HtwServices.universityLibrary,	opening: URL(string: "https://bibliothek.htw-berlin.de"))
+			.addLinkCell(withTitle: HWStrings.Controllers.Studies.HtwServices.mediaLibrary,			opening: URL(string: "https://mediathek.htw-berlin.de"))
+        )
+
+		sections.append(SettingsSection(header: nil, footer: nil, presentingController: self)
+			.addPushCell(withTitle: HWStrings.Controllers.Settings.title,	present: SettingsController(style: .insetGrouped))
+		)
     }
 
     // MARK: - Table view data source
