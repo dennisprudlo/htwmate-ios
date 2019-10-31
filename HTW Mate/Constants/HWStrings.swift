@@ -144,7 +144,10 @@ struct HWStrings {
 		}
     }
 
-
+	struct University {
+		static let winterSemester	= HWStrings.localized("university.winterSemester")
+		static let summerSemester	= HWStrings.localized("university.summerSemester")
+	}
 
 	struct Downloads {
 		static let title					= HWStrings.localized("downloads.title")

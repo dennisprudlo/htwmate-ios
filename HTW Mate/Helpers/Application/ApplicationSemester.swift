@@ -28,6 +28,6 @@ class ApplicationSemester {
 	}
 
 	func readable() -> String {
-		return "\(type == .winter ? "Winter semester" : "Summer semester") \(year)\(type == .winter ? "/\(year + 1)" : "")"
+		return "\(type == .winter ? HWStrings.University.winterSemester : HWStrings.University.summerSemester) \(year)\(type == .winter ? "/\(year + 1)" : "")"
 	}
 }
