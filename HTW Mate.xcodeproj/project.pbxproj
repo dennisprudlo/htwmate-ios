@@ -38,7 +38,6 @@
 		81A87D5D2364747B009F957C /* StudiesDownloadsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87D5C2364747B009F957C /* StudiesDownloadsController.swift */; };
 		81A87D5F2364767D009F957C /* HWSectionableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87D5E2364767D009F957C /* HWSectionableTableViewController.swift */; };
 		81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8EC22E34CBB0036BACC /* AlertManager.swift */; };
-		81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */; };
 		81BFA8F922E4CEAC0036BACC /* LecturersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8F822E4CEAC0036BACC /* LecturersController.swift */; };
 		81BFA8FC22E4D1D40036BACC /* LecturerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8FB22E4D1D40036BACC /* LecturerTableViewCell.swift */; };
 		81BFA8FE22E4DC2A0036BACC /* HWImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8FD22E4DC2A0036BACC /* HWImage.swift */; };
@@ -138,7 +137,6 @@
 		81A87D5C2364747B009F957C /* StudiesDownloadsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesDownloadsController.swift; sourceTree = "<group>"; };
 		81A87D5E2364767D009F957C /* HWSectionableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSectionableTableViewController.swift; sourceTree = "<group>"; };
 		81BFA8EC22E34CBB0036BACC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+DisplayName.swift"; sourceTree = "<group>"; };
 		81BFA8F822E4CEAC0036BACC /* LecturersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturersController.swift; sourceTree = "<group>"; };
 		81BFA8FB22E4D1D40036BACC /* LecturerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerTableViewCell.swift; sourceTree = "<group>"; };
 		81BFA8FD22E4DC2A0036BACC /* HWImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWImage.swift; sourceTree = "<group>"; };
@@ -390,7 +388,6 @@
 			isa = PBXGroup;
 			children = (
 				81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */,
-				81BFA8F022E387610036BACC /* Bundle+DisplayName.swift */,
 				81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */,
 				81F942982306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift */,
 				8169C35B231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift */,
@@ -690,7 +687,6 @@
 				81A87D5F2364767D009F957C /* HWSectionableTableViewController.swift in Sources */,
 				81F942A7230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift in Sources */,
 				81BFA90722F1B3820036BACC /* LecturersDetailController.swift in Sources */,
-				81BFA8F122E387610036BACC /* Bundle+DisplayName.swift in Sources */,
 				8106FFEF235A05A3009AFEB1 /* ApplicationLocale.swift in Sources */,
 				8112C6E9231C538800818868 /* HWFontSize.swift in Sources */,
 				81A87D5D2364747B009F957C /* StudiesDownloadsController.swift in Sources */,
