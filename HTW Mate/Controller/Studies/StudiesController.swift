@@ -24,6 +24,10 @@ class StudiesController: UITableViewController {
 			.addPushCell(withTitle: HWStrings.Controllers.Studies.Lectures.Cancelled.title, present: StudiesLecturesCancelledController(style: .insetGrouped))
 		)
 
+		sections.append(SettingsSection(header: nil, footer: nil, presentingController: self)
+			.addPushCell(withTitle: HWStrings.Downloads.title, present: StudiesDownloadsController(style: .insetGrouped))
+		)
+
 		sections.append(SettingsSection(header: HWStrings.Controllers.Studies.HtwServices.title, footer: nil)
 			.addLinkCell(withTitle: "LSF",															opening: URL(string: "https://lsf.htw-berlin.de"))
 			.addLinkCell(withTitle: "Moodle",														opening: URL(string: "https://moodle.htw-berlin.de/login"))
@@ -33,7 +37,6 @@ class StudiesController: UITableViewController {
         )
 
 		sections.append(SettingsSection(header: nil, footer: nil, presentingController: self)
-			.addPushCell(withTitle: HWStrings.Downloads.title,				present: StudiesDownloadsController(style: .insetGrouped))
 			.addPushCell(withTitle: HWStrings.Controllers.Settings.title,	present: SettingsController(style: .insetGrouped))
 		)
     }

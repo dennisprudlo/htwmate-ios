@@ -17,7 +17,7 @@ class StudiesDownloadsController: HWSectionableTableViewController {
 
 	override func configureSections() {
 		sections.append(SettingsSection(header: HWStrings.Downloads.sectionAcademicCalendars, footer: nil, presentingController: self)
-			.addPDFCell(withTitle: Application.currentSemester().readable(),		opening: API.shared.url("publicapi/downloads/academic-calendar/next"))
+			.addPDFCell(withTitle: Application.currentSemester().readable(),		opening: API.shared.url("publicapi/downloads/academic-calendar/current"))
 			.addPDFCell(withTitle: Application.currentSemester().next().readable(),	opening: API.shared.url("publicapi/downloads/academic-calendar/next"))
 		)
 
