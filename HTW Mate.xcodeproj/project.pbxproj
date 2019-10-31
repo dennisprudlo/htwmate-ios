@@ -386,7 +386,7 @@
 			path = Studies;
 			sourceTree = "<group>";
 		};
-		81EB7DAE22D1438B00E00485 /* Extenstions */ = {
+		81EB7DAE22D1438B00E00485 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */,
@@ -397,7 +397,7 @@
 				81C21EB5232CDA1B0005E2B0 /* UIView+pin.swift */,
 				817A8E3F2337B88600AD5383 /* UITableView+BackgroundView.swift */,
 			);
-			path = Extenstions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		81EB7DAF22D143B500E00485 /* Constants */ = {
@@ -418,7 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				8106FFED235A0593009AFEB1 /* Application */,
-				81EB7DAE22D1438B00E00485 /* Extenstions */,
+				81EB7DAE22D1438B00E00485 /* Extensions */,
 				81EB7DC622D270D900E00485 /* Protocols */,
 				81EB7DB522D1460500E00485 /* Managers */,
 			);
