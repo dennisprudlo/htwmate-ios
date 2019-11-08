@@ -20,6 +20,10 @@ class StudiesController: UITableViewController {
     }
 
 	func configureSections() {
+		sections.append(SettingsSection(header: nil, footer: nil, presentingController: self)
+			.addPushCell(withTitle: "Grades", present: UIViewController(), needsAuth: true)
+		)
+
 		sections.append(SettingsSection(header: HWStrings.Controllers.Studies.Lectures.title, footer: nil, presentingController: self)
 			.addPushCell(withTitle: HWStrings.Controllers.Studies.Lectures.Cancelled.title, present: StudiesLecturesCancelledController(style: .insetGrouped))
 		)

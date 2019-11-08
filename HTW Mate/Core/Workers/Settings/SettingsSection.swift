@@ -40,8 +40,13 @@ class SettingsSection {
 		return sectionCell
     }
 
-	@discardableResult public func addPushCell(withTitle title: String, present target: UIViewController) -> SettingsSection {
+	@discardableResult public func addPushCell(withTitle title: String, present target: UIViewController, needsAuth: Bool = false) -> SettingsSection {
 		let sectionCell = SettingsSectionCell(style: .disclosure) {
+			if needsAuth && !AuthManager.shared.authenticated() {
+				AuthManager.shared.presentAuthenticationController(in: self.presentingViewController)
+				return
+			}
+
 			self.presentingViewController?.navigationController?.pushViewController(target, animated: true)
 		}
 		sectionCell.setTitle(title)

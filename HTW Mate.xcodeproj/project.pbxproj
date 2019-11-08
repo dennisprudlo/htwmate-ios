@@ -35,6 +35,8 @@
 		81915BF52340F0AB00F796F4 /* StudiesCancelledLectureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF42340F0AB00F796F4 /* StudiesCancelledLectureCell.swift */; };
 		81915BF72340F17500F796F4 /* LectureCancelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF62340F17500F796F4 /* LectureCancelled.swift */; };
 		81915BF92340F38D00F796F4 /* HTWMateLecturesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF82340F38D00F796F4 /* HTWMateLecturesAPI.swift */; };
+		81A6FF99236BA35100393B15 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A6FF98236BA35100393B15 /* AuthManager.swift */; };
+		81A6FF9D236BA42400393B15 /* HWAuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A6FF9C236BA42400393B15 /* HWAuthenticationController.swift */; };
 		81A87D5D2364747B009F957C /* StudiesDownloadsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87D5C2364747B009F957C /* StudiesDownloadsController.swift */; };
 		81A87D5F2364767D009F957C /* HWSectionableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87D5E2364767D009F957C /* HWSectionableTableViewController.swift */; };
 		81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8EC22E34CBB0036BACC /* AlertManager.swift */; };
@@ -134,6 +136,8 @@
 		81915BF42340F0AB00F796F4 /* StudiesCancelledLectureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesCancelledLectureCell.swift; sourceTree = "<group>"; };
 		81915BF62340F17500F796F4 /* LectureCancelled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureCancelled.swift; sourceTree = "<group>"; };
 		81915BF82340F38D00F796F4 /* HTWMateLecturesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateLecturesAPI.swift; sourceTree = "<group>"; };
+		81A6FF98236BA35100393B15 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		81A6FF9C236BA42400393B15 /* HWAuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWAuthenticationController.swift; sourceTree = "<group>"; };
 		81A87D5C2364747B009F957C /* StudiesDownloadsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesDownloadsController.swift; sourceTree = "<group>"; };
 		81A87D5E2364767D009F957C /* HWSectionableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSectionableTableViewController.swift; sourceTree = "<group>"; };
 		81BFA8EC22E34CBB0036BACC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 				81F942B3230821420042EC3C /* HWEventEditViewController.swift */,
 				81E906612335300900F19CD5 /* HWSplitViewController.swift */,
 				81A87D5E2364767D009F957C /* HWSectionableTableViewController.swift */,
+				81A6FF9C236BA42400393B15 /* HWAuthenticationController.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 				81E0F1D622D394F10065849D /* DownloadManager.swift */,
 				81BFA8EC22E34CBB0036BACC /* AlertManager.swift */,
 				8129C4DF2361C15A0034E0B4 /* NotificationManager.swift */,
+				81A6FF98236BA35100393B15 /* AuthManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -663,8 +669,10 @@
 				81BFA8F922E4CEAC0036BACC /* LecturersController.swift in Sources */,
 				813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */,
 				8129C4E2236306720034E0B4 /* ApplicationSemester.swift in Sources */,
+				81A6FF9D236BA42400393B15 /* HWAuthenticationController.swift in Sources */,
 				81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */,
 				816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */,
+				81A6FF99236BA35100393B15 /* AuthManager.swift in Sources */,
 				81915BF22340E99300F796F4 /* StudiesLecturesCancelledController.swift in Sources */,
 				813CAF85231565A700854C30 /* HTWMateCafeteriaAPI.swift in Sources */,
 				81C21EA4232BA1860005E2B0 /* CafeteriaDishAttributeTableViewCell.swift in Sources */,
