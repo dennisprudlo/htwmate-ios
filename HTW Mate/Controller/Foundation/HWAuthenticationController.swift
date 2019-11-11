@@ -9,12 +9,17 @@
 import UIKit
 import CoreGraphics
 
-class HWAuthenticationController: UIViewController {
+class HWAuthenticationController: UIViewController, UITextFieldDelegate {
 
-    let usernameTextField   = UITextField()
-    let passwordTextField   = UITextField()
-	let authenticateButton	= UIButton(type: .system)
-    
+	var keyboardVisible: Bool	= false
+	
+	let contentView				= UIView()
+	var offsetConstraint:		NSLayoutConstraint?
+	
+    let usernameTextField		= UITextField()
+    let passwordTextField		= UITextField()
+	let authenticateButton		= UIButton(type: .system)
+	
 	var presenter: UIViewController?
 	var successPushTarget: UIViewController?
 	
@@ -23,7 +28,6 @@ class HWAuthenticationController: UIViewController {
 		view.backgroundColor = HWColors.StyleGuide.primaryGreen
 
 		if UIDevice.current.userInterfaceIdiom == .phone {
-			NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 			NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillShowNotification, object: nil)
 			NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillHideNotification, object: nil)
 		}
@@ -33,7 +37,6 @@ class HWAuthenticationController: UIViewController {
 	
 	deinit {
 		if UIDevice.current.userInterfaceIdiom == .pad {
-			NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 			NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
 			NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
 		}
@@ -43,44 +46,55 @@ class HWAuthenticationController: UIViewController {
 		guard let rectangle = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
 			return
 		}
-		
-		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
-			self.view.frame.origin.y = -rectangle.height
-		} else {
-			self.view.frame.origin.y = 0
+
+		if notification.name == UIResponder.keyboardWillShowNotification && !self.keyboardVisible {
+			self.offsetConstraint?.constant	= -rectangle.height
+			self.keyboardVisible			= true
+		} else if notification.name == UIResponder.keyboardWillHideNotification {
+			self.offsetConstraint?.constant	= 0
+			self.keyboardVisible			= false
 		}
 		
-		self.view.layoutSubviews()
+		self.view.layoutIfNeeded()
 	}
 	
 	private func configureConstraints() -> Void {
-		let coverView = UIView()
+		let coverView		= UIView()
         let privacyPanel	= generatePrivacyPanel()
         let formPanel		= generateFormPanel()
         
-		view.addSubview(coverView)
-		view.addSubview(privacyPanel)
-		view.addSubview(formPanel)
+		contentView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(contentView)
+		
+		contentView.addSubview(coverView)
+		contentView.addSubview(privacyPanel)
+		contentView.addSubview(formPanel)
 
-		privacyPanel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        privacyPanel.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: HWInsets.large).isActive = true
-        privacyPanel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -HWInsets.large).isActive = true
-		privacyPanel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		privacyPanel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        privacyPanel.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: HWInsets.large).isActive = true
+        privacyPanel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -HWInsets.large).isActive = true
+		privacyPanel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
 		privacyPanel.bottomAnchor.constraint(equalTo: formPanel.topAnchor, constant: -HWInsets.extraLarge).isActive = true
         
 		let offset: CGFloat = 50
 		coverView.translatesAutoresizingMaskIntoConstraints = false
 		coverView.backgroundColor = .white
 		coverView.transform = CGAffineTransform(rotationAngle: -7 * CGFloat.pi / 180)
-		coverView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -offset).isActive = true
+		coverView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -offset).isActive = true
 		coverView.topAnchor.constraint(equalTo: formPanel.topAnchor, constant: 0).isActive = true
-		coverView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: offset).isActive = true
-		coverView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: offset).isActive = true
+		coverView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: offset).isActive = true
+		coverView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: offset * 2).isActive = true
 		
-        formPanel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        formPanel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: HWInsets.large).isActive = true
-        formPanel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -HWInsets.large).isActive = true
-        formPanel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -HWInsets.large).isActive = true
+        formPanel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        formPanel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: HWInsets.large).isActive = true
+        formPanel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -HWInsets.large).isActive = true
+        formPanel.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -HWInsets.large).isActive = true
+		
+		contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+		contentView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+		contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+		offsetConstraint = contentView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+		offsetConstraint?.isActive = true
 	}
 	
     private func generateHeadlinePanel() -> UIView {
@@ -159,11 +173,14 @@ class HWAuthenticationController: UIViewController {
 		usernamePanel.addSubview(usernameTextField)
 		AppearanceManager.dropShadow(for: usernamePanel, withRadius: 1.5, opacity: 0.3, ignoreBackground: true)
 		usernameTextField.translatesAutoresizingMaskIntoConstraints = false
+		usernameTextField.delegate = self
 		usernameTextField.placeholder = HWStrings.Authentication.studentId
 		usernameTextField.rightViewMode = .always
 		usernameTextField.rightView = studentInfoButton
 		usernameTextField.autocorrectionType = .no
 		usernameTextField.autocapitalizationType = .none
+		usernameTextField.keyboardType = .emailAddress
+		usernameTextField.returnKeyType = .next
 		usernameTextField.tintColor = HWColors.StyleGuide.primaryGreen
 		usernameTextField.heightAnchor.constraint(equalToConstant: textFieldHeight).isActive = true
 		usernameTextField.leadingAnchor.constraint(equalTo: usernamePanel.leadingAnchor, constant: inset).isActive = true
@@ -174,10 +191,13 @@ class HWAuthenticationController: UIViewController {
 		passwordPanel.addSubview(passwordTextField)
 		AppearanceManager.dropShadow(for: passwordPanel, withRadius: 1.5, opacity: 0.3, ignoreBackground: true)
 		passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+		passwordTextField.delegate = self
 		passwordTextField.placeholder = HWStrings.Authentication.password
         passwordTextField.isSecureTextEntry = true
 		passwordTextField.autocorrectionType = .no
 		passwordTextField.autocapitalizationType = .none
+		passwordTextField.keyboardType = .default
+		passwordTextField.returnKeyType = .join
 		passwordTextField.tintColor = HWColors.StyleGuide.primaryGreen
 		passwordTextField.heightAnchor.constraint(equalToConstant: textFieldHeight).isActive = true
 		passwordTextField.leadingAnchor.constraint(equalTo: passwordPanel.leadingAnchor, constant: inset).isActive = true
@@ -222,6 +242,17 @@ class HWAuthenticationController: UIViewController {
 		}
 	}
 	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		if textField == usernameTextField {
+			passwordTextField.becomeFirstResponder()
+		} else if textField == passwordTextField {
+			didTapSignIn()
+		}
+		
+		// Do not add a line break
+		return false
+	}
+	
     @objc private func didTapUsernameHelp() -> Void {
         AlertManager.init(in: self)
 			.with(title: HWStrings.Authentication.studentIdInfoTitle)
@@ -230,6 +261,9 @@ class HWAuthenticationController: UIViewController {
     }
     
     @objc private func didTapSignIn() -> Void {
+		usernameTextField.resignFirstResponder()
+		passwordTextField.resignFirstResponder()
+		
 		var username = usernameTextField.text ?? ""
 		let password = passwordTextField.text ?? ""
 		
@@ -238,8 +272,6 @@ class HWAuthenticationController: UIViewController {
 			return
 		}
 		
-		usernameTextField.resignFirstResponder()
-		passwordTextField.resignFirstResponder()
 		self.setStatusText("Authenticating...")
 		
 		if username.range(of: "s0", options: .caseInsensitive) == nil {
