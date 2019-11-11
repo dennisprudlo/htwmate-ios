@@ -14,6 +14,9 @@ class HWAuthenticationController: UIViewController {
     let usernameTextField   = UITextField()
     let passwordTextField   = UITextField()
     
+	var presenter: UIViewController?
+	var successPushTarget: UIViewController?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		view.backgroundColor = HWColors.StyleGuide.primaryGreen
@@ -49,24 +52,12 @@ class HWAuthenticationController: UIViewController {
 	
 	private func configureConstraints() -> Void {
 		let coverView = UIView()
-//		let titleLabel		= UILabel()
         let privacyPanel	= generatePrivacyPanel()
         let formPanel		= generateFormPanel()
         
 		view.addSubview(coverView)
-//		view.addSubview(titleLabel)
 		view.addSubview(privacyPanel)
 		view.addSubview(formPanel)
-		
-
-//
-//		titleLabel.translatesAutoresizingMaskIntoConstraints = false
-//		titleLabel.text = "HTW Account"
-//		titleLabel.textColor = HWColors.StyleGuide.primaryGreen
-//		titleLabel.font = UIFont.boldSystemFont(ofSize: HWFontSize.title)
-//		titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//		titleLabel.centerYAnchor.constraint(equalTo: headerPanel.centerYAnchor).isActive = true
-//
 
 		privacyPanel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         privacyPanel.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: HWInsets.large).isActive = true
@@ -228,15 +219,34 @@ class HWAuthenticationController: UIViewController {
     }
     
     @objc private func didTapSignIn() -> Void {
-		guard let url = URL(string: "https://lsf.htw-berlin.de/qisserver/rds?state=user&type=1") else {
-			return
+		var username = usernameTextField.text ?? ""
+		let password = passwordTextField.text ?? ""
+		
+		if username.count == 0 || password.count == 0 {
+			AlertManager.init(in: self).with(title: "Temp").with(message: "username and password must be filled").dispatch()
 		}
 		
-		let request = URLRequest(url: url)
-		let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-			print(data)
+		if username.range(of: "s0", options: .caseInsensitive) == nil {
+			username = "s0\(username)"
 		}
 		
-		task.resume()
+		username = username.replacingOccurrences(of: "@htw-berlin.de", with: "", options: .caseInsensitive)
+		
+		API.shared.lsf().auth(username: username, password: password) { (success, response) in
+			DispatchQueue.main.async {
+				if !success {
+					AlertManager.init(in: self).with(title: "Temp").with(message: "wrong username or password").dispatch()
+					return
+				}
+				
+				self.dismiss(animated: true) {
+					guard let presenter = self.presenter, let target = self.successPushTarget else {
+						return
+					}
+					
+					presenter.navigationController?.pushViewController(target, animated: true)
+				}
+			}
+		}
     }
 }

@@ -42,8 +42,11 @@ class SettingsSection {
 
 	@discardableResult public func addPushCell(withTitle title: String, present target: UIViewController, needsAuth: Bool = false) -> SettingsSection {
 		let sectionCell = SettingsSectionCell(style: .disclosure) {
-			if needsAuth && !AuthManager.shared.authenticated() {
-				AuthManager.shared.presentAuthenticationController(in: self.presentingViewController)
+			if needsAuth {
+				let authController = HWAuthenticationController()
+				authController.presenter = self.presentingViewController
+				authController.successPushTarget = target
+				self.presentingViewController?.present(authController, animated: true, completion: nil)
 				return
 			}
 
