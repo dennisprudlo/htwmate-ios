@@ -20,5 +20,21 @@ class Application {
 
 		return ApplicationSemester(type: month >= 10 || month < 4 ? .winter : .summer, year: year)
 	}
+	
+	static func hasAuthenticationInformation() -> Bool {
+		return getAuthenticationInformation() != nil
+	}
+	
+	static func getAuthenticationInformation() -> (studentId: String, password: String)? {
+		guard let studentId = Keychain.standard.string(forKey: Keychain.Key.authenticationStudentId) else {
+			return nil
+		}
+	
+		guard let password = Keychain.standard.string(forKey: Keychain.Key.authenticationPassword) else {
+			return nil
+		}
+		
+		return (studentId: studentId, password: password)
+	}
 
 }

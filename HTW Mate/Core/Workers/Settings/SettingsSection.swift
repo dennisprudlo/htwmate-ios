@@ -42,7 +42,7 @@ class SettingsSection {
 
 	@discardableResult public func addPushCell(withTitle title: String, present target: UIViewController, needsAuth: Bool = false) -> SettingsSection {
 		let sectionCell = SettingsSectionCell(style: .disclosure) {
-			if needsAuth {
+			if needsAuth && !Application.hasAuthenticationInformation() {
 				let authController = HWAuthenticationController()
 				authController.presenter = self.presentingViewController
 				authController.successPushTarget = target

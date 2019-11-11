@@ -294,6 +294,9 @@ class HWAuthenticationController: UIViewController, UITextFieldDelegate {
 					return
 				}
 				
+				Keychain.standard.set(username, forKey: Keychain.Key.authenticationStudentId)
+				Keychain.standard.set(password, forKey: Keychain.Key.authenticationPassword)
+				
 				self.dismiss(animated: true) {
 					guard let presenter = self.presenter, let target = self.successPushTarget else {
 						return
