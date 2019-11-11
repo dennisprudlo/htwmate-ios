@@ -29,5 +29,8 @@ extension UIColor {
     public convenience init(fromHex hex: Int) {
         self.init(fromHexRed: (hex >> 16) & 0xFF, green: (hex >> 8) & 0xFF, blue: hex & 0xFF, alpha: 0xFF)
     }
-
+	
+	static func destructiveColor() -> UIColor {
+		return UIColor(red: 1, green: 0.2196078431, blue: 0.137254902, alpha: 1)
+	}
 }

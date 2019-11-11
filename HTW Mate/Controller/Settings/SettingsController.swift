@@ -16,11 +16,15 @@ class SettingsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = HWStrings.Controllers.Settings.title
-
-		//
-		// Configure the sections for the view
-        configureSections()
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		self.sections = []
+		configureSections()
+		tableView.reloadData()
+	}
 
 	/// Configures the sections for the table view
     func configureSections() {
@@ -39,6 +43,14 @@ class SettingsController: UITableViewController {
         legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.itemAbout, present: SettingsAboutController(style: .insetGrouped))
 		legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.Legal.title, present: SettingsLegalController(style: .insetGrouped))
         sections.append(legalSection)
+		
+		if Application.hasAuthenticationInformation() {
+			sections.append(SettingsSection(header: nil, footer: HWStrings.Authentication.unlinkDescription)
+				.addDefaultCell(ofType: .destructive, title: HWStrings.Authentication.unlinkTitle, handler: {
+					AlertManager.init(in: self).unlinkAccount()
+				})
+			)
+		}
     }
 
     // MARK: - Table view data source

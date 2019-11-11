@@ -19,6 +19,7 @@ class SettingsSectionCell {
 		case disclosureLabel
 		case link(icon: UIImage?)
 		case linkSubtitle(icon: UIImage?)
+		case destructive
 		case custom
     }
 
@@ -57,6 +58,8 @@ class SettingsSectionCell {
 				imageView.image = icon
 				imageView.tintColor = HWColors.StyleGuide.primaryGreen
 				cell.accessoryView = imageView
+			case .destructive:
+				cell.textLabel?.textColor = UIColor.destructiveColor()
 			case .custom:
 				break
         }

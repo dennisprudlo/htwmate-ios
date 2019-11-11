@@ -22,6 +22,7 @@ struct HWStrings {
     static let ok		= HWStrings.localized("base.ok")
     static let cancel	= HWStrings.localized("base.cancel")
     static let settings	= HWStrings.localized("base.settings")
+	static let unlink	= HWStrings.localized("base.unlink")
 
     // MARK: Permission alerts
     struct Permissions {
@@ -178,5 +179,8 @@ struct HWStrings {
 		static let invalidInputDescription		= HWStrings.localized("authentication.invalidInputDescription")
 		static let incorrectInputTitle			= HWStrings.localized("authentication.incorrectInputTitle")
 		static let incorrectInputDescription	= HWStrings.localized("authentication.incorrectInputDescription")
+		static let unlinkTitle					= HWStrings.localized("authentication.unlinkTitle")
+		static let unlinkDescription			= HWStrings.localized("authentication.unlinkDescription")
+		static let unlinkConfirmation			= HWStrings.localized("authentication.unlinkConfirmation")
     }
 }

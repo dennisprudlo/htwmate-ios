@@ -40,6 +40,11 @@ class SettingsSection {
 		return sectionCell
     }
 
+	@discardableResult func addDefaultCell(ofType type: SettingsSectionCell.CellStyle, title: String, handler: (() -> Void)?) -> SettingsSection {
+		self.addCell(ofType: type, title: title, handler: handler)
+		return self
+	}
+	
 	@discardableResult public func addPushCell(withTitle title: String, present target: UIViewController, needsAuth: Bool = false) -> SettingsSection {
 		let sectionCell = SettingsSectionCell(style: .disclosure) {
 			if needsAuth && !Application.hasAuthenticationInformation() {
