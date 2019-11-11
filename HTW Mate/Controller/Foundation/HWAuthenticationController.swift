@@ -13,6 +13,7 @@ class HWAuthenticationController: UIViewController {
 
     let usernameTextField   = UITextField()
     let passwordTextField   = UITextField()
+	let authenticateButton	= UIButton(type: .system)
     
 	var presenter: UIViewController?
 	var successPushTarget: UIViewController?
@@ -31,12 +32,14 @@ class HWAuthenticationController: UIViewController {
     }
 	
 	deinit {
-		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+		if UIDevice.current.userInterfaceIdiom == .pad {
+			NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+			NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+			NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+		}
 	}
 	
-	@objc func keyboardWillChange(notification: NSNotification) {
+	@objc private func keyboardWillChange(notification: NSNotification) {
 		guard let rectangle = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
 			return
 		}
@@ -124,9 +127,10 @@ class HWAuthenticationController: UIViewController {
 		upperPanel.addSubview(wrapper)
 		wrapper.leadingAnchor.constraint(equalTo: upperPanel.leadingAnchor).isActive = true
 		wrapper.trailingAnchor.constraint(equalTo: upperPanel.trailingAnchor).isActive = true
-		wrapper.widthAnchor.constraint(lessThanOrEqualToConstant: 375).isActive = true
+		wrapper.widthAnchor.constraint(lessThanOrEqualToConstant: 250).isActive = true
 		wrapper.topAnchor.constraint(greaterThanOrEqualTo: upperPanel.topAnchor, constant: HWInsets.extraLarge).isActive = true
 		wrapper.bottomAnchor.constraint(lessThanOrEqualTo: upperPanel.bottomAnchor).isActive = true
+		wrapper.heightAnchor.constraint(lessThanOrEqualToConstant: 300).isActive = true
 		wrapper.centerYAnchor.constraint(equalTo: upperPanel.centerYAnchor).isActive = true
 		
 		return upperPanel
@@ -181,7 +185,6 @@ class HWAuthenticationController: UIViewController {
         passwordTextField.trailingAnchor.constraint(equalTo: passwordPanel.trailingAnchor, constant: -inset).isActive = true
         passwordTextField.bottomAnchor.constraint(equalTo: passwordPanel.bottomAnchor, constant: -inset).isActive = true
         
-		let authenticateButton = UIButton(type: .system)
         authenticateButton.translatesAutoresizingMaskIntoConstraints = false
 		authenticateButton.backgroundColor = HWColors.StyleGuide.primaryGreen
 		authenticateButton.setTitle(HWStrings.Authentication.signInButton, for: .normal)
@@ -211,6 +214,14 @@ class HWAuthenticationController: UIViewController {
 		return formPanel
 	}
     
+	private func setStatusText(_ text: String? = nil) {
+		if let text = text {
+			authenticateButton.setTitle(text, for: .normal)
+		} else {
+			authenticateButton.setTitle(HWStrings.Authentication.signInButton, for: .normal)
+		}
+	}
+	
     @objc private func didTapUsernameHelp() -> Void {
         AlertManager.init(in: self)
 			.with(title: HWStrings.Authentication.studentIdInfoTitle)
@@ -224,7 +235,12 @@ class HWAuthenticationController: UIViewController {
 		
 		if username.count == 0 || password.count == 0 {
 			AlertManager.init(in: self).with(title: "Temp").with(message: "username and password must be filled").dispatch()
+			return
 		}
+		
+		usernameTextField.resignFirstResponder()
+		passwordTextField.resignFirstResponder()
+		self.setStatusText("Authenticating...")
 		
 		if username.range(of: "s0", options: .caseInsensitive) == nil {
 			username = "s0\(username)"
@@ -235,6 +251,7 @@ class HWAuthenticationController: UIViewController {
 		API.shared.lsf().auth(username: username, password: password) { (success, response) in
 			DispatchQueue.main.async {
 				if !success {
+					self.setStatusText()
 					AlertManager.init(in: self).with(title: "Temp").with(message: "wrong username or password").dispatch()
 					return
 				}
