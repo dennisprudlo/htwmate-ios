@@ -166,4 +166,13 @@ struct HWStrings {
 		}
 
 	}
+    
+    struct Authentication {
+        static let studentId				= HWStrings.localized("authentication.studentId")
+        static let studentIdInfoTitle		= HWStrings.localized("authentication.studentIdInfoTitle")
+        static let studentIdInfoDescription	= HWStrings.localized("authentication.studentIdInfoDescription")
+        static let password					= HWStrings.localized("authentication.password")
+		static let privacyInfo				= HWStrings.localized("authentication.privacyInfo")
+		static let signInButton				= HWStrings.localized("authentication.signInButton")
+    }
 }

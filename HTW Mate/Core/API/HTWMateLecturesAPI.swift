@@ -18,7 +18,7 @@ class HTWMateLecturesAPI {
     /// - Parameters:
     ///   - completion: The completion handler after a successful request
     func getCancelled(completion: @escaping ([[LectureCancelled]], URLResponse) -> Void) {
-        let components = API.shared.route(self.endpoint + "/cancelled", query: false)
+		let components = API.shared.route(self.endpoint + "/cancelled", queryItems: nil)
         API.shared.get(route: components) { (data, response) in
             do {
 				if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [String: [NSDictionary]] {

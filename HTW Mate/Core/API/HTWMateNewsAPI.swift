@@ -19,12 +19,12 @@ class HTWMateNewsAPI {
     ///   - limit: The amount of news articles to fetch. Gets all if nil is passed
     ///   - completion: The completion handler after a successful request
     func get(limit: Int?, completion: @escaping ([News], URLResponse) -> Void) {
-
-        var components = API.shared.route(self.endpoint, query: limit != nil)
-
+		var queryItems: [URLQueryItem]?
         if let safeLimit = limit {
-            components.queryItems?.append(URLQueryItem(name: "limit", value: "\(safeLimit)"))
+            queryItems = [URLQueryItem(name: "limit", value: "\(safeLimit)")]
         }
+		
+		let components = API.shared.route(self.endpoint, queryItems: queryItems)
 
         API.shared.get(route: components) { (data, response) in
             do {

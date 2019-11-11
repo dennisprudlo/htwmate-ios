@@ -31,6 +31,7 @@
 		8177389523049FDF00D0F8D4 /* DashboardNewsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177389423049FDF00D0F8D4 /* DashboardNewsStorage.swift */; };
 		817738972304A14900D0F8D4 /* DashboardEventStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817738962304A14900D0F8D4 /* DashboardEventStorage.swift */; };
 		817A8E402337B88600AD5383 /* UITableView+BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817A8E3F2337B88600AD5383 /* UITableView+BackgroundView.swift */; };
+		818E56412379B745009B5196 /* HTWMateLsfAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E56402379B745009B5196 /* HTWMateLsfAPI.swift */; };
 		81915BF22340E99300F796F4 /* StudiesLecturesCancelledController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF12340E99300F796F4 /* StudiesLecturesCancelledController.swift */; };
 		81915BF52340F0AB00F796F4 /* StudiesCancelledLectureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF42340F0AB00F796F4 /* StudiesCancelledLectureCell.swift */; };
 		81915BF72340F17500F796F4 /* LectureCancelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF62340F17500F796F4 /* LectureCancelled.swift */; };
@@ -132,6 +133,7 @@
 		8177389423049FDF00D0F8D4 /* DashboardNewsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardNewsStorage.swift; sourceTree = "<group>"; };
 		817738962304A14900D0F8D4 /* DashboardEventStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEventStorage.swift; sourceTree = "<group>"; };
 		817A8E3F2337B88600AD5383 /* UITableView+BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+BackgroundView.swift"; sourceTree = "<group>"; };
+		818E56402379B745009B5196 /* HTWMateLsfAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateLsfAPI.swift; sourceTree = "<group>"; };
 		81915BF12340E99300F796F4 /* StudiesLecturesCancelledController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesLecturesCancelledController.swift; sourceTree = "<group>"; };
 		81915BF42340F0AB00F796F4 /* StudiesCancelledLectureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesCancelledLectureCell.swift; sourceTree = "<group>"; };
 		81915BF62340F17500F796F4 /* LectureCancelled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureCancelled.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				81BFA90122E5D3020036BACC /* HTWMateLecturersAPI.swift */,
 				813CAF84231565A700854C30 /* HTWMateCafeteriaAPI.swift */,
 				81915BF82340F38D00F796F4 /* HTWMateLecturesAPI.swift */,
+				818E56402379B745009B5196 /* HTWMateLsfAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				81FBAEF7232E7E48004F5CD5 /* DashboardNewsSection.swift in Sources */,
 				81D7A2D3230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift in Sources */,
 				81EB7DC822D270F100E00485 /* Dequeable.swift in Sources */,
+				818E56412379B745009B5196 /* HTWMateLsfAPI.swift in Sources */,
 				81EB7DB122D143C300E00485 /* HWColors.swift in Sources */,
 				81E0F1DB22D3A1B20065849D /* SectionTitleCollectionReusableView.swift in Sources */,
 				81BFA90222E5D3020036BACC /* HTWMateLecturersAPI.swift in Sources */,

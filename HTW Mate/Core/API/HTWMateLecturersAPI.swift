@@ -19,7 +19,7 @@ class HTWMateLecturersAPI {
     ///   - completion: The completion handler after a successful request
     func get(completion: @escaping ([Lecturer], URLResponse) -> Void) {
 
-        let components = API.shared.route(self.endpoint, query: false)
+		let components = API.shared.route(self.endpoint, queryItems: nil)
         API.shared.get(route: components) { (data, response) in
             do {
                 if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [NSDictionary] {

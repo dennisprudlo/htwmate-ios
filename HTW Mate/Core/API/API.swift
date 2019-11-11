@@ -32,6 +32,10 @@ class API {
 	func lecturesResource() -> HTWMateLecturesAPI {
         return HTWMateLecturesAPI()
     }
+	
+	func lsf() -> HTWMateLsfAPI {
+		return HTWMateLsfAPI()
+	}
 
     /// Gets the API secret needed to access the HTW Mates API data
     ///
@@ -81,16 +85,13 @@ class API {
     ///   - query: Whether to use query parameters or not
     ///   - tokenized: Whether the API request requires the token
     /// - Returns: The URL components used to send the request
-    func route(_ relative: String, query: Bool) -> URLComponents {
+    func route(_ relative: String, queryItems: [URLQueryItem]?) -> URLComponents {
         var components = URLComponents()
-        components.scheme = self.scheme()
-        components.host = self.host()
-        components.port = self.port()
-        components.path = "/api/\(relative)"
-
-        if query {
-            components.queryItems = [URLQueryItem]()
-        }
+        components.scheme		= self.scheme()
+        components.host			= self.host()
+        components.port			= self.port()
+        components.path			= "/api/\(relative)"
+		components.queryItems	= queryItems
 
         return components
     }

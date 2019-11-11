@@ -23,15 +23,18 @@ class HTWMateCafeteriaAPI {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let stringDate = dateFormatter.string(from: date)
 
-        var components = API.shared.route(self.endpoint, query: true)
-        components.queryItems?.append(URLQueryItem(name: "date", value: stringDate))
-        components.queryItems?.append(URLQueryItem(name: "cafeteria", value: cafeteria.rawValue))
-        components.queryItems?.append(URLQueryItem(name: "internationalized", value: internationalied ? "1" : "0"))
+        var queryItems = [
+			URLQueryItem(name: "date", value: stringDate),
+			URLQueryItem(name: "cafeteria", value: cafeteria.rawValue),
+			URLQueryItem(name: "internationalized", value: internationalied ? "1" : "0")
+		]
 
 		if !filter.isEmpty {
-			components.queryItems?.append(URLQueryItem(name: "filter", value: filter.joined(separator: ",")))
+			queryItems.append(URLQueryItem(name: "filter", value: filter.joined(separator: ",")))
 		}
 
+		let components = API.shared.route(self.endpoint, queryItems: queryItems)
+		
         API.shared.get(route: components) { (data, response) in
             do {
                 if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [NSDictionary] {
