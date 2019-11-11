@@ -268,7 +268,10 @@ class HWAuthenticationController: UIViewController, UITextFieldDelegate {
 		let password = passwordTextField.text ?? ""
 		
 		if username.count == 0 || password.count == 0 {
-			AlertManager.init(in: self).with(title: "Temp").with(message: "username and password must be filled").dispatch()
+			AlertManager.init(in: self)
+				.with(title: HWStrings.Authentication.invalidInputTitle)
+				.with(message: HWStrings.Authentication.invalidInputDescription)
+				.dispatch()
 			return
 		}
 		
@@ -284,7 +287,10 @@ class HWAuthenticationController: UIViewController, UITextFieldDelegate {
 			DispatchQueue.main.async {
 				if !success {
 					self.setStatusText()
-					AlertManager.init(in: self).with(title: "Temp").with(message: "wrong username or password").dispatch()
+					AlertManager.init(in: self)
+						.with(title: HWStrings.Authentication.incorrectInputTitle)
+						.with(message: HWStrings.Authentication.incorrectInputDescription)
+						.dispatch()
 					return
 				}
 				

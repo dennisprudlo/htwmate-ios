@@ -168,11 +168,15 @@ struct HWStrings {
 	}
     
     struct Authentication {
-        static let studentId				= HWStrings.localized("authentication.studentId")
-        static let studentIdInfoTitle		= HWStrings.localized("authentication.studentIdInfoTitle")
-        static let studentIdInfoDescription	= HWStrings.localized("authentication.studentIdInfoDescription")
-        static let password					= HWStrings.localized("authentication.password")
-		static let privacyInfo				= HWStrings.localized("authentication.privacyInfo")
-		static let signInButton				= HWStrings.localized("authentication.signInButton")
+        static let studentId					= HWStrings.localized("authentication.studentId")
+        static let studentIdInfoTitle			= HWStrings.localized("authentication.studentIdInfoTitle")
+        static let studentIdInfoDescription		= HWStrings.localized("authentication.studentIdInfoDescription")
+        static let password						= HWStrings.localized("authentication.password")
+		static let privacyInfo					= HWStrings.localized("authentication.privacyInfo")
+		static let signInButton					= HWStrings.localized("authentication.signInButton")
+		static let invalidInputTitle			= HWStrings.localized("authentication.invalidInputTitle")
+		static let invalidInputDescription		= HWStrings.localized("authentication.invalidInputDescription")
+		static let incorrectInputTitle			= HWStrings.localized("authentication.incorrectInputTitle")
+		static let incorrectInputDescription	= HWStrings.localized("authentication.incorrectInputDescription")
     }
 }
