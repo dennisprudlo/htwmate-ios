@@ -19,6 +19,7 @@
 		813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF862315660B00854C30 /* CafeteriaDish.swift */; };
 		813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8923156FD500854C30 /* CafeteriaStorage.swift */; };
 		813CAF8D23157B7B00854C30 /* CafeteriaDishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */; };
+		81647C22237B466200B79543 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81647C21237B466200B79543 /* KeychainItemAccessibility.swift */; };
 		8169C35C231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169C35B231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift */; };
 		816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2A22D9D04000FA507E /* HWStrings.swift */; };
 		816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */; };
@@ -120,6 +121,7 @@
 		813CAF862315660B00854C30 /* CafeteriaDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDish.swift; sourceTree = "<group>"; };
 		813CAF8923156FD500854C30 /* CafeteriaStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaStorage.swift; sourceTree = "<group>"; };
 		813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishTableViewCell.swift; sourceTree = "<group>"; };
+		81647C21237B466200B79543 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		8169C35B231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+BlurredStatusBar.swift"; sourceTree = "<group>"; };
 		816B7A2A22D9D04000FA507E /* HWStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWStrings.swift; sourceTree = "<group>"; };
 		816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateEventsAPI.swift; sourceTree = "<group>"; };
@@ -267,6 +269,8 @@
 		81647C1E237B423600B79543 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				81647C20237B44DE00B79543 /* Keychain */,
+				81F9429B230716490042EC3C /* LecturerRenderer */,
 				81647C1F237B424500B79543 /* StaticTable */,
 			);
 			path = Libraries;
@@ -280,6 +284,15 @@
 				81C21EB0232CCF3E0005E2B0 /* StaticTableSectionCell.swift */,
 			);
 			path = StaticTable;
+			sourceTree = "<group>";
+		};
+		81647C20237B44DE00B79543 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				81765B6E237A0F630027454E /* Keychain.swift */,
+				81647C21237B466200B79543 /* KeychainItemAccessibility.swift */,
+			);
+			path = Keychain;
 			sourceTree = "<group>";
 		};
 		8177389323049F5F00D0F8D4 /* Foundation */ = {
@@ -333,7 +346,6 @@
 			isa = PBXGroup;
 			children = (
 				81FBAEF1232E6E22004F5CD5 /* Dashboard */,
-				81F9429B230716490042EC3C /* LecturerRenderer */,
 				81BFA90422F199490036BACC /* LecturerStorage.swift */,
 				8177389423049FDF00D0F8D4 /* DashboardNewsStorage.swift */,
 				817738962304A14900D0F8D4 /* DashboardEventStorage.swift */,
@@ -421,7 +433,6 @@
 				81BFA8FD22E4DC2A0036BACC /* HWImage.swift */,
 				8112C6E8231C538800818868 /* HWFontSize.swift */,
 				81C21EBB232CE4D00005E2B0 /* HWDefault.swift */,
-				81765B6E237A0F630027454E /* Keychain.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -740,6 +751,7 @@
 				81C21EB3232CD7180005E2B0 /* SettingsLegalController.swift in Sources */,
 				81BFA90922F1DC780036BACC /* LecturerInfoHeadTableViewCell.swift in Sources */,
 				8106FFEC235A0077009AFEB1 /* Application.swift in Sources */,
+				81647C22237B466200B79543 /* KeychainItemAccessibility.swift in Sources */,
 				81EB7DD022D2A07C00E00485 /* API.swift in Sources */,
 				817738802302E93D00D0F8D4 /* LecturerInfoUpdatedTableViewCell.swift in Sources */,
 				81EB7DC522D270A000E00485 /* NewsCollectionViewCell.swift in Sources */,
