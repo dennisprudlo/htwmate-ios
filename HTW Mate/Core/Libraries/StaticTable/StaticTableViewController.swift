@@ -1,5 +1,5 @@
 //
-//  HWSectionableTableViewController.swift
+//  StaticTableViewController.swift
 //  HTW Mate
 //
 //  Created by Dennis Prudlo on 10/26/19.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class HWSectionableTableViewController: UITableViewController {
+class StaticTableViewController: UITableViewController {
 
-	var sections: [SettingsSection] = []
+	var sections: [StaticTableSection] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,12 @@ class HWSectionableTableViewController: UITableViewController {
 
 	func configureSections() -> Void {
 
+	}
+	
+	func addSection(withHeader header: String?, footer: String?, controller: UIViewController) -> StaticTableSection {
+		let section = StaticTableSection(header: header, footer: footer, presentingController: controller)
+		self.sections.append(section)
+		return section
 	}
 
     // MARK: - Table view data source

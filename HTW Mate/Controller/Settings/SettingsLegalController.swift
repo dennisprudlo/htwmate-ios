@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsLegalController: UITableViewController {
 
-    var sections: [SettingsSection] = []
+    var sections: [StaticTableSection] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +21,13 @@ class SettingsLegalController: UITableViewController {
 
 	func configureSections() {
 
-		let external = SettingsSection(header: nil, footer: nil)
+		let external = StaticTableSection(header: nil, footer: nil)
 		external.addLinkCell(withTitle: HWStrings.Controllers.Settings.Legal.privacyPolicy,	opening: URL(string: "https://htwmate.com/privacy"))
 		external.addLinkCell(withTitle: HWStrings.Controllers.Settings.Legal.masthead,		opening: URL(string: "https://htwmate.com/masthead"))
 		external.addLinkCell(withTitle: HWStrings.Controllers.Settings.Legal.termsOfUse,	opening: URL(string: "https://htwmate.com/terms-of-use"))
 		sections.append(external)
 
-		let supportSection = SettingsSection(header: nil, footer: nil)
+		let supportSection = StaticTableSection(header: nil, footer: nil)
 		supportSection.addLinkCell(withTitle: HWStrings.Controllers.Settings.Legal.support,	opening: URL(string: "https://htwmate.com/support"))
 		sections.append(supportSection)
     }

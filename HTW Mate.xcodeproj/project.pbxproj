@@ -39,7 +39,7 @@
 		81915BF92340F38D00F796F4 /* HTWMateLecturesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF82340F38D00F796F4 /* HTWMateLecturesAPI.swift */; };
 		81A6FF9D236BA42400393B15 /* HWAuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A6FF9C236BA42400393B15 /* HWAuthenticationController.swift */; };
 		81A87D5D2364747B009F957C /* StudiesDownloadsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87D5C2364747B009F957C /* StudiesDownloadsController.swift */; };
-		81A87D5F2364767D009F957C /* HWSectionableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87D5E2364767D009F957C /* HWSectionableTableViewController.swift */; };
+		81A87D5F2364767D009F957C /* StaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87D5E2364767D009F957C /* StaticTableViewController.swift */; };
 		81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8EC22E34CBB0036BACC /* AlertManager.swift */; };
 		81BFA8F922E4CEAC0036BACC /* LecturersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8F822E4CEAC0036BACC /* LecturersController.swift */; };
 		81BFA8FC22E4D1D40036BACC /* LecturerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8FB22E4D1D40036BACC /* LecturerTableViewCell.swift */; };
@@ -52,8 +52,8 @@
 		81C21EA4232BA1860005E2B0 /* CafeteriaDishAttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EA3232BA1860005E2B0 /* CafeteriaDishAttributeTableViewCell.swift */; };
 		81C21EA6232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EA5232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift */; };
 		81C21EAB232BE4150005E2B0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EAA232BE4150005E2B0 /* SettingsController.swift */; };
-		81C21EAE232CCEDB0005E2B0 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EAD232CCEDB0005E2B0 /* SettingsSection.swift */; };
-		81C21EB1232CCF3E0005E2B0 /* SettingsSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB0232CCF3E0005E2B0 /* SettingsSectionCell.swift */; };
+		81C21EAE232CCEDB0005E2B0 /* StaticTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EAD232CCEDB0005E2B0 /* StaticTableSection.swift */; };
+		81C21EB1232CCF3E0005E2B0 /* StaticTableSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB0232CCF3E0005E2B0 /* StaticTableSectionCell.swift */; };
 		81C21EB3232CD7180005E2B0 /* SettingsLegalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB2232CD7180005E2B0 /* SettingsLegalController.swift */; };
 		81C21EB6232CDA1B0005E2B0 /* UIView+pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB5232CDA1B0005E2B0 /* UIView+pin.swift */; };
 		81C21EB8232CDE860005E2B0 /* SettingsAboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB7232CDE860005E2B0 /* SettingsAboutController.swift */; };
@@ -141,7 +141,7 @@
 		81915BF82340F38D00F796F4 /* HTWMateLecturesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateLecturesAPI.swift; sourceTree = "<group>"; };
 		81A6FF9C236BA42400393B15 /* HWAuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWAuthenticationController.swift; sourceTree = "<group>"; };
 		81A87D5C2364747B009F957C /* StudiesDownloadsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesDownloadsController.swift; sourceTree = "<group>"; };
-		81A87D5E2364767D009F957C /* HWSectionableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSectionableTableViewController.swift; sourceTree = "<group>"; };
+		81A87D5E2364767D009F957C /* StaticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticTableViewController.swift; sourceTree = "<group>"; };
 		81BFA8EC22E34CBB0036BACC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		81BFA8F822E4CEAC0036BACC /* LecturersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturersController.swift; sourceTree = "<group>"; };
 		81BFA8FB22E4D1D40036BACC /* LecturerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerTableViewCell.swift; sourceTree = "<group>"; };
@@ -154,8 +154,8 @@
 		81C21EA3232BA1860005E2B0 /* CafeteriaDishAttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishAttributeTableViewCell.swift; sourceTree = "<group>"; };
 		81C21EA5232BB2A50005E2B0 /* CafeteriaDishTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishTitleTableViewCell.swift; sourceTree = "<group>"; };
 		81C21EAA232BE4150005E2B0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		81C21EAD232CCEDB0005E2B0 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
-		81C21EB0232CCF3E0005E2B0 /* SettingsSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionCell.swift; sourceTree = "<group>"; };
+		81C21EAD232CCEDB0005E2B0 /* StaticTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticTableSection.swift; sourceTree = "<group>"; };
+		81C21EB0232CCF3E0005E2B0 /* StaticTableSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticTableSectionCell.swift; sourceTree = "<group>"; };
 		81C21EB2232CD7180005E2B0 /* SettingsLegalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLegalController.swift; sourceTree = "<group>"; };
 		81C21EB5232CDA1B0005E2B0 /* UIView+pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+pin.swift"; sourceTree = "<group>"; };
 		81C21EB7232CDE860005E2B0 /* SettingsAboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAboutController.swift; sourceTree = "<group>"; };
@@ -264,6 +264,24 @@
 			path = Dining;
 			sourceTree = "<group>";
 		};
+		81647C1E237B423600B79543 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				81647C1F237B424500B79543 /* StaticTable */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		81647C1F237B424500B79543 /* StaticTable */ = {
+			isa = PBXGroup;
+			children = (
+				81A87D5E2364767D009F957C /* StaticTableViewController.swift */,
+				81C21EAD232CCEDB0005E2B0 /* StaticTableSection.swift */,
+				81C21EB0232CCF3E0005E2B0 /* StaticTableSectionCell.swift */,
+			);
+			path = StaticTable;
+			sourceTree = "<group>";
+		};
 		8177389323049F5F00D0F8D4 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,7 +290,6 @@
 				817738912304966200D0F8D4 /* HWTabBarController.swift */,
 				81F942B3230821420042EC3C /* HWEventEditViewController.swift */,
 				81E906612335300900F19CD5 /* HWSplitViewController.swift */,
-				81A87D5E2364767D009F957C /* HWSectionableTableViewController.swift */,
 				81A6FF9C236BA42400393B15 /* HWAuthenticationController.swift */,
 			);
 			path = Foundation;
@@ -316,7 +333,6 @@
 			isa = PBXGroup;
 			children = (
 				81FBAEF1232E6E22004F5CD5 /* Dashboard */,
-				81C21EAF232CCF300005E2B0 /* Settings */,
 				81F9429B230716490042EC3C /* LecturerRenderer */,
 				81BFA90422F199490036BACC /* LecturerStorage.swift */,
 				8177389423049FDF00D0F8D4 /* DashboardNewsStorage.swift */,
@@ -333,15 +349,6 @@
 				81C21EB2232CD7180005E2B0 /* SettingsLegalController.swift */,
 				81C21EB7232CDE860005E2B0 /* SettingsAboutController.swift */,
 				81C21EB9232CE44A0005E2B0 /* SettingsDiningController.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		81C21EAF232CCF300005E2B0 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				81C21EAD232CCEDB0005E2B0 /* SettingsSection.swift */,
-				81C21EB0232CCF3E0005E2B0 /* SettingsSectionCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -498,6 +505,7 @@
 		81EB7DCB22D29BCE00E00485 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				81647C1E237B423600B79543 /* Libraries */,
 				81EB7DCC22D29BF300E00485 /* API */,
 				81BFA90322F199310036BACC /* Workers */,
 				81C21EBD232CF9580005E2B0 /* HWMetaContainer.swift */,
@@ -666,7 +674,7 @@
 				81F942A5230765EC0042EC3C /* LecturerInfoMainAreaTableViewCell.swift in Sources */,
 				81C21EBA232CE44A0005E2B0 /* SettingsDiningController.swift in Sources */,
 				81C21EBE232CF9580005E2B0 /* HWMetaContainer.swift in Sources */,
-				81C21EB1232CCF3E0005E2B0 /* SettingsSectionCell.swift in Sources */,
+				81C21EB1232CCF3E0005E2B0 /* StaticTableSectionCell.swift in Sources */,
 				81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */,
 				81BFA90522F199490036BACC /* LecturerStorage.swift in Sources */,
 				81BFA8F922E4CEAC0036BACC /* LecturersController.swift in Sources */,
@@ -694,7 +702,7 @@
 				81F942B22308187B0042EC3C /* EventTableViewCell.swift in Sources */,
 				81BFA8FC22E4D1D40036BACC /* LecturerTableViewCell.swift in Sources */,
 				817738972304A14900D0F8D4 /* DashboardEventStorage.swift in Sources */,
-				81A87D5F2364767D009F957C /* HWSectionableTableViewController.swift in Sources */,
+				81A87D5F2364767D009F957C /* StaticTableViewController.swift in Sources */,
 				81F942A7230768460042EC3C /* LecturerInfoResearchActivitiesTableViewCell.swift in Sources */,
 				81BFA90722F1B3820036BACC /* LecturersDetailController.swift in Sources */,
 				8106FFEF235A05A3009AFEB1 /* ApplicationLocale.swift in Sources */,
@@ -721,7 +729,7 @@
 				817738922304966200D0F8D4 /* HWTabBarController.swift in Sources */,
 				81F7A8AC233504CB000CE799 /* SceneDelegate.swift in Sources */,
 				81FBAEF3232E6E43004F5CD5 /* DashboardSection.swift in Sources */,
-				81C21EAE232CCEDB0005E2B0 /* SettingsSection.swift in Sources */,
+				81C21EAE232CCEDB0005E2B0 /* StaticTableSection.swift in Sources */,
 				81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */,
 				81EB7DC122D2636C00E00485 /* DatabaseModel.swift in Sources */,
 				813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */,

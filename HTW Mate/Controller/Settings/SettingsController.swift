@@ -11,7 +11,7 @@ import UIKit
 class SettingsController: UITableViewController {
 
 	/// Holds all sections to display
-    var sections: [SettingsSection] = []
+    var sections: [StaticTableSection] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,20 +32,20 @@ class SettingsController: UITableViewController {
 		//
 		// Adds the category section for settings controller
 		// Categories can be dining, lecturers, accounts, etc.
-        let categoriesSection = SettingsSection(header: nil, footer: nil, presentingController: self)
+        let categoriesSection = StaticTableSection(header: nil, footer: nil, presentingController: self)
         categoriesSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Dining.title, present: SettingsDiningController(style: .insetGrouped))
         sections.append(categoriesSection)
 
 		//
 		// Adds the legal section for the settings controller
 		// The legal section contains links and information to legal notices
-        let legalSection = SettingsSection(header: nil, footer: nil, presentingController: self)
+        let legalSection = StaticTableSection(header: nil, footer: nil, presentingController: self)
         legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.itemAbout, present: SettingsAboutController(style: .insetGrouped))
 		legalSection.addCell(ofType: .disclosure, title: HWStrings.Controllers.Settings.Legal.title, present: SettingsLegalController(style: .insetGrouped))
         sections.append(legalSection)
 		
 		if Application.hasAuthenticationInformation() {
-			sections.append(SettingsSection(header: nil, footer: HWStrings.Authentication.unlinkDescription)
+			sections.append(StaticTableSection(header: nil, footer: HWStrings.Authentication.unlinkDescription)
 				.addDefaultCell(ofType: .destructive, title: HWStrings.Authentication.unlinkTitle, handler: {
 					AlertManager.init(in: self).unlinkAccount()
 				})

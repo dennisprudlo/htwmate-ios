@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StudiesLecturesCancelledController: HWSectionableTableViewController {
+class StudiesLecturesCancelledController: StaticTableViewController {
 
 	var cancelledLecturesSet: [(date: Date, lectures: [LectureCancelled])] = []
 
@@ -42,7 +42,7 @@ class StudiesLecturesCancelledController: HWSectionableTableViewController {
 			dateFormatter.dateStyle	= .full
 			sectionTitle			= dateFormatter.string(from: lecturesSet.date)
 
-			let lecturesSection = SettingsSection(header: sectionTitle, footer: nil)
+			let lecturesSection = StaticTableSection(header: sectionTitle, footer: nil)
 
 			lecturesSet.lectures.forEach { (lecture) in
 				let lectureCell = StudiesCancelledLectureCell(cancelledLecture: lecture)

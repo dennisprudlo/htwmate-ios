@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsSectionCell {
+class StaticTableSectionCell {
 
     var tableViewCell: UITableViewCell = UITableViewCell()
     var style: CellStyle
