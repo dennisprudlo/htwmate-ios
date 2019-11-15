@@ -17,15 +17,3 @@ extension Dequeable where Self: UITableViewCell {
         return tableView.dequeueReusableCell(withIdentifier: String(describing: self.self)) as! Self
     }
 }
-
-extension Dequeable where Self: UICollectionViewCell {
-    static func dequeue(from collectionView: UICollectionView, for indexPath: IndexPath) -> Self {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: self.self), for: indexPath) as! Self
-    }
-}
-
-extension Dequeable where Self: UICollectionReusableView {
-    static func dequeue(from collectionView: UICollectionView, ofKind kind: String, for indexPath: IndexPath) -> Self {
-        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: self.self), for: indexPath) as! Self
-    }
-}

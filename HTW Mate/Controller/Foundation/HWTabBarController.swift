@@ -15,7 +15,7 @@ class HWTabBarController: UITabBarController {
 
         // MARK: Dashboard Tab
 
-        let dashboardController = DashboardController(collectionViewLayout: UICollectionViewFlowLayout())
+        let dashboardController = DashboardController()
         dashboardController.tabBarItem = UITabBarItem(title: HWStrings.Controllers.Dashboard.title, image: HWIcons.dashboard, tag: 1)
 
         // MARK: Lecturers Tab

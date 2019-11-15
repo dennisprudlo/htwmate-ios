@@ -35,7 +35,6 @@ struct AppearanceManager {
         view.layer.shadowOpacity = opacity
         view.layer.shadowOffset = CGSize(width: 0, height: radius / 2)
         view.layer.shadowRadius = radius
-        view.layer.masksToBounds = false
     }
 
 }
