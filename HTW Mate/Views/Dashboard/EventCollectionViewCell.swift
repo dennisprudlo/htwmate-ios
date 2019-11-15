@@ -52,7 +52,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable {
         dateView.widthAnchor.constraint(equalToConstant: 50).isActive = true
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold)
+		titleLabel.font = Font.shared.scaled(textStyle: .callout, weight: .bold)
         titleLabel.textColor = HWColors.primaryText
         titleLabel.numberOfLines = 1
         contentView.addSubview(titleLabel)
@@ -62,7 +62,7 @@ class EventCollectionViewCell: UICollectionViewCell, Dequeable {
         titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -outerInsets).isActive = true
 
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        subtitleLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .regular)
+		subtitleLabel.font = Font.shared.scaled(textStyle: .subheadline)
         subtitleLabel.textColor = HWColors.primaryText
         subtitleLabel.numberOfLines = 2
         contentView.addSubview(subtitleLabel)

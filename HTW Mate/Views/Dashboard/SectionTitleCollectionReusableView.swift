@@ -21,7 +21,7 @@ class SectionTitleCollectionReusableView: UICollectionReusableView, Dequeable {
         let outerInset = HWInsets.standard
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.sectionTitle, weight: .bold)
+		titleLabel.font = Font.shared.get(fontSize: .title, weight: .black)
         titleLabel.textColor = HWColors.primaryText
         addSubview(titleLabel)
 
@@ -29,7 +29,7 @@ class SectionTitleCollectionReusableView: UICollectionReusableView, Dequeable {
         titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
 
         detailLabel.translatesAutoresizingMaskIntoConstraints = false
-        detailLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .medium)
+		detailLabel.font = Font.shared.get(fontSize: .small, weight: .bold)
         detailLabel.textColor = HWColors.secondaryText
         detailLabel.isUserInteractionEnabled = false
         addSubview(detailLabel)

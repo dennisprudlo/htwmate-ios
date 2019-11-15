@@ -67,7 +67,7 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
         blurView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
 
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        subtitleLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .regular)
+		subtitleLabel.font = Font.shared.scaled(textStyle: .subheadline)
         subtitleLabel.textColor = .white
         subtitleLabel.numberOfLines = 3
         imageView.addSubview(subtitleLabel)
@@ -77,7 +77,7 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
         subtitleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -outerInsets).isActive = true
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold)
+		titleLabel.font = Font.shared.scaled(textStyle: .callout, weight: .bold)
         titleLabel.textColor = .white
         titleLabel.numberOfLines = 2
         imageView.addSubview(titleLabel)
@@ -148,11 +148,11 @@ class NewsCollectionViewCell: UICollectionViewCell, Dequeable {
     }
 
     public func setTitle(_ title: String) {
-        titleLabel.text = title
+		titleLabel.text = title
     }
 
     public func setSubtitle(_ subtitle: String) {
-        subtitleLabel.text = subtitle
+		subtitleLabel.text = subtitle
     }
 
     public func setImage(_ image: UIImage?) {

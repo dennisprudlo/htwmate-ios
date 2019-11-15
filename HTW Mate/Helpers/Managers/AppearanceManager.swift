@@ -20,6 +20,11 @@ struct AppearanceManager {
 
 		let greenController = UIBarButtonItem.appearance(whenContainedInInstancesOf: [PDFViewController.self])
 		greenController.tintColor = HWColors.contentBackground
+		
+		let tabBarItemAppearance = UITabBarItem.appearance()
+		tabBarItemAppearance.setTitleTextAttributes([
+			.font: Font.shared.get(fontSize: .small)
+		], for: .normal)
     }
 
     public static func dropShadow(for view: UIView, withRadius radius: CGFloat = 10, opacity: Float = 0.5, ignoreBackground ignore: Bool = false) {
