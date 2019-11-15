@@ -31,7 +31,6 @@
 		81647C36237B49D800B79543 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81647C2C237B49D800B79543 /* Lato-ThinItalic.ttf */; };
 		81647C37237B49D800B79543 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81647C2D237B49D800B79543 /* Lato-Italic.ttf */; };
 		81647C4C237B4C5A00B79543 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81647C4B237B4C5A00B79543 /* Font.swift */; };
-		8169C35C231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169C35B231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift */; };
 		816B7A2B22D9D04000FA507E /* HWStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2A22D9D04000FA507E /* HWStrings.swift */; };
 		816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */; };
 		816B7A3122DA86B900FA507E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B7A3022DA86B900FA507E /* Event.swift */; };
@@ -77,7 +76,7 @@
 		81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */; };
 		81D7D6272322D16D0021A16E /* DiningDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7D6262322D16D0021A16E /* DiningDetailController.swift */; };
 		81E0F1D722D394F10065849D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1D622D394F10065849D /* DownloadManager.swift */; };
-		81E0F1DB22D3A1B20065849D /* SectionTitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1DA22D3A1B20065849D /* SectionTitleCollectionReusableView.swift */; };
+		81E0F1DB22D3A1B20065849D /* DashboardSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0F1DA22D3A1B20065849D /* DashboardSectionHeaderView.swift */; };
 		81E707E122D12F00000B8EE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E707E022D12F00000B8EE6 /* AppDelegate.swift */; };
 		81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E707E222D12F00000B8EE6 /* DashboardController.swift */; };
 		81E707E822D12F01000B8EE6 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E707E722D12F01000B8EE6 /* AppIcon.xcassets */; };
@@ -144,7 +143,6 @@
 		81647C2C237B49D800B79543 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		81647C2D237B49D800B79543 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		81647C4B237B4C5A00B79543 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		8169C35B231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+BlurredStatusBar.swift"; sourceTree = "<group>"; };
 		816B7A2A22D9D04000FA507E /* HWStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWStrings.swift; sourceTree = "<group>"; };
 		816B7A2E22DA868300FA507E /* HTWMateEventsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateEventsAPI.swift; sourceTree = "<group>"; };
 		816B7A3022DA86B900FA507E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -191,7 +189,7 @@
 		81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWNavigationController.swift; sourceTree = "<group>"; };
 		81D7D6262322D16D0021A16E /* DiningDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningDetailController.swift; sourceTree = "<group>"; };
 		81E0F1D622D394F10065849D /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
-		81E0F1DA22D3A1B20065849D /* SectionTitleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleCollectionReusableView.swift; sourceTree = "<group>"; };
+		81E0F1DA22D3A1B20065849D /* DashboardSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSectionHeaderView.swift; sourceTree = "<group>"; };
 		81E707DD22D12F00000B8EE6 /* HTW Mate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HTW Mate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E707E022D12F00000B8EE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81E707E222D12F00000B8EE6 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
@@ -464,7 +462,6 @@
 				81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */,
 				81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */,
 				81F942982306DB1F0042EC3C /* CNContactVCardSerialization+Image.swift */,
-				8169C35B231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift */,
 				81C21EB5232CDA1B0005E2B0 /* UIView+pin.swift */,
 				817A8E3F2337B88600AD5383 /* UITableView+BackgroundView.swift */,
 			);
@@ -547,7 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				81EB7DC422D270A000E00485 /* NewsItemTableViewCell.swift */,
-				81E0F1DA22D3A1B20065849D /* SectionTitleCollectionReusableView.swift */,
+				81E0F1DA22D3A1B20065849D /* DashboardSectionHeaderView.swift */,
 				816B7A3222DA89F600FA507E /* EventItemTableViewCell.swift */,
 				81F942B12308187B0042EC3C /* EventTableViewCell.swift */,
 			);
@@ -737,7 +734,6 @@
 				81F942B4230821420042EC3C /* HWEventEditViewController.swift in Sources */,
 				81F9429D2307165B0042EC3C /* HWLecturerRenderer.swift in Sources */,
 				810C8FA92322FF9D007B13F1 /* CafeteriaDishInfoMainTableViewCell.swift in Sources */,
-				8169C35C231B112B00AED8BE /* UIViewController+BlurredStatusBar.swift in Sources */,
 				81E707E322D12F00000B8EE6 /* DashboardController.swift in Sources */,
 				81C21EBC232CE4D00005E2B0 /* HWDefault.swift in Sources */,
 				816B7A3322DA89F600FA507E /* EventItemTableViewCell.swift in Sources */,
@@ -786,7 +782,7 @@
 				81EB7DC822D270F100E00485 /* Dequeable.swift in Sources */,
 				818E56412379B745009B5196 /* HTWMateLsfAPI.swift in Sources */,
 				81EB7DB122D143C300E00485 /* HWColors.swift in Sources */,
-				81E0F1DB22D3A1B20065849D /* SectionTitleCollectionReusableView.swift in Sources */,
+				81E0F1DB22D3A1B20065849D /* DashboardSectionHeaderView.swift in Sources */,
 				81BFA90222E5D3020036BACC /* HTWMateLecturersAPI.swift in Sources */,
 				81EB7DB322D1448700E00485 /* UIColor+Initalizers.swift in Sources */,
 				817662F922F5D1F3004E0A07 /* LecturerInfoTableViewCell.swift in Sources */,

@@ -23,7 +23,11 @@ class DashboardNewsSection: DashboardSection {
 		return cell
 	}
 	
-	override func titleForHeaderInSection() -> String? {
+	override func titleForHeaderInSection() -> String {
 		return HWStrings.Controllers.Dashboard.sectionNews
 	}
+	
+	override func viewForHeaderInSection() -> UIView {
+		return DashboardSectionHeaderView(title: titleForHeaderInSection())
+    }
 }

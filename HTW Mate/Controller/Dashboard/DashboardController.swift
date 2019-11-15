@@ -9,17 +9,16 @@
 import UIKit
 
 class DashboardController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-	
-	private let tableView = UITableView()
+		
+	private let tableView = UITableView(frame: CGRect.zero, style: .grouped)
 	
     /// The section reference
     private var dashboardSections: [DashboardSection] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureTableView()
 		
-        self.setStatusBarOverlay()
+        self.configureTableView()
 
         DashboardNewsStorage.shared.delegate = self
         DashboardNewsStorage.shared.reload()
@@ -28,10 +27,20 @@ class DashboardController: UIViewController, UITableViewDelegate, UITableViewDat
         DashboardEventStorage.shared.reload()
 
         self.configureSections()
+		
+		let overlayView = UIView()
+		view.addSubview(overlayView)
+		overlayView.backgroundColor								= HWColors.contentBackground
+		overlayView.translatesAutoresizingMaskIntoConstraints	= false
+		overlayView.leadingAnchor.constraint(equalTo:			view.leadingAnchor).isActive = true
+		overlayView.trailingAnchor.constraint(equalTo:			view.trailingAnchor).isActive = true
+		overlayView.topAnchor.constraint(equalTo:				view.topAnchor).isActive = true
+		overlayView.bottomAnchor.constraint(equalTo:			view.safeAreaLayoutGuide.topAnchor).isActive = true
     }
 
     private func configureTableView() {
 		view.addSubview(tableView)
+		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.pin(to: view)
 		tableView.delegate			= self
 		tableView.dataSource		= self
@@ -46,7 +55,7 @@ class DashboardController: UIViewController, UITableViewDelegate, UITableViewDat
 		//
 		// Use auto-layout to determine the lecturers cells height
 		tableView.rowHeight = UITableView.automaticDimension
-		tableView.estimatedRowHeight = 76
+		tableView.estimatedRowHeight = 150
     }
 
     /// Build the section array for dynamic display of the collection view
@@ -74,8 +83,8 @@ class DashboardController: UIViewController, UITableViewDelegate, UITableViewDat
 		return dashboardSections.count
 	}
 	
-	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return dashboardSections[section].titleForHeaderInSection()
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		return dashboardSections[section].viewForHeaderInSection()
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,5 +93,13 @@ class DashboardController: UIViewController, UITableViewDelegate, UITableViewDat
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		return dashboardSections[indexPath.section].tableViewCell(forItemAt: indexPath)
+	}
+	
+	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+		return section == dashboardSections.count - 1 ? HWInsets.standard / 2 : HWInsets.standard
+	}
+	
+	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+		return nil
 	}
 }

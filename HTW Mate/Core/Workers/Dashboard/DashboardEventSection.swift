@@ -24,7 +24,13 @@ class DashboardEventSection: DashboardSection {
 		return cell
 	}
 	
-	override func titleForHeaderInSection() -> String? {
+	override func titleForHeaderInSection() -> String {
 		return HWStrings.Controllers.Dashboard.sectionEvents
 	}
+	
+	override func viewForHeaderInSection() -> UIView {
+		DashboardSectionHeaderView(title: titleForHeaderInSection(), detail: HWStrings.Controllers.Dashboard.metaMore) {
+			self.presenter.present(DashboardEventsController(), animated: true, completion: nil)
+		}
+    }
 }

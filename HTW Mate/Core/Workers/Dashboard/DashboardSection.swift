@@ -24,12 +24,11 @@ class DashboardSection {
 		return UITableViewCell()
 	}
 	
-	func titleForHeaderInSection() -> String? {
-		return nil
+	func titleForHeaderInSection() -> String {
+		return ""
 	}
 
-    func supplementaryHeader(at indexPath: IndexPath, in collectionView: UICollectionView, presentingController: UIViewController) -> UICollectionReusableView {
-        let kind = UICollectionView.elementKindSectionHeader
-        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: SectionTitleCollectionReusableView.self), for: indexPath)
+    func viewForHeaderInSection() -> UIView {
+        return UIView()
     }
 }
