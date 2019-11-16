@@ -33,27 +33,28 @@ class HWLecturerRendererListComponent: HWLecturerRendererComponent {
             var listItemTopAnchorHook = listItemView.topAnchor
             var lastListItemComponentView: UIView?
 
+			let bulletPoint = UILabel()
+            bulletPoint.translatesAutoresizingMaskIntoConstraints = false
+            bulletPoint.text = "\u{2022}"
+			bulletPoint.textColor = HWColors.primaryText
+			bulletPoint.font = Font.shared.scaled(textStyle: .body, weight: .regular)
+            listItemView.addSubview(bulletPoint)
+            
             data.forEach({ (textComponent) in
                 guard let textComponentData = textComponent["data"] as? [String] else { return }
                 guard let textComponentHref = textComponent["href"] as? [String?] else { return }
 
                 let textComponentView = HWLecturerRendererTextComponent(data: textComponentData, href: textComponentHref).render()
                 listItemView.addSubview(textComponentView)
-                textComponentView.topAnchor.constraint(equalTo: listItemTopAnchorHook).isActive = true
-                textComponentView.leadingAnchor.constraint(equalTo: listItemView.leadingAnchor, constant: 16).isActive = true
+				textComponentView.topAnchor.constraint(equalTo: listItemTopAnchorHook, constant: HWInsets.extraSmall).isActive = true
+				textComponentView.leadingAnchor.constraint(equalTo: listItemView.leadingAnchor, constant: bulletPoint.font.pointSize).isActive = true
                 textComponentView.trailingAnchor.constraint(equalTo: listItemView.trailingAnchor).isActive = true
 
                 listItemTopAnchorHook = textComponentView.bottomAnchor
                 lastListItemComponentView = textComponentView
             })
 
-            let bulletPoint = UILabel()
-            bulletPoint.translatesAutoresizingMaskIntoConstraints = false
-            bulletPoint.text = "\u{2022}"
-			bulletPoint.textColor = HWColors.primaryText
-            bulletPoint.font = UIFont.systemFont(ofSize: HWFontSize.strongText)
-            listItemView.addSubview(bulletPoint)
-            bulletPoint.topAnchor.constraint(equalTo: listItemView.topAnchor).isActive = true
+			bulletPoint.topAnchor.constraint(equalTo: listItemView.topAnchor, constant: HWInsets.extraSmall).isActive = true
             bulletPoint.leadingAnchor.constraint(equalTo: listItemView.leadingAnchor).isActive = true
 
             if let last = lastListItemComponentView {

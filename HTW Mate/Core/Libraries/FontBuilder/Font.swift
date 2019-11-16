@@ -45,7 +45,7 @@ class Font {
 		self.face = face
 	}
 	
-	private func font(pointSize: CGFloat, weight: Font.Weight = .regular) -> UIFont {
+	func font(pointSize: CGFloat, weight: Font.Weight = .regular) -> UIFont {
 		let fontNames: [Font.Weight: [Font.Face: String]] = [
 			.thin:			[.lato: "Late-Hairline"],
 			.thinItalic:	[.lato: "Lato-HairlineItalic"],

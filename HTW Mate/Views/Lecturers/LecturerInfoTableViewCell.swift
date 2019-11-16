@@ -22,7 +22,7 @@ class LecturerInfoTableViewCell: UITableViewCell {
 
     /// Sets up the user interface with the defined layout constraints
     func setupUI(withHeadline headline: String? = nil) -> Void {
-        selectionStyle = .none
+		selectionStyle = .none
 
         sectionTopAnchor = contentView.topAnchor
 
@@ -33,11 +33,10 @@ class LecturerInfoTableViewCell: UITableViewCell {
             sectionHeadlineLabel.text = headline
 			sectionHeadlineLabel.textColor = HWColors.primaryText
             sectionHeadlineLabel.numberOfLines = 1
-            sectionHeadlineLabel.font = UIFont.systemFont(ofSize: HWFontSize.enlargedText, weight: .bold)
+			sectionHeadlineLabel.font = Font.shared.scaled(textStyle: .title3, weight: .bold)
             sectionHeadlineLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: cellPadding).isActive = true
-            sectionHeadlineLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: cellPadding).isActive = true
+            sectionHeadlineLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: cellPadding / 2).isActive = true
             sectionHeadlineLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -cellPadding).isActive = true
-
             sectionTopAnchor = sectionHeadlineLabel.bottomAnchor
         }
     }

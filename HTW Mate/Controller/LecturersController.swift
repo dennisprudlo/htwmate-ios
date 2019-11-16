@@ -26,39 +26,33 @@ class LecturersController: UITableViewController, UISearchResultsUpdating, Lectu
 
         //
         // Use auto-layout to determine the lecturers cells height
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 76
-        tableView.sectionIndexColor = HWColors.StyleGuide.primaryGreen
-
+        tableView.rowHeight										= UITableView.automaticDimension
+        tableView.estimatedRowHeight							= 76
+        tableView.sectionIndexColor								= HWColors.StyleGuide.primaryGreen
+		tableView.refreshControl								= UIRefreshControl()
+		tableView.refreshControl?.addTarget(self, action: #selector(didRefreshCollectionView(_:)), for: .valueChanged)
+		
         //
         // Prepare search controller
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = true
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = HWStrings.Controllers.Lecturers.searchBarTitle
-        searchController.searchBar.tintColor = HWColors.StyleGuide.primaryGreen
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
-		definesPresentationContext = true
-
-        tableView.refreshControl = UIRefreshControl()
-		tableView.refreshControl?.addTarget(self, action: #selector(didRefreshCollectionView(_:)), for: .valueChanged)
+        searchController.searchResultsUpdater					= self
+        searchController.hidesNavigationBarDuringPresentation	= true
+        searchController.obscuresBackgroundDuringPresentation	= false
+        searchController.searchBar.placeholder					= HWStrings.Controllers.Lecturers.searchBarTitle
+        searchController.searchBar.tintColor					= HWColors.StyleGuide.primaryGreen
+		searchController.searchBar.searchTextField.font			= Font.shared.font(pointSize: searchController.searchBar.searchTextField.font?.pointSize ?? UIFont.systemFontSize)
+        navigationItem.searchController							= searchController
+        navigationItem.hidesSearchBarWhenScrolling				= true
+		definesPresentationContext								= true
 
 		//
 		// Call the lecturer storage delegate so the info view will be displayed
 		// while the lecturers are still loading instead of empty cells
 		self.lecturerStorage(didReloadLecturers: [])
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        //
-        // Due to the search controller the shadow image of the navigation bar cannot be removed.
-        // So it has to be set hidden on runtime
-        if let imageView = navigationItem.searchController?.searchBar.superview?.subviews.first?.subviews.first as? UIImageView {
-            imageView.isHidden = true
-        }
+		
+		if let appearance = navigationController?.navigationBar.standardAppearance.copy() {
+			appearance.shadowColor = HWColors.contentBackground
+			navigationController?.navigationBar.standardAppearance = appearance
+		}
     }
 
     // MARK: - Lecturer storage handler

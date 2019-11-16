@@ -15,7 +15,7 @@ class DashboardSectionHeaderView: UIView {
 
     public var onDetailTap: (() -> Void)?
 
-	init(title: String, detail: String? = nil, detailHandler: @escaping (() -> Void) = {}) {
+	init(title: String, detail: String? = nil, detailHandler: @escaping (() -> Void) = {}, paddingTop: CGFloat = 0) {
 		super.init(frame: CGRect.zero)
 		
 		self.onDetailTap = detailHandler
@@ -27,7 +27,7 @@ class DashboardSectionHeaderView: UIView {
 		titleLabel.font											= Font.shared.get(fontSize: .title, weight: .black)
         titleLabel.textColor									= HWColors.primaryText
 		titleLabel.leadingAnchor.constraint(equalTo:			leadingAnchor, constant: HWInsets.standard).isActive = true
-		titleLabel.topAnchor.constraint(equalTo:				topAnchor).isActive = true
+		titleLabel.topAnchor.constraint(equalTo:				topAnchor, constant: paddingTop).isActive = true
 		titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: detailLabel.leadingAnchor, constant: -HWInsets.standard).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo:				bottomAnchor).isActive = true
 		

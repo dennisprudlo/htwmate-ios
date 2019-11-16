@@ -23,10 +23,6 @@ class DashboardSection {
 	func tableViewCell(forItemAt index: IndexPath) -> UITableViewCell {
 		return UITableViewCell()
 	}
-	
-	func titleForHeaderInSection() -> String {
-		return ""
-	}
 
     func viewForHeaderInSection() -> UIView {
         return UIView()

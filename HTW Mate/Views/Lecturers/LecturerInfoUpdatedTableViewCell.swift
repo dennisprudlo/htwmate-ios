@@ -28,10 +28,10 @@ class LecturerInfoUpdatedTableViewCell : LecturerInfoTableViewCell {
         contentView.addSubview(updatedAtLabel)
 
         updatedAtLabel.translatesAutoresizingMaskIntoConstraints = false
-        updatedAtLabel.numberOfLines = 1
+        updatedAtLabel.numberOfLines = 0
         updatedAtLabel.textAlignment = .center
         updatedAtLabel.textColor = HWColors.secondaryText
-        updatedAtLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .medium)
+		updatedAtLabel.font = Font.shared.scaled(textStyle: .footnote, weight: .regular)
         updatedAtLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: cellPadding).isActive = true
         updatedAtLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -cellPadding * 2).isActive = true
         updatedAtLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: cellPadding).isActive = true

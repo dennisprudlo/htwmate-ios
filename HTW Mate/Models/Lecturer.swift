@@ -239,7 +239,7 @@ class Lecturer : DatabaseModel {
         let actionLabel = UILabel()
         actionLabel.translatesAutoresizingMaskIntoConstraints = false
         actionLabel.text = title
-        actionLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .medium)
+		actionLabel.font = Font.shared.get(fontSize: .small, weight: .regular)
         actionLabel.textColor = active ? HWColors.StyleGuide.primaryGreen : .lightGray
         actionLabel.textAlignment = .center
 

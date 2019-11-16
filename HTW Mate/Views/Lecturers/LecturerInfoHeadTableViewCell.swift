@@ -49,13 +49,13 @@ class LecturerInfoHeadTableViewCell: LecturerInfoTableViewCell, MFMailComposeVie
 		lecturerImageView.tintColor = HWColors.lecturerPlaceholderTint
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .bold)
+		titleLabel.font = Font.shared.scaled(textStyle: .callout, weight: .bold)
         titleLabel.textColor = HWColors.darkSecondaryUltraLight
         titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: lecturerImageView.bottomAnchor, constant: inset).isActive = true
 
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.font = UIFont.systemFont(ofSize: HWFontSize.title, weight: .bold)
+		nameLabel.font = Font.shared.scaled(textStyle: .title2, weight: .black)
         nameLabel.numberOfLines = 0
         nameLabel.textAlignment = .center
         nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true

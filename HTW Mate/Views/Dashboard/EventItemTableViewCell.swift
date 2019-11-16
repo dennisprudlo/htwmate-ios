@@ -15,7 +15,7 @@ class EventItemTableViewCell: UITableViewCell, EKEventEditViewDelegate, Dequeabl
 	private var eventView		= UIView()
 	private var dateLabel		= UILabel()
     private var titleLabel		= UILabel()
-    private var subtitleLabel	= UILabel()
+	var subtitleLabel	= UILabel()
 
     public var viewController: UIViewController?
     private var event: Event!
