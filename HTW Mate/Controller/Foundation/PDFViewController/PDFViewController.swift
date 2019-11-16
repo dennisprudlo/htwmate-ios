@@ -20,8 +20,14 @@ class PDFViewController: HWNavigationController {
 
 		let navBarAppearance = UINavigationBarAppearance()
 		navBarAppearance.configureWithTransparentBackground()
-		navBarAppearance.titleTextAttributes = [.foregroundColor: HWColors.contentBackground ?? .white]
-		navBarAppearance.largeTitleTextAttributes = [.foregroundColor: HWColors.contentBackground ?? .white]
+		navBarAppearance.titleTextAttributes = [
+			.foregroundColor: HWColors.contentBackground ?? .white,
+			.font: Font.shared.scaled(textStyle: .title3, weight: .bold)
+		]
+		navBarAppearance.largeTitleTextAttributes = [
+			.foregroundColor: HWColors.contentBackground ?? .white,
+			.font: Font.shared.scaled(textStyle: .largeTitle, weight: .black)
+		]
 		navBarAppearance.backgroundColor = HWColors.StyleGuide.primaryGreen.withAlphaComponent(0.9)
 		navBarAppearance.shadowColor = nil
 

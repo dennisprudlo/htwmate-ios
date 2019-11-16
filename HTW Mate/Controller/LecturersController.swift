@@ -69,10 +69,14 @@ class LecturersController: UITableViewController, UISearchResultsUpdating, Lectu
     }
 
     // MARK: - Table view data source
+	
+	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		guard let title = LecturerStorage.shared.titleForSection(section) else {
+			return nil
+		}
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return LecturerStorage.shared.titleForSection(section)
-    }
+		return TableViewHeaderView(title: title)
+	}
 
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return LecturerStorage.shared.displayedSections

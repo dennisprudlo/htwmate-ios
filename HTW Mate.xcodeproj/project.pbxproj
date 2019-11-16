@@ -19,6 +19,7 @@
 		813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF862315660B00854C30 /* CafeteriaDish.swift */; };
 		813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8923156FD500854C30 /* CafeteriaStorage.swift */; };
 		813CAF8D23157B7B00854C30 /* CafeteriaDishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */; };
+		8154D6092380295B00C6F719 /* TableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8154D6082380295B00C6F719 /* TableViewHeaderView.swift */; };
 		81647C22237B466200B79543 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81647C21237B466200B79543 /* KeychainItemAccessibility.swift */; };
 		81647C2E237B49D800B79543 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81647C24237B49D700B79543 /* Lato-Light.ttf */; };
 		81647C2F237B49D800B79543 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81647C25237B49D700B79543 /* Lato-Bold.ttf */; };
@@ -48,7 +49,7 @@
 		81915BF52340F0AB00F796F4 /* StudiesCancelledLectureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF42340F0AB00F796F4 /* StudiesCancelledLectureCell.swift */; };
 		81915BF72340F17500F796F4 /* LectureCancelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF62340F17500F796F4 /* LectureCancelled.swift */; };
 		81915BF92340F38D00F796F4 /* HTWMateLecturesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81915BF82340F38D00F796F4 /* HTWMateLecturesAPI.swift */; };
-		81A6FF9D236BA42400393B15 /* HWAuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A6FF9C236BA42400393B15 /* HWAuthenticationController.swift */; };
+		81A6FF9D236BA42400393B15 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A6FF9C236BA42400393B15 /* AuthenticationController.swift */; };
 		81A87D5D2364747B009F957C /* StudiesDownloadsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87D5C2364747B009F957C /* StudiesDownloadsController.swift */; };
 		81A87D5F2364767D009F957C /* StaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87D5E2364767D009F957C /* StaticTableViewController.swift */; };
 		81BFA8ED22E34CBB0036BACC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA8EC22E34CBB0036BACC /* AlertManager.swift */; };
@@ -130,6 +131,7 @@
 		813CAF862315660B00854C30 /* CafeteriaDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDish.swift; sourceTree = "<group>"; };
 		813CAF8923156FD500854C30 /* CafeteriaStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaStorage.swift; sourceTree = "<group>"; };
 		813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishTableViewCell.swift; sourceTree = "<group>"; };
+		8154D6082380295B00C6F719 /* TableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderView.swift; sourceTree = "<group>"; };
 		81647C21237B466200B79543 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		81647C24237B49D700B79543 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		81647C25237B49D700B79543 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -160,7 +162,7 @@
 		81915BF42340F0AB00F796F4 /* StudiesCancelledLectureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesCancelledLectureCell.swift; sourceTree = "<group>"; };
 		81915BF62340F17500F796F4 /* LectureCancelled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureCancelled.swift; sourceTree = "<group>"; };
 		81915BF82340F38D00F796F4 /* HTWMateLecturesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWMateLecturesAPI.swift; sourceTree = "<group>"; };
-		81A6FF9C236BA42400393B15 /* HWAuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWAuthenticationController.swift; sourceTree = "<group>"; };
+		81A6FF9C236BA42400393B15 /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		81A87D5C2364747B009F957C /* StudiesDownloadsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesDownloadsController.swift; sourceTree = "<group>"; };
 		81A87D5E2364767D009F957C /* StaticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticTableViewController.swift; sourceTree = "<group>"; };
 		81BFA8EC22E34CBB0036BACC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				8177389323049F5F00D0F8D4 /* Foundation */,
+				81A6FF9C236BA42400393B15 /* AuthenticationController.swift */,
 				81E707E222D12F00000B8EE6 /* DashboardController.swift */,
 				81F942AF230811370042EC3C /* DashboardEventsController.swift */,
 				81F942B623082DF30042EC3C /* DiningController.swift */,
@@ -355,7 +358,6 @@
 				817738912304966200D0F8D4 /* HWTabBarController.swift */,
 				81F942B3230821420042EC3C /* HWEventEditViewController.swift */,
 				81E906612335300900F19CD5 /* HWSplitViewController.swift */,
-				81A6FF9C236BA42400393B15 /* HWAuthenticationController.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -512,6 +514,7 @@
 				813CAF8B23157B6300854C30 /* Dining */,
 				81BFA8FA22E4D1A50036BACC /* Lecturers */,
 				81EB7DC322D2705500E00485 /* Dashboard */,
+				8154D6082380295B00C6F719 /* TableViewHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -700,10 +703,11 @@
 				81C21EB1232CCF3E0005E2B0 /* StaticTableSectionCell.swift in Sources */,
 				81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */,
 				81BFA90522F199490036BACC /* LecturerStorage.swift in Sources */,
+				8154D6092380295B00C6F719 /* TableViewHeaderView.swift in Sources */,
 				81BFA8F922E4CEAC0036BACC /* LecturersController.swift in Sources */,
 				813CAF8A23156FD500854C30 /* CafeteriaStorage.swift in Sources */,
 				8129C4E2236306720034E0B4 /* ApplicationSemester.swift in Sources */,
-				81A6FF9D236BA42400393B15 /* HWAuthenticationController.swift in Sources */,
+				81A6FF9D236BA42400393B15 /* AuthenticationController.swift in Sources */,
 				81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */,
 				816B7A2F22DA868300FA507E /* HTWMateEventsAPI.swift in Sources */,
 				81915BF22340E99300F796F4 /* StudiesLecturesCancelledController.swift in Sources */,

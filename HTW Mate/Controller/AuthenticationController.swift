@@ -1,5 +1,5 @@
 //
-//  HWAuthenticationController.swift
+//  AuthenticationController.swift
 //  HTW Mate
 //
 //  Created by Dennis Prudlo on 11/1/19.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreGraphics
 
-class HWAuthenticationController: UIViewController, UITextFieldDelegate {
+class AuthenticationController: UIViewController, UITextFieldDelegate {
 
 	var keyboardVisible: Bool	= false
 	
@@ -97,14 +97,6 @@ class HWAuthenticationController: UIViewController, UITextFieldDelegate {
 		offsetConstraint?.isActive = true
 	}
 	
-    private func generateHeadlinePanel() -> UIView {
-        let wrapper = UIView()
-        wrapper.translatesAutoresizingMaskIntoConstraints = false
-        wrapper.backgroundColor = HWColors.contentBackground
-        wrapper.transform = CGAffineTransform(rotationAngle: -12 * CGFloat.pi / 180)
-        return wrapper
-    }
-	
 	private func generatePrivacyPanel() -> UIView {
 		let upperPanel = UIView()
 		upperPanel.translatesAutoresizingMaskIntoConstraints = false
@@ -121,7 +113,8 @@ class HWAuthenticationController: UIViewController, UITextFieldDelegate {
 		infoLabel.numberOfLines = 0
 		infoLabel.textAlignment = .center
 		infoLabel.adjustsFontSizeToFitWidth = true
-		infoLabel.font = UIFont.systemFont(ofSize: HWFontSize.title)
+		infoLabel.font = Font.shared.scaled(textStyle: .body, weight: .regular)
+		infoLabel.adjustsFontForContentSizeCategory = true
 		infoLabel.textColor = HWColors.contentBackground
 		infoLabel.text = HWStrings.Authentication.privacyInfo
 		
@@ -158,48 +151,55 @@ class HWAuthenticationController: UIViewController, UITextFieldDelegate {
 		usernamePanel.translatesAutoresizingMaskIntoConstraints = false
 		usernamePanel.backgroundColor		= HWColors.contentBackground
 		usernamePanel.layer.cornerRadius	= HWInsets.CornerRadius.panel
+		usernamePanel.layer.shadowColor		= HWColors.shadowDrop?.cgColor
+		usernamePanel.layer.shadowOpacity	= 0.3
+		usernamePanel.layer.shadowOffset	= CGSize(width: 0, height: 1.5 / 2)
+		usernamePanel.layer.shadowRadius	= 1.5
 		
 		let passwordPanel = UIView()
 		passwordPanel.translatesAutoresizingMaskIntoConstraints = false
 		passwordPanel.backgroundColor		= HWColors.contentBackground
 		passwordPanel.layer.cornerRadius	= HWInsets.CornerRadius.panel
+		passwordPanel.layer.shadowColor		= HWColors.shadowDrop?.cgColor
+		passwordPanel.layer.shadowOpacity	= 0.3
+		passwordPanel.layer.shadowOffset	= CGSize(width: 0, height: 1.5 / 2)
+		passwordPanel.layer.shadowRadius	= 1.5
         
 		let studentInfoButton = UIButton(type: .detailDisclosure)
 		studentInfoButton.addTarget(self, action: #selector(didTapUsernameHelp), for: .touchUpInside)
 		
 		let inset = HWInsets.medium
-		let textFieldHeight = HWInsets.standard
 		
 		usernamePanel.addSubview(usernameTextField)
-		AppearanceManager.dropShadow(for: usernamePanel, withRadius: 1.5, opacity: 0.3, ignoreBackground: true)
 		usernameTextField.translatesAutoresizingMaskIntoConstraints = false
-		usernameTextField.delegate = self
-		usernameTextField.placeholder = HWStrings.Authentication.studentId
-		usernameTextField.rightViewMode = .always
-		usernameTextField.rightView = studentInfoButton
-		usernameTextField.autocorrectionType = .no
-		usernameTextField.autocapitalizationType = .none
-		usernameTextField.keyboardType = .emailAddress
-		usernameTextField.returnKeyType = .next
-		usernameTextField.tintColor = HWColors.StyleGuide.primaryGreen
-		usernameTextField.heightAnchor.constraint(equalToConstant: textFieldHeight).isActive = true
+		usernameTextField.delegate							= self
+		usernameTextField.placeholder						= HWStrings.Authentication.studentId
+		usernameTextField.font								= Font.shared.scaled(textStyle: .body, weight: .regular)
+		usernameTextField.adjustsFontForContentSizeCategory = true
+		usernameTextField.rightViewMode						= .always
+		usernameTextField.rightView							= studentInfoButton
+		usernameTextField.autocorrectionType				= .no
+		usernameTextField.autocapitalizationType			= .none
+		usernameTextField.keyboardType						= .emailAddress
+		usernameTextField.returnKeyType						= .next
+		usernameTextField.tintColor							= HWColors.StyleGuide.primaryGreen
 		usernameTextField.leadingAnchor.constraint(equalTo: usernamePanel.leadingAnchor, constant: inset).isActive = true
         usernameTextField.topAnchor.constraint(equalTo: usernamePanel.topAnchor, constant: inset).isActive = true
         usernameTextField.trailingAnchor.constraint(equalTo: usernamePanel.trailingAnchor, constant: -inset).isActive = true
 		usernameTextField.bottomAnchor.constraint(equalTo: usernamePanel.bottomAnchor, constant: -inset).isActive = true
 
 		passwordPanel.addSubview(passwordTextField)
-		AppearanceManager.dropShadow(for: passwordPanel, withRadius: 1.5, opacity: 0.3, ignoreBackground: true)
 		passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-		passwordTextField.delegate = self
-		passwordTextField.placeholder = HWStrings.Authentication.password
-        passwordTextField.isSecureTextEntry = true
-		passwordTextField.autocorrectionType = .no
-		passwordTextField.autocapitalizationType = .none
-		passwordTextField.keyboardType = .default
-		passwordTextField.returnKeyType = .join
-		passwordTextField.tintColor = HWColors.StyleGuide.primaryGreen
-		passwordTextField.heightAnchor.constraint(equalToConstant: textFieldHeight).isActive = true
+		passwordTextField.delegate							= self
+		passwordTextField.placeholder						= HWStrings.Authentication.password
+		passwordTextField.font								= Font.shared.scaled(textStyle: .body, weight: .regular)
+		passwordTextField.adjustsFontForContentSizeCategory = true
+        passwordTextField.isSecureTextEntry					= true
+		passwordTextField.autocorrectionType				= .no
+		passwordTextField.autocapitalizationType			= .none
+		passwordTextField.keyboardType						= .default
+		passwordTextField.returnKeyType						= .join
+		passwordTextField.tintColor							= HWColors.StyleGuide.primaryGreen
 		passwordTextField.leadingAnchor.constraint(equalTo: passwordPanel.leadingAnchor, constant: inset).isActive = true
         passwordTextField.topAnchor.constraint(equalTo: passwordPanel.topAnchor, constant: inset).isActive = true
         passwordTextField.trailingAnchor.constraint(equalTo: passwordPanel.trailingAnchor, constant: -inset).isActive = true
@@ -207,11 +207,10 @@ class HWAuthenticationController: UIViewController, UITextFieldDelegate {
         
         authenticateButton.translatesAutoresizingMaskIntoConstraints = false
 		authenticateButton.backgroundColor = HWColors.StyleGuide.primaryGreen
+		authenticateButton.titleLabel?.adjustsFontForContentSizeCategory = true
+		authenticateButton.titleLabel?.font = Font.shared.scaled(textStyle: .body, weight: .black)
 		authenticateButton.setTitle(HWStrings.Authentication.signInButton, for: .normal)
-        authenticateButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: HWFontSize.enlargedText)
 		authenticateButton.setTitleColor(HWColors.contentBackground, for: .normal)
-		authenticateButton.heightAnchor.constraint(equalToConstant: textFieldHeight + (inset * 2)).isActive = true
-		authenticateButton.layer.cornerRadius = (textFieldHeight + (inset * 2)) / 2
         authenticateButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
 
 		formPanel.addSubview(usernamePanel)
@@ -230,8 +229,13 @@ class HWAuthenticationController: UIViewController, UITextFieldDelegate {
 		authenticateButton.topAnchor.constraint(equalTo: passwordPanel.bottomAnchor, constant: inset).isActive = true
 		authenticateButton.trailingAnchor.constraint(equalTo: formPanel.trailingAnchor).isActive = true
 		authenticateButton.bottomAnchor.constraint(equalTo: formPanel.bottomAnchor).isActive = true
+		authenticateButton.heightAnchor.constraint(equalTo: passwordPanel.heightAnchor).isActive = true
 		
 		return formPanel
+	}
+	
+	override func viewDidLayoutSubviews() {
+		authenticateButton.layer.cornerRadius = authenticateButton.bounds.height / 2
 	}
     
 	private func setStatusText(_ text: String? = nil) {

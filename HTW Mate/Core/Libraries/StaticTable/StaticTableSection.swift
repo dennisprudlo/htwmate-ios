@@ -48,7 +48,7 @@ class StaticTableSection {
 	@discardableResult public func addPushCell(withTitle title: String, present target: UIViewController, needsAuth: Bool = false) -> StaticTableSection {
 		let sectionCell = StaticTableSectionCell(style: .disclosure) {
 			if needsAuth && !Application.hasAuthenticationInformation() {
-				let authController = HWAuthenticationController()
+				let authController = AuthenticationController()
 				authController.presenter = self.presentingViewController
 				authController.successPushTarget = target
 				self.presentingViewController?.present(authController, animated: true, completion: nil)

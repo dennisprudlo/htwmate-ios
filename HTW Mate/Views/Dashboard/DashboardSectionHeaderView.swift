@@ -53,8 +53,4 @@ class DashboardSectionHeaderView: UIView {
     @objc func didTapDetail() {
         onDetailTap?()
     }
-	
-	override func layoutIfNeeded() {
-		print(self.bounds)
-	}
 }

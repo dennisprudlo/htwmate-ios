@@ -79,7 +79,7 @@ class NewsItemTableViewCell: UITableViewCell, Dequeable {
 		articleImageView.addSubview(blurView)
         blurView.translatesAutoresizingMaskIntoConstraints			= false
         blurView.leadingAnchor.constraint(equalTo:					articleImageView.leadingAnchor).isActive = true
-		blurView.topAnchor.constraint(equalTo:						articleImageView.topAnchor, constant: 200).isActive = true
+		blurView.topAnchor.constraint(equalTo:						articleImageView.topAnchor, constant: 225).isActive = true
         blurView.trailingAnchor.constraint(equalTo:					articleImageView.trailingAnchor).isActive = true
         blurView.bottomAnchor.constraint(equalTo:					articleImageView.bottomAnchor).isActive	= true
 

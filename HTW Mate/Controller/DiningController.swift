@@ -212,10 +212,14 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CafeteriaStorage.shared.cafeteriaDishes(inSection: section).count
     }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return CafeteriaStorage.shared.titleForSection(section)
-    }
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		guard let title = CafeteriaStorage.shared.titleForSection(section) else {
+			return nil
+		}
+		
+		return TableViewHeaderView(title: title)
+	}
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dish = CafeteriaStorage.shared.cafeteriaDishes(inSection: indexPath.section)[indexPath.row]
