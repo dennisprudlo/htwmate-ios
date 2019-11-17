@@ -9,32 +9,32 @@
 import UIKit
 
 class CafeteriaDishTitleTableViewCell: UITableViewCell {
-
+	
     let titleLabel = UILabel()
-
+	
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        selectionStyle = .none
-
-        setupUI()
+		configureView()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
-    func setupUI() {
-        contentView.addSubview(titleLabel)
-
-        let inset = HWInsets.standard
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.numberOfLines = 1
-        titleLabel.textColor = HWColors.primaryText
-        titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.enlargedText, weight: .bold)
-        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: HWInsets.large).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset).isActive = true
-        titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor).isActive = true
-        titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -inset).isActive = true
-    }
+    private func configureView() {
+        selectionStyle = .none
+		
+		contentView.addSubview(titleLabel)
+		
+		titleLabel.translatesAutoresizingMaskIntoConstraints	= false
+		
+		titleLabel.numberOfLines								= 1
+        titleLabel.textColor									= HWColors.primaryText
+		titleLabel.font											= Font.shared.scaled(textStyle: .title3, weight: .bold)
+		
+		titleLabel.leadingAnchor.constraint(equalTo:			contentView.leadingAnchor,	constant: HWInsets.standard).isActive	= true
+        titleLabel.topAnchor.constraint(equalTo:				contentView.topAnchor,		constant: HWInsets.large).isActive		= true
+		titleLabel.trailingAnchor.constraint(lessThanOrEqualTo:	contentView.trailingAnchor,	constant: -HWInsets.standard).isActive	= true
+		titleLabel.bottomAnchor.constraint(lessThanOrEqualTo:	contentView.bottomAnchor,	constant: -HWInsets.small).isActive		= true
+	}
 }

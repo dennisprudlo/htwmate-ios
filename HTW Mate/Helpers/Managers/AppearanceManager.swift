@@ -26,15 +26,4 @@ struct AppearanceManager {
 			.font: Font.shared.get(fontSize: .small)
 		], for: .normal)
     }
-
-    public static func dropShadow(for view: UIView, withRadius radius: CGFloat = 10, opacity: Float = 0.5, ignoreBackground ignore: Bool = false) {
-        if !ignore {
-            view.backgroundColor = .white
-        }
-        view.layer.shadowColor = HWColors.shadowDrop?.cgColor
-        view.layer.shadowOpacity = opacity
-        view.layer.shadowOffset = CGSize(width: 0, height: radius / 2)
-        view.layer.shadowRadius = radius
-    }
-
 }

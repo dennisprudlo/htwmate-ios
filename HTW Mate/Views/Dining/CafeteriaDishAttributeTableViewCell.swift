@@ -10,56 +10,59 @@ import UIKit
 
 class CafeteriaDishAttributeTableViewCell: UITableViewCell {
 
-    let badgeView = UIView()
-    let symbolLabel = UILabel()
-    let descriptionLabel = UILabel()
+    private let badgeView			= UIView()
+    private let symbolLabel			= UILabel()
+    private let descriptionLabel	= UILabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        selectionStyle = .none
-
-        setupUI()
+        configureView()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
-    func setupUI() {
+    private func configureView() {
+		selectionStyle = .none
+		
         contentView.addSubview(badgeView)
-        badgeView.addSubview(symbolLabel)
+		badgeView.addSubview(symbolLabel)
         contentView.addSubview(descriptionLabel)
 
-        let inset = HWInsets.standard
-        badgeView.translatesAutoresizingMaskIntoConstraints = false
-        badgeView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: HWInsets.small).isActive = true
-        badgeView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset).isActive = true
-        badgeView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor).isActive = true
-        badgeView.widthAnchor.constraint(equalToConstant: 42).isActive = true
-        badgeView.backgroundColor = HWColors.primaryText
-        badgeView.layer.cornerRadius = HWInsets.CornerRadius.label
+		badgeView.translatesAutoresizingMaskIntoConstraints				= false
+        symbolLabel.translatesAutoresizingMaskIntoConstraints			= false
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints		= false
+		
+		badgeView.backgroundColor										= HWColors.primaryText
+        badgeView.layer.cornerRadius									= HWInsets.CornerRadius.label
 
-        let symbolInset = HWInsets.extraSmall
-        symbolLabel.translatesAutoresizingMaskIntoConstraints = false
-        symbolLabel.numberOfLines = 1
-        symbolLabel.textAlignment = .center
-        symbolLabel.textColor = HWColors.contentBackground
-        symbolLabel.font = UIFont.systemFont(ofSize: HWFontSize.text, weight: .bold)
-        symbolLabel.leadingAnchor.constraint(equalTo: badgeView.leadingAnchor, constant: symbolInset * 2).isActive = true
-        symbolLabel.topAnchor.constraint(equalTo: badgeView.topAnchor, constant: symbolInset).isActive = true
-        symbolLabel.trailingAnchor.constraint(equalTo: badgeView.trailingAnchor, constant: -symbolInset * 2).isActive = true
-        symbolLabel.bottomAnchor.constraint(equalTo: badgeView.bottomAnchor, constant: -symbolInset).isActive = true
+		symbolLabel.numberOfLines										= 1
+        symbolLabel.textAlignment										= .center
+        symbolLabel.textColor											= HWColors.contentBackground
+		symbolLabel.font												= Font.shared.scaled(textStyle: .footnote, weight: .bold)
+		symbolLabel.adjustsFontForContentSizeCategory					= true
 
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.textColor = HWColors.primaryText
-        descriptionLabel.font = UIFont.systemFont(ofSize: HWFontSize.text, weight: .medium)
-        descriptionLabel.topAnchor.constraint(equalTo: symbolLabel.topAnchor).isActive = true
-        descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: badgeView.trailingAnchor, constant: HWInsets.medium).isActive = true
-        descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -inset).isActive = true
-    }
+		descriptionLabel.numberOfLines									= 0
+        descriptionLabel.textColor										= HWColors.primaryText
+		descriptionLabel.font											= Font.shared.scaled(textStyle: .body, weight: .regular)
+		descriptionLabel.adjustsFontForContentSizeCategory				= true
+        
+		badgeView.leadingAnchor.constraint(equalTo:						contentView.leadingAnchor,	constant: HWInsets.standard).isActive		= true
+        badgeView.topAnchor.constraint(equalTo:							contentView.topAnchor).isActive											= true
+		badgeView.bottomAnchor.constraint(lessThanOrEqualTo:			contentView.bottomAnchor,	constant: -HWInsets.small).isActive			= true
+		badgeView.widthAnchor.constraint(equalToConstant:				50).isActive															= true
+	
+		symbolLabel.leadingAnchor.constraint(equalTo:					badgeView.leadingAnchor,	constant: HWInsets.small).isActive			= true
+		symbolLabel.topAnchor.constraint(greaterThanOrEqualTo:			badgeView.topAnchor,		constant: HWInsets.extraSmall).isActive		= true
+		symbolLabel.trailingAnchor.constraint(equalTo:					badgeView.trailingAnchor,	constant: -HWInsets.small).isActive			= true
+		symbolLabel.bottomAnchor.constraint(lessThanOrEqualTo:			badgeView.bottomAnchor,		constant: -HWInsets.extraSmall).isActive	= true
+
+		descriptionLabel.firstBaselineAnchor.constraint(equalTo:		symbolLabel.firstBaselineAnchor).isActive								= true
+		descriptionLabel.leadingAnchor.constraint(equalTo:				badgeView.trailingAnchor,	constant: HWInsets.medium).isActive			= true
+		descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo:	contentView.trailingAnchor,	constant: -HWInsets.standard).isActive		= true
+		descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo:		contentView.bottomAnchor,	constant: -HWInsets.small).isActive			= true
+	}
 
     func setDescription(_ description: String?) {
         descriptionLabel.text = description

@@ -12,92 +12,49 @@ class DiningDetailController: UIViewController, UITableViewDelegate, UITableView
 
     var cafeteriaDish: CafeteriaDish! {
         didSet {
-            rebuildUI()
+			self.redraw()
         }
     }
 
-    var tableView = UITableView()
-
-    let ratingView = UIView()
-    let priceStudentLabel = UILabel()
-    let priceOtherLabel = UILabel()
-
-    let pricePointSizeFactor: CGFloat = 1.3
-    var paddingConstant: CGFloat = 0
-
-    var displayableCells: [UITableViewCell] = []
+    private let tableView							= UITableView()
+    private var displayableCells: [UITableViewCell]	= []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = HWColors.contentBackground
-
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 64
-        tableView.rowHeight = UITableView.automaticDimension
-
-        tableView.register(CafeteriaDishInfoMainTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishInfoMainTableViewCell.self))
-        tableView.register(CafeteriaDishAttributeTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishAttributeTableViewCell.self))
-        tableView.register(CafeteriaDishTitleTableViewCell.self, forCellReuseIdentifier: String(describing: CafeteriaDishTitleTableViewCell.self))
-
-        self.view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-
-        self.view.addSubview(ratingView)
-        ratingView.translatesAutoresizingMaskIntoConstraints = false
-        ratingView.leadingAnchor.constraint(greaterThanOrEqualTo: self.view.leadingAnchor, constant: HWInsets.standard).isActive = true
-        ratingView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -HWInsets.standard).isActive = true
-        ratingView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -HWInsets.standard).isActive = true
-        ratingView.topAnchor.constraint(greaterThanOrEqualTo: self.view.topAnchor, constant: HWInsets.standard).isActive = true
-        ratingView.layer.cornerRadius = HWInsets.CornerRadius.panel
-        AppearanceManager.dropShadow(for: ratingView, withRadius: 5, opacity: 0.3, ignoreBackground: true)
-
-        self.ratingView.addSubview(priceStudentLabel)
-        priceStudentLabel.translatesAutoresizingMaskIntoConstraints = false
-        priceStudentLabel.numberOfLines = 0
-        priceStudentLabel.font = UIFont.monospacedDigitSystemFont(ofSize: HWFontSize.enlargedText * pricePointSizeFactor, weight: .bold)
-        priceStudentLabel.textColor = UIColor.white
-        priceStudentLabel.topAnchor.constraint(equalTo: ratingView.topAnchor, constant: HWInsets.medium).isActive = true
-        priceStudentLabel.bottomAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: -HWInsets.medium).isActive = true
-        priceStudentLabel.trailingAnchor.constraint(equalTo: ratingView.trailingAnchor, constant: -HWInsets.standard).isActive = true
-
-        self.ratingView.addSubview(priceOtherLabel)
-        priceOtherLabel.translatesAutoresizingMaskIntoConstraints = false
-        priceOtherLabel.numberOfLines = 0
-        priceOtherLabel.font = UIFont.monospacedDigitSystemFont(ofSize: HWFontSize.metaInfo * pricePointSizeFactor, weight: .regular)
-        priceOtherLabel.textColor = UIColor.white
-        priceOtherLabel.leadingAnchor.constraint(equalTo: ratingView.leadingAnchor, constant: HWInsets.standard).isActive = true
-        priceOtherLabel.trailingAnchor.constraint(equalTo: priceStudentLabel.leadingAnchor, constant: self.paddingConstant).isActive = true
-        priceOtherLabel.lastBaselineAnchor.constraint(equalTo: priceStudentLabel.lastBaselineAnchor).isActive = true
+        configureView()
     }
+	
+	private func configureView() {
+		navigationItem.largeTitleDisplayMode	= .never
+        view.backgroundColor					= HWColors.contentBackground
 
-    public func rebuildUI() {
-        if cafeteriaDish == nil {
-            self.displayableCells = []
-            self.tableView.reloadData()
-            return
-        }
+		view.addSubview(tableView)
+		tableView.translatesAutoresizingMaskIntoConstraints			= false
+        
+        tableView.delegate				= self
+        tableView.dataSource			= self
+        tableView.separatorStyle		= .none
+        tableView.estimatedRowHeight	= 48
+        tableView.rowHeight				= UITableView.automaticDimension
 
-        self.displayableCells = cafeteriaDish.getInfoCells()
+        tableView.register(CafeteriaDishInfoMainTableViewCell.self,		forCellReuseIdentifier: String(describing: CafeteriaDishInfoMainTableViewCell.self))
+        tableView.register(CafeteriaDishAttributeTableViewCell.self,	forCellReuseIdentifier: String(describing: CafeteriaDishAttributeTableViewCell.self))
+        tableView.register(CafeteriaDishTitleTableViewCell.self,		forCellReuseIdentifier: String(describing: CafeteriaDishTitleTableViewCell.self))
 
-        self.ratingView.backgroundColor = cafeteriaDish.getColor()
+        tableView.topAnchor.constraint(equalTo:			self.view.topAnchor).isActive		= true
+        tableView.leadingAnchor.constraint(equalTo:		self.view.leadingAnchor).isActive	= true
+        tableView.trailingAnchor.constraint(equalTo:	self.view.trailingAnchor).isActive	= true
+        tableView.bottomAnchor.constraint(equalTo:		self.view.bottomAnchor).isActive	= true
+	}
 
-        let priceLabels = cafeteriaDish.getPriceLabels()
-        self.priceStudentLabel.text = priceLabels.student
-        self.priceOtherLabel.text = priceLabels.other
+    private func redraw() {
+		displayableCells = []
+		
+		if let cafeteriaDish = cafeteriaDish {
+			displayableCells = cafeteriaDish.getInfoCells()
+		}
 
-        self.paddingConstant = priceLabels.other == nil ? 0 : -5 * self.pricePointSizeFactor
-
-        ratingView.layoutSubviews()
-
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

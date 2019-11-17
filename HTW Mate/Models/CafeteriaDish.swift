@@ -228,6 +228,7 @@ class CafeteriaDish : DatabaseModel {
 
         let cell = CafeteriaDishInfoMainTableViewCell()
         cell.titleLabel.text = self.title
+		cell.ratingView.backgroundColor = self.getColor()
         infoCells.append(cell)
 
         let badgesData = getBadgeViews()
