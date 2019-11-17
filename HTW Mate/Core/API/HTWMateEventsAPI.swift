@@ -31,15 +31,9 @@ class HTWMateEventsAPI {
                 if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [NSDictionary] {
                     var events: [Event] = [Event]()
                     jsonArray.forEach({ (eventItem) in
-
-                        guard let id = eventItem.value(forKey: "id") as? Int else { return }
-                        guard let title = eventItem.value(forKey: "title") as? String else { return }
-                        guard let subtitle = eventItem.value(forKey: "subtitle") as? String else { return }
-                        guard let url = eventItem.value(forKey: "url") as? String else { return }
-                        guard let date = eventItem.value(forKey: "date") as? String else { return }
-
-                        guard let event = Event(databaseId: id, title: title, subtitle: subtitle, url: url, date: date) else { return }
-                        events.append(event)
+						if let event = Event.from(json: eventItem) {
+							events.append(event)
+						}
                     })
                     completion(events, response)
                 }

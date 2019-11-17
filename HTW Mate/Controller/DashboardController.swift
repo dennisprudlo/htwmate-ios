@@ -68,7 +68,9 @@ class DashboardController: UIViewController, UITableViewDelegate, UITableViewDat
     func checkCollectionViewReload() {
         if DashboardNewsStorage.shared.loaded && DashboardEventStorage.shared.loaded {
 			tableView.refreshControl?.endRefreshing()
-            tableView.reloadData()
+			if DashboardNewsStorage.shared.reloadData || DashboardEventStorage.shared.reloadData {
+				tableView.reloadData()
+			}
         }
     }
 

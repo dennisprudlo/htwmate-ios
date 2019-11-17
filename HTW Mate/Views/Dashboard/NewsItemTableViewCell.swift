@@ -19,7 +19,7 @@ class NewsItemTableViewCell: UITableViewCell {
 	private var titleLabel			= UILabel()
     private var subtitleLabel		= UILabel()
 	
-	private var article: News!
+	private var article: Article!
 	
     public var viewController: DashboardController!
     
@@ -106,12 +106,10 @@ class NewsItemTableViewCell: UITableViewCell {
     }
 
     @objc private func openUrl() {
-        guard !article.isSkeleton else { return }
-
         UIApplication.shared.open(article.url, options: [:], completionHandler: nil)
     }
 
-    public func setModel(_ article: News) {
+    public func setModel(_ article: Article) {
         self.article = article
 
         setTitle(article.title)
@@ -119,25 +117,13 @@ class NewsItemTableViewCell: UITableViewCell {
 
 		featuredView.isHidden = !article.isFeatured
 
-        blurView.isHidden = article.isSkeleton
-        if article.isSkeleton {
-			contentView.layer.shadowColor	= HWColors.shadowDrop?.cgColor
-			contentView.layer.shadowOpacity	= 0.1
-			contentView.layer.shadowOffset	= CGSize(width: 0, height: 1)
-			contentView.layer.shadowRadius	= 4
-        } else {
-            contentView.layer.shadowColor	= HWColors.shadowDrop?.cgColor
-			contentView.layer.shadowOpacity	= 0.3
-			contentView.layer.shadowOffset	= CGSize(width: 0, height: 1)
-			contentView.layer.shadowRadius	= 5
-        }
+		contentView.layer.shadowColor		= HWColors.shadowDrop?.cgColor
+		contentView.layer.shadowOpacity		= 0.3
+		contentView.layer.shadowOffset		= CGSize(width: 0, height: 1)
+		contentView.layer.shadowRadius		= 5
 
-		articleImageView.layer.borderColor = HWColors.StyleGuide.primaryGreen.cgColor
-		articleImageView.layer.borderWidth = article.isFeatured ? 5 : 0
-
-        guard article.databaseId != -1 else {
-            return
-        }
+		articleImageView.layer.borderColor	= HWColors.StyleGuide.primaryGreen.cgColor
+		articleImageView.layer.borderWidth	= article.isFeatured ? 5 : 0
         
         DownloadManager.image(from: article.imageUrl) { (image) in
             self.setImage(image)

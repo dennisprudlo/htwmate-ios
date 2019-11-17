@@ -11,7 +11,7 @@ import UIKit
 class DashboardNewsSection: DashboardSection {
 
     override func numberOfItems() -> Int {
-        return DashboardNewsStorage.shared.news.count
+        return DashboardNewsStorage.shared.articles.count
     }
 	
 	override func tableViewCell(forItemAt index: IndexPath) -> UITableViewCell {

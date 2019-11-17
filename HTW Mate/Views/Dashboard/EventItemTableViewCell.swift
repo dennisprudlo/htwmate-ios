@@ -82,8 +82,6 @@ class EventItemTableViewCell: UITableViewCell, EKEventEditViewDelegate {
     }
 
     @objc func openUrl() {
-        guard !event.isSkeleton else { return }
-
         UIApplication.shared.open(event.url, options: [:], completionHandler: nil)
     }
 
@@ -99,8 +97,6 @@ class EventItemTableViewCell: UITableViewCell, EKEventEditViewDelegate {
     }
 
     func addEventToCalendar() {
-        guard !event.isSkeleton else { return }
-        
         let eventStore = EKEventStore()
         eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
             DispatchQueue.main.async {

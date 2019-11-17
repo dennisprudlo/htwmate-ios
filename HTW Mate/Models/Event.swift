@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Event : DatabaseModel {
+class Event {
 
     /// The events title
     var title: String
@@ -25,41 +25,48 @@ class Event : DatabaseModel {
     /// Initializes an event instance with the given parameters
     ///
     /// - Parameters:
-    ///   - id: The id to refer to in the database
     ///   - title: The events title
     ///   - subtitle: The events subtitle
     ///   - url: The url to the events info page
     ///   - date: The date of the event
-    init(databaseId id: Int, title: String, subtitle: String, url: URL, date: Date) {
-        self.title = title
-        self.subtitle = subtitle
-        self.url = url
-        self.date = date
-
-        super.init(databaseId: id)
+    init(title: String, subtitle: String, url: URL, date: Date) {
+        self.title		= title
+        self.subtitle	= subtitle
+        self.url		= url
+        self.date		= date
     }
-
-    /// Initializes an event instance with the given parameters
-    ///
-    /// - Parameters:
-    ///   - id: The id to refer to in the database
-    ///   - title: The events title
-    ///   - subtitle: The events subtitle
-    ///   - url: The url to the events info page
-    ///   - date: The date of the event
-    convenience init?(databaseId id: Int, title: String, subtitle: String, url: String, date: String) {
-        let dateFormatter = DateFormatter()
+	
+	public static func from(json dictionary: NSDictionary) -> Event? {
+		guard
+			let title		= dictionary.value(forKey: "title") as? String,
+			let subtitle	= dictionary.value(forKey: "subtitle") as? String,
+			let urlString	= dictionary.value(forKey: "url") as? String,
+			let url			= URL(string: urlString),
+			let dateString	= dictionary.value(forKey: "date") as? String
+		else {
+			return nil
+		}
+		
+		let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
-        guard let parsedUrl = URL(string: url), let parsedDate = dateFormatter.date(from: date) else {
+        guard let date = dateFormatter.date(from: dateString) else {
             return nil
         }
-
-        self.init(databaseId: id, title: title, subtitle: subtitle, url: parsedUrl, date: parsedDate)
+		
+		return Event(title: title, subtitle: subtitle, url: url, date: date)
     }
-
-    convenience init() {
-        self.init(databaseId: -1, title: "", subtitle: "", url: URL(fileURLWithPath: ""), date: Date())
-    }
+	
+	public func dict() -> NSDictionary {
+		let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+		
+		return [
+			"title":		title,
+			"subtitle":		subtitle,
+			"url":			url.absoluteString,
+			"date":			dateFormatter.string(from: date)
+		]
+	}
 }
 
