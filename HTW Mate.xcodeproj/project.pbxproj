@@ -87,7 +87,6 @@
 		81E9F5D2233EE8A400E21C6B /* StudiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E9F5D1233EE8A400E21C6B /* StudiesController.swift */; };
 		81EB7DB122D143C300E00485 /* HWColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB022D143C300E00485 /* HWColors.swift */; };
 		81EB7DB322D1448700E00485 /* UIColor+Initalizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */; };
-		81EB7DB722D1462800E00485 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DB622D1462800E00485 /* AppearanceManager.swift */; };
 		81EB7DBA22D2060200E00485 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81EB7DB922D2060200E00485 /* Icons.xcassets */; };
 		81EB7DBC22D2066A00E00485 /* HWIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DBB22D2066A00E00485 /* HWIcons.swift */; };
 		81EB7DBF22D2631800E00485 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB7DBE22D2631800E00485 /* News.swift */; };
@@ -202,7 +201,6 @@
 		81E9F5D1233EE8A400E21C6B /* StudiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesController.swift; sourceTree = "<group>"; };
 		81EB7DB022D143C300E00485 /* HWColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWColors.swift; sourceTree = "<group>"; };
 		81EB7DB222D1448700E00485 /* UIColor+Initalizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Initalizers.swift"; sourceTree = "<group>"; };
-		81EB7DB622D1462800E00485 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		81EB7DB922D2060200E00485 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		81EB7DBB22D2066A00E00485 /* HWIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWIcons.swift; sourceTree = "<group>"; };
 		81EB7DBE22D2631800E00485 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -474,7 +472,6 @@
 		81EB7DB522D1460500E00485 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				81EB7DB622D1462800E00485 /* AppearanceManager.swift */,
 				81E0F1D622D394F10065849D /* DownloadManager.swift */,
 				81BFA8EC22E34CBB0036BACC /* AlertManager.swift */,
 				8129C4DF2361C15A0034E0B4 /* NotificationManager.swift */,
@@ -761,7 +758,6 @@
 				81EB7DC122D2636C00E00485 /* DatabaseModel.swift in Sources */,
 				813CAF872315660B00854C30 /* CafeteriaDish.swift in Sources */,
 				81EB7DBF22D2631800E00485 /* News.swift in Sources */,
-				81EB7DB722D1462800E00485 /* AppearanceManager.swift in Sources */,
 				81FBAEF9232E7E74004F5CD5 /* DashboardEventSection.swift in Sources */,
 				81F942B0230811370042EC3C /* DashboardEventsController.swift in Sources */,
 				81C21EB3232CD7180005E2B0 /* SettingsLegalController.swift in Sources */,
