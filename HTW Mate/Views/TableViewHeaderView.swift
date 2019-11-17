@@ -18,7 +18,7 @@ class TableViewHeaderView: UIView {
 		addSubview(titleLabel)
 		titleLabel.translatesAutoresizingMaskIntoConstraints	= false
 		titleLabel.text											= title
-		titleLabel.font											= Font.shared.scaled(textStyle: .title3, weight: .black)
+		titleLabel.font											= Font.shared.scaled(textStyle: .headline, weight: .bold)
         titleLabel.textColor									= HWColors.primaryText
 		titleLabel.leadingAnchor.constraint(equalTo:			leadingAnchor, constant: HWInsets.standard).isActive = true
 		titleLabel.topAnchor.constraint(equalTo:				topAnchor, constant: HWInsets.extraSmall).isActive = true

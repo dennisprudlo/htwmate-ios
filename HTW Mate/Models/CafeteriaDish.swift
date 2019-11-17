@@ -202,21 +202,20 @@ class CafeteriaDish : DatabaseModel {
             view.backgroundColor = customInfo.color
             view.layer.cornerRadius = HWInsets.CornerRadius.label
 
-            let padding: CGFloat = HWInsets.small
-
             let label = UILabel()
             view.addSubview(label)
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.adjustsFontSizeToFitWidth = false
-            label.numberOfLines = 1
-            label.text = customInfo.text?.uppercased()
-            label.textAlignment = .center
-            label.textColor = .white
-            label.font = UIFont.systemFont(ofSize: HWFontSize.label, weight: .bold)
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding).isActive = true
-            label.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding).isActive = true
-            label.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            label.adjustsFontSizeToFitWidth	= false
+            label.numberOfLines				= 1
+            label.text						= customInfo.text?.uppercased()
+            label.textAlignment				= .center
+            label.textColor					= .white
+			label.font						= Font.shared.scaled(textStyle: .caption2, weight: .black)
+            
+			label.leadingAnchor.constraint(equalTo:		view.leadingAnchor, constant: HWInsets.small).isActive = true
+            label.topAnchor.constraint(equalTo:			view.topAnchor).isActive = true
+			label.trailingAnchor.constraint(equalTo:	view.trailingAnchor, constant: -HWInsets.small).isActive = true
+            label.bottomAnchor.constraint(equalTo:		view.bottomAnchor).isActive = true
 
             badgeViews.append((badge: badge, title: customInfo.text, color: customInfo.color, view: view))
         }
