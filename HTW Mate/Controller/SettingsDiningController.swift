@@ -54,23 +54,28 @@ class SettingsDiningController: UITableViewController {
     }
 
     func configureCells() {
-        self.campusCell.textLabel?.text = HWStrings.Controllers.Settings.Dining.campus
+        campusCell.textLabel?.text			= HWStrings.Controllers.Settings.Dining.campus
+		campusCell.textLabel?.font			= Font.shared.scaled(textStyle: .body)
+		campusCell.detailTextLabel?.font	= Font.shared.scaled(textStyle: .body)
 
-        self.filterCell.textLabel?.text = HWStrings.Controllers.Settings.Dining.filter
-        self.filterCell.selectionStyle = .none
-        self.filterCell.accessoryView = self.filterSwitch
-        self.filterSwitch.addTarget(self, action: #selector(filterSwitchChanged), for: .valueChanged)
+        filterCell.textLabel?.text			= HWStrings.Controllers.Settings.Dining.filter
+		filterCell.textLabel?.font			= Font.shared.scaled(textStyle: .body)
+        filterCell.selectionStyle			= .none
+        filterCell.accessoryView			= filterSwitch
+        filterSwitch.addTarget(self, action: #selector(filterSwitchChanged), for: .valueChanged)
 
         CafeteriaDish.Rating.allCases.forEach { (rating) in
             if rating == .undefined { return }
 
             let ratingCell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
 
-            let localized = CafeteriaDish.localizedDescription(forRating: rating)
-            ratingCell.textLabel?.text = localized.leading
-            ratingCell.textLabel?.font = UIFont.systemFont(ofSize: ratingCell.textLabel?.font.pointSize ?? HWFontSize.text, weight: .semibold)
-            ratingCell.textLabel?.textColor = CafeteriaDish.getColor(ofRating: rating)
-            ratingCell.detailTextLabel?.text = localized.trailing
+            let localized						= CafeteriaDish.localizedDescription(forRating: rating)
+            ratingCell.textLabel?.text			= localized.leading
+			ratingCell.textLabel?.font			= Font.shared.scaled(textStyle: .body, weight: .bold)
+            ratingCell.textLabel?.textColor		= CafeteriaDish.getColor(ofRating: rating)
+			
+            ratingCell.detailTextLabel?.text	= localized.trailing
+			ratingCell.detailTextLabel?.font	= Font.shared.scaled(textStyle: .footnote)
 
             HWMetaContainer.write(rating, forKey: "rating", in: ratingCell)
 
@@ -80,6 +85,7 @@ class SettingsDiningController: UITableViewController {
         CafeteriaDish.Badge.allCases.forEach { (badge) in
             let badgeCell = UITableViewCell(style: .default, reuseIdentifier: nil)
             badgeCell.textLabel?.text = CafeteriaDish.localizedDescription(forBadge: badge)
+			badgeCell.textLabel?.font = Font.shared.scaled(textStyle: .body)
             badgeCell.textLabel?.numberOfLines = 0
 
             HWMetaContainer.write(badge, forKey: "badge", in: badgeCell)
@@ -90,6 +96,7 @@ class SettingsDiningController: UITableViewController {
         CafeteriaDish.Additive.allCases.forEach { (additive) in
             let additiveCell = UITableViewCell(style: .default, reuseIdentifier: nil)
             additiveCell.textLabel?.text = CafeteriaDish.localizedDescription(forIngredientWithIdentifier: additive.rawValue)
+			additiveCell.textLabel?.font = Font.shared.scaled(textStyle: .body)
             additiveCell.textLabel?.numberOfLines = 0
 
             HWMetaContainer.write(additive, forKey: "additive", in: additiveCell)
@@ -100,6 +107,7 @@ class SettingsDiningController: UITableViewController {
         CafeteriaDish.Allergen.allCases.forEach { (allergen) in
             let allergenCell = UITableViewCell(style: .default, reuseIdentifier: nil)
             allergenCell.textLabel?.text = CafeteriaDish.localizedDescription(forIngredientWithIdentifier: allergen.rawValue)
+			allergenCell.textLabel?.font = Font.shared.scaled(textStyle: .body)
             allergenCell.textLabel?.numberOfLines = 0
 
             HWMetaContainer.write(allergen, forKey: "allergen", in: allergenCell)

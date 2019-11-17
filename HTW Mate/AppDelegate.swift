@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         //
         // Update app appearance styles
-        updateControlsAppearance()
+        updateAppearance()
 
         //
         // Preload app data
@@ -33,21 +33,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 	
 	// MARK: Configure components using the appearance protocol
 	
-	private func updateControlsAppearance() -> Void {
-	   let switchAppearance = UISwitch.appearance()
-	   switchAppearance.onTintColor = HWColors.StyleGuide.primaryGreen
+	private func updateAppearance() -> Void {
+		let switchAppearance = UISwitch.appearance()
+		switchAppearance.onTintColor = HWColors.StyleGuide.primaryGreen
 
-	   let barButtonItems = UIBarButtonItem.appearance(whenContainedInInstancesOf: [HWNavigationController.self])
-	   barButtonItems.tintColor = HWColors.StyleGuide.primaryGreen
+		let barButtonItems = UIBarButtonItem.appearance(whenContainedInInstancesOf: [HWNavigationController.self])
+		barButtonItems.tintColor = HWColors.StyleGuide.primaryGreen
 
-	   let greenController = UIBarButtonItem.appearance(whenContainedInInstancesOf: [PDFViewController.self])
-	   greenController.tintColor = HWColors.contentBackground
+		let greenController = UIBarButtonItem.appearance(whenContainedInInstancesOf: [PDFViewController.self])
+		greenController.tintColor = HWColors.contentBackground
 	   
-	   let tabBarItemAppearance = UITabBarItem.appearance()
-	   tabBarItemAppearance.setTitleTextAttributes([
-		   .font: Font.shared.get(fontSize: .small)
-	   ], for: .normal)
-   }
+		let tabBarItemAppearance = UITabBarItem.appearance()
+		tabBarItemAppearance.setTitleTextAttributes([
+			.font: Font.shared.get(fontSize: .small)
+		], for: .normal)
+	}
 
 	// MARK: User Notification Center
 

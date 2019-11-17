@@ -14,7 +14,6 @@ class StaticTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
 		configureSections()
     }
 
@@ -22,8 +21,8 @@ class StaticTableViewController: UITableViewController {
 
 	}
 	
-	func addSection(withHeader header: String?, footer: String?, controller: UIViewController) -> StaticTableSection {
-		let section = StaticTableSection(header: header, footer: footer, presentingController: controller)
+	func addSection(withHeader header: String? = nil, footer: String? = nil) -> StaticTableSection {
+		let section = StaticTableSection(header: header, footer: footer, presentingController: self)
 		self.sections.append(section)
 		return section
 	}
@@ -52,6 +51,6 @@ class StaticTableViewController: UITableViewController {
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		self.sections[indexPath.section].cells[indexPath.row].handler?()
+		sections[indexPath.section].cells[indexPath.row].handler?()
 	}
 }

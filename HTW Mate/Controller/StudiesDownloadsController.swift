@@ -16,11 +16,11 @@ class StudiesDownloadsController: StaticTableViewController {
     }
 
 	override func configureSections() {
-		addSection(withHeader: HWStrings.Downloads.sectionAcademicCalendars, footer: nil, controller: self)
+		addSection(withHeader: HWStrings.Downloads.sectionAcademicCalendars)
 			.addPDFCell(withTitle: Application.currentSemester().readable(),		opening: API.shared.url("publicapi/downloads/academic-calendar/current"))
 			.addPDFCell(withTitle: Application.currentSemester().next().readable(),	opening: API.shared.url("publicapi/downloads/academic-calendar/next"))
 
-		addSection(withHeader: HWStrings.Downloads.sectionRequestsForms, footer: nil, controller: self)
+		addSection(withHeader: HWStrings.Downloads.sectionRequestsForms)
 			.addPDFCell(withTitle: HWStrings.Downloads.Forms.certificates,			opening: API.shared.url("publicapi/downloads/lsf-requests-forms/certificates/en"))
 			.addPDFCell(withTitle: HWStrings.Downloads.Forms.reimbursement,			opening: API.shared.url("publicapi/downloads/lsf-requests-forms/reimbursement/en"))
 			.addPDFCell(withTitle: HWStrings.Downloads.Forms.leaveOfAbsence,		opening: API.shared.url("publicapi/downloads/lsf-requests-forms/leave-of-absence/en"))

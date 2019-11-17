@@ -20,6 +20,8 @@ class StaticTableSectionCell {
 		case link(icon: UIImage?)
 		case linkSubtitle(icon: UIImage?)
 		case destructive
+		case nonInteractable
+		case nonInteractableDetail
 		case custom
     }
 
@@ -60,6 +62,11 @@ class StaticTableSectionCell {
 				cell.accessoryView = imageView
 			case .destructive:
 				cell.textLabel?.textColor = UIColor.destructiveColor()
+			case .nonInteractable:
+				cell.selectionStyle = .none
+			case .nonInteractableDetail:
+				cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+				cell.selectionStyle = .none
 			case .custom:
 				break
         }
@@ -73,9 +80,11 @@ class StaticTableSectionCell {
 
     func setTitle(_ title: String?) {
         self.tableViewCell.textLabel?.text = title
+		self.tableViewCell.textLabel?.font = Font.shared.scaled(textStyle: .body)
     }
 
 	func setDetailTitle(_ detailTitle: String?) {
 		self.tableViewCell.detailTextLabel?.text = detailTitle
+		self.tableViewCell.detailTextLabel?.font = Font.shared.scaled(textStyle: .footnote)
 	}
 }

@@ -32,16 +32,22 @@ class StaticTableSection {
 		return sectionCell
     }
 
-	@discardableResult public func addCell(ofType type: StaticTableSectionCell.CellStyle, title: String, handler: (() -> Void)?) -> StaticTableSectionCell {
+	@discardableResult public func addCell(ofType type: StaticTableSectionCell.CellStyle, title: String, detail: String?, handler: (() -> Void)?) -> StaticTableSectionCell {
         let sectionCell = StaticTableSectionCell(style: type, handler: handler)
         sectionCell.setTitle(title)
+		sectionCell.setDetailTitle(detail)
         self.cells.append(sectionCell)
 
 		return sectionCell
     }
 
-	@discardableResult func addDefaultCell(ofType type: StaticTableSectionCell.CellStyle, title: String, handler: (() -> Void)?) -> StaticTableSection {
-		self.addCell(ofType: type, title: title, handler: handler)
+	@discardableResult func addDefaultCell(ofType type: StaticTableSectionCell.CellStyle, title: String, handler: @escaping (() -> Void) = {}) -> StaticTableSection {
+		self.addCell(ofType: type, title: title, detail: nil, handler: handler)
+		return self
+	}
+	
+	@discardableResult func addDetailCell(ofType type: StaticTableSectionCell.CellStyle, title: String, detailTitle: String, handler: @escaping (() -> Void) = {}) -> StaticTableSection {
+		self.addCell(ofType: type, title: title, detail: detailTitle, handler: handler)
 		return self
 	}
 	
@@ -69,7 +75,7 @@ class StaticTableSection {
     }
 
 	@discardableResult public func addLinkCell(withTitle title: String, opening url: URL?) -> StaticTableSection {
-		self.addCell(ofType: .link(icon: HWIcons.link), title: title) {
+		self.addCell(ofType: .link(icon: HWIcons.link), title: title, detail: nil) {
 			guard let unwrappedUrl = url else { return }
 			UIApplication.shared.open(unwrappedUrl, options: [:], completionHandler: nil)
 		}
@@ -79,7 +85,7 @@ class StaticTableSection {
 
 	@discardableResult public func addPDFCell(withTitle title: String, opening url: URL?, subtitle: String? = nil) -> StaticTableSection {
 		let type: StaticTableSectionCell.CellStyle = subtitle == nil ? .link(icon: HWIcons.pdf) : .linkSubtitle(icon: HWIcons.pdf)
-		let cell = self.addCell(ofType: type, title: title) {
+		let cell = self.addCell(ofType: type, title: title, detail: nil) {
 			guard let url = url else {
 				return
 			}
