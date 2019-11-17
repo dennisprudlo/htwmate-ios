@@ -58,8 +58,11 @@ class DashboardEventsController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = EventItemTableViewCell.dequeue(from: tableView)
-        cell.setModel(self.events[indexPath.row])
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: EventItemTableViewCell.self), for: indexPath) as? EventItemTableViewCell else {
+			return UITableViewCell()
+		}
+		
+		cell.setModel(self.events[indexPath.row])
 		cell.subtitleLabel.numberOfLines = 0
         return cell
     }

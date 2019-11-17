@@ -16,7 +16,7 @@ extension UITableView {
 		let titleLabel = UILabel()
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		titleLabel.textColor = HWColors.secondaryText
-		titleLabel.font = UIFont.systemFont(ofSize: HWFontSize.enlargedText, weight: .bold)
+		titleLabel.font = Font.shared.scaled(textStyle: .headline, weight: .bold)
 		emptyView.addSubview(titleLabel)
 		titleLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
 		titleLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
@@ -24,7 +24,7 @@ extension UITableView {
 		let messageLabel = UILabel()
 		messageLabel.translatesAutoresizingMaskIntoConstraints = false
 		messageLabel.textColor = HWColors.secondaryText
-		messageLabel.font = UIFont.systemFont(ofSize: HWFontSize.strongText, weight: .regular)
+		messageLabel.font = Font.shared.scaled(textStyle: .body, weight: .regular)
 		emptyView.addSubview(messageLabel)
 		messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: HWInsets.small).isActive = true
 		messageLabel.leadingAnchor.constraint(equalTo: emptyView.leadingAnchor, constant: HWInsets.large).isActive = true

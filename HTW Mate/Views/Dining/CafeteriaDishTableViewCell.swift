@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CafeteriaDishTableViewCell: UITableViewCell, Dequeable {
+class CafeteriaDishTableViewCell: UITableViewCell {
 
     private var ratingView			= UIView()
     private var titleLabel			= UILabel()

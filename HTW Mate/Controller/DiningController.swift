@@ -222,7 +222,10 @@ class DiningController: UIViewController, UITableViewDelegate, UITableViewDataSo
 	}
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell			= CafeteriaDishTableViewCell.dequeue(from: tableView)
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CafeteriaDishTableViewCell.self), for: indexPath) as? CafeteriaDishTableViewCell else {
+			return UITableViewCell()
+		}
+		
 		cell.cafeteriaDish	= CafeteriaStorage.shared.cafeteriaDishes(inSection: indexPath.section)[indexPath.row]
         return cell
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsItemTableViewCell: UITableViewCell, Dequeable {
+class NewsItemTableViewCell: UITableViewCell {
 
 	private var articleView			= UIView()
 	private var articleImageView	= UIImageView()
@@ -68,7 +68,7 @@ class NewsItemTableViewCell: UITableViewCell, Dequeable {
 		featuredLabel.text											= HWStrings.Controllers.Dashboard.newsFeatured
 		featuredLabel.textAlignment									= .center
 		featuredLabel.textColor										= .white
-		featuredLabel.font											= UIFont.systemFont(ofSize: HWFontSize.label, weight: .bold)
+		featuredLabel.font											= Font.shared.scaled(textStyle: .footnote, weight: .bold)
 		featuredLabel.leadingAnchor.constraint(equalTo:				featuredView.leadingAnchor, constant: HWInsets.small).isActive = true
 		featuredLabel.topAnchor.constraint(equalTo:					featuredView.topAnchor).isActive = true
 		featuredLabel.trailingAnchor.constraint(equalTo:			featuredView.trailingAnchor, constant: -HWInsets.small).isActive = true

@@ -10,7 +10,7 @@ import UIKit
 import EventKit
 import EventKitUI
 
-class EventItemTableViewCell: UITableViewCell, EKEventEditViewDelegate, Dequeable {
+class EventItemTableViewCell: UITableViewCell, EKEventEditViewDelegate {
 
 	private var eventView		= UIView()
 	private var dateLabel		= UILabel()

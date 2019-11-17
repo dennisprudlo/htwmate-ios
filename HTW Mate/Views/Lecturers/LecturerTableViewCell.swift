@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LecturerTableViewCell: UITableViewCell, Dequeable {
+class LecturerTableViewCell: UITableViewCell {
 
     var lecturerImageView = UIImageView()
     var lecturerTitleLabel = UILabel()

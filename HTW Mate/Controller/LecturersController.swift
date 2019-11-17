@@ -91,8 +91,11 @@ class LecturersController: UITableViewController, UISearchResultsUpdating, Lectu
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = LecturerTableViewCell.dequeue(from: tableView)
-        cell.setModel(LecturerStorage.shared.lecturers(inSection: indexPath.section)[indexPath.row])
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LecturerTableViewCell.self), for: indexPath) as? LecturerTableViewCell else {
+			return UITableViewCell()
+		}
+		
+		cell.setModel(LecturerStorage.shared.lecturers(inSection: indexPath.section)[indexPath.row])
         cell.lecturerImageView.image = nil
         cell.layoutSubviews()
         return cell
