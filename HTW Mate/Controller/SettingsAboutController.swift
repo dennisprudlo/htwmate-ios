@@ -28,10 +28,10 @@ class SettingsAboutController: StaticTableViewController {
 		}
 		
 		addSection()
-			.addDetailCell(ofType: .nonInteractableDetail, title: versionTitle, detailTitle: "App Version")
-			.addDetailCell(ofType: .nonInteractableDetail, title: buildTitle, detailTitle: "Build Number")
+			.addDetailCell(ofType: .nonInteractableDetail, title: versionTitle, detailTitle: HWStrings.General.appVersion)
+			.addDetailCell(ofType: .nonInteractableDetail, title: buildTitle, detailTitle: HWStrings.General.buildNumber)
 		
-		addSection(withHeader: "Development", footer: nil)
+		addSection(withHeader: HWStrings.General.development, footer: nil)
 			.addDefaultCell(ofType: .nonInteractable, title: "Dennis Prudlo")
 	}
 }

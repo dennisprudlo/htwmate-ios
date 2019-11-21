@@ -126,6 +126,7 @@
 		813CAF862315660B00854C30 /* CafeteriaDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDish.swift; sourceTree = "<group>"; };
 		813CAF8923156FD500854C30 /* CafeteriaStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaStorage.swift; sourceTree = "<group>"; };
 		813CAF8C23157B7B00854C30 /* CafeteriaDishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaDishTableViewCell.swift; sourceTree = "<group>"; };
+		8153A23823821AC30005EE57 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8154D6082380295B00C6F719 /* TableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderView.swift; sourceTree = "<group>"; };
 		81647C21237B466200B79543 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		81647C24237B49D700B79543 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
@@ -608,6 +609,7 @@
 				en,
 				Base,
 				de,
+				pl,
 			);
 			mainGroup = 81E707D422D12EFF000B8EE6;
 			productRefGroup = 81E707DE22D12F00000B8EE6 /* Products */;
@@ -770,6 +772,7 @@
 			children = (
 				8177388C230308FE00D0F8D4 /* en */,
 				8177388E2303090400D0F8D4 /* de */,
+				8153A23823821AC30005EE57 /* pl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

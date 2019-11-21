@@ -42,7 +42,7 @@ class DashboardSectionHeaderView: UIView {
         detailLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapDetail)))
 		
 		titleLabel.text = title
-		detailLabel.text = detail
+		detailLabel.text = detail?.lowercased()
 		detailLabel.isUserInteractionEnabled = detail != nil
 	}
 	

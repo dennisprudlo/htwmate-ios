@@ -144,6 +144,14 @@ struct HWStrings {
 			}
 		}
     }
+	
+	
+	
+	struct General {
+		static let appVersion	= HWStrings.localized("general.appVersion")
+		static let buildNumber	= HWStrings.localized("general.buildNumber")
+		static let development	= HWStrings.localized("general.development")
+	}
 
 	struct University {
 		static let winterSemester	= HWStrings.localized("university.winterSemester")
