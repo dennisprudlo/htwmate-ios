@@ -35,23 +35,20 @@ class LecturerInfoOfficeTableViewCell : LecturerInfoTableViewCell {
         contentView.addSubview(addressThoroughfareLabel)
         contentView.addSubview(addressLocalityLabel)
 
-        addressRoomLabel.translatesAutoresizingMaskIntoConstraints = false
-        addressRoomLabel.numberOfLines = 1
-        addressRoomLabel.font = UIFont.systemFont(ofSize: HWFontSize.strongText)
+		[addressRoomLabel, addressThoroughfareLabel, addressLocalityLabel].forEach { (label) in
+			label.translatesAutoresizingMaskIntoConstraints = false
+			label.numberOfLines = 0
+			label.font = Font.shared.scaled(textStyle: .body, weight: .regular)
+		}
+		
         addressRoomLabel.topAnchor.constraint(equalTo: super.sectionTopAnchor, constant: super.sectionTitlePadding).isActive = true
         addressRoomLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: super.cellPadding).isActive = true
         addressRoomLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -super.cellPadding).isActive = true
 
-        addressThoroughfareLabel.translatesAutoresizingMaskIntoConstraints = false
-        addressThoroughfareLabel.numberOfLines = 1
-        addressThoroughfareLabel.font = UIFont.systemFont(ofSize: HWFontSize.strongText)
         addressThoroughfareLabel.topAnchor.constraint(equalTo: addressRoomLabel.bottomAnchor).isActive = true
         addressThoroughfareLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: super.cellPadding).isActive = true
         addressThoroughfareLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -super.cellPadding).isActive = true
 
-        addressLocalityLabel.translatesAutoresizingMaskIntoConstraints = false
-        addressLocalityLabel.numberOfLines = 1
-        addressLocalityLabel.font = UIFont.systemFont(ofSize: HWFontSize.strongText)
         addressLocalityLabel.topAnchor.constraint(equalTo: addressThoroughfareLabel.bottomAnchor).isActive = true
         addressLocalityLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: super.cellPadding).isActive = true
         addressLocalityLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -super.cellPadding).isActive = true
@@ -59,10 +56,10 @@ class LecturerInfoOfficeTableViewCell : LecturerInfoTableViewCell {
     }
 
     override func reload() {
-        let textData = tableViewController.lecturer.getOfficeAddressText()
-        addressRoomLabel.text = textData.room
-        addressThoroughfareLabel.text = textData.thoroughfare
-        addressLocalityLabel.text = textData.locality
+        let textData					= tableViewController.lecturer.getOfficeAddressText()
+        addressRoomLabel.text			= textData.room
+        addressThoroughfareLabel.text	= textData.thoroughfare
+        addressLocalityLabel.text		= textData.locality
     }
 
     func openInMaps() {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CafeteriaDish : DatabaseModel {
+class CafeteriaDish {
 
     enum Cafeteria: String {
         case treskowallee = "CAMPUS_TRESKOWALLEE"
@@ -112,30 +112,26 @@ class CafeteriaDish : DatabaseModel {
     let badges: [CafeteriaDish.Badge]
     let ingredients: [CafeteriaDish.Ingredient]
 
-    init(databaseId: Int, cafeteria: Cafeteria, category: Category, rating: Rating, title: String, prices: Prices, badges: [Badge], ingredients: [Ingredient]) {
-        self.cafeteria = cafeteria
-        self.category = category
-        self.rating = rating
-        self.title = title
-        self.prices = prices
-        self.badges = badges
-        self.ingredients = ingredients
-
-        super.init(databaseId: databaseId)
-    }
+    init(cafeteria: Cafeteria, category: Category, rating: Rating, title: String, prices: Prices, badges: [Badge], ingredients: [Ingredient]) {
+        self.cafeteria		= cafeteria
+        self.category		= category
+        self.rating			= rating
+        self.title			= title
+        self.prices			= prices
+        self.badges			= badges
+        self.ingredients	= ingredients
+	}
 
     public static func from(json dictionary: NSDictionary) -> CafeteriaDish {
-        let databaseId = dictionary.value(forKey: "id") as? Int ?? 0
+        let cafeteria	= Cafeteria.init(rawValue: dictionary.value(forKey: "campus") as? String ?? "") ?? Cafeteria.treskowallee
+        let category	= Category.init(rawValue: dictionary.value(forKey: "category") as? String ?? "") ?? Category.main
+        let rating		= Rating.init(rawValue: dictionary.value(forKey: "rating") as? String ?? "") ?? Rating.undefined
+        let title		= dictionary.value(forKey: "title") as? String ?? "Undefined"
 
-        let cafeteria = Cafeteria.init(rawValue: dictionary.value(forKey: "campus") as? String ?? "") ?? Cafeteria.treskowallee
-        let category = Category.init(rawValue: dictionary.value(forKey: "category") as? String ?? "") ?? Category.main
-        let rating = Rating.init(rawValue: dictionary.value(forKey: "rating") as? String ?? "") ?? Rating.undefined
-        let title = dictionary.value(forKey: "title") as? String ?? "Undefined"
-
-        let priceStudent = dictionary.value(forKey: "price_student") as? Double ?? 0
-        let priceEmplyoee = dictionary.value(forKey: "price_employee") as? Double ?? 0
-        let priceRegular = dictionary.value(forKey: "price_regular") as? Double ?? 0
-        let prices = Prices(student: priceStudent, employee: priceEmplyoee, regular: priceRegular)
+        let priceStudent	= dictionary.value(forKey: "price_student") as? Double ?? 0
+        let priceEmplyoee	= dictionary.value(forKey: "price_employee") as? Double ?? 0
+        let priceRegular	= dictionary.value(forKey: "price_regular") as? Double ?? 0
+        let prices			= Prices(student: priceStudent, employee: priceEmplyoee, regular: priceRegular)
 
         var badges: [Badge] = []
         (dictionary.value(forKey: "badges") as? [String] ?? []).forEach { (badge) in
@@ -153,7 +149,7 @@ class CafeteriaDish : DatabaseModel {
             ingredients.append(Ingredient(identifier: identifier, number: number, isAllergen: isAllergen == 1))
         }
 
-        return CafeteriaDish(databaseId: databaseId, cafeteria: cafeteria, category: category, rating: rating, title: title, prices: prices, badges: badges, ingredients: ingredients)
+        return CafeteriaDish(cafeteria: cafeteria, category: category, rating: rating, title: title, prices: prices, badges: badges, ingredients: ingredients)
     }
 
     public func getIngredientsNumberChain() -> String? {
@@ -202,21 +198,20 @@ class CafeteriaDish : DatabaseModel {
             view.backgroundColor = customInfo.color
             view.layer.cornerRadius = HWInsets.CornerRadius.label
 
-            let padding: CGFloat = HWInsets.small
-
             let label = UILabel()
             view.addSubview(label)
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.adjustsFontSizeToFitWidth = false
-            label.numberOfLines = 1
-            label.text = customInfo.text?.uppercased()
-            label.textAlignment = .center
-            label.textColor = .white
-            label.font = UIFont.systemFont(ofSize: HWFontSize.label, weight: .bold)
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding).isActive = true
-            label.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding).isActive = true
-            label.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            label.adjustsFontSizeToFitWidth	= false
+            label.numberOfLines				= 1
+            label.text						= customInfo.text?.uppercased()
+            label.textAlignment				= .center
+            label.textColor					= .white
+			label.font						= Font.shared.scaled(textStyle: .caption2, weight: .black)
+            
+			label.leadingAnchor.constraint(equalTo:		view.leadingAnchor, constant: HWInsets.small).isActive = true
+            label.topAnchor.constraint(equalTo:			view.topAnchor).isActive = true
+			label.trailingAnchor.constraint(equalTo:	view.trailingAnchor, constant: -HWInsets.small).isActive = true
+            label.bottomAnchor.constraint(equalTo:		view.bottomAnchor).isActive = true
 
             badgeViews.append((badge: badge, title: customInfo.text, color: customInfo.color, view: view))
         }
@@ -229,6 +224,7 @@ class CafeteriaDish : DatabaseModel {
 
         let cell = CafeteriaDishInfoMainTableViewCell()
         cell.titleLabel.text = self.title
+		cell.ratingView.backgroundColor = self.getColor()
         infoCells.append(cell)
 
         let badgesData = getBadgeViews()

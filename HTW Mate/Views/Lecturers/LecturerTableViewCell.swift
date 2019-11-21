@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LecturerTableViewCell: UITableViewCell, Dequeable {
+class LecturerTableViewCell: UITableViewCell {
 
     var lecturerImageView = UIImageView()
     var lecturerTitleLabel = UILabel()
@@ -37,24 +37,27 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
         lecturerImageView.clipsToBounds = true
 		lecturerImageView.tintColor = HWColors.lecturerPlaceholderTint
 
-        lecturerImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 11).isActive = true
-        lecturerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-        lecturerImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -10.5).isActive = true
+		lecturerImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: HWInsets.decent).isActive = true
+		lecturerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: HWInsets.standard).isActive = true
+        lecturerImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -HWInsets.decent).isActive = true
         lecturerImageView.heightAnchor.constraint(equalToConstant: imageHeight).isActive = true
         lecturerImageView.widthAnchor.constraint(equalTo: lecturerImageView.heightAnchor).isActive = true
+		lecturerImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
 
         let wrapperView = UIView()
         contentView.addSubview(wrapperView)
         wrapperView.translatesAutoresizingMaskIntoConstraints = false
-        wrapperView.leadingAnchor.constraint(equalTo: lecturerImageView.trailingAnchor, constant: 16).isActive = true
+		wrapperView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: HWInsets.decent).isActive = true
+		wrapperView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -HWInsets.decent).isActive = true
+		wrapperView.leadingAnchor.constraint(equalTo: lecturerImageView.trailingAnchor, constant: HWInsets.medium).isActive = true
         wrapperView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        wrapperView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
+        wrapperView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -HWInsets.medium).isActive = true
 
         wrapperView.addSubview(lecturerTitleLabel)
         wrapperView.addSubview(lecturerNameLabel)
 
         lecturerTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        lecturerTitleLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .bold)
+		lecturerTitleLabel.font = Font.shared.scaled(textStyle: .footnote, weight: .bold)
         lecturerTitleLabel.textColor = HWColors.darkSecondaryUltraLight
 
         lecturerTitleLabel.topAnchor.constraint(equalTo: wrapperView.topAnchor).isActive = true
@@ -63,8 +66,8 @@ class LecturerTableViewCell: UITableViewCell, Dequeable {
         lecturerTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: wrapperView.trailingAnchor).isActive = true
 
         lecturerNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        lecturerNameLabel.font = UIFont.systemFont(ofSize: HWFontSize.enlargedText, weight: .bold)
-
+		lecturerNameLabel.font = Font.shared.scaled(textStyle: .body, weight: .bold)
+		lecturerNameLabel.numberOfLines = 0
         lecturerNameLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor).isActive = true
         lecturerNameLabel.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor).isActive = true
         lecturerNameLabel.trailingAnchor.constraint(lessThanOrEqualTo: wrapperView.trailingAnchor).isActive = true

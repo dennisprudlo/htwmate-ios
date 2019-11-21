@@ -11,17 +11,19 @@ import UIKit
 class DashboardNewsSection: DashboardSection {
 
     override func numberOfItems() -> Int {
-        return DashboardNewsStorage.shared.news.count
+        return DashboardNewsStorage.shared.articles.count
     }
-
-    override func supplementaryHeader(at indexPath: IndexPath, in collectionView: UICollectionView, presentingController: UIViewController) -> UICollectionReusableView {
-        let header = SectionTitleCollectionReusableView.dequeue(from: collectionView, ofKind: UICollectionView.elementKindSectionHeader, for: indexPath)
-        header.setTitle(HWStrings.Controllers.Dashboard.sectionNews)
-        header.setDetailTitle(nil)
-        return header
-    }
-
-    override func itemHeight(at indexPath: IndexPath) -> CGFloat {
-        return 300
+	
+	override func tableViewCell(forItemAt index: IndexPath) -> UITableViewCell {
+		let cell = NewsItemTableViewCell()
+		
+		let article = DashboardNewsStorage.shared.model(for: index)
+		cell.setModel(article)
+		
+		return cell
+	}
+	
+	override func viewForHeaderInSection() -> UIView {
+		return DashboardSectionHeaderView(title: HWStrings.Controllers.Dashboard.sectionNews)
     }
 }

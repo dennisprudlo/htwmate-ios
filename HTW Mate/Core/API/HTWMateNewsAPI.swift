@@ -18,30 +18,22 @@ class HTWMateNewsAPI {
     /// - Parameters:
     ///   - limit: The amount of news articles to fetch. Gets all if nil is passed
     ///   - completion: The completion handler after a successful request
-    func get(limit: Int?, completion: @escaping ([News], URLResponse) -> Void) {
-
-        var components = API.shared.route(self.endpoint, query: limit != nil)
-
+    func get(limit: Int?, completion: @escaping ([Article], URLResponse) -> Void) {
+		var queryItems: [URLQueryItem]?
         if let safeLimit = limit {
-            components.queryItems?.append(URLQueryItem(name: "limit", value: "\(safeLimit)"))
+            queryItems = [URLQueryItem(name: "limit", value: "\(safeLimit)")]
         }
+		
+		let components = API.shared.route(self.endpoint, queryItems: queryItems)
 
         API.shared.get(route: components) { (data, response) in
             do {
                 if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [NSDictionary] {
-                    var news: [News] = [News]()
+                    var news: [Article] = [Article]()
                     jsonArray.forEach({ (newsItem) in
-
-                        guard let id = newsItem.value(forKey: "id") as? Int else { return }
-                        guard let title = newsItem.value(forKey: "title") as? String else { return }
-                        guard let subtitle = newsItem.value(forKey: "subtitle") as? String else { return }
-                        guard let url = newsItem.value(forKey: "url") as? String else { return }
-                        guard let imageUrl = newsItem.value(forKey: "image_url") as? String else { return }
-                        guard let featured = newsItem.value(forKey: "featured") as? Bool else { return }
-                        guard let publishDate = newsItem.value(forKey: "created_at") as? String else { return }
-
-						guard let newsArticle = News(databaseId: id, title: title, subtitle: subtitle, url: url, imageUrl: imageUrl, isFeatured: featured, publishDate: publishDate) else { return }
-                        news.append(newsArticle)
+						if let article = Article.from(json: newsItem) {
+							news.append(article)
+						}
                     })
                     completion(news, response)
                 }

@@ -22,6 +22,7 @@ struct HWStrings {
     static let ok		= HWStrings.localized("base.ok")
     static let cancel	= HWStrings.localized("base.cancel")
     static let settings	= HWStrings.localized("base.settings")
+	static let unlink	= HWStrings.localized("base.unlink")
 
     // MARK: Permission alerts
     struct Permissions {
@@ -143,6 +144,14 @@ struct HWStrings {
 			}
 		}
     }
+	
+	
+	
+	struct General {
+		static let appVersion	= HWStrings.localized("general.appVersion")
+		static let buildNumber	= HWStrings.localized("general.buildNumber")
+		static let development	= HWStrings.localized("general.development")
+	}
 
 	struct University {
 		static let winterSemester	= HWStrings.localized("university.winterSemester")
@@ -166,4 +175,20 @@ struct HWStrings {
 		}
 
 	}
+    
+    struct Authentication {
+        static let studentId					= HWStrings.localized("authentication.studentId")
+        static let studentIdInfoTitle			= HWStrings.localized("authentication.studentIdInfoTitle")
+        static let studentIdInfoDescription		= HWStrings.localized("authentication.studentIdInfoDescription")
+        static let password						= HWStrings.localized("authentication.password")
+		static let privacyInfo					= HWStrings.localized("authentication.privacyInfo")
+		static let signInButton					= HWStrings.localized("authentication.signInButton")
+		static let invalidInputTitle			= HWStrings.localized("authentication.invalidInputTitle")
+		static let invalidInputDescription		= HWStrings.localized("authentication.invalidInputDescription")
+		static let incorrectInputTitle			= HWStrings.localized("authentication.incorrectInputTitle")
+		static let incorrectInputDescription	= HWStrings.localized("authentication.incorrectInputDescription")
+		static let unlinkTitle					= HWStrings.localized("authentication.unlinkTitle")
+		static let unlinkDescription			= HWStrings.localized("authentication.unlinkDescription")
+		static let unlinkConfirmation			= HWStrings.localized("authentication.unlinkConfirmation")
+    }
 }

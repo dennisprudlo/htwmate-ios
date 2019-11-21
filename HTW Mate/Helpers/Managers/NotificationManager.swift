@@ -113,7 +113,7 @@ class NotificationManager {
 
 		//
 		// Send the device token to the database
-		let route = API.shared.route("apns/request", query: false)
+		let route = API.shared.route("apns/request", queryItems: nil)
 		API.shared.post(route: route, params: ["deviceToken": token, "locale": locale]) { (data, response) in
 
 		}

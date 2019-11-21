@@ -21,6 +21,8 @@ class PDFRootViewController: UIViewController {
 	var customMinScaleFactor: CGFloat	= 0.2
 	var customScaleFactor: CGFloat		= 0.4
 	var customMaxScaleFactor: CGFloat	= 5
+    
+    let loader = UIActivityIndicatorView(style: .large)
 
 	enum PDFViewPreset {
 		case a4
@@ -45,6 +47,14 @@ class PDFRootViewController: UIViewController {
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare(_:)))
 		navigationItem.rightBarButtonItem?.isEnabled = false
+        
+        view.addSubview(loader)
+        loader.color = .white
+        loader.translatesAutoresizingMaskIntoConstraints = false
+        loader.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        loader.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        loader.startAnimating()
 
 		DispatchQueue.global(qos: .background).async {
 			if let safeUrl = self.pdfUrl, let safeDocument = PDFDocument(url: safeUrl) {
@@ -59,6 +69,7 @@ class PDFRootViewController: UIViewController {
 					self.pdfView.layoutDocumentView()
 
 					self.navigationItem.rightBarButtonItem?.isEnabled = true
+                    self.loader.stopAnimating()
 				}
 			}
 		}

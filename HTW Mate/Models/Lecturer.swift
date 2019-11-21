@@ -9,7 +9,7 @@
 import UIKit
 import Contacts
 
-class Lecturer : DatabaseModel {
+class Lecturer {
 
     var htwId: Int
     var title: String?
@@ -40,57 +40,73 @@ class Lecturer : DatabaseModel {
 
     private var quickActionSubviews: [UIView] = []
 
-    init(databaseId: Int, htwId: Int, lastname: String, firstname: String) {
-        self.htwId = htwId
-        self.lastname = lastname
-        self.firstname = firstname
-        super.init(databaseId: databaseId)
-    }
+    init(htwId: Int, lastname: String, firstname: String) {
+        self.htwId		= htwId
+        self.lastname	= lastname
+        self.firstname	= firstname
+	}
 
-    public static func from(json dictionary: NSDictionary) -> Lecturer {
-        let databaseId = dictionary.value(forKey: "id") as? Int ?? 0
-        let htwId = dictionary.value(forKey: "htw_id") as? Int ?? 0
-        let lastname = dictionary.value(forKey: "lastname") as? String ?? "Unnamed"
-        let firstname = dictionary.value(forKey: "firstname") as? String ?? "Unnamed"
+    public static func from(json dictionary: NSDictionary) -> Lecturer? {
+        guard
+			let htwId							= dictionary.value(forKey: "htw_id") as? Int,
+			let lastname						= dictionary.value(forKey: "lastname") as? String,
+			let firstname						= dictionary.value(forKey: "firstname") as? String
+		else {
+			return nil
+		}
 
-        let lecturer = Lecturer(databaseId: databaseId, htwId: htwId, lastname: lastname, firstname: firstname)
+        let lecturer						= Lecturer(htwId: htwId, lastname: lastname, firstname: firstname)
 
-        lecturer.title = dictionary.value(forKey: "title") as? String
-        lecturer.mail = dictionary.value(forKey: "mail") as? String
-        lecturer.mobile = dictionary.value(forKey: "mobile") as? String
-        lecturer.phone = dictionary.value(forKey: "phone") as? String
-        lecturer.fax = dictionary.value(forKey: "fax") as? String
+        lecturer.title						= dictionary.value(forKey: "title") as? String
+		if let title = lecturer.title, title.count == 0 {
+			lecturer.title = nil
+		}
+		
+        lecturer.mail						= dictionary.value(forKey: "mail") as? String
+        lecturer.mobile						= dictionary.value(forKey: "mobile") as? String
+        lecturer.phone						= dictionary.value(forKey: "phone") as? String
+        lecturer.fax						= dictionary.value(forKey: "fax") as? String
 
-        let websiteUrl = dictionary.value(forKey: "website_url") as? String ?? ""
-        lecturer.websiteUrl = URL(string: websiteUrl)
+        let websiteUrl						= dictionary.value(forKey: "website_url") as? String ?? ""
+        lecturer.websiteUrl					= URL(string: websiteUrl)
 
-        let imageUrl = dictionary.value(forKey: "image_url") as? String ?? ""
-        lecturer.imageUrl = URL(string: imageUrl)
-
-        lecturer.officeCampus = dictionary.value(forKey: "office_campus") as? String
-        lecturer.officeBuilding = dictionary.value(forKey: "office_building") as? String
-        lecturer.officeRoom = dictionary.value(forKey: "office_room") as? String
-        lecturer.officeThoroughfare = dictionary.value(forKey: "office_thoroughfare") as? String
-        lecturer.officePostalCode = dictionary.value(forKey: "office_postal_code") as? String
-        lecturer.officeLocality = dictionary.value(forKey: "office_locality") as? String
+        let imageUrl						= dictionary.value(forKey: "image_url") as? String ?? ""
+        lecturer.imageUrl					= URL(string: imageUrl)
+		
+        lecturer.officeCampus				= dictionary.value(forKey: "office_campus") as? String
+        lecturer.officeBuilding				= dictionary.value(forKey: "office_building") as? String
+        lecturer.officeRoom					= dictionary.value(forKey: "office_room") as? String
+        lecturer.officeThoroughfare			= dictionary.value(forKey: "office_thoroughfare") as? String
+        lecturer.officePostalCode			= dictionary.value(forKey: "office_postal_code") as? String
+        lecturer.officeLocality				= dictionary.value(forKey: "office_locality") as? String
 
         // Load renderer json representation
-        lecturer.fieldOfWork.data = dictionary.value(forKey: "field_of_work") as? String ?? "[]"
-        lecturer.mainArea.data = dictionary.value(forKey: "main_area") as? String ?? "[]"
-        lecturer.researchActivities.data = dictionary.value(forKey: "research_activities") as? String ?? "[]"
-        lecturer.officialCapacity.data = dictionary.value(forKey: "official_capacity") as? String ?? "[]"
-        lecturer.officeHours.data = dictionary.value(forKey: "office_hours") as? String ?? "[]"
+        lecturer.fieldOfWork.data			= dictionary.value(forKey: "field_of_work") as? String ?? "[]"
+        lecturer.mainArea.data				= dictionary.value(forKey: "main_area") as? String ?? "[]"
+        lecturer.researchActivities.data	= dictionary.value(forKey: "research_activities") as? String ?? "[]"
+        lecturer.officialCapacity.data		= dictionary.value(forKey: "official_capacity") as? String ?? "[]"
+        lecturer.officeHours.data			= dictionary.value(forKey: "office_hours") as? String ?? "[]"
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let lastUpdatedAtString = dictionary.value(forKey: "updated_at") as? String ?? ""
-        lecturer.lastUpdatedAt = dateFormatter.date(from: lastUpdatedAtString)
+        let dateFormatter					= DateFormatter()
+        dateFormatter.dateFormat			= "yyyy-MM-dd HH:mm:ss"
+        let lastUpdatedAtString				= dictionary.value(forKey: "updated_at") as? String ?? ""
+        lecturer.lastUpdatedAt				= dateFormatter.date(from: lastUpdatedAtString)
 
-        lecturer.tableViewSectionHaystack = "\(lecturer.title ?? "") \(lecturer.firstname) \(lecturer.lastname)".lowercased()
-        lecturer.tableViewSectionLetter = String(lastname.first ?? Character(""))
+        lecturer.tableViewSectionHaystack	= "\(lecturer.title ?? "") \(lecturer.firstname) \(lecturer.lastname)".lowercased()
+        lecturer.tableViewSectionLetter		= String(lastname.first ?? Character(""))
 
         return lecturer
     }
+	
+	public func dict() -> NSDictionary {
+		return [
+			"htw_id":		htwId,
+			"lastname":		lastname,
+			"firstname":	firstname,
+			"title":		title ?? "",
+			"image_url":	imageUrl ?? ""
+		]
+	}
 
     public func downloadImage(completion: ((UIImage?) -> Void)? = nil) -> Void {
         guard let url = self.imageUrl else {
@@ -239,7 +255,7 @@ class Lecturer : DatabaseModel {
         let actionLabel = UILabel()
         actionLabel.translatesAutoresizingMaskIntoConstraints = false
         actionLabel.text = title
-        actionLabel.font = UIFont.systemFont(ofSize: HWFontSize.metaInfo, weight: .medium)
+		actionLabel.font = Font.shared.get(fontSize: .small, weight: .regular)
         actionLabel.textColor = active ? HWColors.StyleGuide.primaryGreen : .lightGray
         actionLabel.textAlignment = .center
 

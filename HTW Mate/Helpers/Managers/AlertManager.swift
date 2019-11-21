@@ -49,6 +49,20 @@ class AlertManager {
         }))
         dispatch(ofType: .inherit)
     }
+	
+	func unlinkAccount() -> Void {
+		alertController = UIAlertController(title: HWStrings.Authentication.unlinkTitle, message: HWStrings.Authentication.unlinkConfirmation, preferredStyle: .alert)
+		alertController.addAction(UIAlertAction(title: HWStrings.cancel, style: .cancel, handler: nil))
+		alertController.addAction(UIAlertAction(title: HWStrings.unlink, style: .destructive, handler: { (action) in
+            
+			Keychain.standard.removeObject(forKey: Keychain.Key.authenticationStudentId)
+			Keychain.standard.removeObject(forKey: Keychain.Key.authenticationPassword)
+			
+			self.viewController.navigationController?.popViewController(animated: true)
+        }))
+        
+		viewController.present(alertController, animated: true, completion: nil)
+	}
 
     func with(message: String) -> AlertManager {
         self.message = message

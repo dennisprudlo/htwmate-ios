@@ -19,8 +19,15 @@ class HWNavigationController: UINavigationController {
 
 		let navBarAppearance = UINavigationBarAppearance()
 		navBarAppearance.configureWithOpaqueBackground()
-		navBarAppearance.titleTextAttributes = [.foregroundColor: HWColors.primaryText ?? .black]
-		navBarAppearance.largeTitleTextAttributes = [.foregroundColor: HWColors.primaryText ?? .black]
+		navBarAppearance.titleTextAttributes = [
+			.foregroundColor: HWColors.primaryText ?? .black,
+			.font: Font.shared.scaled(textStyle: .title3, weight: .bold)
+		]
+		navBarAppearance.largeTitleTextAttributes = [
+			.foregroundColor: HWColors.primaryText ?? .black,
+			.font: Font.shared.scaled(textStyle: .largeTitle, weight: .black)
+		]
+		
 		navBarAppearance.backgroundColor = HWColors.contentBackground
 
 		navigationBar.standardAppearance = navBarAppearance

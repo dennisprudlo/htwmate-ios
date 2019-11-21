@@ -16,21 +16,23 @@ class StudiesCancelledLectureCell: UITableViewCell {
 		self.cancelledLecture = cancelledLecture
 
 		super.init(style: .subtitle, reuseIdentifier: nil)
-
-		self.selectionStyle = .none
-		setupUI()
+		configureView()
 	}
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func setupUI() {
-		self.textLabel?.text = cancelledLecture.title
-		textLabel?.numberOfLines = 0
+	private func configureView() {
+		selectionStyle = .none
+		
+		textLabel?.text				= cancelledLecture.title
+		textLabel?.font				= Font.shared.scaled(textStyle: .body, weight: .regular)
+		textLabel?.numberOfLines	= 0
 
-		self.detailTextLabel?.text = cancelledLecture.getDetailText()
-
+		detailTextLabel?.text		= cancelledLecture.getDetailText()
+		detailTextLabel?.font		= Font.shared.scaled(textStyle: .footnote, weight: .regular)
+		
 		if let _ = cancelledLecture.comment {
 			self.tintColor = HWColors.StyleGuide.primaryGreen
 			self.accessoryType = .detailButton

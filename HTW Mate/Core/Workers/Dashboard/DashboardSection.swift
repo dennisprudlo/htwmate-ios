@@ -10,34 +10,21 @@ import UIKit
 
 class DashboardSection {
 
+	let presenter: UIViewController
+	
+	init(presenter: UIViewController) {
+		self.presenter = presenter
+	}
+	
     func numberOfItems() -> Int {
         return 0
     }
+	
+	func tableViewCell(forItemAt index: IndexPath) -> UITableViewCell {
+		return UITableViewCell()
+	}
 
-    func itemsPerRow(forSize size: CGSize) -> Int {
-        if size.width <= 414.0 {
-            return 1
-        } else if size.width < 1000.0 {
-            return 2
-        } else {
-            return 3
-        }
-    }
-
-    func itemHeight(at indexPath: IndexPath) -> CGFloat {
-        return 0
-    }
-
-    func sectionInsets() -> UIEdgeInsets {
-        return UIEdgeInsets(top: HWInsets.standard, left: HWInsets.standard, bottom: HWInsets.standard, right: HWInsets.standard)
-    }
-
-    func supplementaryHeaderHeight() -> CGFloat {
-        return 40
-    }
-
-    func supplementaryHeader(at indexPath: IndexPath, in collectionView: UICollectionView, presentingController: UIViewController) -> UICollectionReusableView {
-        let kind = UICollectionView.elementKindSectionHeader
-        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: SectionTitleCollectionReusableView.self), for: indexPath)
+    func viewForHeaderInSection() -> UIView {
+        return UIView()
     }
 }

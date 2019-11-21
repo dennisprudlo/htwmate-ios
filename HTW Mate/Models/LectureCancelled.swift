@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LectureCancelled : DatabaseModel {
+class LectureCancelled {
 
 	/// The lectures id
     var htwLectureId: Int
@@ -31,7 +31,7 @@ class LectureCancelled : DatabaseModel {
 	/// An additional comment
 	var comment: String?
 
-	init(databaseId id: Int, htwLectureId: Int, title: String, group: String, lecturer: String, date: Date, period: (begin: String, end: String), comment: String?) {
+	init(htwLectureId: Int, title: String, group: String, lecturer: String, date: Date, period: (begin: String, end: String), comment: String?) {
 		self.htwLectureId = htwLectureId
 		self.title = title
 		self.group = group
@@ -39,39 +39,33 @@ class LectureCancelled : DatabaseModel {
         self.date = date
         self.period = period
 		self.comment = comment
-
-        super.init(databaseId: id)
-    }
+	}
 
 	public static func from(json dictionary: NSDictionary) -> LectureCancelled? {
-        let databaseId		= dictionary.value(forKey: "id") as? Int ?? 0
-        let htwLectureId	= dictionary.value(forKey: "htw_lecture_id") as? Int ?? 0
-        let title			= dictionary.value(forKey: "title") as? String ?? ""
-        let group			= dictionary.value(forKey: "group") as? String ?? ""
-		let lecturer		= dictionary.value(forKey: "lecturer") as? String ?? ""
-		let date			= dictionary.value(forKey: "date") as? String ?? ""
-		let begin			= dictionary.value(forKey: "begin") as? String ?? ""
-		let end				= dictionary.value(forKey: "end") as? String ?? ""
-		var comment			= dictionary.value(forKey: "comment") as? String
-
-		if comment?.count == 0 {
-			comment = nil
-		}
-
-		if databaseId == 0 || htwLectureId == 0 {
+        guard
+			let htwLectureId	= dictionary.value(forKey: "htw_lecture_id") as? Int,
+			let title			= dictionary.value(forKey: "title") as? String,
+			let group			= dictionary.value(forKey: "group") as? String,
+			let lecturer		= dictionary.value(forKey: "lecturer") as? String,
+			let dateString		= dictionary.value(forKey: "date") as? String,
+			let begin			= dictionary.value(forKey: "begin") as? String,
+			let end				= dictionary.value(forKey: "end") as? String
+		else {
 			return nil
 		}
-
+		
+		let comment			= dictionary.value(forKey: "comment") as? String
+		
 		let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
-        guard let parsedDate = dateFormatter.date(from: date) else {
+        guard let date = dateFormatter.date(from: dateString) else {
             return nil
         }
 
 		let period: (begin: String, end: String) = (begin: begin, end: end)
 
-		return LectureCancelled(databaseId: databaseId, htwLectureId: htwLectureId, title: title, group: group, lecturer: lecturer, date: parsedDate, period: period, comment: comment)
+		return LectureCancelled(htwLectureId: htwLectureId, title: title, group: group, lecturer: lecturer, date: date, period: period, comment: comment)
     }
 
 	public func getDetailText() -> String {
