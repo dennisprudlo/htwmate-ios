@@ -17,7 +17,7 @@ class StudiesController: StaticTableViewController {
 
 	override func configureSections() {
 		addSection()
-			.addPushCell(withTitle: "Certificates", present: StudiesCertificatesController(style: .insetGrouped), needsAuth: true)
+			.addPushCell(withTitle: HWStrings.University.certificates, present: StudiesCertificatesController(style: .insetGrouped), needsAuth: true)
 		
 		addSection(withHeader: HWStrings.Controllers.Studies.Lectures.title)
 			.addPushCell(withTitle: HWStrings.Controllers.Studies.Lectures.Cancelled.title, present: StudiesLecturesCancelledController(style: .insetGrouped))
