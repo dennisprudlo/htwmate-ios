@@ -14,7 +14,7 @@ class StudiesCertificatesController: StaticTableViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.title = "Certificates"
+		self.title = HWStrings.University.certificates
 		
 		self.certificates = Cache.read(key: .certificates) ?? []
 		self.configureSections()
