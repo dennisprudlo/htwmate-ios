@@ -14,6 +14,12 @@ class StudiesDownloadsController: StaticTableViewController {
         super.viewDidLoad()
 		self.title = HWStrings.Downloads.title
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		sections = []
+		configureSections()
+		tableView.reloadData()
+	}
 
 	override func configureSections() {
 		if let authInfo = Application.getAuthenticationInformation() {
