@@ -12,7 +12,8 @@ class StaticTableSectionCell {
 
     var tableViewCell: UITableViewCell = UITableViewCell()
     var style: CellStyle
-    var handler: (() -> Void)?
+    var handler: ((StaticTableSectionCell) -> Void)?
+	var icon: UIImage?
 
     enum CellStyle {
         case disclosure
@@ -25,14 +26,14 @@ class StaticTableSectionCell {
 		case custom
     }
 
-    init(style: CellStyle, handler: (() -> Void)?) {
+    init(style: CellStyle, handler: ((StaticTableSectionCell) -> Void)?) {
         self.style = style
         self.handler = handler
 
         generateTableViewCell()
     }
 
-	init(cell: UITableViewCell, handler: (() -> Void)?) {
+	init(cell: UITableViewCell, handler: ((StaticTableSectionCell) -> Void)?) {
 		self.style = .custom
 		self.tableViewCell = cell
         self.handler = handler
@@ -86,5 +87,20 @@ class StaticTableSectionCell {
 	func setDetailTitle(_ detailTitle: String?) {
 		self.tableViewCell.detailTextLabel?.text = detailTitle
 		self.tableViewCell.detailTextLabel?.font = Font.shared.scaled(textStyle: .footnote)
+	}
+	
+	func startLoading() {
+		self.icon = (self.tableViewCell.accessoryView as? UIImageView)?.image
+		
+		let loadingView = UIActivityIndicatorView(style: .medium)
+		self.tableViewCell.accessoryView = loadingView
+		loadingView.startAnimating()
+	}
+	
+	func stopLoading() {
+		let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+		imageView.image = self.icon
+		imageView.tintColor = HWColors.StyleGuide.primaryGreen
+		self.tableViewCell.accessoryView = imageView
 	}
 }

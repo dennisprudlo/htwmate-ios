@@ -164,6 +164,7 @@ struct HWStrings {
 		static let sectionAcademicCalendars	= HWStrings.localized("downloads.sectionAcademicCalendars")
 		static let sectionRequestsForms		= HWStrings.localized("downloads.sectionRequestsForms")
 
+		static let schedule					= HWStrings.localized("downloads.schedule")
 		struct Forms {
 			static let certificates				= HWStrings.localized("downloads.forms.certificates")
 			static let reimbursement			= HWStrings.localized("downloads.forms.reimbursement")

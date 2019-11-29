@@ -18,12 +18,10 @@ class StudiesController: StaticTableViewController {
 	override func configureSections() {
 		addSection()
 			.addPushCell(withTitle: HWStrings.University.certificates, present: StudiesCertificatesController(style: .insetGrouped), needsAuth: true)
+			.addPushCell(withTitle: HWStrings.Downloads.title, present: StudiesDownloadsController(style: .insetGrouped))
 		
 		addSection(withHeader: HWStrings.Controllers.Studies.Lectures.title)
 			.addPushCell(withTitle: HWStrings.Controllers.Studies.Lectures.Cancelled.title, present: StudiesLecturesCancelledController(style: .insetGrouped))
-
-		addSection()
-			.addPushCell(withTitle: HWStrings.Downloads.title, present: StudiesDownloadsController(style: .insetGrouped))
 
 		addSection(withHeader: HWStrings.Controllers.Studies.HtwServices.title)
 			.addLinkCell(withTitle: "LSF",															opening: URL(string: "https://lsf.htw-berlin.de"))
