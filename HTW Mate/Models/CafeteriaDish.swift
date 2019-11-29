@@ -169,51 +169,33 @@ class CafeteriaDish {
         return output + ")"
     }
 
-    public func getBadgeViews(withFullTitle fullTitle: Bool = false) -> [(badge: Badge, title: String?, color: UIColor?, view: UIView)] {
-        var badgeViews: [(badge: Badge, title: String?, color: UIColor?, view: UIView)] = []
+    public func getBadgeViews() -> [(badge: Badge, color: UIColor?, view: UIView)] {
+        var badgeViews: [(badge: Badge, color: UIColor?, view: UIView)] = []
 
         badges.forEach { (badge) in
 
-            var customInfo: (text: String?, color: UIColor?) = (text: nil, color: nil)
+            var color: UIColor? = nil
             switch badge {
             case .vegan:
-                customInfo.text = "vegan"
-                customInfo.color = HWColors.Cafeteria.badgeVegan
+                color = HWColors.Cafeteria.badgeVegan
             case .climateFriendly:
-                customInfo.text = fullTitle ? "climate friendly" : "climate fr."
-                customInfo.color = HWColors.Cafeteria.badgeClimateFriendly
+				color = HWColors.Cafeteria.badgeClimateFriendly
             case .vegetarian:
-                customInfo.text = fullTitle ? "vegetarian" : "veget."
-                customInfo.color = HWColors.Cafeteria.badgeVegetarian
+                color = HWColors.Cafeteria.badgeVegetarian
             case .sustainable:
-                customInfo.text = fullTitle ? "sustainable food" : "sust. food"
-                customInfo.color = HWColors.Cafeteria.badgeSustainable
+                color = HWColors.Cafeteria.badgeSustainable
             case .sustainableFish:
-                customInfo.text = fullTitle ? "sustainable fisheries" : "sust. fish."
-                customInfo.color = HWColors.Cafeteria.badgeSustainableFish
+                color = HWColors.Cafeteria.badgeSustainableFish
             }
 
             let view = UIView()
             view.translatesAutoresizingMaskIntoConstraints = false
-            view.backgroundColor = customInfo.color
+            view.backgroundColor = color
             view.layer.cornerRadius = HWInsets.CornerRadius.label
-
-            let label = UILabel()
-            view.addSubview(label)
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.adjustsFontSizeToFitWidth	= false
-            label.numberOfLines				= 1
-            label.text						= customInfo.text?.uppercased()
-            label.textAlignment				= .center
-            label.textColor					= .white
-			label.font						= Font.shared.scaled(textStyle: .caption2, weight: .black)
-            
-			label.leadingAnchor.constraint(equalTo:		view.leadingAnchor, constant: HWInsets.small).isActive = true
-            label.topAnchor.constraint(equalTo:			view.topAnchor).isActive = true
-			label.trailingAnchor.constraint(equalTo:	view.trailingAnchor, constant: -HWInsets.small).isActive = true
-            label.bottomAnchor.constraint(equalTo:		view.bottomAnchor).isActive = true
-
-            badgeViews.append((badge: badge, title: customInfo.text, color: customInfo.color, view: view))
+			view.heightAnchor.constraint(equalToConstant: HWInsets.standard).isActive = true
+			view.widthAnchor.constraint(equalToConstant: 40).isActive = true
+			
+            badgeViews.append((badge: badge, color: color, view: view))
         }
 
         return badgeViews

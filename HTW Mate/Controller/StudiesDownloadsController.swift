@@ -14,8 +14,37 @@ class StudiesDownloadsController: StaticTableViewController {
         super.viewDidLoad()
 		self.title = HWStrings.Downloads.title
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		sections = []
+		configureSections()
+		tableView.reloadData()
+	}
 
 	override func configureSections() {
+		if let authInfo = Application.getAuthenticationInformation() {
+			let url = API.shared.url("api/schedule/ics", queryItems: [
+				URLQueryItem(name: "username", value: authInfo.studentId),
+				URLQueryItem(name: "password", value: authInfo.password)
+			])
+			
+			addSection().addDetailCell(ofType: .linkSubtitle(icon: HWIcons.download), title: HWStrings.Downloads.schedule, detailTitle: "iCalendar") { cell in
+				cell.startLoading()
+				
+				URLSession.shared.dataTask(with: url) { (data, response, error) in
+					DispatchQueue.main.async {
+						cell.stopLoading()
+						
+						guard let responseUrl = response?.url else {
+							return
+						}
+						
+						UIApplication.shared.open(responseUrl, options: [:], completionHandler: nil)
+					}
+				}.resume()
+			}
+		}
+		
 		addSection(withHeader: HWStrings.Downloads.sectionAcademicCalendars)
 			.addPDFCell(withTitle: Application.currentSemester().readable(),		opening: API.shared.url("publicapi/downloads/academic-calendar/current"))
 			.addPDFCell(withTitle: Application.currentSemester().next().readable(),	opening: API.shared.url("publicapi/downloads/academic-calendar/next"))

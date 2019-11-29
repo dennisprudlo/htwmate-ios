@@ -29,7 +29,7 @@ class DashboardSectionHeaderView: UIView {
 		titleLabel.leadingAnchor.constraint(equalTo:			leadingAnchor, constant: HWInsets.standard).isActive = true
 		titleLabel.topAnchor.constraint(equalTo:				topAnchor, constant: paddingTop).isActive = true
 		titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: detailLabel.leadingAnchor, constant: -HWInsets.standard).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo:				bottomAnchor).isActive = true
+		titleLabel.bottomAnchor.constraint(equalTo:				bottomAnchor, constant: -HWInsets.decent).isActive = true
 		
         detailLabel.translatesAutoresizingMaskIntoConstraints	= false
 		detailLabel.font										= Font.shared.get(fontSize: .small, weight: .bold)

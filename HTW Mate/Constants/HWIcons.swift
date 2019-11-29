@@ -19,6 +19,7 @@ struct HWIcons {
 	static let download = UIImage(named: "download")
 	static let pdf = UIImage(named: "pdf")
 	static let handshake = UIImage(named: "handshake")
+	static let calendar = UIImage(named: "calendar")
 
     static let dashboard = UIImage(named: "dashboard")
     static let lecturers = UIImage(named: "lecturers")

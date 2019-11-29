@@ -23,7 +23,7 @@ class StaticTableSection {
     }
 
     @discardableResult public func addCell(ofType type: StaticTableSectionCell.CellStyle, title: String, present target: UIViewController) -> StaticTableSectionCell {
-        let sectionCell = StaticTableSectionCell(style: type) {
+        let sectionCell = StaticTableSectionCell(style: type) { cell in
             self.presentingViewController?.navigationController?.pushViewController(target, animated: true)
         }
         sectionCell.setTitle(title)
@@ -32,7 +32,7 @@ class StaticTableSection {
 		return sectionCell
     }
 
-	@discardableResult public func addCell(ofType type: StaticTableSectionCell.CellStyle, title: String, detail: String?, handler: (() -> Void)?) -> StaticTableSectionCell {
+	@discardableResult public func addCell(ofType type: StaticTableSectionCell.CellStyle, title: String, detail: String?, handler: ((StaticTableSectionCell) -> Void)?) -> StaticTableSectionCell {
         let sectionCell = StaticTableSectionCell(style: type, handler: handler)
         sectionCell.setTitle(title)
 		sectionCell.setDetailTitle(detail)
@@ -41,18 +41,18 @@ class StaticTableSection {
 		return sectionCell
     }
 
-	@discardableResult func addDefaultCell(ofType type: StaticTableSectionCell.CellStyle, title: String, handler: @escaping (() -> Void) = {}) -> StaticTableSection {
+	@discardableResult func addDefaultCell(ofType type: StaticTableSectionCell.CellStyle, title: String, handler: @escaping ((StaticTableSectionCell) -> Void) = {_ in }) -> StaticTableSection {
 		self.addCell(ofType: type, title: title, detail: nil, handler: handler)
 		return self
 	}
 	
-	@discardableResult func addDetailCell(ofType type: StaticTableSectionCell.CellStyle, title: String, detailTitle: String, handler: @escaping (() -> Void) = {}) -> StaticTableSection {
+	@discardableResult func addDetailCell(ofType type: StaticTableSectionCell.CellStyle, title: String, detailTitle: String, handler: @escaping ((StaticTableSectionCell) -> Void) = {_ in }) -> StaticTableSection {
 		self.addCell(ofType: type, title: title, detail: detailTitle, handler: handler)
 		return self
 	}
 	
 	@discardableResult public func addPushCell(withTitle title: String, present target: UIViewController, needsAuth: Bool = false) -> StaticTableSection {
-		let sectionCell = StaticTableSectionCell(style: .disclosure) {
+		let sectionCell = StaticTableSectionCell(style: .disclosure) { cell in
 			if needsAuth && !Application.hasAuthenticationInformation() {
 				let authController = AuthenticationController()
 				authController.presenter = self.presentingViewController
@@ -69,13 +69,13 @@ class StaticTableSection {
 		return self
 	}
 
-	@discardableResult public func addCustomCell(cell: UITableViewCell, handler: (() -> Void)?) -> StaticTableSection {
+	@discardableResult public func addCustomCell(cell: UITableViewCell, handler: ((StaticTableSectionCell) -> Void)?) -> StaticTableSection {
         self.cells.append(StaticTableSectionCell(cell: cell, handler: handler))
 		return self
     }
 
 	@discardableResult public func addLinkCell(withTitle title: String, opening url: URL?) -> StaticTableSection {
-		self.addCell(ofType: .link(icon: HWIcons.link), title: title, detail: nil) {
+		self.addCell(ofType: .link(icon: HWIcons.link), title: title, detail: nil) { cell in
 			guard let unwrappedUrl = url else { return }
 			UIApplication.shared.open(unwrappedUrl, options: [:], completionHandler: nil)
 		}
@@ -83,14 +83,14 @@ class StaticTableSection {
 		return self
 	}
 
-	@discardableResult public func addPDFCell(withTitle title: String, opening url: URL?, subtitle: String? = nil) -> StaticTableSection {
+	@discardableResult public func addPDFCell(withTitle title: String, opening url: URL?, subtitle: String? = nil, authorize: Bool = false) -> StaticTableSection {
 		let type: StaticTableSectionCell.CellStyle = subtitle == nil ? .link(icon: HWIcons.pdf) : .linkSubtitle(icon: HWIcons.pdf)
-		let cell = self.addCell(ofType: type, title: title, detail: nil) {
+		let cell = self.addCell(ofType: type, title: title, detail: nil) { cell in
 			guard let url = url else {
 				return
 			}
-
-			let pdfViewController = PDFViewController.make(from: url)
+			
+			let pdfViewController = PDFViewController.make(from: url, authorize: authorize)
 			pdfViewController.getRootView().setTitle(title)
 			pdfViewController.getRootView().setPreset(.a4)
 

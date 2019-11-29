@@ -51,6 +51,7 @@ class StaticTableViewController: UITableViewController {
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		sections[indexPath.section].cells[indexPath.row].handler?()
+		let cell = sections[indexPath.section].cells[indexPath.row]
+		cell.handler?(cell)
 	}
 }

@@ -154,9 +154,9 @@ class API {
 		sessionTask.resume()
 	}
 
-	func url(_ endpoint: String, queryItems: [URLQueryItem]? = nil) -> URL {
+	func url(_ endpoint: String, queryItems: [URLQueryItem]? = nil, scheme: String? = nil) -> URL {
 		var urlComponents = URLComponents()
-		urlComponents.scheme = self.scheme()
+		urlComponents.scheme = scheme == nil ? self.scheme() : scheme
 		urlComponents.host = self.host()
 		urlComponents.port = self.port()
 		urlComponents.path = "/\(endpoint)"

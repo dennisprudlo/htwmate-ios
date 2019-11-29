@@ -33,7 +33,9 @@ class SettingsController: StaticTableViewController {
 		
 		if Application.hasAuthenticationInformation() {
 			addSection(withHeader: nil, footer: HWStrings.Authentication.unlinkDescription)
-				.addDefaultCell(ofType: .destructive, title: HWStrings.Authentication.unlinkTitle) { AlertManager.init(in: self).unlinkAccount() }
+				.addDefaultCell(ofType: .destructive, title: HWStrings.Authentication.unlinkTitle) { cell in
+					AlertManager.init(in: self).unlinkAccount()
+				}
 		}
     }
 }

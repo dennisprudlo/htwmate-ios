@@ -42,9 +42,10 @@ class PDFViewController: HWNavigationController {
 		return pdfRoot
 	}
 
-	static func make(from url: URL?) -> PDFViewController {
+	static func make(from url: URL?, authorize: Bool = false) -> PDFViewController {
 		let rootViewController = PDFRootViewController()
 		rootViewController.pdfUrl = url
+		rootViewController.authorizedRequest = authorize
 
 		return PDFViewController(rootViewController: rootViewController)
 	}
