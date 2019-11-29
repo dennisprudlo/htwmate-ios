@@ -83,14 +83,14 @@ class StaticTableSection {
 		return self
 	}
 
-	@discardableResult public func addPDFCell(withTitle title: String, opening url: URL?, subtitle: String? = nil) -> StaticTableSection {
+	@discardableResult public func addPDFCell(withTitle title: String, opening url: URL?, subtitle: String? = nil, authorize: Bool = false) -> StaticTableSection {
 		let type: StaticTableSectionCell.CellStyle = subtitle == nil ? .link(icon: HWIcons.pdf) : .linkSubtitle(icon: HWIcons.pdf)
 		let cell = self.addCell(ofType: type, title: title, detail: nil) {
 			guard let url = url else {
 				return
 			}
-
-			let pdfViewController = PDFViewController.make(from: url)
+			
+			let pdfViewController = PDFViewController.make(from: url, authorize: authorize)
 			pdfViewController.getRootView().setTitle(title)
 			pdfViewController.getRootView().setPreset(.a4)
 

@@ -12,6 +12,7 @@ import PDFKit
 class PDFRootViewController: UIViewController {
 
 	var pdfUrl: URL?
+	var authorizedRequest: Bool = false
 	var pdfView = PDFView()
 	var pdfData: Data? = nil
 
@@ -57,23 +58,54 @@ class PDFRootViewController: UIViewController {
         loader.startAnimating()
 
 		DispatchQueue.global(qos: .background).async {
-			if let safeUrl = self.pdfUrl, let safeDocument = PDFDocument(url: safeUrl) {
-				self.pdfData = try? Data(contentsOf: safeUrl)
-				DispatchQueue.main.async {
-					self.pdfView.document		= safeDocument
-					self.pdfView.autoScales		= self.customAutoScale
-					self.pdfView.minScaleFactor	= self.customMinScaleFactor
-					self.pdfView.scaleFactor	= self.customScaleFactor
-					self.pdfView.maxScaleFactor	= self.customMaxScaleFactor
-					self.pdfView.sizeToFit()
-					self.pdfView.layoutDocumentView()
+			guard let safeUrl = self.pdfUrl else {
+				self.loader.stopAnimating()
+				return
+			}
+			
+			if self.authorizedRequest {
+				var request = URLRequest(url: safeUrl)
+				request.httpMethod = "GET"
+				request.setValue(API.shared.token(), forHTTPHeaderField: "HTW-Mate-Authorization")
 
-					self.navigationItem.rightBarButtonItem?.isEnabled = true
-                    self.loader.stopAnimating()
+				let sessionTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+					guard let data = data else {
+						if let error = error {
+							print(error.localizedDescription)
+						}
+						return
+					}
+
+					DispatchQueue.main.async {
+						self.initFromData(data)
+					}
+				}
+				sessionTask.resume()
+			} else {
+				guard let data = try? Data(contentsOf: safeUrl) else {
+					return
+				}
+				
+				self.pdfData = data
+				DispatchQueue.main.async {
+					self.initFromData(data)
 				}
 			}
 		}
     }
+	
+	private func initFromData(_ data: Data) {
+		self.pdfView.document		= PDFDocument(data: data)
+		self.pdfView.autoScales		= self.customAutoScale
+		self.pdfView.minScaleFactor	= self.customMinScaleFactor
+		self.pdfView.scaleFactor	= self.customScaleFactor
+		self.pdfView.maxScaleFactor	= self.customMaxScaleFactor
+		self.pdfView.sizeToFit()
+		self.pdfView.layoutDocumentView()
+		
+		self.navigationItem.rightBarButtonItem?.isEnabled = true
+		self.loader.stopAnimating()
+	}
 
 	func setTitle(_ title: String) {
 		customTitle = title

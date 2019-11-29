@@ -71,6 +71,8 @@
 		81C21EBA232CE44A0005E2B0 /* SettingsDiningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EB9232CE44A0005E2B0 /* SettingsDiningController.swift */; };
 		81C21EBC232CE4D00005E2B0 /* HWDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EBB232CE4D00005E2B0 /* HWDefault.swift */; };
 		81C21EBE232CF9580005E2B0 /* HWMetaContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C21EBD232CF9580005E2B0 /* HWMetaContainer.swift */; };
+		81C2CCA423916AE8008C977A /* StudiesCertificatesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C2CCA323916AE8008C977A /* StudiesCertificatesController.swift */; };
+		81C2CCA623916E52008C977A /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C2CCA523916E52008C977A /* Cache.swift */; };
 		81C7DAE522F8876D009E7D7F /* UIStackView+removeAllSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */; };
 		81D7A2D3230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A2D2230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift */; };
 		81D7A2D62300B7BB00E75AC2 /* HWNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */; };
@@ -181,6 +183,8 @@
 		81C21EB9232CE44A0005E2B0 /* SettingsDiningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDiningController.swift; sourceTree = "<group>"; };
 		81C21EBB232CE4D00005E2B0 /* HWDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWDefault.swift; sourceTree = "<group>"; };
 		81C21EBD232CF9580005E2B0 /* HWMetaContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWMetaContainer.swift; sourceTree = "<group>"; };
+		81C2CCA323916AE8008C977A /* StudiesCertificatesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesCertificatesController.swift; sourceTree = "<group>"; };
+		81C2CCA523916E52008C977A /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		81C7DAE422F8876D009E7D7F /* UIStackView+removeAllSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+removeAllSubviews.swift"; sourceTree = "<group>"; };
 		81D7A2D2230025E500E75AC2 /* LecturerInfoOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerInfoOfficeTableViewCell.swift; sourceTree = "<group>"; };
 		81D7A2D52300B7BB00E75AC2 /* HWNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWNavigationController.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 				81E9F5D1233EE8A400E21C6B /* StudiesController.swift */,
 				81A87D5C2364747B009F957C /* StudiesDownloadsController.swift */,
 				81915BF12340E99300F796F4 /* StudiesLecturesCancelledController.swift */,
+				81C2CCA323916AE8008C977A /* StudiesCertificatesController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				81647C20237B44DE00B79543 /* Keychain */,
 				81F9429B230716490042EC3C /* LecturerRenderer */,
 				81647C1F237B424500B79543 /* StaticTable */,
+				81C2CCA523916E52008C977A /* Cache.swift */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -753,8 +759,10 @@
 				81EB7DD222D2A0F000E00485 /* HTWMateNewsAPI.swift in Sources */,
 				8106FFE72359CCFF009AFEB1 /* PDFViewController.swift in Sources */,
 				81C21EB6232CDA1B0005E2B0 /* UIView+pin.swift in Sources */,
+				81C2CCA423916AE8008C977A /* StudiesCertificatesController.swift in Sources */,
 				81EB7DBC22D2066A00E00485 /* HWIcons.swift in Sources */,
 				81C21EAB232BE4150005E2B0 /* SettingsController.swift in Sources */,
+				81C2CCA623916E52008C977A /* Cache.swift in Sources */,
 				8129C4E02361C15A0034E0B4 /* NotificationManager.swift in Sources */,
 				81F942A32307575E0042EC3C /* LecturerInfoFieldOfWorkTableViewCell.swift in Sources */,
 				81EB7DCA22D2803300E00485 /* HWInsets.swift in Sources */,
@@ -925,7 +933,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.3;
+				MARKETING_VERSION = 0.4.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dennisprudlo.htwmate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -953,7 +961,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.3;
+				MARKETING_VERSION = 0.4.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dennisprudlo.htwmate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

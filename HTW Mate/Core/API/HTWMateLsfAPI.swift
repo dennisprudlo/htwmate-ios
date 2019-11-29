@@ -42,4 +42,26 @@ class HTWMateLsfAPI {
 		}
 		task.resume()
     }
+	
+	func certificates(completion: @escaping ([String], URLResponse) -> Void) {
+		guard let authInfo = Application.getAuthenticationInformation() else {
+			return
+		}
+		
+		let components = API.shared.route("certificates", queryItems: [
+			URLQueryItem(name: "username", value: authInfo.studentId),
+			URLQueryItem(name: "password", value: authInfo.password)
+		])
+		
+		API.shared.get(route: components) { (data, response) in
+			do {
+                if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [String] {
+					Cache.write(key: .certificates, jsonArray)
+					completion(jsonArray, response)
+                }
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+	}
 }
